@@ -684,6 +684,14 @@ a:hover { color: var(--accent-sage); }
         max-height: calc(100vh - var(--nav-height) - 80px);
         overflow-y: auto;
     }
+    /* Align hero, skew bar, verdict, and section nav with the grid main column */
+    .report-hero-inner,
+    .rsb-inner,
+    .verdict-inner,
+    .section-nav-inner {
+        max-width: 1340px;
+        padding-right: calc(var(--space-lg) + 220px + var(--space-xl));
+    }
 }
 @media (max-width: 1199px) {
     .hyp-sidebar { display: none; }
