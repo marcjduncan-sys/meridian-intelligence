@@ -650,6 +650,113 @@ a:hover { color: var(--accent-sage); }
     font-weight: 600;
     color: var(--accent-teal);
 }
+.key-stat.down {
+    color: var(--signal-red);
+}
+.key-stat.up {
+    color: var(--signal-green);
+}
+
+/* --- Sticky Hypothesis Sidebar (desktop) --- */
+@media (min-width: 1200px) {
+    .report-content {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: var(--space-xl);
+        max-width: 1340px;
+    }
+    .report-main {
+        min-width: 0;
+    }
+    .hyp-sidebar {
+        position: sticky;
+        top: calc(var(--nav-height) + 60px);
+        align-self: start;
+        height: fit-content;
+        max-height: calc(100vh - var(--nav-height) - 80px);
+        overflow-y: auto;
+    }
+}
+@media (max-width: 1199px) {
+    .hyp-sidebar { display: none; }
+    .report-main { min-width: 0; }
+}
+.hyp-sidebar {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-md);
+}
+.hs-title {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border);
+}
+.hs-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(30,48,80,0.4);
+}
+.hs-item:last-child { border-bottom: none; }
+.hs-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.hs-dot.t1 { background: var(--signal-green); }
+.hs-dot.t2 { background: var(--signal-amber); }
+.hs-dot.t3 { background: var(--signal-red); }
+.hs-dot.t4 { background: var(--text-muted); }
+.hs-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    flex: 1;
+    line-height: 1.3;
+}
+.hs-score {
+    font-family: var(--font-data);
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 32px;
+    text-align: right;
+}
+.hs-score.t1 { color: var(--signal-green); }
+.hs-score.t2 { color: var(--signal-amber); }
+.hs-score.t3 { color: var(--signal-red); }
+.hs-score.t4 { color: var(--text-muted); }
+.hs-bar {
+    width: 100%;
+    height: 3px;
+    background: var(--bg-elevated);
+    border-radius: 2px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+.hs-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+}
+.hs-skew {
+    margin-top: var(--space-md);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+.hs-skew-label {
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
 
 /* --- Evidence Domain Cards --- */
 .evidence-card {
@@ -1878,9 +1985,9 @@ a:hover { color: var(--accent-sage); }
     <div class="section-nav">
         <div class="section-nav-inner">
             <a href="#wow-identity" class="active">Identity</a>
+            <a href="#wow-hypotheses">Hypotheses</a>
             <a href="#wow-narrative">Narrative</a>
             <a href="#wow-evidence">Evidence</a>
-            <a href="#wow-hypotheses">Hypotheses</a>
             <a href="#wow-discriminates">Discriminates</a>
             <a href="#wow-tripwires">Tripwires</a>
             <a href="#wow-gaps">Gaps</a>
@@ -1889,6 +1996,7 @@ a:hover { color: var(--accent-sage); }
 
     <!-- WOW Report Content -->
     <div class="report-content">
+        <div class="report-main">
 
         <!-- Section 1: Identity -->
         <div class="report-section" id="wow-identity">
@@ -2006,7 +2114,7 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-title">Dominant Narrative</div>
 
             <div class="rs-subtitle">The Narrative</div>
-            <p class="rs-text">The market is pricing a <strong>managed turnaround under new CEO Amanda Bardwell</strong>. The embedded thesis is that FY25 was an aberration, impacted by $95M in industrial action costs, a CEO transition, and one-off supply chain disruption, and that FY26 marks the beginning of a recovery. The <span class="key-stat">$400M</span> above-store cost-out program, e-commerce scaling at <span class="key-stat">+17%</span> growth rates, and simplified operations will restore Australian Food to mid-to-high single-digit EBIT growth. The premium valuation (<span class="key-stat">23.5x</span> forward P/E) assumes this recovery is underway.</p>
+            <p class="rs-text">The market is pricing a <strong>managed turnaround under new CEO Amanda Bardwell</strong>. The embedded thesis is that FY25 was an aberration, impacted by $95M in industrial action costs, a CEO transition, and one-off supply chain disruption, and that FY26 marks the beginning of a recovery. The <span class="key-stat">$400M</span> above-store cost-out program, e-commerce scaling at <span class="key-stat up">+17%</span> growth rates, and simplified operations will restore Australian Food to mid-to-high single-digit EBIT growth. The premium valuation (<span class="key-stat">23.5x</span> forward P/E) assumes this recovery is underway.</p>
 
             <div class="rs-subtitle">The Price Implication</div>
             <div class="callout">
@@ -2401,6 +2509,8 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-subtitle">Analytical Limitations</div>
             <p class="rs-text">Hypothesis survival scores (T1: 50%, T2: 35%, T3: 30%, T4: 25%) reflect editorial assessment based on publicly available evidence. These are qualitative judgments, not algorithmic outputs. Scores sum to more than 100% because T3 (Regulatory) is partially independent of T1/T2.</p>
         </div>
+        </div>
+        <div class="hyp-sidebar" id="wow-sidebar"></div>
     </div>
 
     <!-- WOW Report Footer -->
@@ -2475,9 +2585,9 @@ a:hover { color: var(--accent-sage); }
     <div class="section-nav">
         <div class="section-nav-inner">
             <a href="#xro-identity" class="active">Identity</a>
+            <a href="#xro-hypotheses">Hypotheses</a>
             <a href="#xro-narrative">Narrative</a>
             <a href="#xro-evidence">Evidence</a>
-            <a href="#xro-hypotheses">Hypotheses</a>
             <a href="#xro-discriminates">Discriminates</a>
             <a href="#xro-tripwires">Tripwires</a>
             <a href="#xro-gaps">Gaps</a>
@@ -2486,6 +2596,7 @@ a:hover { color: var(--accent-sage); }
 
     <!-- XRO Report Content -->
     <div class="report-content">
+        <div class="report-main">
 
         <!-- Section 1: Identity -->
         <div class="report-section" id="xro-identity">
@@ -2602,7 +2713,7 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-title">Dominant Narrative</div>
 
             <div class="rs-subtitle">The Narrative</div>
-            <p class="rs-text">The market is pricing <strong>AI disruption risk and failed US expansion via the Melio acquisition</strong>. The embedded thesis is that AI will compress SaaS margins as automated bookkeeping reduces the value proposition of traditional cloud accounting platforms; that the US$2.5B Melio acquisition was overpriced and dilutive; and that subscriber growth is decelerating toward saturation. The stock is down <span class="key-stat">55%</span> from its 52-week high of A$196.52, and the current multiple, while optically high, reflects a market that has stopped paying for growth.</p>
+            <p class="rs-text">The market is pricing <strong>AI disruption risk and failed US expansion via the Melio acquisition</strong>. The embedded thesis is that AI will compress SaaS margins as automated bookkeeping reduces the value proposition of traditional cloud accounting platforms; that the US$2.5B Melio acquisition was overpriced and dilutive; and that subscriber growth is decelerating toward saturation. The stock is down <span class="key-stat down">55%</span> from its 52-week high of A$196.52, and the current multiple, while optically high, reflects a market that has stopped paying for growth.</p>
 
             <div class="rs-subtitle">The Price Implication</div>
             <div class="callout">
@@ -2976,6 +3087,8 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-subtitle">Analytical Limitations</div>
             <p class="rs-text">Hypothesis survival scores (T1: 55%, T2: 40%, T3: 25%, T4: 20%) reflect editorial assessment. The unusually wide gap between T1 and T3/T4 reflects the evidence asymmetry: the bullish thesis has strong empirical support across multiple independent domains, while the bearish theses rely primarily on sentiment and narrative rather than observable data. This does not mean the bear case is wrong; it means the bear case is currently unfalsifiable.</p>
         </div>
+        </div>
+        <div class="hyp-sidebar" id="xro-sidebar"></div>
     </div>
 
     <!-- XRO Report Footer -->
@@ -3050,9 +3163,9 @@ a:hover { color: var(--accent-sage); }
     <div class="section-nav">
         <div class="section-nav-inner">
             <a href="#wtc-identity" class="active">Identity</a>
+            <a href="#wtc-hypotheses">Hypotheses</a>
             <a href="#wtc-narrative">Narrative</a>
             <a href="#wtc-evidence">Evidence</a>
-            <a href="#wtc-hypotheses">Hypotheses</a>
             <a href="#wtc-discriminates">Discriminates</a>
             <a href="#wtc-tripwires">Tripwires</a>
             <a href="#wtc-gaps">Gaps</a>
@@ -3061,6 +3174,7 @@ a:hover { color: var(--accent-sage); }
 
     <!-- WTC Report Content -->
     <div class="report-content">
+        <div class="report-main">
 
         <!-- Section 1: Identity -->
         <div class="report-section" id="wtc-identity">
@@ -3497,6 +3611,8 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-subtitle">Analytical Limitations</div>
             <p class="rs-text">Hypothesis survival scores (T1: 30%, T2: 50%, T3: 35%, T4: 55%) reflect editorial assessment. T4 (Founder Entrenchment) scores highest because it is driven by observable structural facts: White's 36% shareholding, his return as Executive Chairman, and the mass board departure. T2 (Product Carries) scores second because the operational evidence genuinely is strong. These two hypotheses can coexist: a great product can persist inside a poorly governed company, but value accrual to minority shareholders may be impaired.</p>
         </div>
+        </div>
+        <div class="hyp-sidebar" id="wtc-sidebar"></div>
     </div>
 
     <!-- WTC Report Footer -->
@@ -3571,9 +3687,9 @@ a:hover { color: var(--accent-sage); }
     <div class="section-nav">
         <div class="section-nav-inner">
             <a href="#dro-identity" class="active">Identity</a>
+            <a href="#dro-hypotheses">Hypotheses</a>
             <a href="#dro-narrative">Narrative</a>
             <a href="#dro-evidence">Evidence</a>
-            <a href="#dro-hypotheses">Hypotheses</a>
             <a href="#dro-discriminates">Discriminates</a>
             <a href="#dro-tripwires">Tripwires</a>
             <a href="#dro-gaps">Gaps</a>
@@ -3582,6 +3698,7 @@ a:hover { color: var(--accent-sage); }
 
     <!-- DRO Report Content -->
     <div class="report-content">
+        <div class="report-main">
 
         <!-- Section 1: Identity -->
         <div class="report-section" id="dro-identity">
@@ -3711,7 +3828,7 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-title">Dominant Narrative</div>
 
             <div class="rs-subtitle">The Narrative</div>
-            <p class="rs-text">The market narrative is a <strong>tug-of-war between structural tailwinds and execution concerns</strong>. The bull case: every military on earth needs counter-drone capability, the addressable market is enormous, and DroneShield is one of the few companies with deployed, battle-tested solutions. Revenue growth of <span class="key-stat">210%</span> and a shift to EBITDA profitability validate the thesis.</p>
+            <p class="rs-text">The market narrative is a <strong>tug-of-war between structural tailwinds and execution concerns</strong>. The bull case: every military on earth needs counter-drone capability, the addressable market is enormous, and DroneShield is one of the few companies with deployed, battle-tested solutions. Revenue growth of <span class="key-stat up">210%</span> and a shift to EBITDA profitability validate the thesis.</p>
 
             <div class="rs-subtitle">The Price Implication</div>
             <div class="callout">
@@ -3999,6 +4116,8 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-subtitle">Analytical Limitations</div>
             <p class="rs-text">Hypothesis survival scores (T1: 45%, T2: 40%, T3: 30%, T4: 40%) reflect genuinely balanced evidence. The narrow range between T1 and T2 is intentional: the data supports both the thesis that DroneShield is scaling into a structural tailwind and the thesis that revenue remains lumpy and contract-dependent. With only 2 covering analysts and limited institutional coverage, the information environment is relatively opaque compared to large-cap coverage. This uncertainty itself is a finding.</p>
         </div>
+        </div>
+        <div class="hyp-sidebar" id="dro-sidebar"></div>
     </div>
 
     <!-- DRO Report Footer -->
@@ -4073,9 +4192,9 @@ a:hover { color: var(--accent-sage); }
     <div class="section-nav">
         <div class="section-nav-inner">
             <a href="#pme-identity" class="active">Identity</a>
+            <a href="#pme-hypotheses">Hypotheses</a>
             <a href="#pme-narrative">Narrative</a>
             <a href="#pme-evidence">Evidence</a>
-            <a href="#pme-hypotheses">Hypotheses</a>
             <a href="#pme-discriminates">Discriminates</a>
             <a href="#pme-tripwires">Tripwires</a>
             <a href="#pme-gaps">Gaps</a>
@@ -4084,6 +4203,7 @@ a:hover { color: var(--accent-sage); }
 
     <!-- PME Report Content -->
     <div class="report-content">
+        <div class="report-main">
 
         <!-- Section 1: Identity -->
         <div class="report-section" id="pme-identity">
@@ -4202,7 +4322,7 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-title">Dominant Narrative</div>
 
             <div class="rs-subtitle">The Narrative</div>
-            <p class="rs-text">The market narrative is dominated by a single tension: <strong>extraordinary business quality vs extreme valuation</strong>. At 163x trailing P/E, the stock prices in years of flawless execution. Morningstar's fair value estimate of A$36 (implying 78% downside) represents the "valuation sceptic" camp. The stock has already corrected <span class="key-stat">51%</span> from its A$336 peak.</p>
+            <p class="rs-text">The market narrative is dominated by a single tension: <strong>extraordinary business quality vs extreme valuation</strong>. At 163x trailing P/E, the stock prices in years of flawless execution. Morningstar's fair value estimate of A$36 (implying 78% downside) represents the "valuation sceptic" camp. The stock has already corrected <span class="key-stat down">51%</span> from its A$336 peak.</p>
 
             <div class="rs-subtitle">The Price Implication</div>
             <div class="callout">
@@ -4492,6 +4612,8 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-subtitle">Analytical Limitations</div>
             <p class="rs-text">Hypothesis survival scores (T1: 60%, T2: 35%, T3: 20%, T4: 50%) reflect the strong evidence asymmetry in this case. The high score for T1 (US Expansion) is driven by observable contract wins, market share data, and competitive positioning. The low score for T3 (Competitive Disruption) reflects the absence of any credible competitive threat in the near term. The Upside skew rating despite a 163x P/E is an editorial judgment: conventional valuation frameworks consistently undervalue platform businesses with this quality of economics. Whether the market agrees is a separate question from whether the evidence supports it.</p>
         </div>
+        </div>
+        <div class="hyp-sidebar" id="pme-sidebar"></div>
     </div>
 
     <!-- PME Report Footer -->
@@ -4566,9 +4688,9 @@ a:hover { color: var(--accent-sage); }
     <div class="section-nav">
         <div class="section-nav-inner">
             <a href="#gyg-identity" class="active">Identity</a>
+            <a href="#gyg-hypotheses">Hypotheses</a>
             <a href="#gyg-narrative">Narrative</a>
             <a href="#gyg-evidence">Evidence</a>
-            <a href="#gyg-hypotheses">Hypotheses</a>
             <a href="#gyg-discriminates">Discriminates</a>
             <a href="#gyg-tripwires">Tripwires</a>
             <a href="#gyg-gaps">Gaps</a>
@@ -4577,6 +4699,7 @@ a:hover { color: var(--accent-sage); }
 
     <!-- GYG Report Content -->
     <div class="report-content">
+        <div class="report-main">
 
         <!-- Section 1: Identity -->
         <div class="report-section" id="gyg-identity">
@@ -4711,7 +4834,7 @@ a:hover { color: var(--accent-sage); }
             </div>
 
             <div class="rs-subtitle">The Evidence Check</div>
-            <p class="rs-text">The corrective narrative is now dominant: domestic same-store sales growth has decelerated to <span class="key-stat">3.7%</span> (well below the 7.6% prospectus forecast), the US expansion is generating A$13.2M in operating losses from just 5 stores, the founder is stepping down, and the stock has round-tripped to below IPO price. The market is re-evaluating whether GYG is a scalable platform or simply a well-loved Australian restaurant brand that was overpriced at IPO.</p>
+            <p class="rs-text">The corrective narrative is now dominant: domestic same-store sales growth has decelerated to <span class="key-stat down">3.7%</span> (well below the 7.6% prospectus forecast), the US expansion is generating A$13.2M in operating losses from just 5 stores, the founder is stepping down, and the stock has round-tripped to below IPO price. The market is re-evaluating whether GYG is a scalable platform or simply a well-loved Australian restaurant brand that was overpriced at IPO.</p>
 
             <div class="rs-subtitle">Narrative Stability</div>
             <p class="rs-text"><strong>Unstable, trending bearish.</strong> The "next Chipotle" narrative has collapsed. The corrective narrative (maturation + US failure) is gaining strength. The next inflection will be driven by two signals: domestic same-store sales trajectory and US unit economics. A new CEO appointment will also shape the narrative direction.</p>
@@ -4992,6 +5115,8 @@ a:hover { color: var(--accent-sage); }
             <div class="rs-subtitle">Analytical Limitations</div>
             <p class="rs-text">Hypothesis survival scores (T1: 30%, T2: 25%, T3: 55%, T4: 40%) reflect the weight of evidence against the IPO growth narrative. The high score for T3 (Growth Maturation) is driven by observable data: same-store sales at 3.7% vs 7.6% forecast, stock below IPO price, P/E at 166x for a QSR business. The low score for T2 (US Expansion Succeeds) reflects both the unit economics (A$2.6M loss per store) and the academic evidence on international QSR expansion failure rates. We note that 5 stores is a very small sample; it is possible (though not supported by current evidence) that unit economics will improve with scale. The Downside skew rating reflects our assessment that the most probable outcome is valuation correction, not business failure.</p>
         </div>
+        </div>
+        <div class="hyp-sidebar" id="gyg-sidebar"></div>
     </div>
 
     <!-- GYG Report Footer -->
@@ -5042,6 +5167,12 @@ function route() {
             a.classList.add('active');
         }
     });
+
+    // Populate hypothesis sidebar for report pages
+    if (hash.startsWith('report-')) {
+        const ticker = hash.replace('report-', '');
+        populateSidebar(ticker);
+    }
 }
 
 window.addEventListener('hashchange', route);
@@ -5371,6 +5502,62 @@ function clearPortfolio() {
     document.getElementById('portfolioSummary').style.display = 'none';
     document.getElementById('portfolioActions').style.display = 'none';
     document.getElementById('portfolioBody').innerHTML = '';
+}
+
+/* --- Hypothesis Sidebar Population --- */
+function populateSidebar(ticker) {
+    const sidebarId = ticker.toLowerCase() + '-sidebar';
+    const sidebar = document.getElementById(sidebarId);
+    if (!sidebar) return;
+
+    // Don't re-populate if already filled
+    if (sidebar.children.length > 0) return;
+
+    const page = document.getElementById('page-report-' + ticker);
+    if (!page) return;
+
+    // Extract T1-T4 data from verdict-scores
+    const verdictScores = page.querySelector('.verdict-scores');
+    if (!verdictScores) return;
+
+    const vsItems = verdictScores.querySelectorAll('.vs-item');
+    const hypotheses = [];
+    vsItems.forEach((item, i) => {
+        const label = item.querySelector('.vs-label');
+        const score = item.querySelector('.vs-score');
+        hypotheses.push({
+            tier: 't' + (i + 1),
+            label: label ? label.textContent.trim() : '',
+            score: score ? score.textContent.trim() : ''
+        });
+    });
+
+    // Extract skew badge
+    const skewBar = page.querySelector('.risk-skew-bar .skew-badge');
+    let skewClass = '';
+    let skewHTML = '';
+    if (skewBar) {
+        if (skewBar.classList.contains('upside')) skewClass = 'upside';
+        else if (skewBar.classList.contains('downside')) skewClass = 'downside';
+        else if (skewBar.classList.contains('balanced')) skewClass = 'balanced';
+        skewHTML = skewBar.outerHTML;
+    }
+
+    // Build sidebar HTML
+    let html = '<div class="hs-title">Hypothesis Tracker</div>';
+    hypotheses.forEach(h => {
+        html += '<div class="hs-item">' +
+            '<div class="hs-dot ' + h.tier + '"></div>' +
+            '<div class="hs-label">' + h.label + '</div>' +
+            '<div class="hs-score ' + h.tier + '">' + h.score + '</div>' +
+        '</div>';
+    });
+    html += '<div class="hs-skew">' +
+        '<div class="hs-skew-label">Risk Skew</div>' +
+        skewHTML +
+    '</div>';
+
+    sidebar.innerHTML = html;
 }
 </script>
 
