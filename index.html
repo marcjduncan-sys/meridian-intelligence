@@ -1567,10 +1567,9 @@ a:hover { color: var(--accent-sage); }
 /* Hypothesis cards */
 .snap-hyp-stack { display: flex; flex-direction: column; gap: 4px; }
 .snap-hyp-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--border); border-radius: 4px; padding: 8px 10px; display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-.snap-hyp-card.h1 { border-left-color: var(--signal-amber); }
-.snap-hyp-card.h2 { border-left-color: var(--signal-green); }
-.snap-hyp-card.h3 { border-left-color: var(--signal-red); }
-.snap-hyp-card.h4 { border-left-color: var(--signal-amber); }
+.snap-hyp-card.snap-upside { border-left-color: var(--signal-green); }
+.snap-hyp-card.snap-downside { border-left-color: var(--signal-red); }
+.snap-hyp-card.snap-neutral { border-left-color: var(--signal-amber); }
 .snap-hyp-info { flex: 1; }
 .snap-hyp-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
 .snap-hyp-desc { font-size: 0.6rem; color: var(--text-muted); line-height: 1.35; }
@@ -1595,10 +1594,9 @@ a:hover { color: var(--accent-sage); }
 .snap-survival-bar-label { font-size: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
 .snap-survival-bar { display: flex; height: 20px; border-radius: 3px; overflow: hidden; gap: 2px; }
 .snap-sb-segment { display: flex; align-items: center; justify-content: center; font-family: var(--font-data); font-size: 0.55rem; font-weight: 700; color: rgba(255,255,255,0.9); }
-.snap-sb-h1 { background: var(--signal-green); }
-.snap-sb-h2 { background: var(--signal-amber); }
-.snap-sb-h3 { background: var(--signal-red); }
-.snap-sb-h4 { background: var(--signal-amber); }
+.snap-sb-upside { background: var(--signal-green); }
+.snap-sb-downside { background: var(--signal-red); }
+.snap-sb-neutral { background: var(--signal-amber); }
 .snap-survival-legend { display: flex; justify-content: space-between; margin-top: 4px; flex-wrap: wrap; gap: 2px; }
 .snap-sl-item { display: flex; align-items: center; gap: 4px; font-size: 0.48rem; color: var(--text-muted); }
 .snap-sl-dot { width: 6px; height: 6px; border-radius: 1px; }
@@ -1997,7 +1995,7 @@ STOCK_DATA.WOW = {
 
   // Verdict
   verdict: {
-    text: 'The market is pricing a Bardwell turnaround at a premium multiple, but FY25 delivered a 19% NPAT decline. FY26 is "transitional"; the H1 results on 25 February are the single most diagnostic event for whether this is a trough or a new normal.',
+    text: 'The market is pricing a Bardwell turnaround at a premium multiple, but FY25 delivered a 19% NPAT decline. FY26 is "transitional"; the 1H results on 25 February are the single most diagnostic event for whether this is a trough or a new normal.',
     borderColor: null,
     scores: [
       { label: 'T1 Turnaround', score: '50%', scoreColor: 'var(--signal-green)', dirArrow: '&rarr;', dirText: 'Awaiting', dirColor: null },
@@ -2015,7 +2013,7 @@ STOCK_DATA.WOW = {
     { label: 'Div Yield', value: '2.9%', color: '' }
   ],
   featuredPriceColor: 'var(--signal-red)',
-  featuredRationale: 'Premium multiple pricing turnaround, but FY25 delivered 19% NPAT decline. H1 FY26 is the test.',
+  featuredRationale: 'Premium multiple pricing turnaround, but FY25 delivered 19% NPAT decline. 1H FY26 is the test.',
 
   // Identity section
   identity: {
@@ -2030,7 +2028,7 @@ STOCK_DATA.WOW = {
       [['EBIT Margin', '4.0% (&darr;70bp)', 'td-mono td-red'], ['ROE', '18.1%', 'td-mono']],
       [['Net Debt/EBITDA', '2.8x', 'td-mono td-amber'], ['Free Cash Flow', 'A$2.02B', 'td-mono']],
       [['CEO', 'Amanda Bardwell (since 2024)', ''], ['Employees', '202,000', 'td-mono']],
-      [['Last Earnings', 'Aug 2025 (FY25)', 'td-mono'], ['Next Earnings', '25 Feb 2026 (H1 FY26)', 'td-mono']]
+      [['Last Earnings', 'Aug 2025 (FY25)', 'td-mono'], ['Next Earnings', '25 Feb 2026 (1H FY26)', 'td-mono']]
     ],
     overview: 'Australia\'s largest supermarket operator with 38% grocery market share. Core Australian Food division contributes A$51.4B revenue. Also operates New Zealand supermarkets, Big W discount department stores, Petstock (acquired FY25), and B2B food distribution (PFD). E-commerce penetration reached 16.2% in Q1 FY26 with On Demand fulfilment growing 39%.'
   },
@@ -2045,7 +2043,7 @@ STOCK_DATA.WOW = {
       statusText: 'Priced',
       score: '50%',
       scoreWidth: '50%',
-      scoreMeta: '&rarr; Awaiting T1 FY26',
+      scoreMeta: '&rarr; Awaiting 1H FY26',
       description: '$400M cost-out delivers margin recovery. E-commerce scales profitably. Australian Food EBIT growth returns to mid-high single digits. Big W returns to profit. Dividend recovers toward A$1.00+.',
       requires: [
         'Australian Food EBIT growth &ge;8% in FY26 (consensus ~11.8%)',
@@ -2150,7 +2148,7 @@ STOCK_DATA.WOW = {
       content: '<strong>Australian Food EBIT recovery:</strong> Mid-to-high single-digit growth in FY26, accelerating thereafter. <strong>Cost-out delivery:</strong> $400M savings realised by end CY25, not consumed by price investment. <strong>E-commerce scales profitably:</strong> 16%+ penetration without margin dilution. <strong>Regulatory manageable:</strong> Mandatory FGCC compliance costs absorbed; ACCC court outcome limited. <strong>Competitive position holds:</strong> Aldi stays offline; duopoly pricing power preserved. <strong>Big W returns to profit:</strong> Currently loss-making at -$63M EBIT.'
     },
     evidenceCheck: 'The turnaround narrative has supporting evidence (Q1 FY26 trading data, cost-out program on track, NPS improvement) but also faces material headwinds that are <strong>structural, not cyclical</strong>: mandatory regulatory code now in force, ACCC court proceedings pending, Aldi expanding, consumer price sensitivity elevated, and management itself has called FY26 "transitional" with recovery "below ambition." The evidence is genuinely contested.',
-    narrativeStability: '<strong>Fragile.</strong> The turnaround narrative is new. Bardwell has been CEO for approximately 18 months. FY25 was the first full year under her leadership, and it delivered a 19% NPAT decline. The narrative rests almost entirely on forward promises ($400M cost-out, FY26 as transitional) rather than demonstrated results. The H1 FY26 results on 25 February will be the first real test.'
+    narrativeStability: '<strong>Fragile.</strong> The turnaround narrative is new. Bardwell has been CEO for approximately 18 months. FY25 was the first full year under her leadership, and it delivered a 19% NPAT decline. The narrative rests almost entirely on forward promises ($400M cost-out, FY26 as transitional) rather than demonstrated results. The 1H FY26 results on 25 February will be the first real test.'
   },
 
   // Evidence
@@ -2192,7 +2190,7 @@ STOCK_DATA.WOW = {
         epistemicClass: 'ep-consensus',
         epistemicLabel: 'Consensus',
         finding: '<strong>Consensus: Hold/Moderate Buy.</strong> 3 Buy, 8 Hold, 0 Sell across 11-15 covering analysts. Average 12-month target: A$30.02-30.45 (range: A$28.25 - A$33.70). Current price A$31.41 is <strong>above consensus target</strong>, implying the market is already pricing more optimism than the sell-side supports. Consensus expects AU Food EBIT growth of ~11.8%, materially above management\'s "mid-to-high single digit" guidance.',
-        tension: 'Share price trading above consensus target is unusual and significant. The market has either front-run broker upgrades or is pricing a more bullish scenario than the sell-side supports. If H1 FY26 misses consensus, there is no cushion in broker targets.',
+        tension: 'Share price trading above consensus target is unusual and significant. The market has either front-run broker upgrades or is pricing a more bullish scenario than the sell-side supports. If 1H FY26 misses consensus, there is no cushion in broker targets.',
         table: null,
         tags: [
           { text: 'Supports T1 (rating)', class: 'supports' },
@@ -2234,7 +2232,7 @@ STOCK_DATA.WOW = {
         title: '6. Alternative Data',
         epistemicClass: 'ep-behavioural',
         epistemicLabel: 'Behavioural',
-        finding: '<strong>E-commerce metrics:</strong> On Demand orders +39%, 31% of orders fulfilled within 2 hours. Auburn e-commerce CFC opened May 2025, Moorebank RDC opening H1 FY26. <strong>Customer metrics:</strong> NPS +3 points, value perception +5 points YoY. <strong>Industrial relations:</strong> 17-day warehouse strike resolved with ~11% pay increase over 3 years. AI-driven performance monitoring was a key grievance.',
+        finding: '<strong>E-commerce metrics:</strong> On Demand orders +39%, 31% of orders fulfilled within 2 hours. Auburn e-commerce CFC opened May 2025, Moorebank RDC opening 1H FY26. <strong>Customer metrics:</strong> NPS +3 points, value perception +5 points YoY. <strong>Industrial relations:</strong> 17-day warehouse strike resolved with ~11% pay increase over 3 years. AI-driven performance monitoring was a key grievance.',
         tension: null,
         table: null,
         tags: [
@@ -2342,7 +2340,7 @@ STOCK_DATA.WOW = {
   discriminators: {
     intro: 'Four data points carry high diagnosticity. Everything else is either confirmatory or consistent with multiple hypotheses.',
     rows: [
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>H1 FY26 Australian Food EBIT growth (25 Feb 2026).</strong> Consensus expects ~11.8%. Management guided "mid-to-high single digits."', discriminatesBetween: 'T1 (turnaround on track) vs T2 (margin erosion structural)', currentReading: 'Awaiting &mdash; 15 days', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>1H FY26 Australian Food EBIT growth (25 Feb 2026).</strong> Consensus expects ~11.8%. Management guided "mid-to-high single digits."', discriminatesBetween: 'T1 (turnaround on track) vs T2 (margin erosion structural)', currentReading: 'Awaiting &mdash; 15 days', readingClass: 'td-amber' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>ACCC v Woolworths court outcome.</strong> Coles settled for $10.25M. Woolworths is fighting.', discriminatesBetween: 'T1 (manageable) vs T3 (punitive precedent)', currentReading: 'Pending &mdash; date TBC', readingClass: 'td-amber' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>$400M cost-out delivery vs price investment consumption.</strong> If savings fund price cuts, margins don\'t recover.', discriminatesBetween: 'T1 (margin recovery) vs T2 (savings consumed)', currentReading: 'On track per mgmt &mdash; unverified', readingClass: 'td-amber' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Aldi online grocery launch.</strong> Currently offline. Binary risk to Woolworths\' fastest-growing moat.', discriminatesBetween: 'T1 (moat holds) vs T4 (moat breaks)', currentReading: 'No announced plans', readingClass: 'td-green' }
@@ -2356,7 +2354,7 @@ STOCK_DATA.WOW = {
     cards: [
       {
         date: '25 FEBRUARY 2026',
-        name: 'H1 FY26 Results &mdash; The Definitive Test',
+        name: '1H FY26 Results &mdash; The Definitive Test',
         conditions: [
           { if: 'If AU Food EBIT growth &ge; 8%', valence: 'positive', then: 'T1 (Turnaround) strengthens materially. Cost-out delivering margin recovery. Dividend path confirmed.' },
           { if: 'If AU Food EBIT growth &lt; 5%', valence: 'negative', then: 'T2 (Structural Erosion) strengthens. "Transitional" becomes "structural." Share price vulnerable.' }
@@ -2364,7 +2362,7 @@ STOCK_DATA.WOW = {
         source: 'Source: ASX announcement, company earnings presentation'
       },
       {
-        date: 'H1 2026',
+        date: '1H 2026',
         name: 'ACCC v Woolworths &mdash; Court Outcome',
         conditions: [
           { if: 'If settlement &lt; $50M, no structural orders', valence: 'positive', then: 'T3 weakens. Manageable cost. FGCC enforcement proportionate.' },
@@ -2377,7 +2375,7 @@ STOCK_DATA.WOW = {
         name: 'Mandatory FGCC Fresh Produce Provisions',
         conditions: [
           { if: 'If compliance absorbed within existing cost base', valence: 'positive', then: 'UK GCA precedent holds: moderate, not transformative.' },
-          { if: 'If supplier renegotiation compresses gross margins', valence: 'negative', then: 'T3 strengthens. Gross margin impact visible in H2 FY26.' }
+          { if: 'If supplier renegotiation compresses gross margins', valence: 'negative', then: 'T3 strengthens. Gross margin impact visible in 2H FY26.' }
         ],
         source: 'Source: FGCC legislation; ACCC enforcement portal'
       },
@@ -3071,37 +3069,37 @@ SNAPSHOT_DATA.WOW = {
     { label: 'NPAT (FY25)', value: '&darr;19%', cls: 'negative' },
     { label: 'EBIT Margin', value: '4.0% (&darr;70bp)', cls: 'negative' },
     { label: 'Mkt Share', value: '38% (Duopoly 67%)', cls: '' },
-    { label: 'Next Event', value: 'H1 FY26 &mdash; 25 Feb', cls: '' }
+    { label: 'Next Event', value: '1H FY26 &mdash; 25 Feb', cls: '' }
   ],
   riskSkew: {
     direction: 'downside',
     badge: '&#9660; DOWNSIDE',
-    rationale: 'Evidence accumulating against the embedded narrative. 5 of 8 domains support erosion (H2); price above consensus target. No valuation cushion if H1 FY26 results disappoint on 25 Feb.'
+    rationale: 'Evidence accumulating against the embedded narrative. 5 of 8 domains support erosion (T2); price above consensus target. No valuation cushion if 1H FY26 results disappoint on 25 Feb.'
   },
   narrative: {
     text: 'The market is pricing a <strong>turnaround under new CEO Amanda Bardwell</strong>. 23.5x forward P/E assumes $400M cost-out program delivers, e-commerce scales (penetration now 16.2%), and Australian Food returns to <strong>mid-to-high single-digit EBIT growth</strong>. FY25 was "disappointing" &mdash; FY26 is framed as "transitional."',
     verdict: 'Turnaround narrative is plausible but unproven. $95M industrial action cost was one-off, but structural headwinds &mdash; mandatory FGCC, ACCC court proceedings, margin pressure from price investment, Aldi expansion &mdash; are not cyclical. Market pricing recovery that management itself calls uncertain.'
   },
   survivalBar: [
-    { cls: 'snap-sb-h1', width: '33%', label: 'H1: 50%' },
-    { cls: 'snap-sb-h2', width: '23%', label: 'H2: 35%' },
-    { cls: 'snap-sb-h3', width: '20%', label: 'H3: 30%' },
-    { cls: 'snap-sb-h4', width: '17%', label: 'H4: 25%' }
+    { cls: 'snap-sb-upside', width: '36%', label: 'T1: 36%' },
+    { cls: 'snap-sb-downside', width: '25%', label: 'T2: 25%' },
+    { cls: 'snap-sb-downside', width: '21%', label: 'T3: 21%' },
+    { cls: 'snap-sb-downside', width: '18%', label: 'T4: 18%' }
   ],
   survivalLegend: [
     { color: 'var(--signal-green)', label: 'Turnaround' },
-    { color: 'var(--signal-amber)', label: 'Structural Erosion' },
+    { color: 'var(--signal-red)', label: 'Structural Erosion' },
     { color: 'var(--signal-red)', label: 'Regulatory Squeeze' },
-    { color: 'var(--signal-amber)', label: 'Competitive Disruption' }
+    { color: 'var(--signal-red)', label: 'Competitive Disruption' }
   ],
   hypotheses: [
-    { cls: 'h1', label: 'H1: Managed Turnaround', statusTag: 'snap-tag-priced', statusText: 'Priced', desc: '$400M cost-out delivers. E-commerce scales. Australian Food EBIT grows mid-high single digits. Dividend recovers.', score: '50%', scoreCls: 'priced', direction: 'flat', dirLabel: '&rarr; Awaiting' },
-    { cls: 'h2', label: 'H2: Structural Margin Erosion', statusTag: 'snap-tag-accumulating', statusText: 'Evidence Building', desc: 'Price investment to defend share permanently compresses margins. Duopoly premium erodes. 4% EBIT margin becomes ceiling, not floor.', score: '35%', scoreCls: 'medium', direction: 'up', dirLabel: '&uarr; Rising' },
-    { cls: 'h3', label: 'H3: Regulatory Squeeze', statusTag: 'snap-tag-tail', statusText: 'Active', desc: 'Mandatory FGCC + ACCC court action + 20 inquiry recommendations compress supplier margins and impose compliance costs.', score: '30%', scoreCls: 'medium', direction: 'up', dirLabel: '&uarr; Rising' },
-    { cls: 'h4', label: 'H4: Competitive Disruption', statusTag: 'snap-tag-minimal', statusText: 'Slow Burn', desc: 'Aldi 10%+ share &amp; expanding. Amazon enters grocery. Online-only disruptors. Duopoly premium structurally threatened.', score: '25%', scoreCls: 'low', direction: 'flat', dirLabel: '&rarr; Steady' }
+    { cls: 'snap-upside', label: 'T1: Managed Turnaround', statusTag: 'snap-tag-priced', statusText: 'Priced', desc: '$400M cost-out delivers. E-commerce scales. Australian Food EBIT grows mid-high single digits. Dividend recovers.', score: '36%', scoreCls: 'priced', direction: 'flat', dirLabel: '&rarr; Awaiting' },
+    { cls: 'snap-downside', label: 'T2: Structural Margin Erosion', statusTag: 'snap-tag-accumulating', statusText: 'Evidence Building', desc: 'Price investment to defend share permanently compresses margins. Duopoly premium erodes. 4% EBIT margin becomes ceiling, not floor.', score: '25%', scoreCls: 'high', direction: 'up', dirLabel: '&uarr; Rising' },
+    { cls: 'snap-downside', label: 'T3: Regulatory Squeeze', statusTag: 'snap-tag-tail', statusText: 'Active', desc: 'Mandatory FGCC + ACCC court action + 20 inquiry recommendations compress supplier margins and impose compliance costs.', score: '21%', scoreCls: 'high', direction: 'up', dirLabel: '&uarr; Rising' },
+    { cls: 'snap-downside', label: 'T4: Competitive Disruption', statusTag: 'snap-tag-minimal', statusText: 'Slow Burn', desc: 'Aldi 10%+ share &amp; expanding. Amazon enters grocery. Online-only disruptors. Duopoly premium structurally threatened.', score: '18%', scoreCls: 'high', direction: 'flat', dirLabel: '&rarr; Steady' }
   ],
   evidenceMatrix: {
-    headers: ['Domain', 'H1 Turnaround', 'H2 Erosion', 'H3 Regulatory', 'H4 Disruption'],
+    headers: ['Domain', 'T1 Turnaround', 'T2 Erosion', 'T3 Regulatory', 'T4 Disruption'],
     rows: [
       { domain: 'Corporate Comms', epistemic: 'Motivated', cells: [
         { cls: 'snap-signal-support', text: '&#9650;' }, { cls: 'snap-signal-neutral', text: '&mdash;' }, { cls: 'snap-signal-neutral', text: '&mdash;' }, { cls: 'snap-signal-neutral', text: '&mdash;' }
@@ -3130,29 +3128,29 @@ SNAPSHOT_DATA.WOW = {
     ]
   },
   discriminators: [
-    { level: 'HIGH', cls: 'high', text: '<strong>H1 FY26 results (25 Feb):</strong> Australian Food EBIT growth rate is the single test. Consensus ~11.8% vs mgmt "mid-to-high single digits." A miss confirms H2 structural erosion thesis.' },
+    { level: 'HIGH', cls: 'high', text: '<strong>1H FY26 results (25 Feb):</strong> Australian Food EBIT growth rate is the single test. Consensus ~11.8% vs mgmt "mid-to-high single digits." A miss confirms T2 structural erosion thesis.' },
     { level: 'HIGH', cls: 'high', text: '<strong>ACCC court proceedings outcome.</strong> Coles settled for $10.25M for similar conduct. Woolworths is fighting the case. Verdict sets precedent for penalties and remedies under mandatory FGCC.' },
-    { level: 'HIGH', cls: 'high', text: '<strong>$400M cost-out delivery rate.</strong> "On track" per management but unverified. H1 results will show first real evidence. If cost savings are consumed by price investment, H2 strengthens.' },
-    { level: 'MED', cls: 'medium', text: '<strong>Aldi store expansion cadence.</strong> 602 stores. No online. Targeting premium segments. If Aldi launches online grocery, H4 accelerates materially.' }
+    { level: 'HIGH', cls: 'high', text: '<strong>$400M cost-out delivery rate.</strong> "On track" per management but unverified. 1H results will show first real evidence. If cost savings are consumed by price investment, T2 strengthens.' },
+    { level: 'MED', cls: 'medium', text: '<strong>Aldi store expansion cadence.</strong> 602 stores. No online. Targeting premium segments. If Aldi launches online grocery, T4 accelerates materially.' }
   ],
   nonDiscriminating: [
     'Revenue +1.7% FY25', 'E-com +17% growth', 'NZ recovery +38%', 'Consensus Hold/Buy', 'Target A$30.45'
   ],
   tripwires: [
-    { date: '25 FEB 2026', name: 'H1 FY26 Results', conditions: [
-      { icon: '&#9650;', iconCls: 'up', text: 'AU Food EBIT growth &ge;8% &rarr; H1 strengthens' },
-      { icon: '&#9660;', iconCls: 'down', text: 'AU Food EBIT growth &lt;5% &rarr; H2 strengthens' }
+    { date: '25 FEB 2026', name: '1H FY26 Results', conditions: [
+      { icon: '&#9650;', iconCls: 'up', text: 'AU Food EBIT growth &ge;8% &rarr; T1 strengthens' },
+      { icon: '&#9660;', iconCls: 'down', text: 'AU Food EBIT growth &lt;5% &rarr; T2 strengthens' }
     ]},
-    { date: 'H1 2026', name: 'ACCC v Woolworths', conditions: [
-      { icon: '&#9650;', iconCls: 'up', text: 'Settlement &lt;$50M, no precedent &rarr; H3 weakens' },
-      { icon: '&#9660;', iconCls: 'down', text: 'Penalties + structural orders &rarr; H3 crystallises' }
+    { date: '1H 2026', name: 'ACCC v Woolworths', conditions: [
+      { icon: '&#9650;', iconCls: 'up', text: 'Settlement &lt;$50M, no precedent &rarr; T3 weakens' },
+      { icon: '&#9660;', iconCls: 'down', text: 'Penalties + structural orders &rarr; T3 crystallises' }
     ]},
     { date: 'APR 2026', name: 'Mandatory FGCC Impact', conditions: [
       { icon: '&#9650;', iconCls: 'up', text: 'Compliance cost &lt;$30M pa &rarr; manageable' },
       { icon: '&#9660;', iconCls: 'down', text: 'Supplier renegotiation wave &rarr; margin headwind' }
     ]},
     { date: 'ONGOING', name: 'Aldi Online Launch', conditions: [
-      { icon: '&#9660;', iconCls: 'down', text: 'Aldi launches e-grocery &rarr; H4 accelerates' },
+      { icon: '&#9660;', iconCls: 'down', text: 'Aldi launches e-grocery &rarr; T4 accelerates' },
       { icon: '&#9650;', iconCls: 'up', text: 'Aldi stays offline &rarr; WOW e-com moat holds' }
     ]}
   ],
@@ -3527,9 +3525,9 @@ STOCK_DATA.XRO = {
       [['Market Cap', 'A$14.1B', 'td-mono'], ['Sector', 'Information Technology', 'td-mono']],
       [['Share Price', 'A$84.28', 'td-mono'], ['52-Week Range', 'A$79.25 &ndash; A$196.52', 'td-mono']],
       [['Trailing P/E', '56.4x', 'td-mono td-amber'], ['Forward P/E', '65.3x', 'td-mono td-amber']],
-      [['Revenue (FY25)', 'NZ$2.10B (+22.7%)', 'td-mono td-green'], ['H1 FY26 Revenue', 'NZ$1.19B (+20%)', 'td-mono td-green']],
+      [['Revenue (FY25)', 'NZ$2.10B (+22.7%)', 'td-mono td-green'], ['1H FY26 Revenue', 'NZ$1.19B (+20%)', 'td-mono td-green']],
       [['Subscribers', '4.6M', 'td-mono'], ['ARPU', 'NZ$49.63 (+15%)', 'td-mono td-green']],
-      [['EBITDA (H1 FY26)', 'NZ$377.9M', 'td-mono'], ['FCF Margin', '26.9%', 'td-mono td-green']],
+      [['EBITDA (1H FY26)', 'NZ$377.9M', 'td-mono'], ['FCF Margin', '26.9%', 'td-mono td-green']],
       [['Rule of 40', '44.5%', 'td-mono td-green'], ['Churn Rate', 'Below pre-pandemic', 'td-mono td-green']],
       [['CEO', 'Sukhinder Singh Cassidy', ''], ['Employees', '~4,600', 'td-mono']],
       [['Key Acquisition', 'Melio (US$2.5B, closed 2025)', ''], ['Next Earnings', '14 May 2026 (FY26)', 'td-mono']]
@@ -3557,7 +3555,7 @@ STOCK_DATA.XRO = {
       ],
       supportingLabel: 'Supporting Evidence (7 Domains)',
       supporting: [
-        '<strong>Financial Statements:</strong> H1 FY26 beat on all key metrics; Rule of 40 at 44.5%',
+        '<strong>Financial Statements:</strong> 1H FY26 beat on all key metrics; Rule of 40 at 44.5%',
         '<strong>Broker Research:</strong> All 15 analysts Buy/Outperform; consensus target 120%+ above price',
         '<strong>Academic:</strong> SaaS switching costs research confirms high lock-in; AI augments, not replaces',
         '<strong>Corporate Comms:</strong> Management guiding for continued growth; cost discipline demonstrated',
@@ -3651,7 +3649,7 @@ STOCK_DATA.XRO = {
       label: 'Embedded Assumptions at A$84.28',
       content: '<strong>Revenue growth decelerating:</strong> Market expects growth to slow from 20% toward low-teens within 2 years. <strong>Melio dilutive:</strong> US$2.5B acquisition does not generate meaningful revenue contribution in FY26-27. <strong>AI threatens core product:</strong> Automated bookkeeping erodes Xero\'s value proposition for SMBs. <strong>Multiple compression continues:</strong> Tech sector de-rating persists; premium SaaS valuations do not recover. <strong>Competitive displacement:</strong> QuickBooks and MYOB gain share in key markets.'
     },
-    evidenceCheck: 'The bearish narrative is sentiment-driven rather than evidence-driven. Xero <strong>beat estimates across the board</strong> in H1 FY26: revenue up 20%, ARPU up 15%, EBITDA margins expanding, Rule of 40 at 44.5%, and churn rates below pre-pandemic levels. Every analyst covering the stock has a Buy rating, with consensus targets between A$183-191 (over 120% above current). The gap between market price and fundamental delivery is the widest it has been in Xero\'s listed history.',
+    evidenceCheck: 'The bearish narrative is sentiment-driven rather than evidence-driven. Xero <strong>beat estimates across the board</strong> in 1H FY26: revenue up 20%, ARPU up 15%, EBITDA margins expanding, Rule of 40 at 44.5%, and churn rates below pre-pandemic levels. Every analyst covering the stock has a Buy rating, with consensus targets between A$183-191 (over 120% above current). The gap between market price and fundamental delivery is the widest it has been in Xero\'s listed history.',
     narrativeStability: '<strong>Unstable, but favourable.</strong> The bearish narrative is driven by macro sentiment (tech rotation, AI fear), not company-specific deterioration. Each subsequent earnings result that beats expectations weakens the bear case. The narrative is most vulnerable to the FY26 full-year results in May 2026. If Xero delivers another beat, the sentiment overhang becomes increasingly difficult to sustain.'
   },
 
@@ -3664,21 +3662,21 @@ STOCK_DATA.XRO = {
         title: '1. Corporate Communications',
         epistemicClass: 'ep-motivated',
         epistemicLabel: 'Motivated',
-        finding: 'CEO Sukhinder Singh Cassidy framing FY26 as "execution year" following Melio integration. H1 FY26 results: <strong>revenue NZ$1.19B (+20%), ARPU NZ$49.63 (+15%)</strong>, subscriber additions on track. Management highlighted "strong unit economics" and "improving operating leverage." Melio positioned as the US go-to-market engine; early integration described as "on track." FCF margin guidance maintained. <strong>Rule of 40 at 44.5%</strong>, up from 40.1% prior year.',
-        tension: 'Management messaging is uniformly positive, but this is a company that paid US$2.5B for a US payments business while its own stock was falling. The tension is between genuinely strong operational metrics (which are independently verifiable in filings) and the strategic question of whether Melio was the right acquisition at the right price. The H1 numbers are strong; the Melio thesis is unproven.',
+        finding: 'CEO Sukhinder Singh Cassidy framing FY26 as "execution year" following Melio integration. 1H FY26 results: <strong>revenue NZ$1.19B (+20%), ARPU NZ$49.63 (+15%)</strong>, subscriber additions on track. Management highlighted "strong unit economics" and "improving operating leverage." Melio positioned as the US go-to-market engine; early integration described as "on track." FCF margin guidance maintained. <strong>Rule of 40 at 44.5%</strong>, up from 40.1% prior year.',
+        tension: 'Management messaging is uniformly positive, but this is a company that paid US$2.5B for a US payments business while its own stock was falling. The tension is between genuinely strong operational metrics (which are independently verifiable in filings) and the strategic question of whether Melio was the right acquisition at the right price. The 1H numbers are strong; the Melio thesis is unproven.',
         table: null,
         tags: [
           { text: 'Strongly Supports T1', class: 'strong' },
           { text: 'Supports T2 (early signals)', class: 'supports' }
         ],
-        source: 'H1 FY26 Results, Nov 2025; Investor Day presentations; ASX announcements'
+        source: '1H FY26 Results, Nov 2025; Investor Day presentations; ASX announcements'
       },
       {
         number: 2,
         title: '2. Regulatory Filings &amp; Financial Statements',
         epistemicClass: 'ep-statutory',
         epistemicLabel: 'Audited / Statutory',
-        finding: '<strong>FY25 full year (audited):</strong> Revenue NZ$2.10B (+22.7%). Operating expenses growing slower than revenue, demonstrating genuine operating leverage. <strong>H1 FY26:</strong> EBITDA NZ$377.9M; FCF margin 26.9%; net subscriber additions positive across all geographies. Melio acquisition funded from a mix of debt and equity; balance sheet remains manageable. No material audit qualifications. Deferred revenue growing, indicating forward visibility. <strong>Churn rate at historic lows</strong>, below pre-pandemic levels.',
+        finding: '<strong>FY25 full year (audited):</strong> Revenue NZ$2.10B (+22.7%). Operating expenses growing slower than revenue, demonstrating genuine operating leverage. <strong>1H FY26:</strong> EBITDA NZ$377.9M; FCF margin 26.9%; net subscriber additions positive across all geographies. Melio acquisition funded from a mix of debt and equity; balance sheet remains manageable. No material audit qualifications. Deferred revenue growing, indicating forward visibility. <strong>Churn rate at historic lows</strong>, below pre-pandemic levels.',
         tension: null,
         table: null,
         tags: [
@@ -3686,7 +3684,7 @@ STOCK_DATA.XRO = {
           { text: 'Contradicts T3', class: 'contradicts' },
           { text: 'Contradicts T4', class: 'contradicts' }
         ],
-        source: 'XRO FY25 Annual Report; H1 FY26 statutory accounts; ASX filings'
+        source: 'XRO FY25 Annual Report; 1H FY26 statutory accounts; ASX filings'
       },
       {
         number: 3,
@@ -3880,7 +3878,7 @@ STOCK_DATA.XRO = {
           { if: 'If churn remains at or below pre-pandemic levels', valence: 'positive', then: 'T3 (AI disruption) remains theoretical. No empirical support for displacement thesis.' },
           { if: 'If churn increases by &gt;50bp in any reporting period', valence: 'negative', then: 'T3 gains first empirical evidence. Would need to distinguish between AI-driven churn and macro-driven churn.' }
         ],
-        source: 'Source: Xero H1/FY results; third-party app download data; customer surveys'
+        source: 'Source: Xero 1H/FY results; third-party app download data; customer surveys'
       }
     ]
   },
@@ -3888,8 +3886,8 @@ STOCK_DATA.XRO = {
   // Gaps
   gaps: {
     coverageRows: [
-      { domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'H1 FY26', confidence: 'High (but motivated)', confidenceClass: '' },
-      { domain: 'Financial Statements', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'H1 FY26', confidence: 'High (audited)', confidenceClass: 'td-green' },
+      { domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: '1H FY26', confidence: 'High (but motivated)', confidenceClass: '' },
+      { domain: 'Financial Statements', coverageLevel: 'full', coverageLabel: 'Full', freshness: '1H FY26', confidence: 'High (audited)', confidenceClass: 'td-green' },
       { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (uniform consensus)', confidenceClass: 'td-green' },
       { domain: 'Competitor Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'High (independent)', confidenceClass: 'td-green' },
       { domain: 'Economic Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Jan 2026', confidence: 'High (ABS, ONS)', confidenceClass: 'td-green' },
@@ -3973,8 +3971,8 @@ STOCK_DATA.WTC = {
       [['Market Cap', 'A$18.81B', 'td-mono'], ['Sector', 'Information Technology', 'td-mono']],
       [['Share Price', 'A$49.30', 'td-mono'], ['52-Week Range', 'A$46.60 &ndash; A$127.39', 'td-mono']],
       [['P/E Ratio', '55.5x', 'td-mono td-amber'], ['P/S Ratio', '14.3x', 'td-mono td-amber']],
-      [['Revenue (H1 FY25)', 'A$604.79M (+26%)', 'td-mono td-green'], ['EBITDA Margin', '53.5%', 'td-mono td-green']],
-      [['Net Income (H1)', 'A$148.65M', 'td-mono'], ['Customers', '~17,000 (174 countries)', 'td-mono']],
+      [['Revenue (1H FY25)', 'A$604.79M (+26%)', 'td-mono td-green'], ['EBITDA Margin', '53.5%', 'td-mono td-green']],
+      [['Net Income (1H)', 'A$148.65M', 'td-mono'], ['Customers', '~17,000 (174 countries)', 'td-mono']],
       [['Core Product', 'CargoWise (Global Logistics OS)', ''], ['Employees', '~3,600', 'td-mono']],
       [['Exec Chairman', 'Richard White (Founder, 36% holder)', ''], ['Next Earnings', '25 Feb 2026', 'td-mono']],
       [['Analyst Consensus', '13 Buy (avg A$101.21)', 'td-mono td-green'], ['Implied Upside', '+105%', 'td-mono td-green']]
@@ -4002,7 +4000,7 @@ STOCK_DATA.WTC = {
       supportingLabel: 'Supporting Evidence',
       supporting: [
         '<strong>Broker:</strong> 13 unanimous Buy ratings; consensus target A$101.21 (105% upside)',
-        '<strong>Product:</strong> H1 FY25 showed no operational degradation',
+        '<strong>Product:</strong> 1H FY25 showed no operational degradation',
         '<strong>Precedent:</strong> CBA post-AUSTRAC recovered; governance crises can resolve'
       ],
       contradictingLabel: 'Contradicting Evidence',
@@ -4055,7 +4053,7 @@ STOCK_DATA.WTC = {
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Financial:</strong> H1 results showed accelerating growth, no churn',
+        '<strong>Financial:</strong> 1H results showed accelerating growth, no churn',
         '<strong>Competitor:</strong> Logistics companies choose on capability, not CEO headlines',
         '<strong>Product:</strong> Switching costs make departure costly and slow'
       ]
@@ -4094,7 +4092,7 @@ STOCK_DATA.WTC = {
       label: 'Embedded Assumptions at A$49.30',
       content: '<strong>Permanent governance discount:</strong> Market assumes board dysfunction will eventually impair operations or capital allocation. <strong>Institutional exit:</strong> ESG-screened funds and governance-sensitive institutions are leaving the register. <strong>Product not enough:</strong> Even 53.5% EBITDA margins and 26% growth cannot overcome governance risk. <strong>No resolution path:</strong> White\'s 36% stake makes external intervention (activist, bid) nearly impossible.'
     },
-    evidenceCheck: 'The evidence is sharply bifurcated. Product and financial metrics are uniformly strong: H1 FY25 delivered 26% revenue growth, 53.5% EBITDA margins, and no evidence of customer churn. Governance indicators are uniformly negative: mass board departure, founder entrenchment, institutional selling. The question is whether the product economics can indefinitely overcome governance dysfunction, or whether the two eventually converge.',
+    evidenceCheck: 'The evidence is sharply bifurcated. Product and financial metrics are uniformly strong: 1H FY25 delivered 26% revenue growth, 53.5% EBITDA margins, and no evidence of customer churn. Governance indicators are uniformly negative: mass board departure, founder entrenchment, institutional selling. The question is whether the product economics can indefinitely overcome governance dysfunction, or whether the two eventually converge.',
     narrativeStability: '<strong>Unstable.</strong> The governance narrative will either resolve (credible board appointments) or worsen (further entrenchment, related party transactions). The 25 February results are the first operational test since the board mass departure. Board composition changes are the single most diagnostic event.'
   },
 
@@ -4107,14 +4105,14 @@ STOCK_DATA.WTC = {
         title: '1. Corporate Communications',
         epistemicClass: 'ep-motivated',
         epistemicLabel: 'Motivated',
-        finding: 'H1 FY25 results: <strong>revenue A$604.79M (+26%), EBITDA margin 53.5%</strong>. Management framing: "business as usual" despite leadership changes. CargoWise platform expansion emphasised. No material commentary on board departures in corporate materials.',
+        finding: '1H FY25 results: <strong>revenue A$604.79M (+26%), EBITDA margin 53.5%</strong>. Management framing: "business as usual" despite leadership changes. CargoWise platform expansion emphasised. No material commentary on board departures in corporate materials.',
         tension: 'The absence of governance commentary in corporate communications is itself a signal. Either management believes the operational metrics speak for themselves, or they are avoiding a topic that has no good answer. The operational numbers are independently verifiable and genuinely strong.',
         table: null,
         tags: [
           { text: 'Supports T1, T2', class: 'supports' },
           { text: 'Neutral T4', class: 'neutral' }
         ],
-        source: 'H1 FY25 Results, ASX announcements, Investor presentations'
+        source: '1H FY25 Results, ASX announcements, Investor presentations'
       },
       {
         number: 2,
@@ -4372,7 +4370,7 @@ STOCK_DATA.DRO = {
 
   // Verdict
   verdict: {
-    text: 'Counter-drone pure play riding the most significant shift in military doctrine since precision-guided munitions. Revenue surged 210% in H1 2025, Q3 hit a record A$92.9M, and the company swung to EBITDA profit. Yet the stock has fallen 57% from peak: pipeline contracted A$2.55B to A$2.09B, US head resigned, directors selling shares, and the LAND156 ADF contract was not won.',
+    text: 'Counter-drone pure play riding the most significant shift in military doctrine since precision-guided munitions. Revenue surged 210% in 1H 2025, Q3 hit a record A$92.9M, and the company swung to EBITDA profit. Yet the stock has fallen 57% from peak: pipeline contracted A$2.55B to A$2.09B, US head resigned, directors selling shares, and the LAND156 ADF contract was not won.',
     borderColor: 'var(--signal-amber)',
     scores: [
       { label: 'T1 Supercycle', score: '45%', scoreColor: 'var(--signal-green)', dirArrow: '&uarr;', dirText: 'Strong', dirColor: 'var(--signal-green)' },
@@ -4398,8 +4396,8 @@ STOCK_DATA.DRO = {
       [['Ticker', 'DRO.AX', 'td-mono'], ['Exchange', 'ASX', 'td-mono']],
       [['Market Cap', 'A$2.66B', 'td-mono'], ['Sector', 'Defence Technology', 'td-mono']],
       [['Share Price', 'A$2.90', 'td-mono'], ['52-Week Range', 'A$0.585 &ndash; A$6.705', 'td-mono']],
-      [['Revenue (H1 2025)', 'A$72.3M (+210%)', 'td-mono td-green'], ['Q3 2025 Revenue', 'A$92.9M (+1,091%)', 'td-mono td-green']],
-      [['EBITDA (H1)', 'A$5.2M (profit)', 'td-mono td-green'], ['Gross Margin', '65%', 'td-mono']],
+      [['Revenue (1H 2025)', 'A$72.3M (+210%)', 'td-mono td-green'], ['Q3 2025 Revenue', 'A$92.9M (+1,091%)', 'td-mono td-green']],
+      [['EBITDA (1H)', 'A$5.2M (profit)', 'td-mono td-green'], ['Gross Margin', '65%', 'td-mono']],
       [['Cash', 'A$203.8M', 'td-mono td-green'], ['Pipeline', 'A$2.09B (&darr; from A$2.55B)', 'td-mono td-amber']],
       [['Products', 'DroneGun, DroneSentry, AI Engine', ''], ['Headquarters', 'Sydney &amp; Virginia (US)', '']],
       [['CEO', 'Oleg Vornik', ''], ['Next Earnings', '4 Mar 2026', 'td-mono']],
@@ -4429,7 +4427,7 @@ STOCK_DATA.DRO = {
       ],
       supportingLabel: 'Supporting Evidence',
       supporting: [
-        '<strong>Filings:</strong> Record revenue growth (210% H1, 1,091% Q3 YoY). EBITDA profit of A$5.2M',
+        '<strong>Filings:</strong> Record revenue growth (210% 1H, 1,091% Q3 YoY). EBITDA profit of A$5.2M',
         '<strong>Geopolitical:</strong> NATO spending acceleration; Ukraine lessons creating urgent capability gaps',
         '<strong>Corporate:</strong> Battle-tested product deployed in Ukraine. A$2.09B pipeline',
         '<strong>Competitor:</strong> First-mover advantage in deployed counter-UAS systems'
@@ -4465,7 +4463,7 @@ STOCK_DATA.DRO = {
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Filings:</strong> H1 2025 and Q3 2025 represent a step-change in revenue scale',
+        '<strong>Filings:</strong> 1H 2025 and Q3 2025 represent a step-change in revenue scale',
         '<strong>Corporate:</strong> Company investing in recurring revenue models (SaaS monitoring)',
         '<strong>Filings:</strong> Customer diversification improving (no single customer &gt;15%)'
       ]
@@ -4559,7 +4557,7 @@ STOCK_DATA.DRO = {
         title: '2. Regulatory Filings',
         epistemicClass: 'ep-statutory',
         epistemicLabel: 'Under Oath / Statutory',
-        finding: '<strong>Finding:</strong> H1 2025 revenue A$72.3M (up from A$23.3M prior period). EBITDA profit of A$5.2M, swinging from a loss. Gross margin 65%. Cash A$203.8M. Multiple director selling notifications filed with ASX. Pipeline contraction from A$2.55B to A$2.09B disclosed in quarterly updates. No single customer contributes more than 15% of revenue (positive for diversification).',
+        finding: '<strong>Finding:</strong> 1H 2025 revenue A$72.3M (up from A$23.3M prior period). EBITDA profit of A$5.2M, swinging from a loss. Gross margin 65%. Cash A$203.8M. Multiple director selling notifications filed with ASX. Pipeline contraction from A$2.55B to A$2.09B disclosed in quarterly updates. No single customer contributes more than 15% of revenue (positive for diversification).',
         tension: null,
         table: null,
         tags: [
@@ -4731,7 +4729,7 @@ STOCK_DATA.DRO = {
         source: 'Source: ASX announcement; company earnings presentation'
       },
       {
-        date: 'H1 2026',
+        date: '1H 2026',
         name: 'Major Contract Announcements',
         conditions: [
           { if: 'If programme-of-record contract (A$100M+) won with any NATO military', valence: 'positive', then: 'T1 strengthens materially. Transition from spot buys to embedded capability confirmed.' },
@@ -4966,7 +4964,7 @@ STOCK_DATA.PME = {
       content: '<strong>Growth decelerating:</strong> Revenue growth slowing from 32% toward 15-20% as contract pipeline normalises. <strong>Valuation compresses:</strong> 163x P/E contracts toward 80-100x range. <strong>Competition emerging:</strong> GE/Philips/Siemens rebuild cloud-native platforms. <strong>Key person risk:</strong> Founder CEO Sam Hupert (age 71) succession unknown.'
     },
     evidenceCheck: 'The embedded bear thesis understates the structural nature of the business advantages. Visage 7\'s cloud-native architecture means zero per-study hosting costs: as hospital imaging volumes grow (5-7% annually), margins expand without proportional cost increases. This is genuine <strong>operating leverage</strong>, not just growth. The company\'s 90% recurring revenue, zero debt, and <span class="key-stat">A$520M</span> in new FY25 contracts suggest the flywheel is accelerating.',
-    narrativeStability: '<strong>Stable but vulnerable to valuation sentiment.</strong> The business quality narrative is well-established and supported by observable data. However, at 163x P/E, any miss on growth expectations would trigger a sharp re-rating. The H1 FY26 results on 12 February 2026 are the immediate test.'
+    narrativeStability: '<strong>Stable but vulnerable to valuation sentiment.</strong> The business quality narrative is well-established and supported by observable data. However, at 163x P/E, any miss on growth expectations would trigger a sharp re-rating. The 1H FY26 results on 12 February 2026 are the immediate test.'
   },
 
   // Evidence
@@ -5141,7 +5139,7 @@ STOCK_DATA.PME = {
   discriminators: {
     intro: 'Four data points carry high diagnosticity. Morningstar fair value estimates are non-discriminating.',
     rows: [
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>H1 FY26 results (12 Feb 2026).</strong> Revenue growth rate is the single most important signal.', discriminatesBetween: 'T1 (expansion accelerating) vs T2 (valuation correction)', currentReading: 'Awaiting &mdash; 2 days', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>1H FY26 results (12 Feb 2026).</strong> Revenue growth rate is the single most important signal.', discriminatesBetween: 'T1 (expansion accelerating) vs T2 (valuation correction)', currentReading: 'Awaiting &mdash; 2 days', readingClass: 'td-amber' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>New contract announcements.</strong> Each major health system win (A$100M+) extends the US penetration thesis.', discriminatesBetween: 'T1 (US growth) vs T3 (competitive disruption)', currentReading: 'A$520M won in FY25', readingClass: 'td-green' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Competitor platform announcements.</strong> Any cloud-native initiative from GE, Philips, or Siemens.', discriminatesBetween: 'T3 (disruption real) vs T1 (moat holds)', currentReading: 'No initiatives announced', readingClass: 'td-green' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>AI feature releases and adoption.</strong> Evidence that Visage 7 is becoming the AI radiology platform layer.', discriminatesBetween: 'T4 (AI amplifies moat) vs T3 (AI commoditises)', currentReading: 'Early stage', readingClass: 'td-amber' }
@@ -5155,7 +5153,7 @@ STOCK_DATA.PME = {
     cards: [
       {
         date: '12 FEBRUARY 2026',
-        name: 'H1 FY26 Results &mdash; The Immediate Test',
+        name: '1H FY26 Results &mdash; The Immediate Test',
         conditions: [
           { if: 'If revenue growth &ge;25% and EBITDA margin holds above 75%', valence: 'positive', then: 'T1 (US Expansion) and T4 (AI Moat) strengthen. Growth flywheel confirmed.' },
           { if: 'If revenue growth decelerates to &lt;20%', valence: 'negative', then: 'T2 (Valuation Mean-Reversion) strengthens. Growth maturation narrative gains credibility.' },
@@ -5581,7 +5579,7 @@ STOCK_DATA.GYG = {
   discriminators: {
     intro: 'Four data points carry high diagnosticity. Total revenue growth is non-discriminating because it is driven by new store openings rather than comparable performance.',
     rows: [
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>H1 FY26 domestic same-store sales growth.</strong> Prospectus forecast was 7.6%; actual running at 3.7%.', discriminatesBetween: 'T1 (re-acceleration) vs T3 (maturation)', currentReading: '3.7% &mdash; well below forecast', readingClass: 'td-red' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>1H FY26 domestic same-store sales growth.</strong> Prospectus forecast was 7.6%; actual running at 3.7%.', discriminatesBetween: 'T1 (re-acceleration) vs T3 (maturation)', currentReading: '3.7% &mdash; well below forecast', readingClass: 'td-red' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>US store-level economics disclosure.</strong> Per-store loss currently A$2.6M.', discriminatesBetween: 'T2 (US succeeds) vs T4 (strategic retreat)', currentReading: 'A$13.2M loss from 5 stores', readingClass: 'td-red' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>New CEO appointment and strategic direction.</strong> Will successor commit to US or refocus domestically?', discriminatesBetween: 'T2 (US commitment) vs T4 (retreat likely)', currentReading: 'Pending &mdash; succession ongoing', readingClass: 'td-amber' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>US store openings in new cities.</strong> Expansion beyond Chicago signals continued commitment.', discriminatesBetween: 'T2 (scaling) vs T4 (pausing)', currentReading: 'No announcements beyond Chicago', readingClass: 'td-amber' }
@@ -5594,7 +5592,7 @@ STOCK_DATA.GYG = {
     intro: 'Three revision conditions with specific thresholds. Defined before the events occur to reduce rationalisation bias.',
     cards: [
       {
-        date: 'H1 FY26 RESULTS',
+        date: '1H FY26 RESULTS',
         name: 'Domestic Same-Store Sales &amp; US Losses',
         conditions: [
           { if: 'If domestic same-store sales &ge;6% and US per-store losses narrow', valence: 'positive', then: 'T1 (Domestic Re-Acceleration) and T2 (US Expansion) both strengthen. Growth narrative revives.' },
@@ -5683,11 +5681,11 @@ STOCK_DATA.CSL = {
   ],
 
   // Skew
-  skew: { direction: 'balanced', rationale: 'Decade-low valuation with share price nearly halved from highs presents compelling entry, but CEO departure the day before H1 results and messy Seqirus on/off demerger create genuine transformation execution risk.' },
+  skew: { direction: 'balanced', rationale: 'Decade-low valuation with share price nearly halved from highs presents compelling entry, but CEO departure the day before 1H results and messy Seqirus on/off demerger create genuine transformation execution risk.' },
 
   // Verdict
   verdict: {
-    text: 'CSL trades at its cheapest valuation in a decade (16.8x forward P/E) after the share price fell nearly 40% from A$290 highs. The core plasma franchise continues to compound, FCF surged 53%, and cost savings are ahead of schedule. But the sudden CEO departure, abandoned Seqirus demerger, and 3,000 job cuts signal a company in the middle of a messy transformation. The H1 FY26 results on 12 February are the immediate catalyst.',
+    text: 'CSL trades at its cheapest valuation in a decade (16.8x forward P/E) after the share price fell nearly 40% from A$290 highs. The core plasma franchise continues to compound, FCF surged 53%, and cost savings are ahead of schedule. But the sudden CEO departure, abandoned Seqirus demerger, and 3,000 job cuts signal a company in the middle of a messy transformation. The 1H FY26 results on 12 February are the immediate catalyst.',
     borderColor: 'var(--signal-amber)',
     scores: [
       { label: 'T1 Compounder', score: '50%', scoreColor: 'var(--signal-green)', dirArrow: '&rarr;', dirText: 'Awaiting', dirColor: null },
@@ -5705,7 +5703,7 @@ STOCK_DATA.CSL = {
     { label: 'Div Yield', value: '2.0%', color: '' }
   ],
   featuredPriceColor: 'var(--signal-red)',
-  featuredRationale: 'Decade-low valuation and surging FCF, but CEO departed day before H1 results. Transformation execution is genuinely contested.',
+  featuredRationale: 'Decade-low valuation and surging FCF, but CEO departed day before 1H results. Transformation execution is genuinely contested.',
 
   // Identity section
   identity: {
@@ -5720,7 +5718,7 @@ STOCK_DATA.CSL = {
       [['ROE', '15.4%', 'td-mono'], ['Free Cash Flow', 'US$2.93B (+53%)', 'td-mono td-green']],
       [['Beta', '0.26', 'td-mono td-green'], ['FY26 Guidance', 'NPATA US$3.45-3.55B', 'td-mono']],
       [['CEO', 'Gordon Naylor (Interim, since Feb 2026)', ''], ['Employees', '29,904', 'td-mono']],
-      [['Last Earnings', 'Aug 2025 (FY25)', 'td-mono'], ['Next Earnings', '12 Feb 2026 (H1 FY26)', 'td-mono']]
+      [['Last Earnings', 'Aug 2025 (FY25)', 'td-mono'], ['Next Earnings', '12 Feb 2026 (1H FY26)', 'td-mono']]
     ],
     overview: 'Global biotherapeutics leader headquartered in Melbourne. CSL Behring is the world\'s largest plasma collector and manufacturer, contributing US$10.9B (73% of revenue) across immunoglobulins, albumin, haemophilia treatments, and specialty products. CSL Seqirus is one of the world\'s largest influenza vaccine manufacturers. CSL Vifor, acquired in 2022 for US$11.7B, addresses iron deficiency and nephrology. The company operates plasma collection centres across the US and Europe, with manufacturing facilities globally.'
   },
@@ -5735,10 +5733,10 @@ STOCK_DATA.CSL = {
       statusText: 'Priced Out &mdash; Cheapest in a Decade',
       score: '50%',
       scoreWidth: '50%',
-      scoreMeta: '&rarr; Awaiting H1 FY26',
+      scoreMeta: '&rarr; Awaiting 1H FY26',
       description: 'CSL\'s plasma franchise moats are intact, $550M cost savings are running ahead of schedule, FCF surged 53% to US$2.93B, and the stock trades at its lowest P/E in a decade. The dislocation is driven by sentiment around leadership change and Seqirus confusion, not by deterioration of the core business. NPATA guidance of US$3.45-3.55B implies mid-single-digit growth resuming.',
       requires: [
-        'H1 FY26 NPATA growth consistent with full-year guidance of US$3.45-3.55B',
+        '1H FY26 NPATA growth consistent with full-year guidance of US$3.45-3.55B',
         'Behring immunoglobulin (IG) volume growth &ge;8% offsetting albumin weakness',
         '$550M cost savings flowing to EBIT, not consumed by restructuring charges',
         'Interim CEO stabilises organisation; permanent appointment within 6 months',
@@ -5755,7 +5753,7 @@ STOCK_DATA.CSL = {
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Leadership:</strong> CEO departed the day before H1 results; signals either personal issue or board friction',
+        '<strong>Leadership:</strong> CEO departed the day before 1H results; signals either personal issue or board friction',
         '<strong>Corporate Comms:</strong> Seqirus demerger announced then abandoned; strategic confusion',
         '<strong>Alt Data:</strong> 3,000 job cuts (8.5% of workforce) suggest cost pressures deeper than disclosed'
       ]
@@ -5769,11 +5767,11 @@ STOCK_DATA.CSL = {
       score: '40%',
       scoreWidth: '40%',
       scoreMeta: '&uarr; Rising',
-      description: 'The CEO departure, abandoned Seqirus demerger, and 3,000 job cuts reveal a company in the middle of a difficult transformation. Paul McKenzie\'s exit the day before H1 results is deeply unusual and creates uncertainty about strategic direction, board dynamics, and whether the cost-out program will be sustained under new leadership. The interim CEO is a board member, not an operational executive.',
+      description: 'The CEO departure, abandoned Seqirus demerger, and 3,000 job cuts reveal a company in the middle of a difficult transformation. Paul McKenzie\'s exit the day before 1H results is deeply unusual and creates uncertainty about strategic direction, board dynamics, and whether the cost-out program will be sustained under new leadership. The interim CEO is a board member, not an operational executive.',
       requires: null,
       supportingLabel: 'Supporting Evidence (4 Domains)',
       supporting: [
-        '<strong>Leadership:</strong> CEO Paul McKenzie stepped down 10 Feb 2026, one day before H1 results; Gordon Naylor appointed interim',
+        '<strong>Leadership:</strong> CEO Paul McKenzie stepped down 10 Feb 2026, one day before 1H results; Gordon Naylor appointed interim',
         '<strong>Corporate Comms:</strong> Seqirus demerger was planned, then reversed; strategic direction unclear',
         '<strong>Alt Data:</strong> 3,000 headcount reduction (29,904 from 32,698) signals deeper restructuring than market anticipated',
         '<strong>Media:</strong> Negative press cycle around CEO exit timing; "governance questions" framing'
@@ -5842,7 +5840,7 @@ STOCK_DATA.CSL = {
       content: '<strong>Core plasma growth slowing:</strong> Market expects Behring growth to moderate to low-to-mid single digits as IG competition intensifies and China albumin weakens. <strong>Transformation risk premium:</strong> CEO departure and Seqirus confusion warrant a discount to historical multiples. <strong>Cost savings consumed:</strong> $550M in savings partially offset by restructuring charges and gene therapy R&amp;D spend. <strong>Gene therapy contribution uncertain:</strong> HEMGENIX and ANDEMBRY approved but commercial uptake unproven at scale. <strong>Vifor integration tail risk:</strong> US$11.7B acquisition still being integrated; synergy realisation uncertain.'
     },
     evidenceCheck: 'The bearish case rests on leadership disruption and transformation complexity. The bullish case rests on valuation and business quality. Critically, the underlying financial metrics are <strong>unambiguously strong</strong>: FCF surged 53%, EBITDA margins expanded to 32.7%, ROE sits at 15.4%, and NPATA guidance implies continued growth. The question is not whether CSL\'s business is deteriorating (it is not), but whether the management transition will create enough uncertainty to keep the multiple compressed. The evidence is genuinely balanced.',
-    narrativeStability: '<strong>Moderate.</strong> The "structural compounder" narrative sustained CSL at 30-40x earnings for a decade. The current narrative of "transformation risk" is new and driven by specific events (CEO departure, Seqirus reversal) rather than fundamental deterioration. A smooth leadership transition and clean H1 results could rapidly restore the prior narrative. Conversely, further strategic reversals or a messy CEO search could deepen the discount. The narrative is event-dependent, not structurally impaired.'
+    narrativeStability: '<strong>Moderate.</strong> The "structural compounder" narrative sustained CSL at 30-40x earnings for a decade. The current narrative of "transformation risk" is new and driven by specific events (CEO departure, Seqirus reversal) rather than fundamental deterioration. A smooth leadership transition and clean 1H results could rapidly restore the prior narrative. Conversely, further strategic reversals or a messy CEO search could deepen the discount. The narrative is event-dependent, not structurally impaired.'
   },
 
   // Evidence
@@ -5854,7 +5852,7 @@ STOCK_DATA.CSL = {
         title: '1. Corporate Communications',
         epistemicClass: 'ep-motivated',
         epistemicLabel: 'Motivated',
-        finding: 'Former CEO Paul McKenzie framed FY26 as a "delivery year" following the Vifor integration and cost restructuring. <strong>NPATA guidance of US$3.45-3.55B</strong> represents mid-single-digit growth. The <strong>$550M cost savings program</strong> was described as "ahead of schedule" with benefits flowing to EBIT from H2 FY25. Seqirus demerger was announced as a strategic priority, then reversed within months, citing "market conditions." A$750M share buyback authorised. The CEO then departed on 10 February 2026, one day before H1 FY26 results, with no forward explanation beyond "personal reasons."',
+        finding: 'Former CEO Paul McKenzie framed FY26 as a "delivery year" following the Vifor integration and cost restructuring. <strong>NPATA guidance of US$3.45-3.55B</strong> represents mid-single-digit growth. The <strong>$550M cost savings program</strong> was described as "ahead of schedule" with benefits flowing to EBIT from 2H FY25. Seqirus demerger was announced as a strategic priority, then reversed within months, citing "market conditions." A$750M share buyback authorised. The CEO then departed on 10 February 2026, one day before 1H FY26 results, with no forward explanation beyond "personal reasons."',
         tension: 'The CEO departure timing is extraordinary. Departing the day before half-year results either signals a personal matter genuinely unrelated to the business, or indicates board-level friction that forced an abrupt exit. The reversal of the Seqirus demerger compounds the sense of strategic drift. Management messaging was otherwise disciplined and financially credible until this disruption.',
         table: null,
         tags: [
@@ -5862,7 +5860,7 @@ STOCK_DATA.CSL = {
           { text: 'Strongly Supports T2', class: 'strong' },
           { text: 'Neutral T3', class: 'neutral' }
         ],
-        source: 'CSL FY25 Annual Report; H1 FY26 pre-release guidance; ASX announcements; CEO departure notice'
+        source: 'CSL FY25 Annual Report; 1H FY26 pre-release guidance; ASX announcements; CEO departure notice'
       },
       {
         number: 2,
@@ -5971,7 +5969,7 @@ STOCK_DATA.CSL = {
         title: '9. Leadership &amp; Governance',
         epistemicClass: 'ep-governance',
         epistemicLabel: 'Independent Assessment',
-        finding: '<strong>Leadership transition at a critical juncture.</strong> CEO Paul McKenzie departed 10 February 2026 after leading CSL through the US$11.7B Vifor acquisition and initiating the $550M cost restructuring. His exit, the day before H1 FY26 results, is the single most unusual governance event in CSL\'s modern history. Interim CEO Gordon Naylor is a board director and former Orica CFO with no direct biotherapeutics operating experience. The board, chaired by Paul Perreault (former CSL CEO 2013-2020), has deep plasma industry knowledge. <strong>Key question:</strong> whether Perreault\'s return as Chairman signals a brief transition to a prepared successor or a longer search that creates strategic drift.',
+        finding: '<strong>Leadership transition at a critical juncture.</strong> CEO Paul McKenzie departed 10 February 2026 after leading CSL through the US$11.7B Vifor acquisition and initiating the $550M cost restructuring. His exit, the day before 1H FY26 results, is the single most unusual governance event in CSL\'s modern history. Interim CEO Gordon Naylor is a board director and former Orica CFO with no direct biotherapeutics operating experience. The board, chaired by Paul Perreault (former CSL CEO 2013-2020), has deep plasma industry knowledge. <strong>Key question:</strong> whether Perreault\'s return as Chairman signals a brief transition to a prepared successor or a longer search that creates strategic drift.',
         tension: null,
         table: {
           headers: ['Name', 'Role', 'Tenure', 'Shareholding', 'Prior Experience'],
@@ -6020,9 +6018,9 @@ STOCK_DATA.CSL = {
   discriminators: {
     intro: 'Four data points carry high diagnosticity for distinguishing between CSL\'s competing hypotheses. The CEO departure makes near-term catalysts more diagnostic than usual.',
     rows: [
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>H1 FY26 Results (12 Feb 2026).</strong> Behring IG volume growth, NPATA trajectory, and cost savings realisation. First results under new interim leadership.', discriminatesBetween: 'T1 (franchise intact despite leadership change) vs T2 (transformation disrupting operations)', currentReading: 'Awaiting &mdash; imminent', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>1H FY26 Results (12 Feb 2026).</strong> Behring IG volume growth, NPATA trajectory, and cost savings realisation. First results under new interim leadership.', discriminatesBetween: 'T1 (franchise intact despite leadership change) vs T2 (transformation disrupting operations)', currentReading: 'Awaiting &mdash; imminent', readingClass: 'td-amber' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Permanent CEO appointment timeline and identity.</strong> Internal promotion signals continuity; external hire signals board acknowledging need for change.', discriminatesBetween: 'T1 (smooth transition) vs T2 (prolonged uncertainty)', currentReading: 'Search underway &mdash; no timeline disclosed', readingClass: 'td-amber' },
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>China albumin revenue trend in H1 FY26.</strong> If flat or declining, structural headwinds thesis gains evidence.', discriminatesBetween: 'T1 (geographic diversification) vs T3 (China import substitution)', currentReading: 'Awaiting segmental disclosure', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>China albumin revenue trend in 1H FY26.</strong> If flat or declining, structural headwinds thesis gains evidence.', discriminatesBetween: 'T1 (geographic diversification) vs T3 (China import substitution)', currentReading: 'Awaiting segmental disclosure', readingClass: 'td-amber' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>HEMGENIX/ANDEMBRY commercial uptake.</strong> Gene therapy revenues indicate whether next-generation products can offset mature portfolio pressure.', discriminatesBetween: 'T1 (innovation pipeline) vs T3 (payer resistance limiting gene therapy)', currentReading: 'Early-stage; US$3.5M per treatment facing payer scrutiny', readingClass: 'td-amber' }
     ],
     nonDiscriminating: '<strong>"Share price down 40%"</strong> (price decline is the question, not the answer) &bull; <strong>"P/E of 16.8x looks cheap"</strong> (relative to CSL\'s own history, yes; but cheap can get cheaper if execution falters) &bull; <strong>"3,000 job cuts"</strong> (consistent with both cost discipline and cost distress) &bull; <strong>"Consensus Buy"</strong> (uniformity may reflect slow re-rating rather than conviction)'
@@ -6034,15 +6032,15 @@ STOCK_DATA.CSL = {
     cards: [
       {
         date: '12 FEBRUARY 2026',
-        name: 'H1 FY26 Results &mdash; First Post-McKenzie Test',
+        name: '1H FY26 Results &mdash; First Post-McKenzie Test',
         conditions: [
           { if: 'If NPATA &ge;US$1.75B and Behring IG growth &ge;8%', valence: 'positive', then: 'T1 strengthens materially. Franchise transcends leadership. Buyback provides floor.' },
           { if: 'If NPATA misses guidance range or cost savings stall', valence: 'negative', then: 'T2 crystallises. Transformation disrupting core operations. Multiple compression justified.' }
         ],
-        source: 'Source: ASX announcement, H1 FY26 results presentation'
+        source: 'Source: ASX announcement, 1H FY26 results presentation'
       },
       {
-        date: 'H1 2026',
+        date: '1H 2026',
         name: 'Permanent CEO Appointment',
         conditions: [
           { if: 'If appointment made within 6 months with clear strategic mandate', valence: 'positive', then: 'T2 weakens. Transition was orderly, not dysfunctional. Market re-rates.' },
@@ -6075,7 +6073,7 @@ STOCK_DATA.CSL = {
   gaps: {
     coverageRows: [
       { domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Feb 2026', confidence: 'High (but disrupted by CEO exit)', confidenceClass: 'td-amber' },
-      { domain: 'Financial Statements', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25 (H1 imminent)', confidence: 'High (audited)', confidenceClass: 'td-green' },
+      { domain: 'Financial Statements', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25 (1H imminent)', confidence: 'High (audited)', confidenceClass: 'td-green' },
       { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (uniform consensus)', confidenceClass: 'td-green' },
       { domain: 'Competitor Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'High (independent)', confidenceClass: 'td-green' },
       { domain: 'Economic Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Jan 2026', confidence: 'High (WHO, MRB)', confidenceClass: 'td-green' },
@@ -6091,7 +6089,7 @@ STOCK_DATA.CSL = {
       '<strong>Gene therapy payer dynamics:</strong> HEMGENIX at US$3.5M per treatment faces payer pushback that is difficult to quantify. Uptake trajectories depend on reimbursement negotiations that are not publicly disclosed.',
       '<strong>China regulatory trajectory:</strong> The pace of Chinese import substitution in albumin depends on NMPA regulatory decisions that are opaque to external analysts.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 33%, T2: 26%, T3: 19%, T4: 22%) reflect editorial assessment. The unusually high score for T2 (Execution Risk) relative to CSL\'s historical stability reflects the specific circumstances of the CEO departure and Seqirus reversal. These are event-driven, not structural, and could resolve quickly with a clean H1 result and prompt CEO appointment.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 33%, T2: 26%, T3: 19%, T4: 22%) reflect editorial assessment. The unusually high score for T2 (Execution Risk) relative to CSL\'s historical stability reflects the specific circumstances of the CEO departure and Seqirus reversal. These are event-driven, not structural, and could resolve quickly with a clean 1H result and prompt CEO appointment.'
   },
 
   // Footer
@@ -6185,7 +6183,7 @@ STOCK_DATA.MQG = {
       { number: 5, title: '5. Economic Data', epistemicClass: 'ep-objective', epistemicLabel: 'Objective', finding: 'IEA projects global clean energy investment reaching <strong>US$4.5 trillion annually by 2030</strong>, up from US$1.8T in 2023. Infrastructure is the primary channel for this capital. APRA is relaxing bank liquidity requirements, directly benefiting BFS. Australian mortgage market growing at 5-6% annually; Macquarie gaining share. Commodity markets normalising from exceptional 2022-2024 volatility; CGM revenues resetting to lower base. Global private credit market exceeding US$1.5T, creating adjacent opportunities for MacCap.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T2 (BFS tailwind)', class: 'supports' }, { text: 'Neutral T3', class: 'neutral' }], source: 'IEA World Energy Investment 2025; APRA regulatory announcements; ABS lending data; commodity market data' },
       { number: 6, title: '6. Alternative Data', epistemicClass: 'ep-behavioural', epistemicLabel: 'Behavioural', finding: '<strong>BFS digital banking:</strong> Macquarie\'s mobile banking app consistently ranks among the highest-rated in Australia. Deposit growth rates suggest market share gains from major banks. <strong>MAM fundraising:</strong> Infrastructure fund closings tracked through regulatory filings show continued strong institutional interest. <strong>Executive compensation:</strong> CEO Wikramanayake\'s ~A$29.4M total compensation makes her Australia\'s highest-paid CEO, creating political and public scrutiny. <strong>ASIC monitoring:</strong> Short position reporting data shows the misreporting was systemic across multiple years and entities, suggesting cultural rather than isolated compliance failure.', tension: 'The digital banking data supports BFS growth thesis. However, the executive compensation level creates political risk that could amplify any regulatory findings. The ASIC data showing 15 years of misreporting is difficult to characterise as an isolated incident.', table: null, tags: [{ text: 'Supports T2 (BFS digital)', class: 'supports' }, { text: 'Supports T3 (compensation scrutiny)', class: 'supports' }, { text: 'Supports T4 (digital pivot)', class: 'supports' }], source: 'App store rankings; APRA deposit data; MAM fund filings; ASIC short-selling data; executive pay disclosures' },
       { number: 7, title: '7. Academic Research', epistemicClass: 'ep-peerreviewed', epistemicLabel: 'Peer-Reviewed', finding: 'Published research on infrastructure as an asset class shows <strong>stable, inflation-linked returns with low correlation to public equities</strong>. This underpins the fee durability of MAM\'s infrastructure portfolio. Research on energy transition investment requirements consistently projects multi-decade capital deployment needs that exceed current capacity. Studies on financial institution culture and compliance failures indicate that repeated enforcement actions correlate with <strong>systemic governance issues</strong> rather than random incidents; the probability of future violations increases after each observed failure.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T3 (compliance culture)', class: 'supports' }, { text: 'Neutral T4', class: 'neutral' }], source: 'Journal of Financial Economics; infrastructure asset class studies; energy transition investment research; financial regulation culture studies' },
-      { number: 8, title: '8. Media &amp; Social', epistemicClass: 'ep-noise', epistemicLabel: 'Noise', finding: '<strong>Mixed coverage with two dominant threads.</strong> Positive: "Macquarie is the energy transition winner" narrative in financial press, highlighting MAM\'s infrastructure positioning and BFS growth. Negative: "Millionaires\' Factory" narrative, particularly around CEO compensation (~A$29.4M), ASIC proceedings, and historical governance controversies (Nuix IPO, MFAT). Social sentiment on investment forums is broadly positive but price-sensitive. The stock\'s 30% rise from 52-week lows has improved sentiment from the H2 2025 trough.', tension: null, table: null, tags: [{ text: 'Supports T1 (positive framing)', class: 'supports' }, { text: 'Supports T3 (governance narrative)', class: 'supports' }], source: 'Australian Financial Review; Financial Times; Bloomberg; investment forums; social sentiment tracking' },
+      { number: 8, title: '8. Media &amp; Social', epistemicClass: 'ep-noise', epistemicLabel: 'Noise', finding: '<strong>Mixed coverage with two dominant threads.</strong> Positive: "Macquarie is the energy transition winner" narrative in financial press, highlighting MAM\'s infrastructure positioning and BFS growth. Negative: "Millionaires\' Factory" narrative, particularly around CEO compensation (~A$29.4M), ASIC proceedings, and historical governance controversies (Nuix IPO, MFAT). Social sentiment on investment forums is broadly positive but price-sensitive. The stock\'s 30% rise from 52-week lows has improved sentiment from the 2H 2025 trough.', tension: null, table: null, tags: [{ text: 'Supports T1 (positive framing)', class: 'supports' }, { text: 'Supports T3 (governance narrative)', class: 'supports' }], source: 'Australian Financial Review; Financial Times; Bloomberg; investment forums; social sentiment tracking' },
       { number: 9, title: '9. Leadership &amp; Governance', epistemicClass: 'ep-governance', epistemicLabel: 'Independent Assessment', finding: '<strong>Experienced leadership, but governance questions persist.</strong> CEO Shemara Wikramanayake has led Macquarie since 2018, continuing the infrastructure-first strategy established by Nicholas Moore. She is Australia\'s highest-paid CEO at ~A$29.4M, which reflects performance alignment but creates political risk. Chairman Glenn Stevens (former RBA Governor, 2006-2016) brings unparalleled regulatory credibility. The board is highly experienced across financial services, infrastructure, and regulation. <strong>Key governance concern:</strong> the ASIC short-selling allegations spanning 15 years suggest compliance processes failed to detect systemic misreporting. CFO succession is underway, signalling generational transition in the C-suite.', tension: null, table: { headers: ['Name', 'Role', 'Tenure', 'Shareholding', 'Prior Experience'], rows: [['Shemara Wikramanayake', 'CEO &amp; MD', 'Since 2018', 'Substantial (~A$50M+)', 'MQG lifer; led MAM for 10 years'], ['Glenn Stevens AC', 'Chairman', 'Since 2021', 'Moderate', 'RBA Governor (2006-2016)'], ['Alex Harvey', 'CFO', 'Since 2019', 'Modest', 'MQG lifer; treasury and risk background']] }, tags: [{ text: 'Supports T1 (infra expertise)', class: 'supports' }, { text: 'Supports T2 (experienced team)', class: 'supports' }, { text: 'Supports T3 (compliance gaps)', class: 'supports' }], source: 'MQG Annual Report FY25; ASX governance disclosures; ASIC proceedings; executive compensation reports' },
       { number: 10, title: '10. Ownership &amp; Capital Flows', epistemicClass: 'ep-registry', epistemicLabel: 'Registry Data', finding: '<strong>Diversified institutional register with strong sovereign fund presence.</strong> Macquarie\'s register reflects its status as an ASX top-10 company. Major institutional holders include a mix of passive index funds and active managers. Sovereign wealth funds (GIC, Norges Bank) have maintained or increased positions, reflecting confidence in the infrastructure thesis. <strong>Short interest is modest (~1.5-2%)</strong>, suggesting bears are not aggressively positioned. The stock trades at a <strong>44% premium to Morningstar fair value</strong> (A$145), which creates a valuation debate between momentum investors (buying the infrastructure thesis) and value investors (considering the stock expensive). Employee ownership is relatively high for an ASX financial, reflecting the partnership culture.', tension: null, table: { headers: ['Holder', 'Type', 'Stake', 'Movement'], rows: [['BlackRock', 'Passive/Index', '~6.2%', 'Steady'], ['Vanguard Group', 'Passive/Index', '~5.0%', 'Steady'], ['GIC (Singapore)', 'Sovereign Wealth', '~3.5%', 'Increased'], ['State Street', 'Passive/Index', '~3.2%', 'Steady'], ['Norges Bank', 'Sovereign Wealth', '~2.8%', 'Increased']] }, tags: [{ text: 'Supports T1 (sovereign accumulating)', class: 'supports' }, { text: 'Neutral on T2', class: 'neutral' }, { text: 'Neutral on T3', class: 'neutral' }], source: 'ASX substantial holder notices; ASIC short position reports; Morningstar fair value; MQG Annual Report top-20 register' }
     ],
@@ -6205,7 +6203,7 @@ STOCK_DATA.MQG = {
     intro: 'Three revision conditions. Macquarie\'s investment thesis is more stable than most, so tripwires focus on structural rather than event-driven catalysts.',
     cards: [
       { date: 'MAY 2026', name: 'FY26 Full Year Results &mdash; MAM &amp; CGM Definitive', conditions: [{ if: 'If MAM net inflows &ge;A$30B and base management fees grow &ge;8%', valence: 'positive', then: 'T1 strengthens decisively. Infrastructure supercycle thesis validated by institutional capital flows.' }, { if: 'If MAM net outflows or base fees flat', valence: 'negative', then: 'T1 weakens materially. Infrastructure thesis was cyclical, not structural. Multiple at risk.' }], source: 'Source: ASX announcement, FY26 Annual Report' },
-      { date: 'H2 2026', name: 'ASIC Short-Selling Resolution', conditions: [{ if: 'If penalty &lt;A$100M with no business activity restrictions', valence: 'positive', then: 'T3 weakens to background risk. Manageable cost; no structural impairment.' }, { if: 'If penalty &gt;A$300M or operational restrictions imposed on CGM', valence: 'negative', then: 'T3 crystallises. Regulatory constraints on commodities trading; ROE permanently impaired.' }], source: 'Source: Federal Court; ASIC media releases; ASX continuous disclosure' },
+      { date: '2H 2026', name: 'ASIC Short-Selling Resolution', conditions: [{ if: 'If penalty &lt;A$100M with no business activity restrictions', valence: 'positive', then: 'T3 weakens to background risk. Manageable cost; no structural impairment.' }, { if: 'If penalty &gt;A$300M or operational restrictions imposed on CGM', valence: 'negative', then: 'T3 crystallises. Regulatory constraints on commodities trading; ROE permanently impaired.' }], source: 'Source: Federal Court; ASIC media releases; ASX continuous disclosure' },
       { date: 'ONGOING', name: 'Energy Transition Policy Environment', conditions: [{ if: 'If US IRA intact and EU Green Deal progresses', valence: 'positive', then: 'T1 structural tailwind sustained. MAM fundraising benefits from policy certainty.' }, { if: 'If IRA materially scaled back or EU transition policies reversed', valence: 'negative', then: 'T1 weakens. Infrastructure investment timeline extends; fundraising slows.' }], source: 'Source: US Congressional actions; EU policy announcements; IEA investment data' }
     ]
   },
@@ -6256,7 +6254,7 @@ STOCK_DATA.GMG = {
   narrative: { theNarrative: 'The market narrative centres on <strong>whether Goodman is a property company that does data centres, or a data centre infrastructure platform that happens to own property</strong>. At 36x trailing P/E and 3.3x book, the market is paying a significant premium to traditional REIT valuations. The embedded thesis is that Goodman\'s 5.0 GW power bank, hyperscaler relationships, and A$12.9B development pipeline represent a <strong>structurally differentiated platform</strong> that justifies the premium. The stock is <span class="key-stat down">17%</span> off its 52-week high, reflecting concerns about data centre oversupply narratives and rising interest rates pressuring REIT valuations.', priceImplication: { label: 'Embedded Assumptions at A$30.55', content: '<strong>DC demand sustains:</strong> Hyperscaler capex continues at current or higher levels for 3-5 years. <strong>Execution flawless:</strong> A$12.9B WIP delivers on time and budget; 94% pre-commitment rate holds. <strong>Power procurement succeeds:</strong> 5.0 GW power bank translates to operational capacity without grid bottlenecks. <strong>Platform premium justified:</strong> 36x P/E sustained by data centre growth narrative rather than traditional REIT yields. <strong>Institutional capital flows:</strong> CPP deal is the first of many institutional DC partnerships.' }, evidenceCheck: 'The bull thesis has strong empirical support. FY25 delivered operating EPS of 118.0 cents (+9.8%), AUM of A$86B, and 96.5% occupancy. The CPP Investments A$14B European data centre partnership is institutional validation at scale. The 94% pre-commitment rate on A$12.9B WIP means the near-term pipeline is contracted, not speculative. FY26 guidance for operating EPS growth of 9% and operating profit exceeding A$2.6B provides visible forward earnings. The bear arguments (oversupply, power constraints, valuation) exist but lack near-term evidence.', narrativeStability: '<strong>Stable and favourable.</strong> The data centre narrative is reinforced by each new hyperscaler commitment, institutional partnership, and power bank expansion announcement. The narrative is most vulnerable to a macro shock (hyperscaler capex cut, recession-driven demand slowdown) or execution failure (project delays, power grid constraints). Greg Goodman\'s 27-year tenure provides leadership stability uncommon in the sector.' },
   evidence: { intro: 'Ten evidence domains assessed. Evidence strongly favours T1 (Data Centre Mega-Trend), with limited near-term support for the bearish hypotheses.', cards: [{ number: 1, title: '1. Corporate Communications', epistemicClass: 'ep-motivated', epistemicLabel: 'Motivated', finding: 'FY25 results: <strong>operating EPS 118.0 cents (+9.8%), operating profit A$2,311M (+13%)</strong>, AUM A$86B. Management framing: data centres as the "defining opportunity" for the next decade. CPP Investments A$14B European DC partnership announced as validation of platform model. Pipeline guidance: WIP to rise from A$12.9B to A$17.5B, with data centres comprising 75% by FY26 (up from 57%). Power bank expanded to 5.0 GW across 13 cities. 300MW under construction with target of 500MW. Distribution of 30.0 cents maintained.', tension: 'Management is understandably promotional about the DC opportunity, but the key metrics are independently verifiable in statutory filings. The tension is between the genuine strength of the DC pipeline (contracted, pre-committed) and the question of whether Goodman is over-concentrating in a single theme. The shift from 57% DC to 75% by FY26 is a significant strategic bet on one sector.', table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T4 (platform model)', class: 'supports' }], source: 'FY25 Results presentation; ASX announcements; Investor Day materials' }, { number: 2, title: '2. Regulatory Filings', epistemicClass: 'ep-statutory', epistemicLabel: 'Under Oath / Statutory', finding: '<strong>FY25 (audited):</strong> Revenue A$2,311M (+16.5%). Operating profit A$2,311M (+13%). Operating EPS 118.0 cents (+9.8%). NTA per share A$9.44. Gearing 4.3% (among lowest in global REIT sector). AUM A$86B with A$72B external. Development WIP A$12.9B across 57 projects, 94% pre-committed. Occupancy 96.5%. Distribution per share 30.0 cents. Debt/equity 0.23x. No material audit qualifications. <strong>A$4B capital raising successfully completed</strong>, supporting pipeline expansion.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Contradicts T3 (94% pre-committed)', class: 'contradicts' }], source: 'GMG FY25 Annual Report; ASX filings; audited financial statements' }, { number: 3, title: '3. Broker Research', epistemicClass: 'ep-consensus', epistemicLabel: 'Consensus', finding: '<strong>Strongly bullish consensus.</strong> 11 analysts rate Buy, 0 rate Sell. Median 12-month target A$37-38, implying <strong>22-24% upside</strong> from current price. Broker thesis centres on data centre pipeline, power bank as competitive moat, and institutional capital attraction. Morningstar fair value estimate A$29 is the conservative outlier. Key debate among brokers is whether the DC premium is sustainable or whether GMG should be valued as a traditional REIT (implying significant downside).', tension: 'The broker consensus is overwhelmingly bullish, but the Morningstar A$29 estimate represents a credible alternative view that traditional REIT valuation frameworks should apply. The gap between consensus targets (A$37-38) and Morningstar (A$29) reflects the fundamental disagreement about whether GMG is a property company or an infrastructure platform.', table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T2 (Morningstar view)', class: 'supports' }], source: 'UBS, Macquarie, Morgan Stanley, Goldman Sachs, Morningstar consensus data' }, { number: 4, title: '4. Competitor &amp; Industry Data', epistemicClass: 'ep-independent', epistemicLabel: 'Independent', finding: '<strong>Goodman\'s power bank is the key differentiator.</strong> Global data centre REITs (Equinix, Digital Realty) and hyperscalers (AWS, Microsoft, Google) are all expanding DC capacity, but Goodman\'s 5.0 GW power bank across 13 cities is a uniquely scarce asset. Power access is the binding constraint for DC development globally; having secured power in advance gives Goodman a 3-5 year time advantage. Equinix trades at ~70x forward P/E; Digital Realty at ~45x. Goodman\'s 23.5x forward P/E is a <strong>discount</strong> to pure DC peers despite similar or superior growth.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Contradicts T2 (discount to DC peers)', class: 'contradicts' }, { text: 'Contradicts T3', class: 'contradicts' }], source: 'Equinix, Digital Realty filings; CBRE DC market reports; JLL industrial data' }, { number: 5, title: '5. Economic Data', epistemicClass: 'ep-objective', epistemicLabel: 'Objective', finding: 'Global data centre demand growing at 25-30% annually, driven by AI training and inference workloads, cloud migration, and digital transformation. <strong>Power availability is the binding constraint:</strong> grid capacity limitations in key markets (Northern Virginia, Singapore, Dublin) are creating a premium for developers who have secured power in advance. Interest rates remain elevated, pressuring REIT valuations broadly, but institutional capital is flowing into data centre infrastructure as a distinct asset class. Global DC market estimated at US$350B+ by 2030.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T4 (institutional capital)', class: 'supports' }], source: 'IEA power demand forecasts; CBRE data centre reports; RBA; central bank data' }, { number: 6, title: '6. Alternative Data', epistemicClass: 'ep-behavioural', epistemicLabel: 'Behavioural', finding: '<strong>Hiring patterns confirm DC pivot.</strong> LinkedIn data shows Goodman aggressively recruiting data centre engineers, power procurement specialists, and critical infrastructure managers. Job postings have shifted materially from traditional industrial property roles toward DC-specific technical roles. Employee count remains lean at ~1,030 (A$83M AUM per employee), suggesting high operational efficiency. No negative Glassdoor signals. Web traffic to Goodman\'s DC-specific pages has increased significantly.', tension: null, table: null, tags: [{ text: 'Supports T1', class: 'supports' }, { text: 'Supports T4 (lean operations)', class: 'supports' }], source: 'LinkedIn job postings; Glassdoor; SimilarWeb; employee review sites' }, { number: 7, title: '7. Academic Research', epistemicClass: 'ep-peerreviewed', epistemicLabel: 'Peer-Reviewed', finding: 'Academic literature on data centre economics confirms several key structural dynamics. <strong>Power access is the primary competitive moat:</strong> research on DC site selection shows that power availability, not land or construction capability, determines competitive advantage. Studies on AI compute demand project exponential growth in training and inference workloads through at least 2035. Real estate platform economics research shows that integrated develop-own-manage models generate superior returns to pure development or pure ownership strategies.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T4 (platform economics)', class: 'supports' }, { text: 'Contradicts T3 (demand structural)', class: 'contradicts' }], source: 'Data centre economics journals; AI compute demand research; real estate platform studies' }, { number: 8, title: '8. Media &amp; Social', epistemicClass: 'ep-noise', epistemicLabel: 'Noise', finding: 'Media coverage is predominantly positive, framing Goodman as the "data centre REIT play" on the ASX. Periodic bearish commentary focuses on data centre oversupply fears and REIT valuation multiples. Social media sentiment is moderately bullish. <strong>The "data centre bubble" narrative</strong> appears in broader market commentary but is rarely applied specifically to Goodman, given its pre-committed pipeline. Financial press coverage of the CPP partnership was overwhelmingly positive.', tension: null, table: null, tags: [{ text: 'Supports T1 (positive framing)', class: 'supports' }, { text: 'Supports T3 (bubble narrative exists)', class: 'supports' }], source: 'Australian Financial Review; Bloomberg; ASX investment forums' }, { number: 9, title: '9. Leadership &amp; Governance', epistemicClass: 'ep-governance', epistemicLabel: 'Independent Assessment', finding: '<strong>Exceptional founder-led governance with deep skin in the game.</strong> Greg Goodman co-founded the company in 1998 and has served as CEO for 27+ years. His ~1.82% shareholding is worth approximately A$747M at current prices, creating complete alignment with shareholders. Under his leadership, Goodman has grown from an Australian industrial property trust to a A$63B global platform. The strategic pivot from pure industrial REIT to data centre infrastructure developer is Goodman\'s defining bet, and it was made earlier than competitors. Danny Breslin (CIO) and Jason Little (COO) provide strong operational depth. The board includes experienced property and infrastructure directors. <strong>Key strength:</strong> long tenure, consistent strategy, and a lean organisation. <strong>Key risk:</strong> succession planning for a 27-year CEO is the obvious long-term question, though not an immediate concern.', tension: null, table: { headers: ['Name', 'Role', 'Tenure', 'Shareholding', 'Prior Experience'], rows: [['Greg Goodman', 'CEO &amp; Co-founder', 'Since 1998 (27+ years)', '~1.82% (~A$747M)', 'Co-founded Goodman; built global platform'], ['Ian Ferrier AC', 'Chairman', 'Since 2003', 'Moderate', 'KPMG; multiple ASX board roles'], ['Danny Breslin', 'CIO', 'Long tenure', 'Modest', 'Global investment strategy; DC pipeline']] }, tags: [{ text: 'Strongly Supports T1 (founder quality)', class: 'strong' }, { text: 'Supports T4 (strategic vision)', class: 'supports' }], source: 'GMG Annual Report FY25; ASX filings; board biographical disclosures' }, { number: 10, title: '10. Ownership &amp; Capital Flows', epistemicClass: 'ep-registry', epistemicLabel: 'Registry Data', finding: '<strong>Institutional quality register with growing passive allocation.</strong> Goodman\'s register reflects its ASX 20 status: dominated by large institutional holders and index funds. Founder Greg Goodman\'s 1.82% stake (A$747M) is the key alignment signal. Institutional ownership is high and stable; the A$4B capital raising in FY25 was well-supported, indicating institutional appetite for the DC growth story. <strong>Short interest is low at ~1-2% of free float</strong>, suggesting limited bearish conviction. The register has shifted incrementally toward global infrastructure and DC-specialist funds, reflecting the market\'s gradual reclassification of GMG from pure REIT to infrastructure platform. No substantial holder has filed a reduction notice recently.', tension: null, table: { headers: ['Holder', 'Type', 'Stake', 'Movement'], rows: [['Greg Goodman (CEO)', 'Founder/Insider', '~1.82%', 'Long-term hold'], ['Vanguard Group', 'Passive/Index', '~7.5%', 'Steady (index weight)'], ['BlackRock', 'Passive/Index', '~6.8%', 'Steady'], ['State Street', 'Passive/Index', '~4.2%', 'Steady'], ['CPP Investments', 'Institutional/Partner', 'DC partnership', 'A$14B committed']] }, tags: [{ text: 'Supports T1 (institutional conviction)', class: 'supports' }, { text: 'Supports T4 (CPP partnership)', class: 'supports' }, { text: 'Contradicts T3 (low short interest)', class: 'contradicts' }], source: 'ASX substantial holder notices; ASIC short position reports; annual report top-20; capital raising disclosures' }], alignmentSummary: null },
   discriminators: { intro: 'Three data points carry high diagnosticity. General commentary about "data centre demand" is non-discriminating because it applies to all DC developers equally.', rows: [{ diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>FY26 Half-Year Results.</strong> Operating EPS growth rate and DC pipeline conversion metrics.', discriminatesBetween: 'T1 (DC mega-trend delivering) vs T2 (priced in, growth decelerating)', currentReading: 'On track (guidance +9%)', readingClass: 'td-green' }, { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Hyperscaler capex trajectory.</strong> If Microsoft, Google, AWS maintain or increase DC capex budgets through CY2026.', discriminatesBetween: 'T1 (demand accelerating) vs T3 (bubble risk)', currentReading: 'Capex accelerating', readingClass: 'td-green' }, { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>New institutional DC partnerships.</strong> Follow-on deals similar to CPP A$14B commitment.', discriminatesBetween: 'T4 (platform validated) vs T2 (one-off partnership)', currentReading: 'CPP only so far', readingClass: 'td-amber' }, { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Power grid approvals and construction timelines.</strong> Any material delays in power delivery.', discriminatesBetween: 'T1 (execution on track) vs T3 (power constraints binding)', currentReading: '300MW constructing', readingClass: 'td-green' }], nonDiscriminating: '<strong>"Data centre demand is growing"</strong> (benefits all DC developers equally) &bull; <strong>"Interest rates pressure REITs"</strong> (macro factor, not GMG-specific) &bull; <strong>"36x P/E looks expensive for a REIT"</strong> (describes the question, not the answer; traditional REIT metrics may not apply) &bull; <strong>"0.5% yield is too low"</strong> (yield is a residual of growth reinvestment, not a standalone signal)' },
-  tripwires: { intro: 'Four revision conditions. Data centre pipeline execution is the single most important variable for hypothesis revision.', cards: [{ date: 'H1 FY26 RESULTS', name: 'Half-Year Operating Performance', conditions: [{ if: 'If operating EPS growth &ge;9% and WIP rises toward A$17.5B guidance', valence: 'positive', then: 'T1 strengthens. Execution on track; DC pipeline expanding as guided. Growth flywheel confirmed.' }, { if: 'If operating EPS growth &lt;7% or WIP growth stalls', valence: 'negative', then: 'T2 strengthens. Growth narrative weakening; market premium at risk.' }], source: 'Source: ASX announcement; GMG half-year results' }, { date: 'CY 2026', name: 'Hyperscaler Capex Announcements', conditions: [{ if: 'If Microsoft, Google, AWS each commit US$50B+ to DC capex for CY2026', valence: 'positive', then: 'T1 and T4 strengthen materially. Multi-year demand runway confirmed.' }, { if: 'If any major hyperscaler materially reduces DC capex guidance', valence: 'negative', then: 'T3 strengthens sharply. First evidence of demand deceleration. DC oversupply narrative gains credibility.' }], source: 'Source: Microsoft, Alphabet, Amazon quarterly earnings; capex disclosures' }, { date: 'CY 2026', name: 'New Institutional DC Partnerships', conditions: [{ if: 'If 1-2 additional sovereign wealth or pension fund partnerships announced', valence: 'positive', then: 'T4 strengthens. Platform model validated. GMG reclassification as infrastructure manager accelerates.' }, { if: 'If no new institutional partnerships beyond CPP', valence: 'negative', then: 'T4 weakens. CPP was opportunistic, not a template. Platform thesis unproven.' }], source: 'Source: ASX announcements; institutional investor disclosures' }, { date: 'ONGOING', name: 'Power Grid and Construction Delivery', conditions: [{ if: 'If 500MW target achieved and power procurement on schedule', valence: 'positive', then: 'T1 execution confirmed. Power moat deepening.' }, { if: 'If material construction delays or power grid bottlenecks disclosed', valence: 'negative', then: 'T3 strengthens. Execution risk is real. Power constraints are binding.' }], source: 'Source: GMG quarterly updates; energy regulator approvals; ASX announcements' }] },
+  tripwires: { intro: 'Four revision conditions. Data centre pipeline execution is the single most important variable for hypothesis revision.', cards: [{ date: '1H FY26 RESULTS', name: 'Half-Year Operating Performance', conditions: [{ if: 'If operating EPS growth &ge;9% and WIP rises toward A$17.5B guidance', valence: 'positive', then: 'T1 strengthens. Execution on track; DC pipeline expanding as guided. Growth flywheel confirmed.' }, { if: 'If operating EPS growth &lt;7% or WIP growth stalls', valence: 'negative', then: 'T2 strengthens. Growth narrative weakening; market premium at risk.' }], source: 'Source: ASX announcement; GMG half-year results' }, { date: 'CY 2026', name: 'Hyperscaler Capex Announcements', conditions: [{ if: 'If Microsoft, Google, AWS each commit US$50B+ to DC capex for CY2026', valence: 'positive', then: 'T1 and T4 strengthen materially. Multi-year demand runway confirmed.' }, { if: 'If any major hyperscaler materially reduces DC capex guidance', valence: 'negative', then: 'T3 strengthens sharply. First evidence of demand deceleration. DC oversupply narrative gains credibility.' }], source: 'Source: Microsoft, Alphabet, Amazon quarterly earnings; capex disclosures' }, { date: 'CY 2026', name: 'New Institutional DC Partnerships', conditions: [{ if: 'If 1-2 additional sovereign wealth or pension fund partnerships announced', valence: 'positive', then: 'T4 strengthens. Platform model validated. GMG reclassification as infrastructure manager accelerates.' }, { if: 'If no new institutional partnerships beyond CPP', valence: 'negative', then: 'T4 weakens. CPP was opportunistic, not a template. Platform thesis unproven.' }], source: 'Source: ASX announcements; institutional investor disclosures' }, { date: 'ONGOING', name: 'Power Grid and Construction Delivery', conditions: [{ if: 'If 500MW target achieved and power procurement on schedule', valence: 'positive', then: 'T1 execution confirmed. Power moat deepening.' }, { if: 'If material construction delays or power grid bottlenecks disclosed', valence: 'negative', then: 'T3 strengthens. Execution risk is real. Power constraints are binding.' }], source: 'Source: GMG quarterly updates; energy regulator approvals; ASX announcements' }] },
   gaps: { coverageRows: [{ domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25', confidence: 'High (but motivated)', confidenceClass: '' }, { domain: 'Regulatory Filings', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25', confidence: 'High (audited)', confidenceClass: 'td-green' }, { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (11 analysts)', confidenceClass: 'td-green' }, { domain: 'Competitor &amp; Industry Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (independent)', confidenceClass: 'td-green' }, { domain: 'Economic Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (objective)', confidenceClass: 'td-green' }, { domain: 'Alternative Data', coverageLevel: 'partial', coverageLabel: 'Partial', freshness: 'Mixed', confidence: 'Medium (limited DC-specific)', confidenceClass: 'td-amber' }, { domain: 'Academic Research', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Structural', confidence: 'High (peer-reviewed)', confidenceClass: 'td-green' }, { domain: 'Media &amp; Social', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'Low (noise)', confidenceClass: '' }, { domain: 'Leadership &amp; Governance', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'High (long track record)', confidenceClass: 'td-green' }, { domain: 'Ownership &amp; Capital Flows', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'High (ASX 20 disclosures)', confidenceClass: 'td-green' }], couldntAssess: ['<strong>Hyperscaler contract terms:</strong> The specific terms, pricing, and duration of Goodman\'s data centre leases with hyperscalers are commercially confidential. Whether Goodman\'s DC yields are superior or inferior to competitors\' is not publicly available.', '<strong>Power procurement costs:</strong> The cost of securing 5.0 GW of power across 13 cities is not broken out in financial statements. Whether power costs are escalating faster than DC rental yields would be material to margin analysis.', '<strong>CEO succession planning:</strong> Greg Goodman is 27+ years into his tenure. While there is no immediate succession concern, the absence of a disclosed succession plan creates long-term uncertainty for a company whose strategy and culture are deeply founder-led.'], analyticalLimitations: 'Hypothesis survival scores (T1: 38%, T2: 24%, T3: 17%, T4: 21%) reflect the strong evidence asymmetry in this case. T1 (Data Centre Mega-Trend) scores highest because the supporting evidence spans 7 of 10 domains and includes both independently verified facts (audited financials, 94% pre-commitment) and forward-looking indicators (hyperscaler capex trends, power bank expansion). T3 (Bubble Risk) scores lowest because it is driven by narrative rather than observable data: the 94% pre-commitment rate directly contradicts the oversupply thesis for Goodman\'s specific pipeline.' },
   footer: { disclaimer: 'This report does not constitute personal financial advice. Continuum Intelligence synthesises cross-domain evidence using the Analysis of Competing Hypotheses (ACH) methodology. All factual claims are sourced from ASX filings, ACCC publications, broker consensus data, and publicly available information. This report does not contain buy, sell, or hold recommendations, price targets, or valuation models.', domainCount: '10 of 10', hypothesesCount: '4 Active' }
 };
@@ -6291,7 +6289,7 @@ STOCK_DATA.WDS = {
 
   // Verdict
   verdict: {
-    text: 'Woodside is at a strategic inflection point. Scarborough LNG (94% complete) will make Woodside a top-5 global LNG producer upon delivery in Q4 2026. H1 2025 delivered US$6,590M revenue (+10%), US$3,339M operating cash flow, and 82% cash margins. But the CEO departed to become BP CEO, 58% of shareholders voted against the climate transition plan, and the energy transition creates a structural overhang on long-life hydrocarbon assets. At 11.5x trailing P/E with ~6.9% yield, the market is paying for income, not growth.',
+    text: 'Woodside is at a strategic inflection point. Scarborough LNG (94% complete) will make Woodside a top-5 global LNG producer upon delivery in Q4 2026. 1H 2025 delivered US$6,590M revenue (+10%), US$3,339M operating cash flow, and 82% cash margins. But the CEO departed to become BP CEO, 58% of shareholders voted against the climate transition plan, and the energy transition creates a structural overhang on long-life hydrocarbon assets. At 11.5x trailing P/E with ~6.9% yield, the market is paying for income, not growth.',
     borderColor: 'var(--signal-amber)',
     scores: [
       { label: 'T1 LNG Growth', score: '40%', scoreColor: 'var(--signal-green)', dirArrow: '&uarr;', dirText: 'Rising', dirColor: 'var(--signal-green)' },
@@ -6318,7 +6316,7 @@ STOCK_DATA.WDS = {
       [['Market Cap', 'A$48.4B', 'td-mono'], ['Sector', 'Energy (Oil &amp; Gas / LNG)', 'td-mono']],
       [['Share Price', 'A$25.48', 'td-mono'], ['52-Week Range', 'A$18.61 &ndash; A$27.30', 'td-mono']],
       [['Trailing P/E', '11.5x', 'td-mono'], ['Forward P/E', '15.7x', 'td-mono']],
-      [['Revenue (H1 2025)', 'US$6,590M (+10%)', 'td-mono td-green'], ['NPAT (H1 2025)', 'US$1,316M', 'td-mono']],
+      [['Revenue (1H 2025)', 'US$6,590M (+10%)', 'td-mono td-green'], ['NPAT (1H 2025)', 'US$1,316M', 'td-mono']],
       [['Operating Cash Flow', 'US$3,339M', 'td-mono'], ['Cash Margin', '82%', 'td-mono td-green']],
       [['Production (FY25)', '~198.8 MMboe (record)', 'td-mono td-green'], ['FY26 Guidance', '172-186 MMboe', 'td-mono td-amber']],
       [['Key Project', 'Scarborough LNG (94% complete)', 'td-mono td-green'], ['Scarborough First LNG', 'Q4 2026', 'td-mono']],
@@ -6350,7 +6348,7 @@ STOCK_DATA.WDS = {
       ],
       supportingLabel: 'Supporting Evidence (6 Domains)',
       supporting: [
-        '<strong>Financial Statements:</strong> H1 2025 revenue US$6,590M (+10%), operating cash flow US$3,339M, 82% cash margin',
+        '<strong>Financial Statements:</strong> 1H 2025 revenue US$6,590M (+10%), operating cash flow US$3,339M, 82% cash margin',
         '<strong>Corporate Comms:</strong> Scarborough 94% complete. Record production 198.8 MMboe in FY25',
         '<strong>Economic Data:</strong> Asian LNG demand growing 4-5% annually. India, SE Asia driving long-term contracts',
         '<strong>Competitor Data:</strong> Global LNG supply tightness expected through 2027-28',
@@ -6465,28 +6463,28 @@ STOCK_DATA.WDS = {
         title: '1. Corporate Communications',
         epistemicClass: 'ep-motivated',
         epistemicLabel: 'Motivated',
-        finding: 'H1 2025 results: <strong>revenue US$6,590M (+10%), operating cash flow US$3,339M, cash margin 82%</strong>. Scarborough positioned as "on track" at 94% completion with first LNG targeted Q4 2026. FY25 production of ~198.8 MMboe described as record. FY26 guidance of 172-186 MMboe acknowledged as lower due to planned Pluto turnaround. CEO Meg O\'Neill\'s departure in December 2025 was framed as orderly transition; Liz Westcott appointed Acting CEO. Louisiana LNG acquisition positioned as long-term growth.',
+        finding: '1H 2025 results: <strong>revenue US$6,590M (+10%), operating cash flow US$3,339M, cash margin 82%</strong>. Scarborough positioned as "on track" at 94% completion with first LNG targeted Q4 2026. FY25 production of ~198.8 MMboe described as record. FY26 guidance of 172-186 MMboe acknowledged as lower due to planned Pluto turnaround. CEO Meg O\'Neill\'s departure in December 2025 was framed as orderly transition; Liz Westcott appointed Acting CEO. Louisiana LNG acquisition positioned as long-term growth.',
         tension: 'Management messaging is focused on operational execution while downplaying the CEO departure and climate vote. The Scarborough progress metrics (94% complete) are independently verifiable and credible. The tension is between genuinely strong operational delivery and the governance/strategic questions that management cannot resolve through communications alone.',
         table: null,
         tags: [
           { text: 'Strongly Supports T1', class: 'strong' },
           { text: 'Neutral on T2', class: 'neutral' }
         ],
-        source: 'H1 2025 Results; Scarborough project updates; ASX announcements'
+        source: '1H 2025 Results; Scarborough project updates; ASX announcements'
       },
       {
         number: 2,
         title: '2. Regulatory Filings',
         epistemicClass: 'ep-statutory',
         epistemicLabel: 'Under Oath / Statutory',
-        finding: '<strong>H1 2025:</strong> Revenue US$6,590M (+10%). NPAT US$1,316M. Operating cash flow US$3,339M. Cash margin 82%. Production FY25: ~198.8 MMboe (record). Gearing 19.5%. Scarborough project 94% complete with total estimated cost within guidance. Sangomar producing. FY26 production guidance 172-186 MMboe (lower due to planned Pluto turnaround). <strong>Climate-related disclosures:</strong> 58% shareholder vote against climate transition action plan at 2025 AGM. Environmental Defenders Office legal proceedings noted as contingent liability.',
+        finding: '<strong>1H 2025:</strong> Revenue US$6,590M (+10%). NPAT US$1,316M. Operating cash flow US$3,339M. Cash margin 82%. Production FY25: ~198.8 MMboe (record). Gearing 19.5%. Scarborough project 94% complete with total estimated cost within guidance. Sangomar producing. FY26 production guidance 172-186 MMboe (lower due to planned Pluto turnaround). <strong>Climate-related disclosures:</strong> 58% shareholder vote against climate transition action plan at 2025 AGM. Environmental Defenders Office legal proceedings noted as contingent liability.',
         tension: 'Statutory filings confirm strong operational performance alongside significant governance and ESG risks. The 58% climate vote is a statutory disclosure that cannot be dismissed as media noise. The Environmental Defenders Office legal challenges are noted as contingent liabilities, meaning the company acknowledges potential financial impact.',
         table: null,
         tags: [
           { text: 'Strongly Supports T1', class: 'strong' },
           { text: 'Supports T3 (climate vote, legal)', class: 'supports' }
         ],
-        source: 'WDS H1 2025 statutory accounts; FY24 Annual Report; AGM voting results; ASX filings'
+        source: 'WDS 1H 2025 statutory accounts; FY24 Annual Report; AGM voting results; ASX filings'
       },
       {
         number: 3,
@@ -6633,7 +6631,7 @@ STOCK_DATA.WDS = {
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Scarborough first LNG delivery (Q4 2026).</strong> On-time delivery is the single most important near-term catalyst.', discriminatesBetween: 'T1 (LNG Growth Champion) vs T2 (Execution Risk)', currentReading: '94% complete; on track', readingClass: 'td-green' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Permanent CEO appointment.</strong> Quality and timing of appointment signals board effectiveness.', discriminatesBetween: 'T2 (risk resolved) vs T4 (vacuum persists)', currentReading: 'No appointment; acting CEO', readingClass: 'td-amber' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Board response to 58% climate vote.</strong> Whether governance changes follow within 12 months.', discriminatesBetween: 'T3 (ESG risk escalating) vs T1 (governance adapts)', currentReading: 'No response yet', readingClass: 'td-amber' },
-      { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>LNG spot prices through H2 2026.</strong> Sustained &gt;US$12/MMBtu supports T1; &lt;US$8 supports T4.', discriminatesBetween: 'T1 (LNG growth) vs T4 (value trap)', currentReading: '~US$10-12 range', readingClass: 'td-green' }
+      { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>LNG spot prices through 2H 2026.</strong> Sustained &gt;US$12/MMBtu supports T1; &lt;US$8 supports T4.', discriminatesBetween: 'T1 (LNG growth) vs T4 (value trap)', currentReading: '~US$10-12 range', readingClass: 'td-green' }
     ],
     nonDiscriminating: '<strong>"Oil prices volatile"</strong> (affects all energy stocks equally) &bull; <strong>"Energy transition will strand assets"</strong> (generic claim; timeline and order-of-stranding are what matter) &bull; <strong>"6.9% yield is attractive"</strong> (describes the question, not the answer; yield can be a trap or a floor) &bull; <strong>"Climate activists protesting"</strong> (noise, not signal; the 58% shareholder vote is the signal)'
   },
@@ -6652,7 +6650,7 @@ STOCK_DATA.WDS = {
         source: 'Source: ASX project update announcements; quarterly production reports'
       },
       {
-        date: 'H1 2026',
+        date: '1H 2026',
         name: 'Permanent CEO Appointment',
         conditions: [
           { if: 'If credible permanent CEO appointed with strong LNG/energy credentials', valence: 'positive', then: 'T2 weakens. Leadership stability restored. Strategic continuity confirmed.' },
@@ -6684,8 +6682,8 @@ STOCK_DATA.WDS = {
   // Gaps
   gaps: {
     coverageRows: [
-      { domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'H1 2025', confidence: 'High (but motivated)', confidenceClass: '' },
-      { domain: 'Regulatory Filings', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'H1 2025', confidence: 'High (statutory)', confidenceClass: 'td-green' },
+      { domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: '1H 2025', confidence: 'High (but motivated)', confidenceClass: '' },
+      { domain: 'Regulatory Filings', coverageLevel: 'full', coverageLabel: 'Full', freshness: '1H 2025', confidence: 'High (statutory)', confidenceClass: 'td-green' },
       { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (9 analysts)', confidenceClass: 'td-green' },
       { domain: 'Competitor &amp; Industry Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (independent)', confidenceClass: 'td-green' },
       { domain: 'Economic Data', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'High (IEA, objective)', confidenceClass: 'td-green' },
@@ -7092,7 +7090,7 @@ STOCK_DATA.SIG = {
     intro: 'Three data points carry high diagnosticity. The escrow release is the single most important near-term variable. Integration milestones and insider behaviour provide the leading indicators.',
     rows: [
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Escrow release (~August 2026).</strong> Volume and pace of insider selling in the first 30 days post-release.', discriminatesBetween: 'T2 (de-rating from selling pressure) vs T1/T4 (insiders hold, confidence signal)', currentReading: 'Approaching &mdash; ~6 months', readingClass: 'td-red' },
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>First post-merger integration update (H1 FY26).</strong> Synergy delivery on track, integration costs within guidance.', discriminatesBetween: 'T1 (integration succeeds) vs T1 failure (execution risk)', currentReading: 'Awaiting disclosure', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>First post-merger integration update (1H FY26).</strong> Synergy delivery on track, integration costs within guidance.', discriminatesBetween: 'T1 (integration succeeds) vs T1 failure (execution risk)', currentReading: 'Awaiting disclosure', readingClass: 'td-amber' },
       { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Insider selling patterns pre-escrow.</strong> Non-escrowed CW insider transactions signal intent.', discriminatesBetween: 'T2 (insiders planning exit) vs T4 (insiders committed)', currentReading: 'Damien Gance sold A$800M', readingClass: 'td-red' },
       { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Wagner generics market share trajectory.</strong> Continued gains above 15% validate vertical integration.', discriminatesBetween: 'T4 (platform economics emerging) vs T1 (synergies stalling)', currentReading: '12% in 6 months', readingClass: 'td-green' }
     ],
@@ -7113,13 +7111,13 @@ STOCK_DATA.SIG = {
         source: 'Source: ASX substantial holder notices; escrow deed terms; ASIC filings'
       },
       {
-        date: 'H1 FY26',
+        date: '1H FY26',
         name: 'Post-Merger Integration Update',
         conditions: [
           { if: 'If synergy run-rate tracking &ge;A$40M and integration costs within guidance', valence: 'positive', then: 'T1 strengthens. Integration on track. Market may begin to look through escrow overhang.' },
           { if: 'If synergy delivery behind schedule or integration costs escalate beyond A$105M', valence: 'negative', then: 'T1 weakens. Merger execution risk materialising. Combined with escrow overhang, could trigger significant de-rating.' }
         ],
-        source: 'Source: SIG H1 FY26 results; ASX announcements; management commentary'
+        source: 'Source: SIG 1H FY26 results; ASX announcements; management commentary'
       },
       {
         date: 'ONGOING',
@@ -7149,7 +7147,7 @@ STOCK_DATA.SIG = {
     ],
     couldntAssess: [
       '<strong>Escrow holder intentions:</strong> No public disclosure of CW insider plans for escrowed shares. Whether the Gance family and Verrocchi intend to hold, partially sell, or fully exit is the most important unknown in this analysis.',
-      '<strong>Integration granular metrics:</strong> No detailed milestone reporting on synergy delivery, store-level performance post-merger, or cultural integration progress. First comprehensive update expected at H1 FY26 results.',
+      '<strong>Integration granular metrics:</strong> No detailed milestone reporting on synergy delivery, store-level performance post-merger, or cultural integration progress. First comprehensive update expected at 1H FY26 results.',
       '<strong>International profitability:</strong> CW\'s international operations (NZ, Ireland, China, Dubai) are not separately disclosed. Whether these contribute to or detract from group profitability is unknown.',
       '<strong>Wagner generics forward pipeline:</strong> While 12% market share in 6 months is impressive, the trajectory of future market share gains and competitive response from established generics players is unclear.'
     ],
@@ -7554,7 +7552,7 @@ STOCK_DATA.FMG = {
     intro: 'Three revision conditions. Iron ore price is the dominant variable. Each US$10/t decline in iron ore removes approximately US$2B from FMG\'s annual revenue.',
     cards: [
       {
-        date: 'H2 2026',
+        date: '2H 2026',
         name: 'Iron Ore Price Trajectory',
         conditions: [
           { if: 'If iron ore sustains above US$100/t through 2026', valence: 'positive', then: 'T1 (Cost Leader) strengthens. Margins hold. Dividend sustained. Stock may re-rate slightly.' },
