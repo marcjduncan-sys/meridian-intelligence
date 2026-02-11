@@ -516,6 +516,18 @@ a:hover { color: var(--accent-sage); }
 .rh-metric-value.negative { color: var(--signal-red); }
 .rh-metric-value.positive { color: var(--signal-green); }
 
+/* --- Report Page: Sparkline --- */
+.rh-sparkline {
+    margin-bottom: var(--space-xs);
+    line-height: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.rh-sparkline svg {
+    width: 140px;
+    height: 44px;
+}
+
 /* --- Report Page: Risk Skew Bar --- */
 .risk-skew-bar {
     background: var(--bg-surface);
@@ -1758,6 +1770,7 @@ STOCK_DATA.WOW = {
   currency: 'A$',
   date: '10 February 2026',
   reportId: 'WOW-2026-001',
+  priceHistory: [29.55, 31.57, 31.85, 31.11, 31.51, 28.80, 26.70, 28.41, 29.32, 29.38, 30.94, 31.69],
 
   // Hero - right side metrics
   heroDescription: '38% Grocery Market Share &bull; 202,000 Employees &bull; A$69.1B Revenue',
@@ -2187,7 +2200,7 @@ STOCK_DATA.WOW = {
       '<strong>Mandatory FGCC compliance cost:</strong> The code only took effect April 2025. No company has yet disclosed actual compliance cost burden. Fresh produce provisions don\'t commence until April 2026.',
       '<strong>Industrial relations trajectory:</strong> The 17-day strike was resolved with ~11% pay increases and concessions on AI monitoring. Whether this sets a precedent for future enterprise bargaining is unknown.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 50%, T2: 35%, T3: 30%, T4: 25%) reflect editorial assessment based on publicly available evidence. These are qualitative judgments, not algorithmic outputs. Scores sum to more than 100% because T3 (Regulatory) is partially independent of T1/T2.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 36%, T2: 25%, T3: 21%, T4: 18%) reflect editorial assessment based on publicly available evidence. These are qualitative judgments, not algorithmic outputs.'
   },
 
   // Footer
@@ -2203,6 +2216,67 @@ STOCK_DATA.WOW = {
 // RENDER FUNCTIONS
 // ============================================================
 
+// Normalise raw ACH survival scores to sum to 100%
+function normaliseScores(items) {
+  var sum = 0;
+  var raw = [];
+  for (var i = 0; i < items.length; i++) {
+    var val = parseInt(items[i].score) || 0;
+    raw.push(val);
+    sum += val;
+  }
+  if (sum === 0) return raw;
+  var result = [];
+  var allocated = 0;
+  for (var i = 0; i < raw.length; i++) {
+    if (i === raw.length - 1) {
+      result.push(100 - allocated);
+    } else {
+      var n = Math.round(raw[i] / sum * 100);
+      result.push(n);
+      allocated += n;
+    }
+  }
+  return result;
+}
+
+function renderSparkline(prices) {
+  if (!prices || prices.length < 2) return '';
+  var w = 140, h = 44, pad = 2;
+  var min = prices[0], max = prices[0];
+  for (var i = 1; i < prices.length; i++) {
+    if (prices[i] < min) min = prices[i];
+    if (prices[i] > max) max = prices[i];
+  }
+  var range = max - min || 1;
+  var stepX = (w - pad * 2) / (prices.length - 1);
+
+  var points = '';
+  var fillPoints = pad + ',' + (h - pad);
+  for (var i = 0; i < prices.length; i++) {
+    var x = pad + i * stepX;
+    var y = h - pad - ((prices[i] - min) / range) * (h - pad * 2);
+    points += x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+    fillPoints += ' ' + x.toFixed(1) + ',' + y.toFixed(1);
+  }
+  fillPoints += ' ' + (pad + (prices.length - 1) * stepX).toFixed(1) + ',' + (h - pad);
+
+  var color = prices[prices.length - 1] > prices[0] * 1.02 ? '#00c875' :
+              prices[prices.length - 1] < prices[0] * 0.98 ? '#e44258' : '#f5a623';
+  var id = 'sp' + Math.random().toString(36).substr(2, 6);
+
+  return '<div class="rh-sparkline">' +
+    '<svg viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none">' +
+      '<defs><linearGradient id="' + id + '" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="' + color + '" stop-opacity="0.3"/>' +
+        '<stop offset="100%" stop-color="' + color + '" stop-opacity="0.02"/>' +
+      '</linearGradient></defs>' +
+      '<polygon points="' + fillPoints + '" fill="url(#' + id + ')"/>' +
+      '<polyline points="' + points.trim() + '" fill="none" stroke="' + color + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '</svg>' +
+  '</div>';
+}
+
 function renderReportHero(data) {
   var metricsHtml = '';
   for (var i = 0; i < data.heroMetrics.length; i++) {
@@ -2210,6 +2284,8 @@ function renderReportHero(data) {
     var cls = 'rh-metric-value' + (m.colorClass ? ' ' + m.colorClass : '');
     metricsHtml += '<div class="rh-metric"><div class="rh-metric-label">' + m.label + '</div><div class="' + cls + '">' + m.value + '</div></div>';
   }
+
+  var sparklineHtml = data.priceHistory ? renderSparkline(data.priceHistory) : '';
 
   return '<div class="report-hero">' +
     '<div class="report-hero-inner">' +
@@ -2223,6 +2299,7 @@ function renderReportHero(data) {
           (data.heroCompanyDescription ? '<div class="rh-company-desc">' + data.heroCompanyDescription + '</div>' : '') +
         '</div>' +
         '<div class="rh-right">' +
+          sparklineHtml +
           '<div class="rh-price"><span class="rh-price-currency">' + data.currency + '</span>' + data.price + '</div>' +
           '<div class="rh-metrics">' + metricsHtml + '</div>' +
         '</div>' +
@@ -2247,6 +2324,7 @@ function renderSkewBar(data) {
 function renderVerdict(data) {
   var v = data.verdict;
   var borderStyle = v.borderColor ? ' style="border-color: ' + v.borderColor + '"' : '';
+  var norm = normaliseScores(v.scores);
 
   var scoresHtml = '';
   for (var i = 0; i < v.scores.length; i++) {
@@ -2254,7 +2332,7 @@ function renderVerdict(data) {
     var dirStyle = s.dirColor ? ' style="color:' + s.dirColor + '"' : '';
     scoresHtml += '<div class="vs-item">' +
       '<div class="vs-label">' + s.label + '</div>' +
-      '<div class="vs-score" style="color:' + s.scoreColor + '">' + s.score + '</div>' +
+      '<div class="vs-score" style="color:' + s.scoreColor + '">' + norm[i] + '%</div>' +
       '<div class="vs-direction"' + dirStyle + '>' + s.dirArrow + ' ' + s.dirText + '</div>' +
     '</div>';
   }
@@ -2321,9 +2399,12 @@ function renderIdentity(data) {
 function renderHypotheses(data) {
   var t = data.ticker.toLowerCase();
   var cardsHtml = '';
+  var norm = normaliseScores(data.hypotheses);
 
   for (var i = 0; i < data.hypotheses.length; i++) {
     var h = data.hypotheses[i];
+    var normScore = norm[i] + '%';
+    var normWidth = norm[i] + '%';
 
     // Requires section (only T1 typically has this)
     var requiresHtml = '';
@@ -2357,7 +2438,7 @@ function renderHypotheses(data) {
 
     cardsHtml += '<div class="hyp-card ' + h.tier + '">' +
       '<div class="hc-header"><div class="hc-title">' + h.title + '</div><div class="hc-status ' + h.statusClass + '">' + h.statusText + '</div></div>' +
-      '<div class="hc-score-row"><div class="hc-score-number">' + h.score + '</div><div class="hc-score-bar"><div class="hc-score-fill" style="width:' + h.scoreWidth + '"></div></div><div class="hc-score-meta">' + h.scoreMeta + '</div></div>' +
+      '<div class="hc-score-row"><div class="hc-score-number">' + normScore + '</div><div class="hc-score-bar"><div class="hc-score-fill" style="width:' + normWidth + '"></div></div><div class="hc-score-meta">' + h.scoreMeta + '</div></div>' +
       '<p class="hc-desc">' + h.description + '</p>' +
       requiresHtml +
       supportHtml +
@@ -2763,6 +2844,7 @@ STOCK_DATA.XRO = {
   currency: 'A$',
   date: '10 February 2026',
   reportId: 'XRO-2026-001',
+  priceHistory: [154.75, 164.19, 184.29, 179.80, 180.99, 163.59, 157.50, 145.00, 122.25, 114.02, 93.75, 84.76],
 
   // Hero - right side metrics
   heroDescription: 'Cloud Accounting &bull; 4.6M Subscribers &bull; NZ$2.10B Revenue',
@@ -3180,7 +3262,7 @@ STOCK_DATA.XRO = {
       '<strong>US market unit economics:</strong> Xero does not break out US-specific subscriber economics. The US has historically been Xero\'s weakest market, and Melio\'s effectiveness as a wedge product is unproven.',
       '<strong>AI impact quantification:</strong> While academic research suggests AI augments rather than replaces accounting workflows, the pace of AI capability improvement is uncertain. The absence of current churn does not guarantee absence of future disruption.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 55%, T2: 40%, T3: 25%, T4: 20%) reflect editorial assessment. The unusually wide gap between T1 and T3/T4 reflects the evidence asymmetry: the bullish thesis has strong empirical support across multiple independent domains, while the bearish theses rely primarily on sentiment and narrative rather than observable data. This does not mean the bear case is wrong; it means the bear case is currently unfalsifiable.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 39%, T2: 29%, T3: 18%, T4: 14%) reflect editorial assessment. The unusually wide gap between T1 and T3/T4 reflects the evidence asymmetry: the bullish thesis has strong empirical support across multiple independent domains, while the bearish theses rely primarily on sentiment and narrative rather than observable data. This does not mean the bear case is wrong; it means the bear case is currently unfalsifiable.'
   },
 
   // Footer
@@ -3204,6 +3286,7 @@ STOCK_DATA.WTC = {
   currency: 'A$',
   date: '10 February 2026',
   reportId: 'WTC-2026-001',
+  priceHistory: [81.23, 88.52, 107.15, 109.03, 119.38, 101.79, 90.25, 69.12, 73.02, 68.46, 58.00, 50.59],
 
   // Hero - right side metrics
   heroDescription: 'Logistics Software &bull; ~17,000 Customers &bull; 174 Countries',
@@ -3601,7 +3684,7 @@ STOCK_DATA.WTC = {
       '<strong>Customer sentiment:</strong> Enterprise logistics customers do not publicly comment on vendor governance risk assessments. Whether any have initiated procurement reviews or vendor risk escalations is unknown.',
       '<strong>Broker target currency:</strong> Most analyst targets predate the February board departures. The consensus A$101.21 may not reflect current governance reality.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 30%, T2: 50%, T3: 35%, T4: 55%) reflect editorial assessment. T4 (Founder Entrenchment) scores highest because it is driven by observable structural facts: White\'s 36% shareholding, his return as Executive Chairman, and the mass board departure. T2 (Product Carries) scores second because the operational evidence genuinely is strong. These two hypotheses can coexist: a great product can persist inside a poorly governed company, but value accrual to minority shareholders may be impaired.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 36%, T2: 25%, T3: 21%, T4: 18%) reflect editorial assessment. T4 (Founder Entrenchment) scores highest because it is driven by observable structural facts: White\'s 36% shareholding, his return as Executive Chairman, and the mass board departure. T2 (Product Carries) scores second because the operational evidence genuinely is strong. These two hypotheses can coexist: a great product can persist inside a poorly governed company, but value accrual to minority shareholders may be impaired.'
   },
 
   // Footer
@@ -3625,6 +3708,7 @@ STOCK_DATA.DRO = {
   currency: 'A$',
   date: '10 February 2026',
   reportId: 'DRO-2026-001',
+  priceHistory: [0.90, 1.34, 1.32, 2.28, 3.75, 3.30, 4.66, 3.83, 1.98, 3.08, 3.32, 3.38],
 
   // Hero - right side metrics
   heroDescription: 'Counter-UAS &bull; Electronic Warfare &bull; A$204M Cash',
@@ -4036,7 +4120,7 @@ STOCK_DATA.DRO = {
       '<strong>US division departure:</strong> The reasons behind the head of US operations departure are undisclosed. Whether this reflects personal circumstances, strategic disagreements, or operational challenges is unknown.',
       '<strong>Contract margins:</strong> Defence contract margins are not disclosed at granular level. The 65% gross margin may mask significant variation between high-margin hardware sales and lower-margin integration contracts.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 45%, T2: 40%, T3: 30%, T4: 40%) reflect genuinely balanced evidence. The narrow range between T1 and T2 is intentional: the data supports both the thesis that DroneShield is scaling into a structural tailwind and the thesis that revenue remains lumpy and contract-dependent. With only 2 covering analysts and limited institutional coverage, the information environment is relatively opaque compared to large-cap coverage. This uncertainty itself is a finding.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 36%, T2: 25%, T3: 25%, T4: 14%) reflect genuinely balanced evidence. The narrow range between T1 and T2 is intentional: the data supports both the thesis that DroneShield is scaling into a structural tailwind and the thesis that revenue remains lumpy and contract-dependent. With only 2 covering analysts and limited institutional coverage, the information environment is relatively opaque compared to large-cap coverage. This uncertainty itself is a finding.'
   },
 
   // Footer
@@ -4060,6 +4144,7 @@ STOCK_DATA.PME = {
   currency: 'A$',
   date: '10 February 2026',
   reportId: 'PME-2026-001',
+  priceHistory: [199.79, 229.41, 282.01, 285.08, 321.89, 298.81, 308.29, 263.61, 266.54, 220.87, 184.12, 167.66],
 
   // Hero - right side metrics
   heroDescription: 'Medical Imaging &bull; Visage 7 Platform &bull; 132 Employees',
@@ -4464,7 +4549,7 @@ STOCK_DATA.PME = {
       '<strong>Implementation success rates:</strong> Large health system implementations (e.g., Trinity Health\'s 7,600 beds) are complex and multi-year. Whether these proceed on schedule and budget is not publicly reported until problems emerge.',
       '<strong>Key person risk:</strong> Co-founder Dr Sam Hupert is 71. Succession planning is not publicly detailed. The company\'s lean model (132 employees for an A$18.6B company) creates concentration risk in key personnel.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 60%, T2: 35%, T3: 20%, T4: 50%) reflect the strong evidence asymmetry in this case. The high score for T1 (US Expansion) is driven by observable contract wins, market share data, and competitive positioning. The low score for T3 (Competitive Disruption) reflects the absence of any credible competitive threat in the near term. The Upside skew rating despite a 163x P/E is an editorial judgment: conventional valuation frameworks consistently undervalue platform businesses with this quality of economics. Whether the market agrees is a separate question from whether the evidence supports it.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 39%, T2: 25%, T3: 18%, T4: 18%) reflect the strong evidence asymmetry in this case. The high score for T1 (US Expansion) is driven by observable contract wins, market share data, and competitive positioning. The low score for T3 (Competitive Disruption) reflects the absence of any credible competitive threat in the near term. The Upside skew rating despite a 163x P/E is an editorial judgment: conventional valuation frameworks consistently undervalue platform businesses with this quality of economics. Whether the market agrees is a separate question from whether the evidence supports it.'
   },
 
   // Footer
@@ -4488,6 +4573,7 @@ STOCK_DATA.GYG = {
   currency: 'A$',
   date: '10 February 2026',
   reportId: 'GYG-2026-001',
+  priceHistory: [32.22, 32.17, 30.39, 28.29, 27.55, 25.24, 25.98, 26.72, 23.62, 21.65, 22.18, 20.84],
 
   // Hero - right side metrics
   heroDescription: 'Quick Service Restaurants &bull; 239 Stores &bull; ~13,000 Employees',
@@ -4898,7 +4984,7 @@ STOCK_DATA.GYG = {
       '<strong>Domestic market saturation:</strong> Whether GYG\'s same-store sales deceleration is cyclical (consumer spending pressure) or structural (market saturation in key postcodes) requires granular geographic data that is not publicly available.',
       '<strong>CEO succession:</strong> The identity and strategic orientation of the incoming CEO is unknown. This is the single largest near-term uncertainty: the new CEO\'s stance on US expansion will likely determine whether T2 or T4 prevails.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 30%, T2: 25%, T3: 55%, T4: 40%) reflect the weight of evidence against the IPO growth narrative. The high score for T3 (Growth Maturation) is driven by observable data: same-store sales at 3.7% vs 7.6% forecast, stock below IPO price, P/E at 166x for a QSR business. The low score for T2 (US Expansion Succeeds) reflects both the unit economics (A$2.6M loss per store) and the academic evidence on international QSR expansion failure rates. We note that 5 stores is a very small sample; it is possible (though not supported by current evidence) that unit economics will improve with scale. The Downside skew rating reflects our assessment that the most probable outcome is valuation correction, not business failure.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 32%, T2: 29%, T3: 21%, T4: 18%) reflect the weight of evidence against the IPO growth narrative. The high score for T3 (Growth Maturation) is driven by observable data: same-store sales at 3.7% vs 7.6% forecast, stock below IPO price, P/E at 166x for a QSR business. The low score for T2 (US Expansion Succeeds) reflects both the unit economics (A$2.6M loss per store) and the academic evidence on international QSR expansion failure rates. We note that 5 stores is a very small sample; it is possible (though not supported by current evidence) that unit economics will improve with scale. The Downside skew rating reflects our assessment that the most probable outcome is valuation correction, not business failure.'
   },
 
   // Footer
@@ -4925,6 +5011,7 @@ STOCK_DATA.CSL = {
   currency: 'A$',
   date: '11 February 2026',
   reportId: 'CSL-2026-001',
+  priceHistory: [249.28, 251.13, 247.00, 239.48, 270.90, 212.89, 198.20, 178.50, 186.30, 172.65, 181.42, 171.39],
 
   // Hero - right side metrics
   heroDescription: 'Global Plasma Leader &bull; 29,904 Employees &bull; US$15.0B Revenue',
@@ -5342,7 +5429,7 @@ STOCK_DATA.CSL = {
       '<strong>Gene therapy payer dynamics:</strong> HEMGENIX at US$3.5M per treatment faces payer pushback that is difficult to quantify. Uptake trajectories depend on reimbursement negotiations that are not publicly disclosed.',
       '<strong>China regulatory trajectory:</strong> The pace of Chinese import substitution in albumin depends on NMPA regulatory decisions that are opaque to external analysts.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 50%, T2: 40%, T3: 30%, T4: 20%) reflect editorial assessment. The unusually high score for T2 (Execution Risk) relative to CSL\'s historical stability reflects the specific circumstances of the CEO departure and Seqirus reversal. These are event-driven, not structural, and could resolve quickly with a clean H1 result and prompt CEO appointment.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 33%, T2: 26%, T3: 19%, T4: 22%) reflect editorial assessment. The unusually high score for T2 (Execution Risk) relative to CSL\'s historical stability reflects the specific circumstances of the CEO departure and Seqirus reversal. These are event-driven, not structural, and could resolve quickly with a clean H1 result and prompt CEO appointment.'
   },
 
   // Footer
@@ -5369,6 +5456,7 @@ STOCK_DATA.MQG = {
   currency: 'A$',
   date: '11 February 2026',
   reportId: 'MQG-2026-001',
+  priceHistory: [196.64, 193.45, 214.21, 228.73, 217.38, 225.16, 219.33, 218.56, 197.04, 203.20, 212.18, 214.50],
   heroDescription: 'Asset Management &bull; Banking &bull; Commodities &bull; A$941B AUM',
   heroCompanyDescription: 'Macquarie Group (ASX: MQG) is Australia\'s largest investment bank and one of the world\'s largest infrastructure asset managers, with A$941 billion in assets under management. Operating across asset management (MAM), banking (BFS), commodities (CGM), and capital markets (MacCap), Macquarie is a globally diversified financial services group headquartered in Sydney.',
   heroMetrics: [
@@ -5477,7 +5565,7 @@ STOCK_DATA.MQG = {
       '<strong>CGM proprietary trading exposure:</strong> Macquarie\'s commodity trading book is opaque. The balance between client facilitation and principal risk-taking is not disclosed at a level that permits independent assessment.',
       '<strong>ASIC proceeding scope and timeline:</strong> The full extent of the short-selling misreporting and ASIC\'s penalty expectations are not publicly available. Historical precedent for similar financial institution cases is limited in Australia.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 45%, T2: 40%, T3: 30%, T4: 25%) reflect editorial assessment. The relatively tight spread between T1 and T2 reflects the genuine uncertainty about whether Macquarie\'s infrastructure positioning is a structural advantage (T1) or merely one pillar of a diversified franchise (T2). The answer depends on whether energy transition capital flows accelerate as projected, which is a macroeconomic question rather than a company-specific one.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 33%, T2: 22%, T3: 19%, T4: 26%) reflect editorial assessment. The relatively tight spread between T1 and T2 reflects the genuine uncertainty about whether Macquarie\'s infrastructure positioning is a structural advantage (T1) or merely one pillar of a diversified franchise (T2). The answer depends on whether energy transition capital flows accelerate as projected, which is a macroeconomic question rather than a company-specific one.'
   },
   footer: {
     disclaimer: 'This report does not constitute personal financial advice. Meridian Intelligence synthesises cross-domain evidence using the Analysis of Competing Hypotheses (ACH) methodology. All factual claims are sourced from ASX filings, ACCC publications, broker consensus data, and publicly available information. This report does not contain buy, sell, or hold recommendations, price targets, or valuation models.',
@@ -5492,6 +5580,7 @@ STOCK_DATA.MQG = {
 // ============================================================
 STOCK_DATA.GMG = {
   ticker: 'GMG', tickerFull: 'GMG.AX', exchange: 'ASX', company: 'Goodman Group', sector: 'Real Estate', sectorSub: 'Industrial & Data Centre REIT', price: 30.55, currency: 'A$', date: '11 February 2026', reportId: 'GMG-2026-001',
+  priceHistory: [28.43, 29.98, 32.92, 34.24, 35.18, 34.35, 32.78, 33.03, 29.68, 30.98, 30.73, 31.12],
   heroDescription: 'Industrial &amp; Data Centre REIT &bull; A$86B AUM &bull; 5.0 GW Power Bank',
   heroCompanyDescription: 'Goodman Group (ASX: GMG) is a global integrated property group that owns, develops, and manages industrial real estate and data centres across 14 countries. Originally a logistics-focused REIT, Goodman is rapidly transforming into the world\'s largest listed data centre developer, with 57% of its A$12.9B development pipeline dedicated to hyperscaler data centre facilities.',
   heroMetrics: [{ label: 'Mkt Cap', value: 'A$63B', colorClass: '' }, { label: 'P/E', value: '36x', colorClass: 'premium' }, { label: 'Fwd P/E', value: '23.5x', colorClass: '' }, { label: 'Rev Growth', value: '+16.5%', colorClass: 'positive' }, { label: 'ROE', value: '8.2%', colorClass: '' }],
@@ -5506,7 +5595,7 @@ STOCK_DATA.GMG = {
   evidence: { intro: 'Ten evidence domains assessed. Evidence strongly favours T1 (Data Centre Mega-Trend), with limited near-term support for the bearish hypotheses.', cards: [{ number: 1, title: '1. Corporate Communications', epistemicClass: 'ep-motivated', epistemicLabel: 'Motivated', finding: 'FY25 results: <strong>operating EPS 118.0 cents (+9.8%), operating profit A$2,311M (+13%)</strong>, AUM A$86B. Management framing: data centres as the "defining opportunity" for the next decade. CPP Investments A$14B European DC partnership announced as validation of platform model. Pipeline guidance: WIP to rise from A$12.9B to A$17.5B, with data centres comprising 75% by FY26 (up from 57%). Power bank expanded to 5.0 GW across 13 cities. 300MW under construction with target of 500MW. Distribution of 30.0 cents maintained.', tension: 'Management is understandably promotional about the DC opportunity, but the key metrics are independently verifiable in statutory filings. The tension is between the genuine strength of the DC pipeline (contracted, pre-committed) and the question of whether Goodman is over-concentrating in a single theme. The shift from 57% DC to 75% by FY26 is a significant strategic bet on one sector.', table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T4 (platform model)', class: 'supports' }], source: 'FY25 Results presentation; ASX announcements; Investor Day materials' }, { number: 2, title: '2. Regulatory Filings', epistemicClass: 'ep-statutory', epistemicLabel: 'Under Oath / Statutory', finding: '<strong>FY25 (audited):</strong> Revenue A$2,311M (+16.5%). Operating profit A$2,311M (+13%). Operating EPS 118.0 cents (+9.8%). NTA per share A$9.44. Gearing 4.3% (among lowest in global REIT sector). AUM A$86B with A$72B external. Development WIP A$12.9B across 57 projects, 94% pre-committed. Occupancy 96.5%. Distribution per share 30.0 cents. Debt/equity 0.23x. No material audit qualifications. <strong>A$4B capital raising successfully completed</strong>, supporting pipeline expansion.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Contradicts T3 (94% pre-committed)', class: 'contradicts' }], source: 'GMG FY25 Annual Report; ASX filings; audited financial statements' }, { number: 3, title: '3. Broker Research', epistemicClass: 'ep-consensus', epistemicLabel: 'Consensus', finding: '<strong>Strongly bullish consensus.</strong> 11 analysts rate Buy, 0 rate Sell. Median 12-month target A$37-38, implying <strong>22-24% upside</strong> from current price. Broker thesis centres on data centre pipeline, power bank as competitive moat, and institutional capital attraction. Morningstar fair value estimate A$29 is the conservative outlier. Key debate among brokers is whether the DC premium is sustainable or whether GMG should be valued as a traditional REIT (implying significant downside).', tension: 'The broker consensus is overwhelmingly bullish, but the Morningstar A$29 estimate represents a credible alternative view that traditional REIT valuation frameworks should apply. The gap between consensus targets (A$37-38) and Morningstar (A$29) reflects the fundamental disagreement about whether GMG is a property company or an infrastructure platform.', table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T2 (Morningstar view)', class: 'supports' }], source: 'UBS, Macquarie, Morgan Stanley, Goldman Sachs, Morningstar consensus data' }, { number: 4, title: '4. Competitor &amp; Industry Data', epistemicClass: 'ep-independent', epistemicLabel: 'Independent', finding: '<strong>Goodman\'s power bank is the key differentiator.</strong> Global data centre REITs (Equinix, Digital Realty) and hyperscalers (AWS, Microsoft, Google) are all expanding DC capacity, but Goodman\'s 5.0 GW power bank across 13 cities is a uniquely scarce asset. Power access is the binding constraint for DC development globally; having secured power in advance gives Goodman a 3-5 year time advantage. Equinix trades at ~70x forward P/E; Digital Realty at ~45x. Goodman\'s 23.5x forward P/E is a <strong>discount</strong> to pure DC peers despite similar or superior growth.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Contradicts T2 (discount to DC peers)', class: 'contradicts' }, { text: 'Contradicts T3', class: 'contradicts' }], source: 'Equinix, Digital Realty filings; CBRE DC market reports; JLL industrial data' }, { number: 5, title: '5. Economic Data', epistemicClass: 'ep-objective', epistemicLabel: 'Objective', finding: 'Global data centre demand growing at 25-30% annually, driven by AI training and inference workloads, cloud migration, and digital transformation. <strong>Power availability is the binding constraint:</strong> grid capacity limitations in key markets (Northern Virginia, Singapore, Dublin) are creating a premium for developers who have secured power in advance. Interest rates remain elevated, pressuring REIT valuations broadly, but institutional capital is flowing into data centre infrastructure as a distinct asset class. Global DC market estimated at US$350B+ by 2030.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T4 (institutional capital)', class: 'supports' }], source: 'IEA power demand forecasts; CBRE data centre reports; RBA; central bank data' }, { number: 6, title: '6. Alternative Data', epistemicClass: 'ep-behavioural', epistemicLabel: 'Behavioural', finding: '<strong>Hiring patterns confirm DC pivot.</strong> LinkedIn data shows Goodman aggressively recruiting data centre engineers, power procurement specialists, and critical infrastructure managers. Job postings have shifted materially from traditional industrial property roles toward DC-specific technical roles. Employee count remains lean at ~1,030 (A$83M AUM per employee), suggesting high operational efficiency. No negative Glassdoor signals. Web traffic to Goodman\'s DC-specific pages has increased significantly.', tension: null, table: null, tags: [{ text: 'Supports T1', class: 'supports' }, { text: 'Supports T4 (lean operations)', class: 'supports' }], source: 'LinkedIn job postings; Glassdoor; SimilarWeb; employee review sites' }, { number: 7, title: '7. Academic Research', epistemicClass: 'ep-peerreviewed', epistemicLabel: 'Peer-Reviewed', finding: 'Academic literature on data centre economics confirms several key structural dynamics. <strong>Power access is the primary competitive moat:</strong> research on DC site selection shows that power availability, not land or construction capability, determines competitive advantage. Studies on AI compute demand project exponential growth in training and inference workloads through at least 2035. Real estate platform economics research shows that integrated develop-own-manage models generate superior returns to pure development or pure ownership strategies.', tension: null, table: null, tags: [{ text: 'Strongly Supports T1', class: 'strong' }, { text: 'Supports T4 (platform economics)', class: 'supports' }, { text: 'Contradicts T3 (demand structural)', class: 'contradicts' }], source: 'Data centre economics journals; AI compute demand research; real estate platform studies' }, { number: 8, title: '8. Media &amp; Social', epistemicClass: 'ep-noise', epistemicLabel: 'Noise', finding: 'Media coverage is predominantly positive, framing Goodman as the "data centre REIT play" on the ASX. Periodic bearish commentary focuses on data centre oversupply fears and REIT valuation multiples. Social media sentiment is moderately bullish. <strong>The "data centre bubble" narrative</strong> appears in broader market commentary but is rarely applied specifically to Goodman, given its pre-committed pipeline. Financial press coverage of the CPP partnership was overwhelmingly positive.', tension: null, table: null, tags: [{ text: 'Supports T1 (positive framing)', class: 'supports' }, { text: 'Supports T3 (bubble narrative exists)', class: 'supports' }], source: 'Australian Financial Review; Bloomberg; ASX investment forums' }, { number: 9, title: '9. Leadership &amp; Governance', epistemicClass: 'ep-governance', epistemicLabel: 'Independent Assessment', finding: '<strong>Exceptional founder-led governance with deep skin in the game.</strong> Greg Goodman co-founded the company in 1998 and has served as CEO for 27+ years. His ~1.82% shareholding is worth approximately A$747M at current prices, creating complete alignment with shareholders. Under his leadership, Goodman has grown from an Australian industrial property trust to a A$63B global platform. The strategic pivot from pure industrial REIT to data centre infrastructure developer is Goodman\'s defining bet, and it was made earlier than competitors. Danny Breslin (CIO) and Jason Little (COO) provide strong operational depth. The board includes experienced property and infrastructure directors. <strong>Key strength:</strong> long tenure, consistent strategy, and a lean organisation. <strong>Key risk:</strong> succession planning for a 27-year CEO is the obvious long-term question, though not an immediate concern.', tension: null, table: { headers: ['Name', 'Role', 'Tenure', 'Shareholding', 'Prior Experience'], rows: [['Greg Goodman', 'CEO &amp; Co-founder', 'Since 1998 (27+ years)', '~1.82% (~A$747M)', 'Co-founded Goodman; built global platform'], ['Ian Ferrier AC', 'Chairman', 'Since 2003', 'Moderate', 'KPMG; multiple ASX board roles'], ['Danny Breslin', 'CIO', 'Long tenure', 'Modest', 'Global investment strategy; DC pipeline']] }, tags: [{ text: 'Strongly Supports T1 (founder quality)', class: 'strong' }, { text: 'Supports T4 (strategic vision)', class: 'supports' }], source: 'GMG Annual Report FY25; ASX filings; board biographical disclosures' }, { number: 10, title: '10. Ownership &amp; Capital Flows', epistemicClass: 'ep-registry', epistemicLabel: 'Registry Data', finding: '<strong>Institutional quality register with growing passive allocation.</strong> Goodman\'s register reflects its ASX 20 status: dominated by large institutional holders and index funds. Founder Greg Goodman\'s 1.82% stake (A$747M) is the key alignment signal. Institutional ownership is high and stable; the A$4B capital raising in FY25 was well-supported, indicating institutional appetite for the DC growth story. <strong>Short interest is low at ~1-2% of free float</strong>, suggesting limited bearish conviction. The register has shifted incrementally toward global infrastructure and DC-specialist funds, reflecting the market\'s gradual reclassification of GMG from pure REIT to infrastructure platform. No substantial holder has filed a reduction notice recently.', tension: null, table: { headers: ['Holder', 'Type', 'Stake', 'Movement'], rows: [['Greg Goodman (CEO)', 'Founder/Insider', '~1.82%', 'Long-term hold'], ['Vanguard Group', 'Passive/Index', '~7.5%', 'Steady (index weight)'], ['BlackRock', 'Passive/Index', '~6.8%', 'Steady'], ['State Street', 'Passive/Index', '~4.2%', 'Steady'], ['CPP Investments', 'Institutional/Partner', 'DC partnership', 'A$14B committed']] }, tags: [{ text: 'Supports T1 (institutional conviction)', class: 'supports' }, { text: 'Supports T4 (CPP partnership)', class: 'supports' }, { text: 'Contradicts T3 (low short interest)', class: 'contradicts' }], source: 'ASX substantial holder notices; ASIC short position reports; annual report top-20; capital raising disclosures' }], alignmentSummary: null },
   discriminators: { intro: 'Three data points carry high diagnosticity. General commentary about "data centre demand" is non-discriminating because it applies to all DC developers equally.', rows: [{ diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>FY26 Half-Year Results.</strong> Operating EPS growth rate and DC pipeline conversion metrics.', discriminatesBetween: 'T1 (DC mega-trend delivering) vs T2 (priced in, growth decelerating)', currentReading: 'On track (guidance +9%)', readingClass: 'td-green' }, { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Hyperscaler capex trajectory.</strong> If Microsoft, Google, AWS maintain or increase DC capex budgets through CY2026.', discriminatesBetween: 'T1 (demand accelerating) vs T3 (bubble risk)', currentReading: 'Capex accelerating', readingClass: 'td-green' }, { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>New institutional DC partnerships.</strong> Follow-on deals similar to CPP A$14B commitment.', discriminatesBetween: 'T4 (platform validated) vs T2 (one-off partnership)', currentReading: 'CPP only so far', readingClass: 'td-amber' }, { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Power grid approvals and construction timelines.</strong> Any material delays in power delivery.', discriminatesBetween: 'T1 (execution on track) vs T3 (power constraints binding)', currentReading: '300MW constructing', readingClass: 'td-green' }], nonDiscriminating: '<strong>"Data centre demand is growing"</strong> (benefits all DC developers equally) &bull; <strong>"Interest rates pressure REITs"</strong> (macro factor, not GMG-specific) &bull; <strong>"36x P/E looks expensive for a REIT"</strong> (describes the question, not the answer; traditional REIT metrics may not apply) &bull; <strong>"0.5% yield is too low"</strong> (yield is a residual of growth reinvestment, not a standalone signal)' },
   tripwires: { intro: 'Four revision conditions. Data centre pipeline execution is the single most important variable for hypothesis revision.', cards: [{ date: 'H1 FY26 RESULTS', name: 'Half-Year Operating Performance', conditions: [{ if: 'If operating EPS growth &ge;9% and WIP rises toward A$17.5B guidance', valence: 'positive', then: 'T1 strengthens. Execution on track; DC pipeline expanding as guided. Growth flywheel confirmed.' }, { if: 'If operating EPS growth &lt;7% or WIP growth stalls', valence: 'negative', then: 'T2 strengthens. Growth narrative weakening; market premium at risk.' }], source: 'Source: ASX announcement; GMG half-year results' }, { date: 'CY 2026', name: 'Hyperscaler Capex Announcements', conditions: [{ if: 'If Microsoft, Google, AWS each commit US$50B+ to DC capex for CY2026', valence: 'positive', then: 'T1 and T4 strengthen materially. Multi-year demand runway confirmed.' }, { if: 'If any major hyperscaler materially reduces DC capex guidance', valence: 'negative', then: 'T3 strengthens sharply. First evidence of demand deceleration. DC oversupply narrative gains credibility.' }], source: 'Source: Microsoft, Alphabet, Amazon quarterly earnings; capex disclosures' }, { date: 'CY 2026', name: 'New Institutional DC Partnerships', conditions: [{ if: 'If 1-2 additional sovereign wealth or pension fund partnerships announced', valence: 'positive', then: 'T4 strengthens. Platform model validated. GMG reclassification as infrastructure manager accelerates.' }, { if: 'If no new institutional partnerships beyond CPP', valence: 'negative', then: 'T4 weakens. CPP was opportunistic, not a template. Platform thesis unproven.' }], source: 'Source: ASX announcements; institutional investor disclosures' }, { date: 'ONGOING', name: 'Power Grid and Construction Delivery', conditions: [{ if: 'If 500MW target achieved and power procurement on schedule', valence: 'positive', then: 'T1 execution confirmed. Power moat deepening.' }, { if: 'If material construction delays or power grid bottlenecks disclosed', valence: 'negative', then: 'T3 strengthens. Execution risk is real. Power constraints are binding.' }], source: 'Source: GMG quarterly updates; energy regulator approvals; ASX announcements' }] },
-  gaps: { coverageRows: [{ domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25', confidence: 'High (but motivated)', confidenceClass: '' }, { domain: 'Regulatory Filings', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25', confidence: 'High (audited)', confidenceClass: 'td-green' }, { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (11 analysts)', confidenceClass: 'td-green' }, { domain: 'Competitor &amp; Industry Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (independent)', confidenceClass: 'td-green' }, { domain: 'Economic Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (objective)', confidenceClass: 'td-green' }, { domain: 'Alternative Data', coverageLevel: 'partial', coverageLabel: 'Partial', freshness: 'Mixed', confidence: 'Medium (limited DC-specific)', confidenceClass: 'td-amber' }, { domain: 'Academic Research', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Structural', confidence: 'High (peer-reviewed)', confidenceClass: 'td-green' }, { domain: 'Media &amp; Social', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'Low (noise)', confidenceClass: '' }, { domain: 'Leadership &amp; Governance', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'High (long track record)', confidenceClass: 'td-green' }, { domain: 'Ownership &amp; Capital Flows', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'High (ASX 20 disclosures)', confidenceClass: 'td-green' }], couldntAssess: ['<strong>Hyperscaler contract terms:</strong> The specific terms, pricing, and duration of Goodman\'s data centre leases with hyperscalers are commercially confidential. Whether Goodman\'s DC yields are superior or inferior to competitors\' is not publicly available.', '<strong>Power procurement costs:</strong> The cost of securing 5.0 GW of power across 13 cities is not broken out in financial statements. Whether power costs are escalating faster than DC rental yields would be material to margin analysis.', '<strong>CEO succession planning:</strong> Greg Goodman is 27+ years into his tenure. While there is no immediate succession concern, the absence of a disclosed succession plan creates long-term uncertainty for a company whose strategy and culture are deeply founder-led.'], analyticalLimitations: 'Hypothesis survival scores (T1: 55%, T2: 35%, T3: 25%, T4: 30%) reflect the strong evidence asymmetry in this case. T1 (Data Centre Mega-Trend) scores highest because the supporting evidence spans 7 of 10 domains and includes both independently verified facts (audited financials, 94% pre-commitment) and forward-looking indicators (hyperscaler capex trends, power bank expansion). T3 (Bubble Risk) scores lowest because it is driven by narrative rather than observable data: the 94% pre-commitment rate directly contradicts the oversupply thesis for Goodman\'s specific pipeline.' },
+  gaps: { coverageRows: [{ domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25', confidence: 'High (but motivated)', confidenceClass: '' }, { domain: 'Regulatory Filings', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25', confidence: 'High (audited)', confidenceClass: 'td-green' }, { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (11 analysts)', confidenceClass: 'td-green' }, { domain: 'Competitor &amp; Industry Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (independent)', confidenceClass: 'td-green' }, { domain: 'Economic Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Current', confidence: 'High (objective)', confidenceClass: 'td-green' }, { domain: 'Alternative Data', coverageLevel: 'partial', coverageLabel: 'Partial', freshness: 'Mixed', confidence: 'Medium (limited DC-specific)', confidenceClass: 'td-amber' }, { domain: 'Academic Research', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Structural', confidence: 'High (peer-reviewed)', confidenceClass: 'td-green' }, { domain: 'Media &amp; Social', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'Low (noise)', confidenceClass: '' }, { domain: 'Leadership &amp; Governance', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Current', confidence: 'High (long track record)', confidenceClass: 'td-green' }, { domain: 'Ownership &amp; Capital Flows', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'High (ASX 20 disclosures)', confidenceClass: 'td-green' }], couldntAssess: ['<strong>Hyperscaler contract terms:</strong> The specific terms, pricing, and duration of Goodman\'s data centre leases with hyperscalers are commercially confidential. Whether Goodman\'s DC yields are superior or inferior to competitors\' is not publicly available.', '<strong>Power procurement costs:</strong> The cost of securing 5.0 GW of power across 13 cities is not broken out in financial statements. Whether power costs are escalating faster than DC rental yields would be material to margin analysis.', '<strong>CEO succession planning:</strong> Greg Goodman is 27+ years into his tenure. While there is no immediate succession concern, the absence of a disclosed succession plan creates long-term uncertainty for a company whose strategy and culture are deeply founder-led.'], analyticalLimitations: 'Hypothesis survival scores (T1: 38%, T2: 24%, T3: 17%, T4: 21%) reflect the strong evidence asymmetry in this case. T1 (Data Centre Mega-Trend) scores highest because the supporting evidence spans 7 of 10 domains and includes both independently verified facts (audited financials, 94% pre-commitment) and forward-looking indicators (hyperscaler capex trends, power bank expansion). T3 (Bubble Risk) scores lowest because it is driven by narrative rather than observable data: the 94% pre-commitment rate directly contradicts the oversupply thesis for Goodman\'s specific pipeline.' },
   footer: { disclaimer: 'This report does not constitute personal financial advice. Meridian Intelligence synthesises cross-domain evidence using the Analysis of Competing Hypotheses (ACH) methodology. All factual claims are sourced from ASX filings, ACCC publications, broker consensus data, and publicly available information. This report does not contain buy, sell, or hold recommendations, price targets, or valuation models.', domainCount: '10 of 10', hypothesesCount: '4 Active' }
 };
 
@@ -5522,6 +5611,7 @@ STOCK_DATA.WDS = {
   currency: 'A$',
   date: '11 February 2026',
   reportId: 'WDS-2026-001',
+  priceHistory: [23.12, 20.74, 22.25, 23.63, 26.59, 26.41, 23.03, 24.80, 24.93, 23.59, 25.37, 25.93],
 
   // Hero
   heroDescription: 'LNG &amp; Oil Producer &bull; ~198.8 MMboe Production &bull; 82% Cash Margin',
@@ -5945,7 +6035,7 @@ STOCK_DATA.WDS = {
       '<strong>ESG fund exclusion quantification:</strong> The exact volume of structural ESG-driven selling is not disclosed. Whether the pace of exclusions is accelerating or stabilising would inform the T3 hypothesis, but this data is held by fund managers, not by Woodside.',
       '<strong>Cultural heritage risk:</strong> The Burrup Peninsula cultural heritage risks related to Pluto and Scarborough are subject to ongoing legal and regulatory processes. The potential operational and financial impact is uncertain.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 40%, T2: 35%, T3: 30%, T4: 35%) reflect a genuinely balanced evidence set. The narrow range between T1, T2, and T4 is intentional: the data supports both the thesis that Woodside is a well-run LNG producer approaching a growth inflection and the thesis that it is a yield stock trapped in a structural valuation discount. T3 (Energy Transition) scores at 30% because, while the stranded asset argument has academic support, it operates on a much longer time horizon than the other hypotheses. The key variable is Scarborough delivery; the other hypotheses are largely resolved or not by that single event.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 29%, T2: 25%, T3: 21%, T4: 25%) reflect a genuinely balanced evidence set. The narrow range between T1, T2, and T4 is intentional: the data supports both the thesis that Woodside is a well-run LNG producer approaching a growth inflection and the thesis that it is a yield stock trapped in a structural valuation discount. T3 (Energy Transition) scores at 21% because, while the stranded asset argument has academic support, it operates on a much longer time horizon than the other hypotheses. The key variable is Scarborough delivery; the other hypotheses are largely resolved or not by that single event.'
   },
 
   // Footer
@@ -5969,6 +6059,7 @@ STOCK_DATA.SIG = {
   currency: 'A$',
   date: '11 February 2026',
   reportId: 'SIG-2026-001',
+  priceHistory: [2.88, 3.02, 3.12, 2.99, 2.89, 3.12, 2.97, 3.11, 2.88, 2.94, 3.09, 3.09],
 
   // Hero - right side metrics
   heroDescription: 'Pharmacy Retail &bull; ~880+ CW Stores &bull; A$6B Merged Revenue',
@@ -6392,7 +6483,7 @@ STOCK_DATA.SIG = {
       '<strong>International profitability:</strong> CW\'s international operations (NZ, Ireland, China, Dubai) are not separately disclosed. Whether these contribute to or detract from group profitability is unknown.',
       '<strong>Wagner generics forward pipeline:</strong> While 12% market share in 6 months is impressive, the trajectory of future market share gains and competitive response from established generics players is unclear.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 35%, T2: 45%, T3: 25%, T4: 30%) reflect editorial assessment. T2 (Escrow Overhang) scores highest because it is driven by a known, dated structural event with clear precedent in academic literature. T1 (Integration) is scored cautiously because insufficient time has elapsed to assess execution. The narrow range between T1 and T4 reflects genuine uncertainty about whether this business is a platform (deserving a premium) or a retailer/distributor (deserving traditional multiples). The answer to this question determines whether the stock is worth A$1 or A$4.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 26%, T2: 33%, T3: 19%, T4: 22%) reflect editorial assessment. T2 (Escrow Overhang) scores highest because it is driven by a known, dated structural event with clear precedent in academic literature. T1 (Integration) is scored cautiously because insufficient time has elapsed to assess execution. The narrow range between T1 and T4 reflects genuine uncertainty about whether this business is a platform (deserving a premium) or a retailer/distributor (deserving traditional multiples). The answer to this question determines whether the stock is worth A$1 or A$4.'
   },
 
   // Footer
@@ -6416,6 +6507,7 @@ STOCK_DATA.FMG = {
   currency: 'A$',
   date: '11 February 2026',
   reportId: 'FMG-2026-001',
+  priceHistory: [15.37, 16.19, 15.39, 15.28, 17.77, 19.30, 18.68, 21.29, 21.41, 22.01, 21.00, 21.57],
 
   // Hero - right side metrics
   heroDescription: 'Iron Ore &bull; 198 Mt Shipped (FY25) &bull; US$7.9B EBITDA',
@@ -6837,7 +6929,7 @@ STOCK_DATA.FMG = {
       '<strong>Energy division forward commitments:</strong> The extent of remaining Energy division commitments, contractual obligations from cancelled projects, and Forrest\'s personal willingness to continue funding green initiatives is unclear.',
       '<strong>India demand offset:</strong> Whether India\'s steel demand growth can materially offset China\'s decline is an open question with wide uncertainty bands.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 40%, T2: 40%, T3: 20%, T4: 35%) reflect editorial assessment. The equal weighting of T1 and T2 is deliberate: both are supported by strong evidence from different domains. T1 (Cost Leader) is supported by operational data; T2 (Structural Decline) is supported by macro data. The question is timeline: T1 may hold for 2-3 years while T2 plays out over 5-10 years. T3 (Green Pivot) is scored lowest because the evidence uniformly contradicts it following project cancellations and hydrogen cost gaps. T4 (Governance) is rising because each green writeoff provides additional evidence of capital misallocation.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 30%, T2: 30%, T3: 15%, T4: 26%) reflect editorial assessment. The equal weighting of T1 and T2 is deliberate: both are supported by strong evidence from different domains. T1 (Cost Leader) is supported by operational data; T2 (Structural Decline) is supported by macro data. The question is timeline: T1 may hold for 2-3 years while T2 plays out over 5-10 years. T3 (Green Pivot) is scored lowest because the evidence uniformly contradicts it following project cancellations and hydrogen cost gaps. T4 (Governance) is rising because each green writeoff provides additional evidence of capital misallocation.'
   },
 
   // Footer
