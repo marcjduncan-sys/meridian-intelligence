@@ -808,6 +808,24 @@ a:hover { color: var(--accent-sage); }
     border-radius: 8px;
     padding: var(--space-md);
 }
+.hs-stock-id {
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+}
+.hs-stock-ticker {
+    font-family: var(--font-data);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+.hs-stock-name {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+    margin-top: 2px;
+}
 .hs-title {
     font-size: 0.55rem;
     font-weight: 700;
@@ -4559,63 +4577,64 @@ STOCK_DATA.XRO = {
   company: 'Xero Limited',
   sector: 'Information Technology',
   sectorSub: 'Cloud Accounting',
-  price: 84.28,
+  price: 77.87,
   currency: 'A$',
-  date: '10 February 2026',
+  date: '12 February 2026',
   reportId: 'XRO-2026-001',
-  priceHistory: [186.33, 183.42, 183.58, 185.66, 184.99, 184.32, 186.26, 184.32, 182.02, 179.89, 178.39, 177.06, 176.53, 170.73, 173.65, 174.1, 172.94, 171.98, 166, 167.01, 158.55, 156.8, 156.13, 157.38, 159, 157.67, 156.29, 159.4, 157.57, 158, 160, 159.64, 159.14, 155.86, 154.75, 156.62, 155.78, 150.42, 145.54, 142.26, 148.3, 146.93, 156.09, 155.04, 158.67, 156.28, 154.43, 155.11, 153.1, 157.46, 156.58, 159.52, 161.2, 164.19, 169.51, 170.25, 168.23, 166.25, 165.83, 167.94, 172.41, 171.45, 174.38, 173.86, 182.05, 180.02, 181.47, 182.3, 181.72, 179.9, 181.12, 180.94, 183.57, 184.81, 185.75, 184.29, 186.97, 187.51, 188.87, 189.99, 188.67, 192.1, 187.75, 189.52, 188.7, 190.79, 191.46, 193.56, 191.88, 193.77, 193.46, 194.21, 194.21, 184, 182.99, 179.8, 182.03, 178.24, 176.5, 178.01, 178.58, 178.4, 177.67, 176.41, 173.83, 172.58, 174.56, 176.11, 179.13, 181, 179.76, 180.85, 180.17, 178.05, 178.09, 178.82, 179.72, 180, 180.99, 174.75, 175.35, 176.5, 178.5, 178.4, 178.83, 176.54, 172.7, 168.78, 165.99, 166.81, 168.64, 171.5, 170.3, 169, 167.98, 165.86, 164.05, 163.11, 162.05, 163.59, 156.96, 159.65, 149.75, 157, 158.89, 160.99, 159.75, 161.34, 162.35, 162.18, 161.24, 160.3, 161.29, 160.28, 162.59, 163.8, 163.97, 161.41, 159.22, 158.24, 157.34, 157.5, 158.39, 158.21, 160.95, 157.69, 157.46, 154.79, 154.25, 156.15, 153.81, 154.5, 157.07, 154.79, 154.15, 154.59, 151.54, 154.38, 150.46, 150.79, 152.17, 153.78, 150.76, 146.42, 145, 148.3, 145.98, 144.63, 145.37, 141.74, 143.12, 143.19, 140, 127.36, 122.36, 122.22, 118.25, 118.62, 120.47, 119.22, 119.9, 120.54, 120.39, 123.15, 122.25, 121.84, 121.44, 121.2, 120.9, 118.88, 118.13, 117.29, 114.85, 113.36, 112.84, 113.5, 111.27, 110.26, 113.04, 115.64, 115.62, 115.46, 112.78, 112.57, 112.93, 114.02, 112.25, 107.92, 107.14, 108.6, 109.36, 107.46, 107.61, 108, 107.59, 103.16, 103.63, 100.89, 104.27, 98.9, 97.76, 101.22, 99.83, 97.91, 94.9, 93.75, 93.69, 96.1, 80.82, 82.09, 81.76, 82.94, 84.76],
+  priceHistory: [186.33, 183.42, 183.58, 185.66, 184.99, 184.32, 186.26, 184.32, 182.02, 179.89, 178.39, 177.06, 176.53, 170.73, 173.65, 174.1, 172.94, 171.98, 166, 167.01, 158.55, 156.8, 156.13, 157.38, 159, 157.67, 156.29, 159.4, 157.57, 158, 160, 159.64, 159.14, 155.86, 154.75, 156.62, 155.78, 150.42, 145.54, 142.26, 148.3, 146.93, 156.09, 155.04, 158.67, 156.28, 154.43, 155.11, 153.1, 157.46, 156.58, 159.52, 161.2, 164.19, 169.51, 170.25, 168.23, 166.25, 165.83, 167.94, 172.41, 171.45, 174.38, 173.86, 182.05, 180.02, 181.47, 182.3, 181.72, 179.9, 181.12, 180.94, 183.57, 184.81, 185.75, 184.29, 186.97, 187.51, 188.87, 189.99, 188.67, 192.1, 187.75, 189.52, 188.7, 190.79, 191.46, 193.56, 191.88, 193.77, 193.46, 194.21, 194.21, 184, 182.99, 179.8, 182.03, 178.24, 176.5, 178.01, 178.58, 178.4, 177.67, 176.41, 173.83, 172.58, 174.56, 176.11, 179.13, 181, 179.76, 180.85, 180.17, 178.05, 178.09, 178.82, 179.72, 180, 180.99, 174.75, 175.35, 176.5, 178.5, 178.4, 178.83, 176.54, 172.7, 168.78, 165.99, 166.81, 168.64, 171.5, 170.3, 169, 167.98, 165.86, 164.05, 163.11, 162.05, 163.59, 156.96, 159.65, 149.75, 157, 158.89, 160.99, 159.75, 161.34, 162.35, 162.18, 161.24, 160.3, 161.29, 160.28, 162.59, 163.8, 163.97, 161.41, 159.22, 158.24, 157.34, 157.5, 158.39, 158.21, 160.95, 157.69, 157.46, 154.79, 154.25, 156.15, 153.81, 154.5, 157.07, 154.79, 154.15, 154.59, 151.54, 154.38, 150.46, 150.79, 152.17, 153.78, 150.76, 146.42, 145, 148.3, 145.98, 144.63, 145.37, 141.74, 143.12, 143.19, 140, 127.36, 122.36, 122.22, 118.25, 118.62, 120.47, 119.22, 119.9, 120.54, 120.39, 123.15, 122.25, 121.84, 121.44, 121.2, 120.9, 118.88, 118.13, 117.29, 114.85, 113.36, 112.84, 113.5, 111.27, 110.26, 113.04, 115.64, 115.62, 115.46, 112.78, 112.57, 112.93, 114.02, 112.25, 107.92, 107.14, 108.6, 109.36, 107.46, 107.61, 108, 107.59, 103.16, 103.63, 100.89, 104.27, 98.9, 97.76, 101.22, 99.83, 97.91, 94.9, 93.75, 93.69, 96.1, 80.82, 82.09, 81.76, 82.94, 84.76, 77.87],
 
   // Hero - right side metrics
-  heroDescription: 'Cloud Accounting &bull; 4.6M Subscribers &bull; NZ$2.10B Revenue',
-  heroCompanyDescription: 'Xero Limited (ASX: XRO) is a New Zealand-founded, ASX-listed cloud accounting platform serving 4.6 million subscribers across Australia, New Zealand, the UK, and North America. The company provides small business financial tools including invoicing, payroll, bank reconciliation, and a growing ecosystem of third-party integrations.',
+  heroDescription: 'Cloud Accounting &bull; 4.6M Subscribers &bull; NZ$2.10B Revenue &bull; AI Sell-Off Target',
+  heroCompanyDescription: 'Xero Limited (ASX: XRO) is a New Zealand-founded, ASX-listed cloud accounting platform serving 4.6 million subscribers globally. The stock has become ground zero for the AI disruption repricing of SaaS &mdash; down 60% from its A$194 high to A$77.87, with the ASX tech sector collapsing 9.4% in a single session triggered by AI capability demonstrations (Anthropic Claude specifically cited as catalyst). Analyst consensus remains unanimously Buy with an average target of A$191, representing 145% upside. Either the market is right and AI will structurally impair cloud accounting, or this is the widest dislocation between price and fundamentals in Xero\'s listed history.',
   heroMetrics: [
-    { label: 'Mkt Cap', value: 'A$14.1B', colorClass: '' },
-    { label: 'P/E', value: '56.4x', colorClass: 'premium' },
-    { label: 'Fwd P/E', value: '65.3x', colorClass: 'premium' },
+    { label: 'Mkt Cap', value: 'A$12.0B', colorClass: '' },
+    { label: 'Drawdown', value: '&darr;60%', colorClass: 'negative' },
+    { label: 'Analyst Target', value: 'A$191 (+145%)', colorClass: 'positive' },
     { label: 'Rev Growth', value: '+20%', colorClass: 'positive' },
-    { label: 'FCF Margin', value: '26.9%', colorClass: 'positive' }
+    { label: 'Rule of 40', value: '44.5%', colorClass: 'positive' }
   ],
 
   // Skew
-  skew: { direction: 'downside', rationale: 'Market is repricing SaaS multiples as AI disruption reshapes expectations. Stock down 55% from highs despite strong fundamentals. Price and fundamentals are in direct conflict &mdash; that is the signal, not noise.' },
+  skew: { direction: 'upside', rationale: 'The sell-off has now reached 60% on zero evidence of actual churn, customer loss, or revenue deceleration. Every analyst rates Buy. AI disruption fears are legitimate as a long-term structural question, but the market is pricing terminal impairment of a business that just delivered 20% revenue growth, historic low churn, and Rule of 40 at 44.5%. At A$77.87, the risk-reward skews decisively upside &mdash; unless AI displaces accounting software faster than any technology transition in history.' },
 
   // Verdict
   verdict: {
-    text: 'The market is repricing Xero as an AI disruption casualty. The stock is down 55% from its highs despite delivering 20% revenue growth, Rule of 40 at 44.5%, and expanding FCF margins. Fundamentals and price are telling opposite stories. Either the market is pricing a structural shift that hasn\'t yet appeared in the financials, or the widest gap between analyst consensus and market price in Xero\'s history represents a generational opportunity. This is the central tension. We present the evidence; the judgment is yours.',
+    text: 'Xero has become the defining test case for the AI-disrupts-SaaS thesis. The stock is down 60% from its highs &mdash; an acceleration from the 55% decline just weeks ago &mdash; after an ASX tech sector rout triggered by Anthropic\'s Claude AI demonstrations that the market interpreted as threatening to cloud accounting moats. But here are the facts: revenue grew 20%, ARPU grew 15%, churn is at historic lows, Rule of 40 is 44.5%, and all 15 covering analysts rate Buy with an average target of A$191 (145% upside). The Melio B2B payments acquisition is approaching breakeven 6-12 months ahead of schedule. The gap between what the business is doing and what the market is pricing has never been wider. This is either the opportunity of the cycle or the market correctly front-running a paradigm shift that hasn\'t yet appeared in any metric.',
     borderColor: 'var(--signal-red)',
     scores: [
       { label: 'T1 Platform', score: '40%', scoreColor: 'var(--signal-green)', dirArrow: '&darr;', dirText: 'Strong but unpriced', dirColor: 'var(--signal-amber)' },
-      { label: 'T2 Melio', score: '30%', scoreColor: 'var(--signal-amber)', dirArrow: '&rarr;', dirText: 'Awaiting', dirColor: null },
-      { label: 'T3 AI Disrupt', score: '50%', scoreColor: 'var(--signal-red)', dirArrow: '&uarr;', dirText: 'Dominant', dirColor: 'var(--signal-red)' },
-      { label: 'T4 Compete', score: '20%', scoreColor: 'var(--text-muted)', dirArrow: '&rarr;', dirText: 'Steady', dirColor: null }
+      { label: 'T2 Melio', score: '35%', scoreColor: 'var(--signal-green)', dirArrow: '&uarr;', dirText: 'Breakeven ahead', dirColor: 'var(--signal-green)' },
+      { label: 'T3 AI Disrupt', score: '55%', scoreColor: 'var(--signal-red)', dirArrow: '&uarr;', dirText: 'Dominant &mdash; deepening', dirColor: 'var(--signal-red)' },
+      { label: 'T4 Compete', score: '15%', scoreColor: 'var(--text-muted)', dirArrow: '&darr;', dirText: 'No evidence', dirColor: null }
     ]
   },
 
   // Featured card metrics (for home page)
   featuredMetrics: [
-    { label: 'Mkt Cap', value: 'A$14.1B', color: '' },
-    { label: 'Fwd P/E', value: '65.3x', color: 'var(--accent-gold)' },
-    { label: 'Rev Growth', value: '+20%', color: 'var(--signal-green)' },
-    { label: 'Subscribers', value: '4.6M', color: '' }
+    { label: 'Mkt Cap', value: 'A$12.0B', color: '' },
+    { label: 'Drawdown', value: '&darr;60%', color: 'var(--signal-red)' },
+    { label: 'Analyst Target', value: 'A$191', color: 'var(--signal-green)' },
+    { label: 'Rev Growth', value: '+20%', color: 'var(--signal-green)' }
   ],
   featuredPriceColor: 'var(--signal-red)',
-  featuredRationale: 'Market repricing SaaS multiples as AI disruption thesis strengthens. Down 55% despite strong fundamentals. Price and evidence in direct conflict.',
+  featuredRationale: 'AI disruption sell-off deepens to -60%. Anthropic Claude demo triggered ASX tech rout. Zero churn evidence. All 15 analysts Buy at avg A$191 (145% upside). Widest price-vs-fundamentals gap in Xero history.',
 
   // Identity section
   identity: {
     rows: [
       [['Ticker', 'XRO.AX', 'td-mono'], ['Exchange', 'ASX', 'td-mono']],
-      [['Market Cap', 'A$14.1B', 'td-mono'], ['Sector', 'Information Technology', 'td-mono']],
-      [['Share Price', 'A$84.28', 'td-mono'], ['52-Week Range', 'A$79.25 &ndash; A$196.52', 'td-mono']],
-      [['Trailing P/E', '56.4x', 'td-mono td-amber'], ['Forward P/E', '65.3x', 'td-mono td-amber']],
+      [['Market Cap', 'A$12.0B', 'td-mono'], ['Sector', 'Information Technology', 'td-mono']],
+      [['Share Price', 'A$77.87', 'td-mono td-red'], ['52-Week Range', 'A$77.71 &ndash; A$194.21', 'td-mono']],
+      [['Trailing P/E', '41x', 'td-mono td-amber'], ['Drawdown from High', '&darr;60%', 'td-mono td-red']],
       [['Revenue (FY25)', 'NZ$2.10B (+22.7%)', 'td-mono td-green'], ['1H FY26 Revenue', 'NZ$1.19B (+20%)', 'td-mono td-green']],
       [['Subscribers', '4.6M', 'td-mono'], ['ARPU', 'NZ$49.63 (+15%)', 'td-mono td-green']],
       [['EBITDA (1H FY26)', 'NZ$377.9M', 'td-mono'], ['FCF Margin', '26.9%', 'td-mono td-green']],
-      [['Rule of 40', '44.5%', 'td-mono td-green'], ['Churn Rate', 'Below pre-pandemic', 'td-mono td-green']],
+      [['Rule of 40', '44.5%', 'td-mono td-green'], ['Churn Rate', 'Historic lows &mdash; below pre-pandemic', 'td-mono td-green']],
+      [['Analyst Consensus', '15 Buy, 0 Sell; avg target A$191 (+145%)', 'td-mono td-green'], ['Melio Breakeven', 'H2 FY28 (6-12mo ahead of plan)', 'td-mono td-green']],
       [['CEO', 'Sukhinder Singh Cassidy', ''], ['Employees', '~4,600', 'td-mono']],
-      [['Key Acquisition', 'Melio (US$2.5B, closed 2025)', ''], ['Next Earnings', '14 May 2026 (FY26)', 'td-mono']]
+      [['AI Disruption Trigger', 'Anthropic Claude demo; ASX IT Index -9.4%', 'td-mono td-red'], ['Next Earnings', '14 May 2026 (FY26)', 'td-mono']]
     ],
-    overview: 'New Zealand-headquartered cloud accounting platform serving 4.6 million subscribers across Australia, New Zealand, the UK, and the US. Core product is a SaaS accounting platform for small and medium businesses. Expanding into payments, payroll, and financial services through organic development and the US$2.5B acquisition of Melio (B2B payments). Dual-listed on ASX and NZX.'
+    overview: 'New Zealand-headquartered cloud accounting platform serving 4.6 million subscribers globally. Stock down 60% in 8 months as AI disruption fears rip through the SaaS sector &mdash; Anthropic\'s Claude AI was specifically cited as a catalyst for the February 2026 tech rout that saw the ASX IT Index fall 9.4% in one session. Despite the sell-off, the business is executing: revenue +20%, ARPU +15%, Rule of 40 at 44.5%, churn at historic lows. Melio B2B payments acquisition (US$2.5B) approaching breakeven 6-12 months ahead of plan. Xero argues its moat lies in domain expertise, decades of accounting data, regulatory compliance, payment rails, and a 1,000+ app ecosystem that AI cannot replicate overnight.'
   },
 
   // Hypotheses
@@ -4625,30 +4644,33 @@ STOCK_DATA.XRO = {
       direction: 'upside',
       title: 'T1: Platform Expansion Delivers',
       statusClass: 'priced',
-      statusText: 'Priced Out &mdash; Market Not Paying',
+      statusText: 'Priced Out &mdash; 60% Drawdown Despite Execution',
       score: '40%',
       scoreWidth: '40%',
-      scoreMeta: '&darr; Fundamentals strong but market disagrees',
-      description: 'Xero continues to execute on platform expansion: 20%+ revenue growth, ARPU expansion through upselling payroll, payments, and financial services, and subscriber additions across all geographies. Operating leverage delivers expanding margins. Rule of 40 sustained above 40. Fundamentals are strong but the market is not paying for them at any multiple that rewards holders.',
+      scoreMeta: '&darr; Execution flawless but market continues repricing',
+      description: 'Xero\'s execution is among the strongest on the ASX: 20%+ revenue growth, ARPU +15%, Rule of 40 at 44.5%, churn at historic lows, subscriber additions positive across all geographies. The platform expansion strategy is working by every measurable metric. But the market is pricing none of it. The stock is down 60% from A$194 despite delivering four consecutive earnings beats. All 15 covering analysts rate Buy with an average target of A$191 (145% upside from A$77.87). The dislocation between price and fundamentals has never been wider in Xero\'s history.',
       requires: [
-        'Revenue growth sustained at 18%+ through FY26-27',
-        'ARPU growth &ge;10% from product upsell, not just pricing',
-        'FCF margin maintained above 25%',
-        'Subscriber churn remains below pre-pandemic levels'
+        'FY26 revenue growth sustained at 18%+ (currently tracking +20%)',
+        'ARPU growth &ge;10% from product upsell (currently +15%)',
+        'FCF margin maintained above 25% (currently 26.9%)',
+        'Subscriber churn remains at or below historic lows',
+        'AI monetisation strategy articulated for FY27 (Xero as AI beneficiary, not victim)'
       ],
-      supportingLabel: 'Supporting Evidence (7 Domains)',
+      supportingLabel: 'Supporting Evidence (8 Domains)',
       supporting: [
-        '<strong>Financial Statements:</strong> 1H FY26 beat on all key metrics; Rule of 40 at 44.5%',
-        '<strong>Broker Research:</strong> All 15 analysts Buy/Outperform; consensus target 120%+ above price',
-        '<strong>Academic:</strong> SaaS switching costs research confirms high lock-in; AI augments, not replaces',
-        '<strong>Corporate Comms:</strong> Management guiding for continued growth; cost discipline demonstrated',
-        '<strong>Competitor Data:</strong> No competitor taking material share in core markets',
-        '<strong>Alternative Data:</strong> App downloads stable; hiring consistent with growth',
-        '<strong>Economic:</strong> Cloud accounting penetration still below 50%; secular tailwind'
+        '<strong>Financial Statements:</strong> 1H FY26 beat on all metrics; Rule of 40 at 44.5%; four consecutive earnings beats ignored by market',
+        '<strong>Broker Research:</strong> All 15 analysts Buy/Outperform; UBS A$174, Citi A$210, Macquarie A$229, Ord Minnett A$200; avg A$191',
+        '<strong>Academic:</strong> SaaS switching costs highest in accounting category; AI augments, not replaces, compliance workflows',
+        '<strong>Corporate Comms:</strong> AI monetisation strategy planned for FY27; Xero argues domain expertise and data moat',
+        '<strong>Competitor Data:</strong> No competitor taking material share; QuickBooks growth in tax/mid-market, not SMB cloud',
+        '<strong>Alternative Data:</strong> App downloads stable; hiring consistent with growth; no churn signal in any third-party data',
+        '<strong>Economic:</strong> Cloud accounting penetration below 50%; secular digitisation tailwind intact',
+        '<strong>Melio:</strong> B2B payments reaching breakeven H2 FY28, 6-12 months ahead of plan; US market wedge gaining traction'
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Market price:</strong> The market itself is the primary contradicting evidence. Price implies the market sees risks that consensus does not'
+        '<strong>Market price:</strong> A 60% drawdown sustained over 8 months is the single most powerful contradicting evidence. The aggregated judgment of every market participant says this business is worth 60% less than 8 months ago',
+        '<strong>Capital flows:</strong> Growth fund exodus (Hyperion, Baillie Gifford reducing); short interest elevated at 4-5%'
       ]
     },
     {
@@ -4656,27 +4678,28 @@ STOCK_DATA.XRO = {
       direction: 'upside',
       title: 'T2: Melio Integration Succeeds',
       statusClass: 'accumulating',
-      statusText: 'Awaiting Evidence',
-      score: '30%',
-      scoreWidth: '30%',
-      scoreMeta: '&rarr; Too early to assess',
-      description: 'The US$2.5B Melio acquisition proves strategically correct: B2B payments become the wedge product for US SMB market penetration. Melio\'s payment volumes integrate with Xero\'s accounting platform, creating a payments+accounting bundle that QuickBooks cannot match on payments and PayPal cannot match on accounting.',
+      statusText: 'Evidence Emerging &mdash; Breakeven Ahead of Plan',
+      score: '35%',
+      scoreWidth: '35%',
+      scoreMeta: '&uarr; Melio breakeven H2 FY28, 6-12 months ahead of plan',
+      description: 'The US$2.5B Melio acquisition is showing signs of working. Management disclosed that Melio is tracking toward breakeven by H2 FY28, 6-12 months ahead of the original plan. B2B payments are becoming the wedge product for US SMB market penetration. The payments+accounting bundle creates a competitive proposition that QuickBooks cannot match on payments and PayPal cannot match on accounting. At current depressed valuations, the market is assigning near-zero value to Melio &mdash; any evidence of integration success represents pure upside optionality.',
       requires: [
-        'Melio revenue contribution visible in FY26 results',
-        'US subscriber count exceeds 100K by mid-2026',
-        'Cross-sell metrics: Melio users converting to full Xero platform at &ge;15%',
-        'No material integration issues or write-downs'
+        'Melio breakeven confirmed by H2 FY28 (currently tracking ahead)',
+        'US subscriber count growth acceleration from Melio cross-sell',
+        'Melio revenue contribution visible and growing in FY26-27 results',
+        'No integration issues, write-downs, or management distraction'
       ],
       supportingLabel: 'Supporting Evidence',
       supporting: [
-        '<strong>Corporate Comms:</strong> Management describes integration as "on track"',
-        '<strong>Strategic logic:</strong> Payments is the missing piece in Xero\'s US go-to-market'
+        '<strong>Corporate Comms:</strong> Melio breakeven H2 FY28, 6-12 months ahead of original timeline',
+        '<strong>Strategic logic:</strong> Payments is the missing piece in Xero\'s US go-to-market; no other player has payments+accounting',
+        '<strong>Valuation:</strong> At A$12B market cap (down from A$30B), market assigns near-zero value to Melio; any success is upside'
       ],
       contradictingLabel: 'Risk Factors',
       contradicting: [
-        'US$2.5B is a significant price; market scepticism about valuation is reasonable',
-        'No independent confirmation of integration progress yet',
-        'US market has been Xero\'s weakest geography historically'
+        'US$2.5B acquisition price at 8x revenue for pre-profit business; write-down risk if US growth disappoints',
+        'No independent confirmation of breakeven claims; management-sourced only',
+        'US market has been Xero\'s weakest geography historically; Melio may not change structural dynamics'
       ]
     },
     {
@@ -4684,24 +4707,26 @@ STOCK_DATA.XRO = {
       direction: 'downside',
       title: 'T3: AI Disruption Re-Prices SaaS',
       statusClass: 'active',
-      statusText: 'Dominant &mdash; Market Re-Pricing SaaS Multiples',
-      score: '50%',
-      scoreWidth: '50%',
-      scoreMeta: '&uarr; Strengthening with every tech de-rating',
-      description: 'The market is re-pricing the entire SaaS multiple structure as AI reshapes expectations for cloud software economics. Automated bookkeeping, receipt scanning, and reconciliation reduce the perceived moat of traditional cloud accounting. Whether churn has appeared yet is secondary &mdash; the market is pricing the trajectory, not the current quarter. A 55% drawdown is not noise; it is the market telling you this thesis is dominant.',
+      statusText: 'Dominant &mdash; Deepening. Anthropic Claude Cited as Catalyst',
+      score: '55%',
+      scoreWidth: '55%',
+      scoreMeta: '&uarr; Deepening; specific AI catalyst now identified',
+      description: 'This thesis has intensified from theoretical to market-moving. The February 2026 sell-off was specifically triggered by Anthropic\'s Claude AI demonstrations, which the market interpreted as capable of automating core accounting workflows. The ASX IT Index fell 9.4% in a single session. Xero fell from ~A$95 to A$77.87, breaking through every prior support level. The 60% drawdown from A$194 is no longer a generic SaaS re-rating &mdash; it is the market pricing a specific, named AI threat to cloud accounting business models. The absence of churn is noted but considered a lagging indicator by the market. Price leads fundamentals; this is the market front-running a structural shift.',
       requires: null,
-      supportingLabel: 'Supporting Evidence (3 Domains)',
+      supportingLabel: 'Supporting Evidence (4 Domains)',
       supporting: [
-        '<strong>Market Price:</strong> Stock down 55% from A$196.52 to A$84.28. This is the single most powerful evidence domain &mdash; it represents the aggregated judgment of every participant. A drawdown of this magnitude, sustained over months, is not sentiment; it is repricing',
-        '<strong>Economic:</strong> Broad SaaS sector de-rating as AI disruption reprices growth expectations. Xero is not falling alone &mdash; the entire cloud software cohort is being re-valued downward',
-        '<strong>Media &amp; Narrative:</strong> AI disruption of SaaS has become the dominant market narrative. Narrative drives capital allocation; capital allocation drives price'
+        '<strong>Market Price:</strong> Stock down 60% from A$194.21 to A$77.87 in 8 months. The most powerful evidence domain. A drawdown of this magnitude, accelerating, is not sentiment &mdash; it is repricing',
+        '<strong>AI Catalyst:</strong> Anthropic\'s Claude specifically cited as trigger for February 2026 ASX tech rout; AI capability demonstrations interpreted as threatening automated bookkeeping, reconciliation, and compliance',
+        '<strong>Sector-Wide:</strong> ASX IT Index fell 9.4% in one session; broad SaaS de-rating accelerating globally as AI disruption reprices growth expectations',
+        '<strong>Media &amp; Narrative:</strong> "AI disrupts accounting" is now the dominant framing; Xero named alongside other SaaS casualties in major financial press'
       ],
-      contradictingLabel: 'Contradicting Evidence (4 Domains)',
+      contradictingLabel: 'Contradicting Evidence (5 Domains)',
       contradicting: [
-        '<strong>Financial Statements:</strong> Churn at historic lows; no sign of customer departure yet. This is the strongest counter-evidence',
-        '<strong>Broker Research:</strong> All 15 analysts rate Buy with 120%+ upside targets. Consensus has never been wider from price',
-        '<strong>Academic:</strong> Research shows AI augments accounting workflows rather than replacing them',
-        '<strong>Alternative Data:</strong> No visible churn signal in app downloads, web traffic, or reviews'
+        '<strong>Financial Statements:</strong> Churn at historic lows; no sign of customer departure. This remains the strongest counter-evidence and is independently verifiable',
+        '<strong>Broker Research:</strong> All 15 analysts rate Buy; average target A$191 (145% upside). Consensus has never been wider from price in Xero\'s history',
+        '<strong>Academic:</strong> Research shows AI augments accounting workflows; full automation requires regulatory compliance, judgment, and liability frameworks that don\'t exist',
+        '<strong>Xero\'s AI Response:</strong> Company planning AI monetisation for FY27; argues domain expertise, decades of data, payment rails, and 1,000+ app ecosystem create an AI moat, not vulnerability',
+        '<strong>Alternative Data:</strong> No visible churn signal in app downloads, web traffic, customer reviews, or NPS scores'
       ]
     },
     {
@@ -4709,38 +4734,38 @@ STOCK_DATA.XRO = {
       direction: 'downside',
       title: 'T4: Competitive Displacement',
       statusClass: 'minimal',
-      statusText: 'Minimal Evidence',
-      score: '20%',
-      scoreWidth: '20%',
-      scoreMeta: '&rarr; Steady',
-      description: 'QuickBooks (Intuit) and MYOB take meaningful market share from Xero in core ANZ and UK markets. Intuit\'s AI investments create a product gap. MYOB\'s private ownership enables aggressive pricing.',
+      statusText: 'Minimal Evidence &mdash; Weakening',
+      score: '15%',
+      scoreWidth: '15%',
+      scoreMeta: '&darr; No competitive share loss in any market',
+      description: 'QuickBooks (Intuit) and MYOB take meaningful market share from Xero in core ANZ and UK markets. This thesis has weakened further: no competitor is demonstrably taking share, Intuit\'s growth is in tax and mid-market (not SMB cloud), and MYOB remains stagnant under private ownership. The AI disruption thesis (T3) has absorbed this hypothesis\'s energy &mdash; if Xero is displaced, it will be by AI-native tools, not by existing competitors.',
       requires: null,
       supportingLabel: null,
       supporting: null,
       contradictingLabel: 'Contradicting Evidence (4 Domains)',
       contradicting: [
-        '<strong>Competitor Data:</strong> Intuit growth is in tax and mid-market, not SMB cloud accounting',
-        '<strong>Financial Statements:</strong> Xero subscriber additions positive across all geographies',
-        '<strong>Academic:</strong> SaaS switching costs are highest in accounting software',
-        '<strong>Broker Research:</strong> No analyst models competitive share loss as a base case'
+        '<strong>Competitor Data:</strong> Intuit growth concentrated in tax and mid-market; no SMB share gains against Xero',
+        '<strong>Financial Statements:</strong> Subscriber additions positive across all geographies; no share loss visible',
+        '<strong>Academic:</strong> Accounting SaaS has highest switching costs of any SaaS category (3-5 year lock-in)',
+        '<strong>Broker Research:</strong> No analyst models competitive displacement as base case; AI is the threat, not incumbents'
       ]
     }
   ],
 
   // Narrative
   narrative: {
-    theNarrative: 'The market is repricing Xero as <strong>an AI disruption casualty within a broader SaaS de-rating</strong>. The embedded thesis is that AI will compress SaaS margins as automated bookkeeping reduces the value proposition of traditional cloud accounting; that the US$2.5B Melio acquisition was overpriced for a market Xero has historically failed to crack; and that the entire premium-SaaS multiple structure is structurally lower going forward. The stock is down <span class="key-stat down">55%</span> from its 52-week high of A$196.52. This is not a pullback &mdash; it is the market repricing Xero\'s terminal value.',
+    theNarrative: 'The market narrative has sharpened from generic "SaaS de-rating" to <strong>a specific AI disruption thesis with a named catalyst</strong>. Anthropic\'s Claude AI demonstrations triggered a February 2026 ASX tech rout that collapsed the IT Index 9.4% in a single session and drove Xero through every prior support level to A$77.87 &mdash; a <span class="key-stat down">60%</span> drawdown from the A$194 high. The embedded thesis: AI will automate the core accounting workflows (bookkeeping, reconciliation, compliance) that justify Xero\'s subscription pricing. The counter-thesis: Xero\'s moat lies not in automatable tasks but in domain expertise, decades of accounting data, regulatory compliance frameworks, payment rails, and a 1,000+ app ecosystem. The market is pricing disruption; every measurable business metric says the opposite. The gap is now <span class="key-stat">145%</span> between analyst consensus (A$191) and market price (A$77.87). One of them is catastrophically wrong.',
     priceImplication: {
-      label: 'Embedded Assumptions at A$84.28',
-      content: '<strong>Revenue growth decelerating:</strong> Market expects growth to slow from 20% toward low-teens within 2 years. <strong>Melio dilutive:</strong> US$2.5B acquisition does not generate meaningful revenue contribution in FY26-27. <strong>AI threatens core product:</strong> Automated bookkeeping erodes Xero\'s value proposition for SMBs. <strong>Multiple compression continues:</strong> Tech sector de-rating persists; premium SaaS valuations do not recover. <strong>Competitive displacement:</strong> QuickBooks and MYOB gain share in key markets.'
+      label: 'Embedded Assumptions at A$77.87',
+      content: '<strong>AI disrupts core product within 2-3 years:</strong> Market prices automated bookkeeping replacing Xero\'s value proposition. <strong>Revenue growth decelerates sharply:</strong> Growth expected to slow from 20% toward single digits as AI alternatives emerge. <strong>Churn accelerates:</strong> Market front-running customer departures not yet visible in data. <strong>Melio write-down:</strong> US$2.5B acquisition at near-zero implied value. <strong>Multiple permanently compressed:</strong> Premium SaaS valuations never recover; cloud accounting re-rated as legacy category.'
     },
-    evidenceCheck: 'The evidence is genuinely split. <strong>Fundamentals are strong:</strong> Xero beat estimates across the board in 1H FY26 &mdash; revenue up 20%, ARPU up 15%, EBITDA margins expanding, Rule of 40 at 44.5%, churn at historic lows. Every analyst covering the stock rates Buy with consensus 120%+ above current price. <strong>But the price is unambiguous:</strong> a 55% decline sustained over months is not noise &mdash; it is the market repricing what these fundamentals are worth in an AI world. The gap between analyst consensus and market price is the widest in Xero\'s listed history. One of them is wrong.',
-    narrativeStability: '<strong>Unstable and contested.</strong> The AI disruption narrative is strengthening with each sector de-rating and each new AI product announcement. It is weakened by each earnings beat that shows no churn &mdash; but so far the market has ignored three consecutive beats. The narrative is most vulnerable to the FY26 full-year results in May 2026: another strong result with no churn signal would stretch the bear case to its limit. Conversely, any sign of subscriber deceleration or churn uptick would confirm what the market has been pricing for months.'
+    evidenceCheck: 'The evidence picture has become more extreme, not more resolved. <strong>Fundamental evidence is the strongest in Xero\'s history:</strong> Revenue +20%, ARPU +15%, Rule of 40 at 44.5%, churn at historic lows, four consecutive earnings beats, Melio ahead of plan, all 15 analysts Buy at average A$191. <strong>Market evidence is the most bearish in Xero\'s history:</strong> 60% drawdown, growth fund exodus, 4-5% short interest, AI disruption narrative dominant, ASX tech sector collapsing. <strong>Critically:</strong> the analyst-to-price gap of 145% is unprecedented for a profitable, growing ASX 50 company. Either consensus is uniformly blind to a paradigm shift, or the market has overshot on a narrative with zero empirical support in Xero\'s own metrics. This is the most contested analytical picture on the ASX.',
+    narrativeStability: '<strong>Extremely unstable.</strong> The AI disruption narrative is strengthening with each new AI capability demonstration (Anthropic Claude was the latest catalyst). It is theoretically weakened by each earnings beat &mdash; but the market has now ignored four consecutive beats. The narrative is most vulnerable to the FY26 full-year results on 14 May 2026: another strong result with no churn signal, combined with a credible AI monetisation strategy, would stretch the bear case beyond its breaking point. Conversely, any sign of subscriber deceleration or churn uptick would validate what the market has been pricing for 8 months. Xero\'s planned AI monetisation announcements for FY27 could also be a catalyst &mdash; if Xero positions itself as an AI beneficiary rather than victim, the narrative could flip rapidly.'
   },
 
   // Evidence
   evidence: {
-    intro: 'Ten evidence domains assessed. Fundamental evidence supports T1 (Platform Expansion) across multiple domains, but market price &mdash; itself a powerful evidence domain &mdash; is unambiguously pricing T3 (AI Disruption). The gap between these signals is the defining analytical challenge for this stock.',
+    intro: 'Ten evidence domains assessed. Fundamental evidence supports T1 (Platform Expansion) across 8 domains, but market price &mdash; itself the most powerful evidence domain &mdash; is unambiguously pricing T3 (AI Disruption). The 145% gap between analyst consensus and market price is the widest for any profitable ASX 50 company. This is the defining analytical tension.',
     cards: [
       {
         number: 1,
@@ -4776,15 +4801,15 @@ STOCK_DATA.XRO = {
         title: '3. Broker Research',
         epistemicClass: 'ep-consensus',
         epistemicLabel: 'Consensus',
-        finding: '<strong>Uniformly bullish. All 15 covering analysts rate Buy or Outperform.</strong> Average 12-month target: A$183-191. UBS target A$194, Ord Minnett A$200. The consensus target represents <strong>120%+ upside</strong> from current price. This is the widest gap between consensus and market price in Xero\'s listed history. No analyst has a Sell or Underweight rating. Consensus FY26 revenue estimate: NZ$2.55B (+21%).',
-        tension: 'When every analyst agrees but the market disagrees by this magnitude, one side is wrong. Either: (a) the sell-side is uniformly behind the curve on AI disruption risk that the market is pricing ahead of consensus models; or (b) the market has overshot on the downside in a sentiment-driven selloff that will correct as each earnings result proves the analysts right. The uniformity of consensus is itself informative: this is not a stock where analysts are divided.',
+        finding: '<strong>Unanimously bullish. All 15 analysts Buy or Outperform.</strong> Average target: <strong>A$191 (+145% upside)</strong>. UBS Buy A$174, Citi Buy A$210, Macquarie Outperform A$228.90, Ord Minnett Buy A$200. This is the widest gap between consensus and market price in Xero\'s listed history. No analyst has a Sell, Underweight, or even Hold rating. Consensus FY26 revenue: NZ$2.55B (+21%). No analyst models AI-driven churn as a base case. Several have increased targets post the sell-off, calling it "sentiment-driven overshoot."',
+        tension: 'The gap between analyst consensus (A$191) and market price (A$77.87) is 145% &mdash; unprecedented for a profitable ASX 50 company. Either: (a) every covering analyst is uniformly blind to a paradigm shift that the market is correctly pricing; or (b) the market has overshot catastrophically in a narrative-driven selloff. The uniformity is remarkable: not a single analyst has downgraded despite a 60% decline. Either they are all wrong, or the market is.',
         table: null,
         tags: [
           { text: 'Strongly Supports T1', class: 'strong' },
           { text: 'Contradicts T3', class: 'contradicts' },
           { text: 'Contradicts T4', class: 'contradicts' }
         ],
-        source: 'UBS, Ord Minnett, Goldman Sachs, Macquarie, Morgan Stanley consensus data'
+        source: 'UBS, Citi, Macquarie, Ord Minnett, Goldman Sachs, Morgan Stanley consensus; Feb 2026 updates'
       },
       {
         number: 4,
@@ -4848,14 +4873,14 @@ STOCK_DATA.XRO = {
         title: '8. Media &amp; Social',
         epistemicClass: 'ep-noise',
         epistemicLabel: 'Noise',
-        finding: '<strong>Bearish sentiment dominates.</strong> Financial media framing: "Xero caught in AI crosshairs," "Melio gamble," "tech sector rout." Social sentiment on investment forums overwhelmingly negative. The AI disruption narrative is not unique to Xero &mdash; it applies across the SaaS sector &mdash; but that makes it more powerful, not less. Sector-wide narratives drive capital allocation across entire asset classes. The fact that no credible reporting of actual churn exists creates the key tension: the narrative is ahead of the evidence, but the narrative is driving the price.',
-        tension: null,
+        finding: '<strong>AI panic dominates all financial media.</strong> The February 2026 sell-off was triggered by Anthropic\'s Claude AI demonstrations, which financial press framed as directly threatening cloud accounting workflows. Headlines: "Xero caught in AI crosshairs," "SaaS stocks hammered as AI reality bites," "ASX tech bloodbath: 9.4% single-session collapse." Social sentiment on investment forums overwhelmingly bearish. The narrative has shifted from generic "AI disrupts SaaS" to specific: "Claude can do bookkeeping, reconciliation, and compliance &mdash; why pay for Xero?" <strong>No credible reporting of actual churn or customer departure exists.</strong> The narrative is ahead of the evidence by the widest margin for any ASX company.',
+        tension: 'The media narrative is the primary driver of the sell-off, yet it rests on zero empirical evidence of customer impact. This is not unprecedented &mdash; market narratives routinely front-run fundamentals &mdash; but the magnitude of the gap between narrative (catastrophic disruption) and evidence (historic low churn, 20% growth) is exceptional.',
         table: null,
         tags: [
-          { text: 'Strongly Supports T3 (dominant narrative)', class: 'strong' },
-          { text: 'Contradicts T1 (sentiment overwhelms fundamentals)', class: 'contradicts' }
+          { text: 'Strongly Supports T3 (AI narrative now has named catalyst)', class: 'strong' },
+          { text: 'Contradicts T1 (narrative overwhelms fundamentals)', class: 'contradicts' }
         ],
-        source: 'Australian Financial Review; major tech press; investment forums; sentiment tracking'
+        source: 'Australian Financial Review; Reuters; Bloomberg; tech press; Anthropic Claude launch coverage; Feb 2026'
       },
       {
         number: 9,
@@ -4884,7 +4909,7 @@ STOCK_DATA.XRO = {
         title: '10. Ownership &amp; Capital Flows',
         epistemicClass: 'ep-registry',
         epistemicLabel: 'Registry Data',
-        finding: '<strong>Growth fund exodus creates buying opportunity or value trap signal.</strong> The most significant register movement is the reduction by active growth managers (Hyperion, Baillie Gifford) who were long-term holders. Their selling coincides with the tech sector de-rating and reflects either valuation discipline or loss of conviction. Dual-listing (ASX + NZX) means the register spans Australian institutional, NZ retail, and global growth funds. <strong>Short interest is elevated at ~4-5% of shares outstanding</strong>, reflecting active bearish bets on the AI disruption or valuation narrative. This is higher than typical ASX 50 shorts and represents meaningful conviction from short sellers. Insider transactions are limited to routine performance rights vesting; no discretionary buying by management at current prices. The register composition suggests the marginal buyer needs to be a value-oriented or GARP investor, not the growth funds who have been selling.',
+        finding: '<strong>Growth fund exodus accelerating; short interest elevated.</strong> The register continues to rotate: active growth managers (Hyperion reduced from ~6% to ~4.5%, Baillie Gifford reduced) selling into the decline. At A$77.87, the stock is now below the cost basis of most institutional holders who bought in the last 3 years. <strong>Short interest remains elevated at ~4-5% of shares outstanding</strong>, among the highest for an ASX 50 company, reflecting active bearish bets. Passive holders (Vanguard, BlackRock, State Street) are steady, providing an index-weight floor. <strong>No discretionary insider buying</strong> at current levels, which is notable given management\'s bullish public commentary. The marginal buyer must be a deep-value or contrarian investor, not the growth funds who have been liquidating.',
         tension: null,
         table: {
           headers: ['Holder', 'Type', 'Stake', 'Movement'],
@@ -4918,52 +4943,61 @@ STOCK_DATA.XRO = {
         { domain: 'Leadership &amp; Governance', epistemic: 'Independent', t1: { class: 'et-up', text: '&#9650;' }, t2: { class: 'et-neutral', text: '&mdash;' }, t3: { class: 'et-down', text: '&#9660;' }, t4: { class: 'et-neutral', text: '&mdash;' } },
         { domain: 'Ownership &amp; Capital Flows', epistemic: 'Registry', t1: { class: 'et-neutral', text: '&mdash;' }, t2: { class: 'et-neutral', text: '&mdash;' }, t3: { class: 'et-up', text: '&#9650;' }, t4: { class: 'et-neutral', text: '&mdash;' } }
       ],
-      summary: { t1: '8 (4 strong)', t1Color: 'var(--signal-green)', t2: '1', t3: '2 vs 5 against', t3Color: 'var(--signal-red)', t4: '0 vs 4 against', t4Color: 'var(--signal-red)' }
+      summary: { t1: '8 (4 strong)', t1Color: 'var(--signal-green)', t2: '2 (Melio ahead)', t2Color: 'var(--signal-green)', t3: '3 vs 5 against', t3Color: 'var(--signal-red)', t4: '0 vs 4 against', t4Color: 'var(--signal-red)' }
     }
   },
 
   // Discriminators
   discriminators: {
-    intro: 'Three data points carry high diagnosticity. The market\'s thesis rests on sentiment rather than evidence; the discriminating events will determine whether sentiment or fundamentals prevail.',
+    intro: 'Four data points carry high diagnosticity. The AI disruption thesis now has a named catalyst (Anthropic Claude), but still zero empirical evidence in Xero\'s metrics. The next 3 months will discriminate between narrative and reality.',
     rows: [
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>FY26 Full Year Results (14 May 2026).</strong> Revenue growth &ge;18% confirms T1; &lt;15% opens the door for T3 narrative.', discriminatesBetween: 'T1 (execution continues) vs T3 (growth decelerating)', currentReading: 'On track (T1 +20%)', readingClass: 'td-green' },
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>US Subscriber Milestone.</strong> If US subs exceed 100K by mid-2026, Melio thesis gains credibility.', discriminatesBetween: 'T2 (US expansion working) vs T2 failure (Melio write-down risk)', currentReading: 'Awaiting disclosure', readingClass: 'td-amber' },
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Melio Revenue Integration.</strong> Melio revenue contribution visible and growing in FY26 results.', discriminatesBetween: 'T2 (strategic success) vs T2 failure (dilutive acquisition)', currentReading: 'Awaiting FY26', readingClass: 'td-amber' },
-      { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>Churn Rate Trajectory.</strong> Any uptick in churn would be the first empirical signal of AI disruption.', discriminatesBetween: 'T1 (platform sticky) vs T3 (AI displacement beginning)', currentReading: 'Below pre-pandemic', readingClass: 'td-green' }
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>FY26 Full Year Results (14 May 2026).</strong> Revenue growth &ge;18% + no churn = T3 remains evidence-free. Growth &lt;15% or churn uptick = T3 gains first empirical support.', discriminatesBetween: 'T1 (execution continues despite narrative) vs T3 (AI disruption reaching fundamentals)', currentReading: 'On track at +20%; churn at historic lows', readingClass: 'td-green' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Xero AI Monetisation Strategy (FY27 roadmap).</strong> If Xero positions AI as revenue enhancer, narrative flips. If silent, market narrative dominates.', discriminatesBetween: 'T1 (Xero as AI beneficiary) vs T3 (Xero as AI victim)', currentReading: 'FY27 AI strategy announced but not detailed', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Melio Breakeven Confirmation (H2 FY28).</strong> Tracking 6-12 months ahead of plan; confirmation would validate US$2.5B acquisition.', discriminatesBetween: 'T2 (strategic success) vs T2 failure (write-down risk)', currentReading: 'Ahead of plan per management', readingClass: 'td-green' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Churn Rate in FY26 Full Year.</strong> Any uptick would be the first empirical signal of AI disruption. Historic lows maintained = T3 remains purely narrative.', discriminatesBetween: 'T1 (platform sticky; AI not displacing) vs T3 (AI displacement beginning)', currentReading: 'Below pre-pandemic; historic lows', readingClass: 'td-green' }
     ],
-    nonDiscriminating: '<strong>"Stock down 55%"</strong> (price movement is the question, not the answer) &bull; <strong>"P/E of 56x looks expensive"</strong> (P/E is meaningless for high-growth SaaS; FCF margin and Rule of 40 are the relevant metrics) &bull; <strong>"AI will change everything"</strong> (generic claim with no Xero-specific evidence) &bull; <strong>"Melio cost US$2.5B"</strong> (price alone does not determine value; outcome does)'
+    nonDiscriminating: '<strong>"Stock down 60%"</strong> (price is the question, not the answer) &bull; <strong>"Anthropic Claude can do bookkeeping"</strong> (capability demonstration is not adoption evidence; no churn, no switching) &bull; <strong>"P/E of 41x looks expensive"</strong> (irrelevant for 20% growth SaaS; FCF margin and Rule of 40 are correct metrics) &bull; <strong>"Melio cost US$2.5B"</strong> (acquisition price does not determine value; breakeven trajectory does)'
   },
 
   // Tripwires
   tripwires: {
-    intro: 'Three revision conditions. The bull case for XRO is evidence-heavy; the tripwires focus on where the evidence could turn.',
+    intro: 'Four revision conditions. The AI disruption thesis now has a named catalyst but zero empirical evidence. The next 3 months will determine whether narrative or fundamentals prevail.',
     cards: [
       {
         date: '14 MAY 2026',
-        name: 'FY26 Full Year Results',
+        name: 'FY26 Full Year Results &mdash; The Decisive Test',
         conditions: [
-          { if: 'If revenue growth &ge;18% and Rule of 40 &ge;42', valence: 'positive', then: 'T1 strengthens decisively. Third consecutive beat. Market re-rating catalyst.' },
-          { if: 'If revenue growth &lt;15% or FCF margin contracts', valence: 'negative', then: 'T3 gains credibility. First evidence that growth is genuinely decelerating. Narrative shifts from "sentiment overshoot" to "fundamentals weakening."' }
+          { if: 'If revenue growth &ge;18%, Rule of 40 &ge;42, churn at/below historic lows', valence: 'positive', then: 'T1 strengthens decisively. Fifth consecutive beat. T3 stretched to breaking point. Market re-rating catalyst.' },
+          { if: 'If revenue growth &lt;15% or churn uptick visible', valence: 'negative', then: 'T3 gains first empirical evidence. Narrative validated. Further de-rating likely.' }
         ],
-        source: 'Source: ASX announcement, FY26 Annual Report'
+        source: 'Source: ASX announcement, FY26 Annual Report, 14 May 2026'
+      },
+      {
+        date: 'FY27 ROADMAP',
+        name: 'Xero AI Monetisation Strategy',
+        conditions: [
+          { if: 'If Xero articulates credible AI-native features that increase ARPU and deepen moat', valence: 'positive', then: 'Narrative flips: Xero as AI beneficiary, not victim. T3 weakens materially. Re-rating catalyst.' },
+          { if: 'If AI strategy is vague or absent; no product differentiation from generic AI tools', valence: 'negative', then: 'T3 narrative confirmed. Market validated in pricing AI displacement.' }
+        ],
+        source: 'Source: Xero Investor Day; FY27 product roadmap; management presentations'
       },
       {
         date: 'MID-2026',
-        name: 'US Subscriber &amp; Melio Revenue Disclosure',
+        name: 'Melio Breakeven Confirmation',
         conditions: [
-          { if: 'If US subs &gt;100K and Melio revenue visible', valence: 'positive', then: 'T2 strengthens. Melio acquisition thesis gaining traction. US market entry working.' },
-          { if: 'If US growth stalls or Melio integration issues emerge', valence: 'negative', then: 'T2 weakens materially. US$2.5B write-down risk emerges. Market scepticism validated.' }
+          { if: 'If Melio tracking to H2 FY28 breakeven confirmed with metrics', valence: 'positive', then: 'T2 strengthens. US$2.5B acquisition proving strategic. Upside optionality crystallises.' },
+          { if: 'If Melio timeline slips or integration issues emerge', valence: 'negative', then: 'T2 weakens. Write-down risk increases. Market scepticism validated.' }
         ],
         source: 'Source: FY26 results; management commentary; investor presentations'
       },
       {
         date: 'ONGOING',
-        name: 'Churn Rate Monitoring',
+        name: 'Churn Rate &mdash; The Empirical Acid Test',
         conditions: [
-          { if: 'If churn remains at or below pre-pandemic levels', valence: 'positive', then: 'T3 (AI disruption) remains theoretical. No empirical support for displacement thesis.' },
-          { if: 'If churn increases by &gt;50bp in any reporting period', valence: 'negative', then: 'T3 gains first empirical evidence. Would need to distinguish between AI-driven churn and macro-driven churn.' }
+          { if: 'If churn remains at historic lows', valence: 'positive', then: 'T3 remains evidence-free. 60% sell-off rests entirely on narrative, not data.' },
+          { if: 'If churn increases by &gt;50bp in any period', valence: 'negative', then: 'T3 gains first empirical evidence. Would need to distinguish AI-driven vs macro-driven churn.' }
         ],
-        source: 'Source: Xero 1H/FY results; third-party app download data; customer surveys'
+        source: 'Source: Xero 1H/FY results; third-party app/web data; customer surveys'
       }
     ]
   },
@@ -4983,11 +5017,12 @@ STOCK_DATA.XRO = {
       { domain: 'Ownership &amp; Capital Flows', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'Medium (dual-listed complexity)', confidenceClass: 'td-amber' }
     ],
     couldntAssess: [
-      '<strong>Melio integration metrics:</strong> No independent confirmation of Melio\'s integration progress, revenue contribution, or cross-sell rates. Management says "on track" but this is unverifiable until FY26 full-year results.',
-      '<strong>US market unit economics:</strong> Xero does not break out US-specific subscriber economics. The US has historically been Xero\'s weakest market, and Melio\'s effectiveness as a wedge product is unproven.',
-      '<strong>AI impact quantification:</strong> While academic research suggests AI augments rather than replaces accounting workflows, the pace of AI capability improvement is uncertain. The absence of current churn does not guarantee absence of future disruption.'
+      '<strong>Melio integration metrics:</strong> Management says "ahead of plan" for H2 FY28 breakeven, but no independent confirmation of revenue contribution, cross-sell rates, or US subscriber unit economics.',
+      '<strong>AI disruption timeline:</strong> Anthropic Claude was cited as the specific catalyst, but no analysis quantifies when or whether AI capabilities translate to actual accounting software displacement. The gap between capability demonstration and customer switching is unknown.',
+      '<strong>AI monetisation upside:</strong> Xero plans FY27 AI strategy but details are unavailable. If Xero successfully monetises AI (higher ARPU, deeper moat), the current thesis inverts entirely &mdash; from victim to beneficiary. Cannot assess without product details.',
+      '<strong>Institutional positioning:</strong> True institutional conviction levels are lagged. Growth fund selling (Hyperion, Baillie Gifford) is visible but value fund accumulation at current levels is not yet discernible from public register data.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T3: 36%, T1: 29%, T2: 21%, T4: 14%) reflect editorial assessment. T3 (AI Disruption) is scored as the dominant hypothesis because the market price &mdash; itself the most powerful evidence signal &mdash; is unambiguously pricing this thesis. A 55% drawdown sustained over months cannot be dismissed as sentiment. However, the fundamental evidence (financial statements, churn data, broker consensus, academic research) uniformly contradicts T3 and supports T1. This is the defining analytical tension: price says one thing, every other evidence domain says another. We present this honestly. The judgment remains yours.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 40%, T2: 35%, T3: 55%, T4: 15%) reflect editorial assessment updated post-February 2026 sell-off. T3 (AI Disruption) is scored dominant because the market price &mdash; the most powerful evidence signal &mdash; has deepened from -55% to -60% with a specific named catalyst (Anthropic Claude). However, fundamental evidence across 8 of 10 domains supports T1 (Platform Expansion). T2 (Melio) strengthened on ahead-of-plan breakeven. T4 weakened further on zero competitive displacement evidence. The 145% gap between analyst consensus (A$191) and market price (A$77.87) is unprecedented for a profitable ASX 50 company. We present this tension honestly. The judgment remains yours.'
   },
 
   // Footer
@@ -5005,7 +5040,7 @@ STOCK_DATA.XRO = {
     regime: 'Trending',
     clarity: 'Clear',
 
-    price: { current: 77.76, currency: 'A$' },
+    price: { current: 77.87, currency: 'A$' },
 
     movingAverages: {
       ma50:  { value: 105.28, date: '12 Feb 2026' },
@@ -5036,26 +5071,28 @@ STOCK_DATA.XRO = {
     },
 
     volume: {
-      latestVs20DayAvg: 3.2,
+      latestVs20DayAvg: 4.8,
       latestDate: '12 February 2026',
       priorSpikes: [
         { period: 'w/c 23 June 2025', ratio: 2.8, context: 'Initial break below A$160' },
         { period: 'w/c 6 October 2025', ratio: 2.1, context: 'Death cross week' },
-        { period: 'w/c 15 December 2025', ratio: 2.4, context: 'Break below A$120' }
+        { period: 'w/c 15 December 2025', ratio: 2.4, context: 'Break below A$120' },
+        { period: 'w/c 3 February 2026', ratio: 3.5, context: 'AI panic sell-off; ASX IT Index -9.4%; break below A$100' },
+        { period: '12 February 2026', ratio: 4.8, context: 'Anthropic Claude catalyst; new 52-week low A$77.71; capitulation volume' }
       ]
     },
 
     volatility: {
-      latestDailyRange: { high: 81.00, low: 77.71, date: '12 February 2026' },
-      latestRangePercent: 4.2,
-      avgDailyRangePercent30: 2.1,
-      avgDailyRangePercent90: 1.4
+      latestDailyRange: { high: 84.76, low: 77.71, date: '12 February 2026' },
+      latestRangePercent: 9.1,
+      avgDailyRangePercent30: 3.2,
+      avgDailyRangePercent90: 2.1
     },
 
     meanReversion: {
       vsMa50:  -26.1,
       vsMa200: -43.1,
-      rangePosition: 5,
+      rangePosition: 1,
       rangeHigh: 194.21,
       rangeLow:  77.71
     },
@@ -5065,8 +5102,8 @@ STOCK_DATA.XRO = {
       { date: 'w/c 23 June 2025',     price: 184.00, event: 'Break below A$190; volume 2.8x 20-day avg' },
       { date: 'w/c 6 October 2025',   price: 140.00, event: 'Death cross formed; 50-day MA crosses below 200-day MA' },
       { date: 'w/c 15 December 2025', price: 120.00, event: 'Break below A$120; volume 2.4x 20-day avg' },
-      { date: 'w/c 2 February 2026',  price: 96.10,  event: 'Break below A$100' },
-      { date: '12 February 2026',     price: 77.76,  event: 'New 12-month low; volume 3.2x 20-day avg' }
+      { date: 'w/c 3 February 2026',  price: 96.10,  event: 'AI panic: ASX IT Index -9.4%; Anthropic Claude cited as catalyst; break below A$100' },
+      { date: '12 February 2026',     price: 77.71,  event: 'New 52-week low; volume 4.8x avg; -60% from high; capitulation characteristics' }
     ],
 
     relativePerformance: {
@@ -7138,64 +7175,64 @@ STOCK_DATA.CSL = {
   company: 'CSL Limited',
   sector: 'Healthcare',
   sectorSub: 'Plasma &amp; Biotherapeutics',
-  price: 180.50,
+  price: 163.44,
   currency: 'A$',
-  date: '11 February 2026',
+  date: '12 February 2026',
   reportId: 'CSL-2026-001',
-  priceHistory: [256.96, 256.28, 254, 256.9, 258.3, 263.82, 264.85, 258.89, 258.67, 261, 262.47, 264.82, 260.29, 260.57, 262, 264.71, 264.26, 262, 259.66, 255.4, 251.93, 250.37, 248.49, 250.05, 247.88, 247.69, 250.29, 255.32, 254, 253.33, 256.8, 252.92, 252.41, 252.72, 249.28, 251.57, 255.19, 257.68, 253.3, 241.88, 245.8, 233.62, 241.78, 233.08, 238, 244.1, 241.89, 239.35, 236.56, 239.76, 241.89, 244.29, 245.43, 251.13, 251.12, 256.41, 256.81, 250.47, 242.98, 239.92, 239.31, 235.14, 240.79, 239.81, 238.38, 241.82, 241.78, 244.03, 245.21, 246.59, 246.38, 247.05, 248.99, 247.13, 248, 246.99, 247.8, 245.45, 246.22, 242.96, 241.92, 244.13, 240.85, 241.05, 238.86, 239.1, 239.29, 241.97, 238.71, 240.21, 240.78, 241.22, 238.45, 239.98, 234.34, 239.48, 238.24, 239.77, 241, 242.76, 247.98, 245.94, 243.71, 242.41, 240.92, 241.6, 250.66, 247.45, 248.39, 257.38, 255.31, 263.95, 265.5, 269.56, 267.92, 270.59, 272, 271.11, 270.9, 264.05, 264.91, 267.2, 269.6, 265.53, 260.88, 263.82, 264.31, 269.55, 270.1, 270.37, 271.32, 225.5, 220.74, 226, 216.6, 216.4, 215.16, 215.71, 212.7, 212.89, 210.27, 208.37, 206.62, 210.85, 209.25, 213.37, 209.94, 210.93, 205.81, 207.82, 204.48, 201.91, 201.07, 198.34, 198.37, 199.24, 199.94, 197.34, 197.99, 194.23, 199, 198.2, 198.8, 206.24, 207.79, 205.67, 205.34, 205.72, 207, 209.2, 208.75, 211, 216.45, 220.29, 218.5, 217.66, 220.41, 220.7, 217.55, 212.47, 211.42, 177.86, 170.77, 179.56, 178.5, 175.39, 176.99, 176.34, 179.49, 179.03, 178.91, 178.12, 179.06, 181.93, 181.81, 180.44, 180.08, 179.22, 178.34, 178.85, 182.95, 182.14, 182.9, 186.18, 186.3, 183.64, 183.44, 182.3, 185.61, 184.1, 185.5, 181.82, 181.63, 178.81, 183.93, 179.31, 177.15, 173.39, 173.99, 175.08, 176.31, 175.66, 171.48, 173.55, 172.42, 172.65, 171.96, 172.46, 168.29, 170, 174.45, 174.29, 175.1, 173.32, 173.49, 175.28, 175.53, 176.5, 176.7, 176.11, 178.41, 179.62, 182.29, 180.19, 179.4, 181.42, 177.08, 178.11, 181.7, 181.24, 180.5, 180.37, 171.39],
+  priceHistory: [256.96, 256.28, 254, 256.9, 258.3, 263.82, 264.85, 258.89, 258.67, 261, 262.47, 264.82, 260.29, 260.57, 262, 264.71, 264.26, 262, 259.66, 255.4, 251.93, 250.37, 248.49, 250.05, 247.88, 247.69, 250.29, 255.32, 254, 253.33, 256.8, 252.92, 252.41, 252.72, 249.28, 251.57, 255.19, 257.68, 253.3, 241.88, 245.8, 233.62, 241.78, 233.08, 238, 244.1, 241.89, 239.35, 236.56, 239.76, 241.89, 244.29, 245.43, 251.13, 251.12, 256.41, 256.81, 250.47, 242.98, 239.92, 239.31, 235.14, 240.79, 239.81, 238.38, 241.82, 241.78, 244.03, 245.21, 246.59, 246.38, 247.05, 248.99, 247.13, 248, 246.99, 247.8, 245.45, 246.22, 242.96, 241.92, 244.13, 240.85, 241.05, 238.86, 239.1, 239.29, 241.97, 238.71, 240.21, 240.78, 241.22, 238.45, 239.98, 234.34, 239.48, 238.24, 239.77, 241, 242.76, 247.98, 245.94, 243.71, 242.41, 240.92, 241.6, 250.66, 247.45, 248.39, 257.38, 255.31, 263.95, 265.5, 269.56, 267.92, 270.59, 272, 271.11, 270.9, 264.05, 264.91, 267.2, 269.6, 265.53, 260.88, 263.82, 264.31, 269.55, 270.1, 270.37, 271.32, 225.5, 220.74, 226, 216.6, 216.4, 215.16, 215.71, 212.7, 212.89, 210.27, 208.37, 206.62, 210.85, 209.25, 213.37, 209.94, 210.93, 205.81, 207.82, 204.48, 201.91, 201.07, 198.34, 198.37, 199.24, 199.94, 197.34, 197.99, 194.23, 199, 198.2, 198.8, 206.24, 207.79, 205.67, 205.34, 205.72, 207, 209.2, 208.75, 211, 216.45, 220.29, 218.5, 217.66, 220.41, 220.7, 217.55, 212.47, 211.42, 177.86, 170.77, 179.56, 178.5, 175.39, 176.99, 176.34, 179.49, 179.03, 178.91, 178.12, 179.06, 181.93, 181.81, 180.44, 180.08, 179.22, 178.34, 178.85, 182.95, 182.14, 182.9, 186.18, 186.3, 183.64, 183.44, 182.3, 185.61, 184.1, 185.5, 181.82, 181.63, 178.81, 183.93, 179.31, 177.15, 173.39, 173.99, 175.08, 176.31, 175.66, 171.48, 173.55, 172.42, 172.65, 171.96, 172.46, 168.29, 170, 174.45, 174.29, 175.1, 173.32, 173.49, 175.28, 175.53, 176.5, 176.7, 176.11, 178.41, 179.62, 182.29, 180.19, 179.4, 181.42, 177.08, 178.11, 181.7, 181.24, 180.5, 180.37, 171.39, 163.44],
 
   // Hero - right side metrics
-  heroDescription: 'Global Plasma Leader &bull; 29,904 Employees &bull; US$15.0B Revenue',
-  heroCompanyDescription: 'CSL Limited (ASX: CSL) is a global biotherapeutics company and the world\'s largest collector and manufacturer of human plasma-derived therapies. Operating through CSL Behring (plasma, 73% of revenue), CSL Seqirus (vaccines), and CSL Vifor (iron deficiency and nephrology), the company serves patients in over 100 countries from its Melbourne headquarters.',
+  heroDescription: 'Global Plasma Leader &bull; 29,904 Employees &bull; 1H FY26: US$8.3B Revenue',
+  heroCompanyDescription: 'CSL Limited (ASX: CSL) is a global biotherapeutics company and the world\'s largest collector and manufacturer of human plasma-derived therapies. Operating through CSL Behring (plasma), CSL Seqirus (vaccines), and CSL Vifor (iron deficiency), the company serves patients in over 100 countries. Shares at 8-year lows following CEO departure, $1.1B impairments, and 81% reported NPAT drop in 1H FY26 &mdash; though underlying NPATA only fell 7% and guidance was reaffirmed.',
   heroMetrics: [
-    { label: 'Mkt Cap', value: 'A$87B', colorClass: '' },
-    { label: 'Fwd P/E', value: '16.8x', colorClass: '' },
-    { label: 'EV/EBITDA', value: '13.6x', colorClass: '' },
-    { label: 'FCF Growth', value: '+53%', colorClass: 'positive' },
-    { label: 'Div Yield', value: '2.0%', colorClass: '' }
+    { label: 'Mkt Cap', value: 'A$79B', colorClass: '' },
+    { label: 'Fwd P/E', value: '14.5x', colorClass: 'positive' },
+    { label: '1H NPATA', value: 'US$1.9B (&darr;7%)', colorClass: 'negative' },
+    { label: 'Impairments', value: 'US$1.1B', colorClass: 'negative' },
+    { label: 'Div', value: 'US$1.30 (unch)', colorClass: '' }
   ],
 
   // Skew
-  skew: { direction: 'balanced', rationale: 'Decade-low valuation with share price nearly halved from highs presents compelling entry, but CEO departure the day before 1H results and messy Seqirus on/off demerger create genuine transformation execution risk.' },
+  skew: { direction: 'upside', rationale: '8-year low valuation at 14.5x forward P/E with underlying business intact. 1H was messy (81% reported NPAT drop, $1.1B impairments, CEO exit), but underlying NPATA only fell 7%, guidance reaffirmed, Behring margins expanding, and $550M cost savings on track. The market is pricing the worst-case transformation scenario while ignoring the franchise quality. Risk skew tilts upside at these levels.' },
 
   // Verdict
   verdict: {
-    text: 'CSL trades at its cheapest valuation in a decade (16.8x forward P/E) after the share price fell nearly 40% from A$290 highs. The core plasma franchise continues to compound, FCF surged 53%, and cost savings are ahead of schedule. But the sudden CEO departure, abandoned Seqirus demerger, and 3,000 job cuts signal a company in the middle of a messy transformation. The 1H FY26 results on 12 February are the immediate catalyst.',
-    borderColor: 'var(--signal-amber)',
+    text: '1H FY26 results are in and the picture is clear: this is a messy transition, not a broken franchise. Reported NPAT dropped 81% to US$401M on $1.1B of impairments (mRNA write-down, Venofer generics, plant closures), but underlying NPATA fell only 7% to US$1.9B. CEO McKenzie exited the day before results. The stock crashed 17% to 8-year lows at A$151. At 14.5x forward P/E, the market is pricing permanent impairment of the core plasma franchise &mdash; which the numbers do not support. Behring margins are expanding, Vifor grew 12%, and full-year guidance was reaffirmed. The execution risk is real, but the price dislocation now exceeds the fundamental risk.',
+    borderColor: 'var(--signal-green)',
     scores: [
-      { label: 'T1 Compounder', score: '50%', scoreColor: 'var(--signal-green)', dirArrow: '&rarr;', dirText: 'Awaiting', dirColor: null },
-      { label: 'T2 Execution', score: '40%', scoreColor: 'var(--signal-amber)', dirArrow: '&uarr;', dirText: 'Rising', dirColor: 'var(--signal-red)' },
-      { label: 'T3 Headwinds', score: '30%', scoreColor: 'var(--signal-red)', dirArrow: '&rarr;', dirText: 'Steady', dirColor: null },
-      { label: 'T4 Corporate', score: '20%', scoreColor: 'var(--text-muted)', dirArrow: '&rarr;', dirText: 'Awaiting', dirColor: null }
+      { label: 'T1 Compounder', score: '45%', scoreColor: 'var(--signal-green)', dirArrow: '&darr;', dirText: '1H missed', dirColor: 'var(--signal-amber)' },
+      { label: 'T2 Execution', score: '55%', scoreColor: 'var(--signal-red)', dirArrow: '&uarr;', dirText: 'Confirmed', dirColor: 'var(--signal-red)' },
+      { label: 'T3 Headwinds', score: '40%', scoreColor: 'var(--signal-red)', dirArrow: '&uarr;', dirText: 'Confirmed', dirColor: 'var(--signal-red)' },
+      { label: 'T4 Corporate', score: '35%', scoreColor: 'var(--signal-amber)', dirArrow: '&uarr;', dirText: 'Materialised', dirColor: 'var(--signal-red)' }
     ]
   },
 
   // Featured card metrics (for home page)
   featuredMetrics: [
-    { label: 'Mkt Cap', value: 'A$87B', color: '' },
-    { label: 'Fwd P/E', value: '16.8x', color: '' },
-    { label: 'FCF Growth', value: '+53%', color: 'var(--signal-green)' },
-    { label: 'Div Yield', value: '2.0%', color: '' }
+    { label: 'Mkt Cap', value: 'A$79B', color: '' },
+    { label: 'Fwd P/E', value: '14.5x', color: 'var(--signal-green)' },
+    { label: '1H NPATA', value: 'US$1.9B', color: 'var(--signal-amber)' },
+    { label: 'Impairments', value: 'US$1.1B', color: 'var(--signal-red)' }
   ],
   featuredPriceColor: 'var(--signal-red)',
-  featuredRationale: 'Decade-low valuation and surging FCF, but CEO departed day before 1H results. Transformation execution is genuinely contested.',
+  featuredRationale: '1H FY26: 81% reported NPAT drop on $1.1B impairments, but underlying NPATA only -7%. CEO exited day before results. Stock at 8-year lows, cheapest P/E in 14 years. Franchise intact, transformation messy.',
 
   // Identity section
   identity: {
     rows: [
       [['Ticker', 'CSL.AX', 'td-mono'], ['Exchange', 'ASX', 'td-mono']],
-      [['Market Cap', 'A$87B', 'td-mono'], ['Enterprise Value', 'A$105B', 'td-mono']],
-      [['Share Price', 'A$180.50', 'td-mono'], ['52-Week Range', 'A$168.00 &ndash; A$275.79', 'td-mono']],
-      [['Forward P/E', '16.8x', 'td-mono'], ['Trailing P/E', '19.1x', 'td-mono']],
-      [['EV/EBITDA', '13.6x', 'td-mono'], ['Debt/Equity', '0.54x', 'td-mono']],
-      [['Dividend Yield', '~2.0%', 'td-mono'], ['EBITDA Margin', '32.7%', 'td-mono td-green']],
-      [['Revenue (FY25)', 'US$15.0B (+5%)', 'td-mono'], ['NPATA (FY25)', '~US$3.3B', 'td-mono']],
-      [['ROE', '15.4%', 'td-mono'], ['Free Cash Flow', 'US$2.93B (+53%)', 'td-mono td-green']],
-      [['Beta', '0.26', 'td-mono td-green'], ['FY26 Guidance', 'NPATA US$3.45-3.55B', 'td-mono']],
-      [['CEO', 'Gordon Naylor (Interim, since Feb 2026)', ''], ['Employees', '29,904', 'td-mono']],
-      [['Last Earnings', 'Aug 2025 (FY25)', 'td-mono'], ['Next Earnings', '12 Feb 2026 (1H FY26)', 'td-mono']]
+      [['Market Cap', 'A$79B', 'td-mono'], ['Enterprise Value', 'A$97B', 'td-mono']],
+      [['Share Price', 'A$163.44', 'td-mono td-red'], ['52-Week Range', 'A$151.08 &ndash; A$272.00', 'td-mono']],
+      [['Forward P/E', '14.5x', 'td-mono td-green'], ['Trailing P/E', '16.1x', 'td-mono']],
+      [['EV/EBITDA', '11.8x', 'td-mono'], ['Debt/Equity', '0.54x', 'td-mono']],
+      [['Dividend Yield', '~2.4%', 'td-mono'], ['Behring Gross Margin', '51.7%', 'td-mono']],
+      [['1H FY26 Revenue', 'US$8.3B (&darr;4%)', 'td-mono td-amber'], ['1H FY26 NPATA', 'US$1.9B (&darr;7%)', 'td-mono td-amber']],
+      [['Reported NPAT', 'US$401M (&darr;81%)', 'td-mono td-red'], ['Impairments', 'US$1.1B (mRNA, Venofer, PP&amp;E)', 'td-mono td-red']],
+      [['Free Cash Flow (FY25)', 'US$2.93B (+53%)', 'td-mono td-green'], ['FY26 Guidance', 'NPATA US$3.45-3.55B (reaffirmed)', 'td-mono']],
+      [['CEO', 'Gordon Naylor (Interim, since 10 Feb 2026)', ''], ['Employees', '29,904', 'td-mono']],
+      [['Last Earnings', '12 Feb 2026 (1H FY26)', 'td-mono'], ['Next Earnings', 'Aug 2026 (FY26)', 'td-mono']]
     ],
-    overview: 'Global biotherapeutics leader headquartered in Melbourne. CSL Behring is the world\'s largest plasma collector and manufacturer, contributing US$10.9B (73% of revenue) across immunoglobulins, albumin, haemophilia treatments, and specialty products. CSL Seqirus is one of the world\'s largest influenza vaccine manufacturers. CSL Vifor, acquired in 2022 for US$11.7B, addresses iron deficiency and nephrology. The company operates plasma collection centres across the US and Europe, with manufacturing facilities globally.'
+    overview: 'Global biotherapeutics leader headquartered in Melbourne. CSL Behring is the world\'s largest plasma collector and manufacturer. 1H FY26 revealed a company in messy transition: revenue US$8.3B (-4% CC), underlying NPATA US$1.9B (-7%), but reported NPAT just US$401M (-81%) after US$1.1B in impairments (mRNA write-down $430M, Venofer generics $356M, plant closures $170M). CEO Paul McKenzie departed the day before results. Behring gross margins expanded to 51.7% (target 57% by FY28). Vifor grew 12%. Full-year guidance reaffirmed. Stock crashed 17% to 8-year lows at A$151 before recovering to ~A$163.'
   },
 
   // Hypotheses
@@ -7205,56 +7242,60 @@ STOCK_DATA.CSL = {
       direction: 'upside',
       title: 'T1: Structural Compounder Resumes',
       statusClass: 'priced',
-      statusText: 'Priced Out &mdash; Cheapest in a Decade',
-      score: '50%',
-      scoreWidth: '50%',
-      scoreMeta: '&rarr; Awaiting 1H FY26',
-      description: 'CSL\'s plasma franchise moats are intact, $550M cost savings are running ahead of schedule, FCF surged 53% to US$2.93B, and the stock trades at its lowest P/E in a decade. The dislocation is driven by sentiment around leadership change and Seqirus confusion, not by deterioration of the core business. NPATA guidance of US$3.45-3.55B implies mid-single-digit growth resuming.',
+      statusText: 'Tested &mdash; 1H Missed But Franchise Intact',
+      score: '45%',
+      scoreWidth: '45%',
+      scoreMeta: '&darr; 1H missed guidance pace; franchise quality unchanged',
+      description: '1H FY26 tested this thesis hard. Underlying NPATA fell 7% to US$1.9B, tracking below the full-year guidance of US$3.45-3.55B. Behring IG revenue declined 6% (volume growth offset by pricing pressure and destocking). Albumin dropped 27%, KCENTRA -20%. But the franchise quality indicators remain strong: Behring gross margins expanded to 51.7% (target 57% by FY28), Vifor grew 12%, cost savings are 60% achieved at half-year against the $100M FY26 target, and full-year guidance was reaffirmed &mdash; implying a significant 2H acceleration. At 14.5x forward P/E, the market is pricing permanent impairment that the numbers do not support.',
       requires: [
-        '1H FY26 NPATA growth consistent with full-year guidance of US$3.45-3.55B',
-        'Behring immunoglobulin (IG) volume growth &ge;8% offsetting albumin weakness',
-        '$550M cost savings flowing to EBIT, not consumed by restructuring charges',
-        'Interim CEO stabilises organisation; permanent appointment within 6 months',
-        'HEMGENIX and ANDEMBRY gene therapies contributing US$150M+ revenue'
+        '2H FY26 NPATA acceleration to deliver full-year guidance of US$3.45-3.55B',
+        'Behring IG volume recovery in 2H as destocking ends; pricing stabilises',
+        'Cost savings program delivering remaining 40% of FY26 $100M target in 2H',
+        'Permanent CEO appointment within 6 months; strategic clarity restored',
+        'Albumin and KCENTRA declines proved seasonal/one-off, not structural'
       ],
       supportingLabel: 'Supporting Evidence (6 Domains)',
       supporting: [
-        '<strong>Financial Statements:</strong> FCF +53% to US$2.93B; EBITDA margin 32.7%; 15.4% ROE',
-        '<strong>Broker Research:</strong> 13 Buy, 0 Sell; consensus target A$230-237 (28-31% upside)',
-        '<strong>Regulatory:</strong> FDA approval of HEMGENIX and ANDEMBRY provides new revenue streams',
-        '<strong>Economic:</strong> Plasma supply chain normalised post-COVID; collection volumes recovering',
-        '<strong>Academic:</strong> IG demand growing 7-10% annually on demographic and diagnostic expansion',
-        '<strong>Competitor:</strong> Takeda and Grifols both facing operational challenges; CSL gaining share'
+        '<strong>Financial Statements:</strong> Behring gross margin expanded to 51.7%; Vifor +12%; FCF US$2.93B (FY25); guidance reaffirmed',
+        '<strong>Broker Research:</strong> 13 Buy, 0 Sell; consensus target A$215-230 (30-40% upside from A$163)',
+        '<strong>Regulatory:</strong> FDA-approved HEMGENIX and ANDEMBRY providing new revenue; gene therapy pipeline maturing',
+        '<strong>Economic:</strong> IG demand still growing 7-10% annually; 1H weakness was destocking, not demand destruction',
+        '<strong>Academic:</strong> Plasma therapies structurally supply-constrained; no biosimilar competition pathway for IG',
+        '<strong>Competitor:</strong> Takeda underperforming; Grifols taken private; CSL competitive position strengthening'
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Leadership:</strong> CEO departed the day before 1H results; signals either personal issue or board friction',
-        '<strong>Corporate Comms:</strong> Seqirus demerger announced then abandoned; strategic confusion',
-        '<strong>Alt Data:</strong> 3,000 job cuts (8.5% of workforce) suggest cost pressures deeper than disclosed'
+        '<strong>1H FY26 Results:</strong> Revenue -4%, NPATA -7%, Behring IG -6%, Albumin -27%, KCENTRA -20% &mdash; broad-based weakness',
+        '<strong>Leadership:</strong> CEO departed day before results; interim CEO has no direct biotherapeutics operating experience',
+        '<strong>Impairments:</strong> US$1.1B write-downs (mRNA $430M, Venofer $356M, PP&amp;E $170M) signal prior capital allocation errors',
+        '<strong>Corporate Comms:</strong> Seqirus demerger abandoned; strategic direction uncertain under interim leadership'
       ]
     },
     {
       tier: 't2',
       direction: 'downside',
       title: 'T2: Execution Risk in Transformation',
-      statusClass: 'accumulating',
-      statusText: 'Evidence Building',
-      score: '40%',
-      scoreWidth: '40%',
-      scoreMeta: '&uarr; Rising',
-      description: 'The CEO departure, abandoned Seqirus demerger, and 3,000 job cuts reveal a company in the middle of a difficult transformation. Paul McKenzie\'s exit the day before 1H results is deeply unusual and creates uncertainty about strategic direction, board dynamics, and whether the cost-out program will be sustained under new leadership. The interim CEO is a board member, not an operational executive.',
+      statusClass: 'active',
+      statusText: 'Confirmed &mdash; 1H Results Validate',
+      score: '55%',
+      scoreWidth: '55%',
+      scoreMeta: '&uarr; 1H confirmed execution challenges',
+      description: '1H FY26 confirmed this thesis. The CEO departed the day before results that revealed US$1.1B in impairments, broad-based revenue declines (Behring -7%, Albumin -27%, KCENTRA -20%), and a reported NPAT drop of 81%. The impairments signal prior capital allocation mistakes: $430M mRNA write-down (pandemic-era bet that failed), $356M Venofer write-down (generics competition), $170M plant closures. The interim CEO is a board director, not an operational executive. The cost savings program ($550M target by FY28) is on track but cannot mask the reality that this company is being restructured while simultaneously trying to maintain growth. Execution risk is no longer theoretical.',
       requires: null,
-      supportingLabel: 'Supporting Evidence (4 Domains)',
+      supportingLabel: 'Supporting Evidence (6 Domains)',
       supporting: [
-        '<strong>Leadership:</strong> CEO Paul McKenzie stepped down 10 Feb 2026, one day before 1H results; Gordon Naylor appointed interim',
-        '<strong>Corporate Comms:</strong> Seqirus demerger was planned, then reversed; strategic direction unclear',
-        '<strong>Alt Data:</strong> 3,000 headcount reduction (29,904 from 32,698) signals deeper restructuring than market anticipated',
-        '<strong>Media:</strong> Negative press cycle around CEO exit timing; "governance questions" framing'
+        '<strong>1H FY26 Results:</strong> Revenue -4%, NPATA -7%, reported NPAT -81%; broad weakness across Behring product lines',
+        '<strong>Impairments:</strong> US$1.1B write-downs confirm past capital allocation errors (mRNA, Venofer, plant closures)',
+        '<strong>Leadership:</strong> CEO McKenzie departed 10 Feb 2026; interim CEO Gordon Naylor has no biotherapeutics operating experience',
+        '<strong>Corporate Comms:</strong> Seqirus demerger abandoned; no clarity on strategic direction under new leadership',
+        '<strong>Alt Data:</strong> 3,000 headcount reduction (8.5%) signals restructuring deeper than disclosed',
+        '<strong>Media:</strong> Negative press cycle; "governance questions" and "strategic confusion" framing dominant'
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Financial Statements:</strong> Underlying business metrics remain strong; FCF surging',
-        '<strong>Broker Research:</strong> Analysts maintaining Buy ratings through CEO transition; view as temporary noise'
+        '<strong>Guidance Reaffirmed:</strong> Full-year NPATA US$3.45-3.55B maintained, implying strong 2H acceleration',
+        '<strong>Behring Margins:</strong> Gross margin expanded to 51.7%; cost savings 60% achieved at half-year',
+        '<strong>Broker Research:</strong> 13 Buy, 0 Sell maintained through the results; analysts view dislocation as temporary'
       ]
     },
     {
@@ -7262,46 +7303,49 @@ STOCK_DATA.CSL = {
       direction: 'downside',
       title: 'T3: Structural Headwinds Emerging',
       statusClass: 'active',
-      statusText: 'Active &mdash; Multiple Vectors',
-      score: '30%',
-      scoreWidth: '30%',
-      scoreMeta: '&rarr; Steady',
-      description: 'China albumin demand is weakening as domestic Chinese producers gain share and regulatory barriers to imports increase. Immunoglobulin competition is intensifying as Takeda and new entrants expand subcutaneous IG products. Influenza vaccine demand is declining post-COVID. These headwinds are structural, not cyclical, and could compress the mid-single-digit growth outlook to low-single-digit.',
+      statusText: 'Confirmed &mdash; 1H Evidence Across Multiple Lines',
+      score: '40%',
+      scoreWidth: '40%',
+      scoreMeta: '&uarr; 1H confirmed headwinds in albumin, KCENTRA, Seqirus',
+      description: '1H FY26 provided concrete evidence for multiple structural headwinds. Albumin revenue dropped 27% as Chinese domestic producers gain market share. KCENTRA fell 20% on increased competition and formulary pressure. Seqirus declined 2% as post-COVID flu vaccine demand continues normalising. The US$356M Venofer write-down confirms generic iron competition is eroding Vifor\'s legacy product economics. These are not one-off misses &mdash; each reflects structural shifts in competitive dynamics.',
       requires: null,
-      supportingLabel: 'Supporting Evidence (3 Domains)',
+      supportingLabel: 'Supporting Evidence (5 Domains)',
       supporting: [
-        '<strong>Competitor:</strong> Chinese plasma fractionators expanding albumin capacity; regulatory favouring domestic supply',
-        '<strong>Economic:</strong> Influenza vaccination rates declining toward pre-COVID norms; Seqirus revenue at risk',
-        '<strong>Academic:</strong> Subcutaneous IG delivery shifting competitive dynamics; CSL\'s IV-focused portfolio exposed'
+        '<strong>1H FY26 Results:</strong> Albumin -27%, KCENTRA -20%, Seqirus -2% &mdash; three distinct product headwinds in one half',
+        '<strong>Impairments:</strong> $356M Venofer write-down confirms generic iron competition is permanently impairing returns',
+        '<strong>Competitor:</strong> Chinese albumin producers (CNBG, Shanghai RAAS) expanding capacity; import substitution accelerating',
+        '<strong>Economic:</strong> Flu vaccination rates declining to pre-COVID norms; Seqirus revenue base structurally lower',
+        '<strong>Academic:</strong> Subcutaneous IG delivery shifting competitive dynamics; biosimilar iron products gaining traction'
       ],
       contradictingLabel: 'Contradicting Evidence',
       contradicting: [
-        '<strong>Financial Statements:</strong> Behring revenue still growing; IG demand fundamentally supply-constrained',
-        '<strong>Regulatory:</strong> Gene therapy approvals (HEMGENIX, ANDEMBRY) open new addressable markets',
-        '<strong>Corporate Comms:</strong> Vifor integration delivering cross-sell into nephrology; diversification proceeding'
+        '<strong>Vifor:</strong> Revenue grew 12% in 1H; nephrology franchise offsetting iron generics pressure',
+        '<strong>Gene Therapy:</strong> HEMGENIX and ANDEMBRY provide new addressable markets beyond legacy portfolio',
+        '<strong>IG Demand:</strong> Core immunoglobulin demand remains structurally supply-constrained; 1H IG weakness was destocking'
       ]
     },
     {
       tier: 't4',
       direction: 'neutral',
       title: 'T4: M&amp;A or Corporate Event',
-      statusClass: 'minimal',
-      statusText: 'Low Probability &mdash; Watching',
-      score: '20%',
-      scoreWidth: '20%',
-      scoreMeta: '&rarr; Awaiting',
-      description: 'CSL\'s depressed valuation (16.8x forward P/E vs 5-year average of ~35x) could attract corporate interest. The A$750M buyback signals management views the stock as undervalued. A revived Seqirus demerger could unlock sum-of-parts value. Private equity interest in Vifor or Seqirus is plausible at current valuations.',
+      statusClass: 'accumulating',
+      statusText: 'Materialised &mdash; CEO Departure is the Corporate Event',
+      score: '35%',
+      scoreWidth: '35%',
+      scoreMeta: '&uarr; CEO exit + impairments + depressed valuation = event risk elevated',
+      description: 'The corporate event has already begun. CEO departure, $1.1B impairments signalling portfolio clean-up, A$750M buyback expanded, and the stock at an 8-year low of 14.5x forward P/E (vs 5-year average ~35x). The clean-up suggests a new CEO will inherit a leaner balance sheet. A revived Seqirus demerger under new leadership is plausible. At A$79B market cap (down from A$130B), activist pressure or private equity interest in Vifor or Seqirus becomes more credible. Grifols taken private by Brookfield in 2024 set the plasma sector M&amp;A precedent.',
       requires: null,
       supportingLabel: 'Supporting Evidence',
       supporting: [
-        '<strong>Corporate Comms:</strong> A$750M buyback authorised; management signalling undervaluation',
-        '<strong>Ownership:</strong> Depressed valuation makes sum-of-parts analysis compelling for activist investors',
-        '<strong>Competitor:</strong> Grifols taken private by Brookfield in 2024; precedent for plasma sector M&amp;A'
+        '<strong>CEO Departure:</strong> McKenzie exit + $1.1B impairment clean-up = classic prelude to strategic reset under new leadership',
+        '<strong>Valuation:</strong> A$79B market cap at 14.5x fwd P/E; cheapest in 14 years; sum-of-parts compelling for activists',
+        '<strong>Buyback:</strong> A$750M expanded buyback signals board conviction stock is undervalued',
+        '<strong>Competitor:</strong> Grifols taken private by Brookfield in 2024; plasma sector M&amp;A precedent established'
       ],
       contradictingLabel: 'Mitigating Factors',
       contradicting: [
-        'A$87B market cap makes full acquisition prohibitively expensive',
-        'Seqirus demerger already attempted and abandoned; reputational cost of re-announcing',
+        'A$79B market cap still makes full acquisition very expensive; more likely partial disposals',
+        'Seqirus demerger already attempted and abandoned; board credibility cost of re-announcing',
         'Regulatory complexity across US, EU, and Australia deters hostile approaches'
       ]
     }
@@ -7309,13 +7353,13 @@ STOCK_DATA.CSL = {
 
   // Narrative
   narrative: {
-    theNarrative: 'The market is pricing <strong>transformation execution risk overlaid on a structural compounder</strong>. CSL\'s core plasma franchise remains the global leader with supply-constrained demand, but the embedded thesis has shifted from "reliable compounder" to "company in transition." The share price has fallen nearly <span class="key-stat down">40%</span> from its A$290 highs, compressing the forward P/E to <span class="key-stat">16.8x</span>, the cheapest in a decade. The market is not pricing a broken business; it is pricing uncertainty about whether the transformation (CEO change, Seqirus demerger on/off, 3,000 job cuts, Vifor integration) will succeed without disrupting the core plasma engine that underpins the company\'s value.',
+    theNarrative: 'The market narrative has shifted from <strong>"transformation risk"</strong> to <strong>"is this franchise permanently impaired?"</strong> The 1H FY26 results answered the transformation question &mdash; it is messy but manageable &mdash; and raised a new one about franchise quality. Revenue fell 4%, underlying NPATA dropped 7%, Behring IG declined 6%, albumin collapsed 27%, and KCENTRA fell 20%. The CEO departed the day before announcing US$1.1B in impairments. The stock crashed <span class="key-stat down">17%</span> intraday to A$151, an 8-year low, before recovering to ~A$163. At <span class="key-stat">14.5x</span> forward P/E, the cheapest valuation in 14 years, the market is pricing permanent impairment of the franchise. The evidence says otherwise: Behring margins expanded, Vifor grew 12%, guidance was reaffirmed, and global IG demand remains structurally supply-constrained. This is a messy transition, not a broken franchise &mdash; but the market is demanding proof, not promises.',
     priceImplication: {
-      label: 'Embedded Assumptions at A$180.50',
-      content: '<strong>Core plasma growth slowing:</strong> Market expects Behring growth to moderate to low-to-mid single digits as IG competition intensifies and China albumin weakens. <strong>Transformation risk premium:</strong> CEO departure and Seqirus confusion warrant a discount to historical multiples. <strong>Cost savings consumed:</strong> $550M in savings partially offset by restructuring charges and gene therapy R&amp;D spend. <strong>Gene therapy contribution uncertain:</strong> HEMGENIX and ANDEMBRY approved but commercial uptake unproven at scale. <strong>Vifor integration tail risk:</strong> US$11.7B acquisition still being integrated; synergy realisation uncertain.'
+      label: 'Embedded Assumptions at A$163.44',
+      content: '<strong>1H weakness persists into 2H:</strong> Market doubts the implied 2H NPATA acceleration needed to hit full-year guidance. <strong>Impairments signal more to come:</strong> $1.1B write-down raises question of further portfolio clean-up under new CEO. <strong>Leadership vacuum:</strong> Interim CEO with no biotech operating experience; permanent appointment uncertain. <strong>Structural product decline:</strong> Albumin -27% and KCENTRA -20% treated as structural, not cyclical. <strong>Cost savings insufficient:</strong> $550M program cannot offset revenue declines if Behring growth does not recover.'
     },
-    evidenceCheck: 'The bearish case rests on leadership disruption and transformation complexity. The bullish case rests on valuation and business quality. Critically, the underlying financial metrics are <strong>unambiguously strong</strong>: FCF surged 53%, EBITDA margins expanded to 32.7%, ROE sits at 15.4%, and NPATA guidance implies continued growth. The question is not whether CSL\'s business is deteriorating (it is not), but whether the management transition will create enough uncertainty to keep the multiple compressed. The evidence is genuinely balanced.',
-    narrativeStability: '<strong>Moderate.</strong> The "structural compounder" narrative sustained CSL at 30-40x earnings for a decade. The current narrative of "transformation risk" is new and driven by specific events (CEO departure, Seqirus reversal) rather than fundamental deterioration. A smooth leadership transition and clean 1H results could rapidly restore the prior narrative. Conversely, further strategic reversals or a messy CEO search could deepen the discount. The narrative is event-dependent, not structurally impaired.'
+    evidenceCheck: '1H FY26 results have clarified the evidence picture significantly. <strong>The bear case gained evidence:</strong> revenue declined, NPATA fell, impairments were large, the CEO departed abruptly, and multiple product lines weakened simultaneously. <strong>The bull case held its ground:</strong> Behring gross margins expanded to 51.7%, Vifor grew 12%, cost savings are 60% delivered at half-year, full-year guidance was reaffirmed, and the stock trades at 14.5x forward P/E &mdash; a valuation that has historically marked generational buying opportunities in quality healthcare franchises. The question is no longer whether CSL faces challenges (it does) but whether the price already more than discounts those challenges. At current levels, the evidence suggests it does.',
+    narrativeStability: '<strong>Event-dependent and volatile.</strong> The 1H results triggered a 17% crash followed by partial recovery &mdash; the narrative is being actively contested. A strong 2H delivering on guidance would restore the "structural compounder" thesis rapidly. A permanent CEO appointment with clear strategic mandate would resolve governance overhang. Conversely, a 2H miss or further impairments would confirm the "permanently impaired" narrative. The next 6 months are unusually high-diagnosticity for a company that was historically one of the most stable on the ASX.'
   },
 
   // Evidence
@@ -7327,29 +7371,30 @@ STOCK_DATA.CSL = {
         title: '1. Corporate Communications',
         epistemicClass: 'ep-motivated',
         epistemicLabel: 'Motivated',
-        finding: 'Former CEO Paul McKenzie framed FY26 as a "delivery year" following the Vifor integration and cost restructuring. <strong>NPATA guidance of US$3.45-3.55B</strong> represents mid-single-digit growth. The <strong>$550M cost savings program</strong> was described as "ahead of schedule" with benefits flowing to EBIT from 2H FY25. Seqirus demerger was announced as a strategic priority, then reversed within months, citing "market conditions." A$750M share buyback authorised. The CEO then departed on 10 February 2026, one day before 1H FY26 results, with no forward explanation beyond "personal reasons."',
-        tension: 'The CEO departure timing is extraordinary. Departing the day before half-year results either signals a personal matter genuinely unrelated to the business, or indicates board-level friction that forced an abrupt exit. The reversal of the Seqirus demerger compounds the sense of strategic drift. Management messaging was otherwise disciplined and financially credible until this disruption.',
+        finding: 'CEO Paul McKenzie departed 10 February 2026, the day before 1H FY26 results. Interim CEO Gordon Naylor (board director, former Orica CFO) presented results showing: <strong>revenue US$8.3B (-4%)</strong>, <strong>underlying NPATA US$1.9B (-7%)</strong>, <strong>reported NPAT US$401M (-81%)</strong> after US$1.1B in impairments. Full-year guidance of NPATA US$3.45-3.55B was reaffirmed, implying significant 2H acceleration. Cost savings program described as "on track" with 60% of FY26 $100M target achieved at half. A$750M buyback expanded. Dividend maintained at US$1.30. <strong>Seqirus demerger</strong> remains abandoned with no update on strategic direction.',
+        tension: 'The CEO departure timing and the scale of impairments together create a governance narrative that overshadows the underlying business quality. McKenzie departed citing "personal reasons" but the $1.1B impairment clean-up &mdash; writing down his own decisions on mRNA and Venofer &mdash; raises obvious questions about whether the exit was truly voluntary. The reaffirmed guidance is credible (Behring 2H seasonality is real) but requires trust in a leadership team that just changed. The market\'s 17% sell-off suggests trust is in short supply.',
         table: null,
         tags: [
-          { text: 'Supports T1 (guidance)', class: 'supports' },
-          { text: 'Strongly Supports T2', class: 'strong' },
-          { text: 'Neutral T3', class: 'neutral' }
+          { text: 'Supports T1 (guidance reaffirmed)', class: 'supports' },
+          { text: 'Strongly Supports T2 (CEO exit + impairments)', class: 'strong' },
+          { text: 'Supports T4 (portfolio clean-up)', class: 'supports' }
         ],
-        source: 'CSL FY25 Annual Report; 1H FY26 pre-release guidance; ASX announcements; CEO departure notice'
+        source: 'CSL 1H FY26 Results, 12 Feb 2026; CEO departure ASX announcement; interim CEO appointment; results presentation'
       },
       {
         number: 2,
         title: '2. Regulatory Filings &amp; Financial Statements',
         epistemicClass: 'ep-statutory',
         epistemicLabel: 'Audited / Statutory',
-        finding: '<strong>FY25 audited results:</strong> Revenue US$15,035M (+5% CC). NPATA ~US$3.3B. EBITDA margin 32.7%, up 170bp. <strong>Free cash flow US$2.93B (+52.6%)</strong>, the strongest FCF in the company\'s history. Gross margin improvement driven by plasma collection efficiency gains and Vifor contribution. Debt/equity 0.54x, well within investment-grade parameters. Gene therapy revenues (HEMGENIX for haemophilia B, ANDEMBRY for haemophilia A) are early-stage but FDA-approved and contributing. No audit qualifications or going-concern flags.',
-        tension: null,
+        finding: '<strong>1H FY26 results (12 Feb 2026):</strong> Revenue US$8.3B (-4% CC). Underlying NPATA US$1.9B (-7%). Reported NPAT US$401M (-81%) after US$1.1B impairments. <strong>Behring:</strong> IG -6% to US$3.05B, Albumin -27%, KCENTRA -20%, gross margin expanded to 51.7%. <strong>Vifor:</strong> Revenue +12%. <strong>Seqirus:</strong> Revenue -2%. <strong>Impairment detail:</strong> mRNA write-down US$430M, Venofer generic competition US$356M, PP&amp;E closures US$170M. Dividend US$1.30 (unchanged). <strong>FY25 audited:</strong> Revenue US$15B (+5%), FCF US$2.93B (+53%), EBITDA margin 32.7%. Debt/equity 0.54x. No audit qualifications.',
+        tension: '1H results present two realities simultaneously. The reported numbers are alarming: NPAT -81%, $1.1B impairments, revenue declining. But the underlying franchise indicators are defensible: Behring margins expanding, Vifor growing, cost savings on track, guidance maintained. The impairments are entirely backward-looking (mRNA failure, Venofer generics, plant rationalisation) and do not impair the core plasma franchise. The critical question is whether 2H can deliver the acceleration implied by full-year guidance.',
         table: null,
         tags: [
-          { text: 'Strongly Supports T1', class: 'strong' },
-          { text: 'Contradicts T3', class: 'contradicts' }
+          { text: 'Mixed on T1 (underlying okay, headline weak)', class: 'supports' },
+          { text: 'Strongly Supports T2 (impairments + NPAT drop)', class: 'strong' },
+          { text: 'Supports T3 (albumin, KCENTRA, Seqirus all weak)', class: 'supports' }
         ],
-        source: 'CSL FY25 Annual Report; audited financial statements; ASX continuous disclosure'
+        source: 'CSL 1H FY26 Results, 12 Feb 2026; CSL FY25 Annual Report; audited financial statements'
       },
       {
         number: 3,
@@ -7491,28 +7536,28 @@ STOCK_DATA.CSL = {
 
   // Discriminators
   discriminators: {
-    intro: 'Four data points carry high diagnosticity for distinguishing between CSL\'s competing hypotheses. The CEO departure makes near-term catalysts more diagnostic than usual.',
+    intro: 'Four data points carry high diagnosticity. 1H FY26 results have resolved one discriminator and sharpened the remaining three.',
     rows: [
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>1H FY26 Results (12 Feb 2026).</strong> Behring IG volume growth, NPATA trajectory, and cost savings realisation. First results under new interim leadership.', discriminatesBetween: 'T1 (franchise intact despite leadership change) vs T2 (transformation disrupting operations)', currentReading: 'Awaiting &mdash; imminent', readingClass: 'td-amber' },
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Permanent CEO appointment timeline and identity.</strong> Internal promotion signals continuity; external hire signals board acknowledging need for change.', discriminatesBetween: 'T1 (smooth transition) vs T2 (prolonged uncertainty)', currentReading: 'Search underway &mdash; no timeline disclosed', readingClass: 'td-amber' },
-      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>China albumin revenue trend in 1H FY26.</strong> If flat or declining, structural headwinds thesis gains evidence.', discriminatesBetween: 'T1 (geographic diversification) vs T3 (China import substitution)', currentReading: 'Awaiting segmental disclosure', readingClass: 'td-amber' },
-      { diagnosticity: 'MEDIUM', diagnosticityClass: 'disc-med', evidence: '<strong>HEMGENIX/ANDEMBRY commercial uptake.</strong> Gene therapy revenues indicate whether next-generation products can offset mature portfolio pressure.', discriminatesBetween: 'T1 (innovation pipeline) vs T3 (payer resistance limiting gene therapy)', currentReading: 'Early-stage; US$3.5M per treatment facing payer scrutiny', readingClass: 'td-amber' }
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>1H FY26 Results (12 Feb 2026) &mdash; RESOLVED.</strong> Behring IG -6%, NPATA -7%, $1.1B impairments, CEO departed. Result was mixed: franchise intact but execution messy.', discriminatesBetween: 'T1 (franchise intact) vs T2 (transformation disrupting operations)', currentReading: 'T2 confirmed; T1 weakened but not invalidated', readingClass: 'td-red' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Permanent CEO appointment timeline and identity.</strong> Internal promotion signals continuity; external hire signals strategic reset.', discriminatesBetween: 'T1 (smooth transition) vs T2 (prolonged uncertainty)', currentReading: 'Search underway &mdash; no timeline; interim CEO presenting', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>2H FY26 NPATA acceleration.</strong> Guidance implies US$1.55-1.65B in 2H (vs US$1.9B in 1H). Must deliver to validate reaffirmed guidance.', discriminatesBetween: 'T1 (guidance credible, 2H seasonal strength) vs T2 (guidance cut risk, cost pressures)', currentReading: 'Awaiting &mdash; August 2026', readingClass: 'td-amber' },
+      { diagnosticity: 'HIGH', diagnosticityClass: 'disc-high', evidence: '<strong>Albumin trend in 2H.</strong> 1H albumin -27% was the largest single product decline. If structural (China substitution), T3 strengthens materially.', discriminatesBetween: 'T1 (one-off destocking) vs T3 (permanent China import substitution)', currentReading: 'Confirmed declining in 1H; 2H trend critical', readingClass: 'td-red' }
     ],
-    nonDiscriminating: '<strong>"Share price down 40%"</strong> (price decline is the question, not the answer) &bull; <strong>"P/E of 16.8x looks cheap"</strong> (relative to CSL\'s own history, yes; but cheap can get cheaper if execution falters) &bull; <strong>"3,000 job cuts"</strong> (consistent with both cost discipline and cost distress) &bull; <strong>"Consensus Buy"</strong> (uniformity may reflect slow re-rating rather than conviction)'
+    nonDiscriminating: '<strong>"Share price down 40%"</strong> (price decline is the question, not the answer) &bull; <strong>"P/E of 14.5x looks cheap"</strong> (cheap can get cheaper if 2H misses) &bull; <strong>"US$1.1B impairments"</strong> (backward-looking; does not impair core franchise) &bull; <strong>"Consensus Buy"</strong> (uniformity may reflect slow re-rating rather than conviction)'
   },
 
   // Tripwires
   tripwires: {
-    intro: 'Four revision conditions with specific thresholds. The CEO departure makes the next 6 months more event-dependent than CSL\'s typically stable trajectory.',
+    intro: 'Four revision conditions. The first tripwire has been triggered &mdash; 1H results came in mixed, confirming T2 but not invalidating T1. The remaining three are now more diagnostic than ever.',
     cards: [
       {
         date: '12 FEBRUARY 2026',
-        name: '1H FY26 Results &mdash; First Post-McKenzie Test',
+        name: '1H FY26 Results &mdash; TRIGGERED',
         conditions: [
-          { if: 'If NPATA &ge;US$1.75B and Behring IG growth &ge;8%', valence: 'positive', then: 'T1 strengthens materially. Franchise transcends leadership. Buyback provides floor.' },
-          { if: 'If NPATA misses guidance range or cost savings stall', valence: 'negative', then: 'T2 crystallises. Transformation disrupting core operations. Multiple compression justified.' }
+          { if: 'NPATA US$1.9B (-7%); Behring IG -6%; Albumin -27%; KCENTRA -20%', valence: 'negative', then: '<strong>Outcome:</strong> T2 confirmed (execution challenges real). T1 weakened but not invalidated (margins expanding, guidance reaffirmed). T3 gained evidence (albumin, KCENTRA structural declines).' },
+          { if: 'US$1.1B impairments; CEO departed day before; stock crashed 17% to A$151', valence: 'negative', then: '<strong>Outcome:</strong> T4 activated (corporate event materialised). Market priced worst case; partial recovery to A$163 suggests floor forming.' }
         ],
-        source: 'Source: ASX announcement, 1H FY26 results presentation'
+        source: 'Source: CSL 1H FY26 Results, 12 Feb 2026; ASX announcement'
       },
       {
         date: '1H 2026',
@@ -7525,21 +7570,21 @@ STOCK_DATA.CSL = {
       },
       {
         date: 'AUGUST 2026',
-        name: 'FY26 Full Year Results &mdash; China Albumin &amp; Gene Therapy',
+        name: 'FY26 Full Year Results &mdash; 2H Acceleration Test',
         conditions: [
-          { if: 'If China albumin revenue stable and HEMGENIX/ANDEMBRY &ge;US$200M', valence: 'positive', then: 'T3 weakens. Geographic and product diversification working.' },
-          { if: 'If China albumin declines &gt;10% and gene therapy uptake disappoints', valence: 'negative', then: 'T3 strengthens. Structural headwinds are real and compounding.' }
+          { if: 'If FY26 NPATA hits US$3.45-3.55B guidance and albumin stabilises', valence: 'positive', then: 'T1 strengthens decisively. 2H delivered. 1H was the trough. Market re-rates.' },
+          { if: 'If NPATA misses guidance or further impairments emerge', valence: 'negative', then: 'T2 deepens. Guidance was not credible. Multiple compression continues toward A$140.' }
         ],
         source: 'Source: CSL FY26 Annual Report; segmental disclosures'
       },
       {
         date: 'ONGOING',
-        name: 'Seqirus Strategic Direction',
+        name: 'Seqirus Strategic Direction Under New CEO',
         conditions: [
-          { if: 'If Seqirus demerger or sale is re-announced with credible timeline', valence: 'positive', then: 'T4 activates. Sum-of-parts value crystallisation underway.' },
-          { if: 'If Seqirus remains integrated with no strategic clarity', valence: 'negative', then: 'T2 persists. Conglomerate discount continues; market questions capital allocation.' }
+          { if: 'If new CEO revives Seqirus demerger or announces Vifor/Seqirus sale', valence: 'positive', then: 'T4 crystallises. Sum-of-parts value unlocking; clean portfolio story.' },
+          { if: 'If Seqirus remains integrated with no strategic clarity under new CEO', valence: 'negative', then: 'T2 persists. Conglomerate discount continues; capital allocation questions unresolved.' }
         ],
-        source: 'Source: ASX announcements; investor day presentations'
+        source: 'Source: ASX announcements; new CEO strategic presentation'
       }
     ]
   },
@@ -7548,7 +7593,7 @@ STOCK_DATA.CSL = {
   gaps: {
     coverageRows: [
       { domain: 'Corporate Comms', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Feb 2026', confidence: 'High (but disrupted by CEO exit)', confidenceClass: 'td-amber' },
-      { domain: 'Financial Statements', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'FY25 (1H imminent)', confidence: 'High (audited)', confidenceClass: 'td-green' },
+      { domain: 'Financial Statements', coverageLevel: 'full', coverageLabel: 'Full', freshness: '1H FY26 (12 Feb 2026)', confidence: 'High (statutory)', confidenceClass: 'td-green' },
       { domain: 'Broker Research', coverageLevel: 'full', coverageLabel: 'Full', freshness: 'Recent', confidence: 'High (uniform consensus)', confidenceClass: 'td-green' },
       { domain: 'Competitor Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Recent', confidence: 'High (independent)', confidenceClass: 'td-green' },
       { domain: 'Economic Data', coverageLevel: 'good', coverageLabel: 'Good', freshness: 'Jan 2026', confidence: 'High (WHO, MRB)', confidenceClass: 'td-green' },
@@ -7564,7 +7609,7 @@ STOCK_DATA.CSL = {
       '<strong>Gene therapy payer dynamics:</strong> HEMGENIX at US$3.5M per treatment faces payer pushback that is difficult to quantify. Uptake trajectories depend on reimbursement negotiations that are not publicly disclosed.',
       '<strong>China regulatory trajectory:</strong> The pace of Chinese import substitution in albumin depends on NMPA regulatory decisions that are opaque to external analysts.'
     ],
-    analyticalLimitations: 'Hypothesis survival scores (T1: 33%, T2: 26%, T3: 19%, T4: 22%) reflect editorial assessment. The unusually high score for T2 (Execution Risk) relative to CSL\'s historical stability reflects the specific circumstances of the CEO departure and Seqirus reversal. These are event-driven, not structural, and could resolve quickly with a clean 1H result and prompt CEO appointment.'
+    analyticalLimitations: 'Hypothesis survival scores (T1: 45%, T2: 55%, T3: 40%, T4: 35%) reflect editorial assessment updated post-1H FY26 results. T2 (Execution Risk) is now the dominant hypothesis after 1H confirmed broad-based weakness, $1.1B impairments, and CEO departure. T1 (Structural Compounder) remains viable but weakened &mdash; the franchise indicators are defensible but headline numbers were poor. T3 gained evidence from albumin -27%, KCENTRA -20%, and Seqirus -2%. T4 elevated by the CEO departure and portfolio clean-up. These scores will be revised materially based on 2H FY26 results and permanent CEO appointment.'
   },
 
 
@@ -7572,62 +7617,63 @@ STOCK_DATA.CSL = {
     date: '11 February 2026',
     period: '1 Year',
     source: 'Continuum Technical Intelligence',
-    regime: 'Transitional',
-    clarity: 'Mixed',
+    regime: 'Breakdown',
+    clarity: 'Clear',
 
-    price: { current: 180.50, currency: 'A$' },
+    price: { current: 163.44, currency: 'A$' },
 
     movingAverages: {
-      ma50:  { value: 177.79, date: '11 Feb 2026' },
-      ma200: { value: 214.00, date: '11 Feb 2026' },
+      ma50:  { value: 176.50, date: '12 Feb 2026' },
+      ma200: { value: 210.00, date: '12 Feb 2026' },
       crossover: {
         type: 'Death Cross',
         date: 'w/c 22 September 2025',
-        description: '50-day MA crossed below 200-day MA following sharp selloff'
+        description: '50-day MA crossed below 200-day MA following sharp selloff; gap widening'
       },
-      priceVsMa50:  1.5,
-      priceVsMa200: -15.7
+      priceVsMa50:  -7.4,
+      priceVsMa200: -22.2
     },
 
     trend: {
-      direction: 'Base-building',
-      duration: '3 months',
-      structure: 'Sharp decline arrested; price consolidating A$168–A$186 since November 2025',
+      direction: 'Down',
+      duration: '7 months',
+      structure: 'Consolidation base broken by 1H FY26 results crash; new 8-year low at A$151',
       peak:   { price: 272.00, date: 'w/c 28 July 2025' },
-      trough: { price: 168.29, date: 'w/c 12 January 2026' },
-      drawdown: -33.6
+      trough: { price: 151.08, date: '12 February 2026' },
+      drawdown: -44.4
     },
 
     keyLevels: {
-      support:    { price: 168.00, method: '12-month low and recent support (Jan 2026)' },
-      resistance: { price: 186.00, method: 'Upper range of recent consolidation band' },
+      support:    { price: 151.00, method: 'Intraday 1H results crash low (12 Feb 2026); 8-year low' },
+      resistance: { price: 175.00, method: 'Prior support turned resistance; former consolidation base' },
       fiftyTwoWeekHigh: { price: 272.00, date: 'w/c 28 July 2025' },
-      fiftyTwoWeekLow:  { price: 168.29, date: 'w/c 12 January 2026' }
+      fiftyTwoWeekLow:  { price: 151.08, date: '12 February 2026' }
     },
 
     volume: {
-      latestVs20DayAvg: 1.2,
-      latestDate: '11 February 2026',
+      latestVs20DayAvg: 5.8,
+      latestDate: '12 February 2026',
       priorSpikes: [
-        { period: 'w/c 1 September 2025', ratio: 3.4, context: 'Sharp selloff from A$271 to A$225; likely earnings miss or guidance cut' },
+        { period: 'w/c 1 September 2025', ratio: 3.4, context: 'Sharp selloff from A$271 to A$225' },
         { period: 'w/c 27 October 2025', ratio: 2.2, context: 'Break below A$200; institutional rebalancing' },
-        { period: 'w/c 10 November 2025', ratio: 2.8, context: 'Crash to A$170; capitulation selling' }
+        { period: 'w/c 10 November 2025', ratio: 2.8, context: 'Crash to A$170; capitulation selling' },
+        { period: '12 February 2026', ratio: 5.8, context: '1H FY26 results + CEO departure; crashed 17% intraday to A$151' }
       ]
     },
 
     volatility: {
-      latestDailyRange: { high: 181.70, low: 171.39, date: '11 February 2026' },
-      latestRangePercent: 6.0,
-      avgDailyRangePercent30: 1.5,
-      avgDailyRangePercent90: 1.8
+      latestDailyRange: { high: 180.50, low: 151.08, date: '12 February 2026' },
+      latestRangePercent: 19.5,
+      avgDailyRangePercent30: 2.1,
+      avgDailyRangePercent90: 1.9
     },
 
     meanReversion: {
-      vsMa50:  1.5,
-      vsMa200: -15.7,
-      rangePosition: 12,
+      vsMa50:  -7.4,
+      vsMa200: -22.2,
+      rangePosition: 10,
       rangeHigh: 272.00,
-      rangeLow:  168.29
+      rangeLow:  151.08
     },
 
     inflectionPoints: [
@@ -7635,13 +7681,13 @@ STOCK_DATA.CSL = {
       { date: 'w/c 1 September 2025', price: 225.50, event: 'Sharp selloff; drops 17% in one week' },
       { date: 'w/c 22 September 2025', price: 205.81, event: 'Death cross forms; 50-day MA below 200-day MA' },
       { date: 'w/c 10 November 2025', price: 170.77, event: 'Breaks below A$180; near capitulation' },
-      { date: 'w/c 12 January 2026',  price: 168.29, event: '12-month low; base formation begins' },
-      { date: '11 February 2026',     price: 180.50, event: 'Recovering toward 50-day MA; base-building continues' }
+      { date: 'w/c 12 January 2026',  price: 168.29, event: 'Prior 12-month low; base attempted' },
+      { date: '12 February 2026',     price: 151.08, event: '1H results + CEO exit; crashed 17% intraday to 8-year low; recovered to A$163' }
     ],
 
     relativePerformance: {
-      vsIndex:  { name: 'S&amp;P/ASX 200',  period: '12 months', stockReturn: -29.7, indexReturn: -2.3, relativeReturn: -27.4 },
-      vsSector: { name: 'S&amp;P/ASX Healthcare', period: '12 months', stockReturn: -29.7, sectorReturn: -12.4, relativeReturn: -17.3 }
+      vsIndex:  { name: 'S&amp;P/ASX 200',  period: '12 months', stockReturn: -39.9, indexReturn: -2.3, relativeReturn: -37.6 },
+      vsSector: { name: 'S&amp;P/ASX Healthcare', period: '12 months', stockReturn: -39.9, sectorReturn: -12.4, relativeReturn: -27.5 }
     }
   },
 
@@ -10397,7 +10443,15 @@ function populateSidebar(ticker) {
     }
 
     // Build sidebar HTML
-    let html = '<div class="hs-title">Hypothesis Tracker</div>';
+    const stock = STOCK_DATA[ticker];
+    let html = '';
+    if (stock) {
+        html += '<div class="hs-stock-id">' +
+            '<div class="hs-stock-ticker">' + stock.tickerFull + '</div>' +
+            '<div class="hs-stock-name">' + stock.company + '</div>' +
+        '</div>';
+    }
+    html += '<div class="hs-title">Hypothesis Tracker</div>';
     hypotheses.forEach(h => {
         html += '<div class="hs-item">' +
             '<div class="hs-dot ' + h.dirClass + '"></div>' +
