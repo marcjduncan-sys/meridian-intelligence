@@ -808,6 +808,24 @@ a:hover { color: var(--accent-sage); }
     border-radius: 8px;
     padding: var(--space-md);
 }
+.hs-stock-id {
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--border);
+}
+.hs-stock-ticker {
+    font-family: var(--font-data);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+.hs-stock-name {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+    margin-top: 2px;
+}
 .hs-title {
     font-size: 0.55rem;
     font-weight: 700;
@@ -10397,7 +10415,15 @@ function populateSidebar(ticker) {
     }
 
     // Build sidebar HTML
-    let html = '<div class="hs-title">Hypothesis Tracker</div>';
+    const stock = STOCK_DATA[ticker];
+    let html = '';
+    if (stock) {
+        html += '<div class="hs-stock-id">' +
+            '<div class="hs-stock-ticker">' + stock.tickerFull + '</div>' +
+            '<div class="hs-stock-name">' + stock.company + '</div>' +
+        '</div>';
+    }
+    html += '<div class="hs-title">Hypothesis Tracker</div>';
     hypotheses.forEach(h => {
         html += '<div class="hs-item">' +
             '<div class="hs-dot ' + h.dirClass + '"></div>' +
