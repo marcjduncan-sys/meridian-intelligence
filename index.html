@@ -87,6 +87,7 @@
     --signal-green: #2F855A;
     --signal-blue: #2B6CB0;
 }
+/* Light theme — component overrides */
 [data-theme="light"] .site-nav {
     background: rgba(245, 246, 248, 0.95);
 }
@@ -94,26 +95,51 @@
     background: rgba(245, 246, 248, 0.98);
     box-shadow: 0 2px 20px rgba(0,0,0,0.08);
 }
-[data-theme="light"] .ta-chart-container { background: #FFFFFF; }
-[data-theme="light"] .ta-chart-container rect { fill: #FFFFFF; }
+/* Cards & containers */
 [data-theme="light"] .featured-card { background: #FFFFFF; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
 [data-theme="light"] .featured-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-[data-theme="light"] .report-hero { background: linear-gradient(135deg, #E8F5F3 0%, #EBF4FF 100%); }
-[data-theme="light"] .risk-skew-bar { background: #F0F1F4; }
-[data-theme="light"] .verdict-box { background: #FFFFFF; }
-[data-theme="light"] .evidence-card { background: #FFFFFF; }
-[data-theme="light"] .section-nav { background: #FFFFFF; }
+[data-theme="light"] .evidence-card { background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+[data-theme="light"] .hyp-card { background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+[data-theme="light"] .verdict-section { background: #FFFFFF; }
+[data-theme="light"] .verdict-inner { box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
 [data-theme="light"] .callout { background: #F7F8FA; }
+/* Heroes & banners */
+[data-theme="light"] .hero { background: linear-gradient(135deg, #E8F5F3 0%, #EBF4FF 50%, #F5F6F8 100%); }
+[data-theme="light"] .report-hero { background: linear-gradient(135deg, #E8F5F3 0%, #EBF4FF 100%); }
+[data-theme="light"] .snap-hero { background: linear-gradient(135deg, #E8F5F3 0%, #EBF4FF 100%); }
+[data-theme="light"] .risk-skew-bar { background: #F0F1F4; }
+/* Navigation & sections */
+[data-theme="light"] .section-nav { background: #FFFFFF; border-bottom: 1px solid #E2E8F0; }
+[data-theme="light"] .section-nav a { color: var(--text-muted); }
+[data-theme="light"] .section-nav a.active { color: var(--accent-teal); border-bottom-color: var(--accent-teal); }
+/* Tables */
 [data-theme="light"] .identity-table td { background: #F7F8FA; }
+[data-theme="light"] .evidence-table thead th,
+[data-theme="light"] .gaps-table thead th,
+[data-theme="light"] .disc-table thead th,
+[data-theme="light"] .identity-table thead th { background: #E8F5F3; }
+[data-theme="light"] .ta-ma-table td,
+[data-theme="light"] .ta-inflection-table td,
+[data-theme="light"] .ta-rp-table td { border-color: #E2E8F0; }
+/* Brand & nav */
 [data-theme="light"] .nav-brand-text { color: #1A1F2E; }
 [data-theme="light"] .brand-infinity path:first-child { stroke: #1A1F2E; }
-[data-theme="light"] .ta-chart-loading { background: rgba(245,246,248,0.7) !important; }
+/* Charts */
+[data-theme="light"] .ta-chart-container { background: #FFFFFF; border-color: #E2E8F0; }
 [data-theme="light"] .ta-chart-static-badge { background: #F0F1F4; color: #4A5568; }
-[data-theme="light"] .report-back { color: rgba(0,0,0,0.4); }
-[data-theme="light"] .report-back:hover { color: var(--text-primary); }
-[data-theme="light"] .hero { background: linear-gradient(135deg, #E8F5F3 0%, #EBF4FF 50%, #F5F6F8 100%); }
-[data-theme="light"] .snap-hero { background: linear-gradient(135deg, #E8F5F3 0%, #EBF4FF 100%); }
-[data-theme="light"] .page-inner { background: transparent; }
+/* Skew badges */
+[data-theme="light"] .skew-badge.downside { background: rgba(197, 48, 48, 0.12); }
+[data-theme="light"] .skew-badge.upside { background: rgba(47, 133, 90, 0.12); }
+[data-theme="light"] .skew-badge.balanced { background: rgba(183, 121, 31, 0.12); }
+/* Snapshot specifics */
+[data-theme="light"] .snap-sb-segment { text-shadow: none; }
+/* Footer */
+[data-theme="light"] .site-footer { background: #FFFFFF; }
+[data-theme="light"] .footer-bottom { color: var(--text-muted); }
+/* Hypothesis sidebar */
+[data-theme="light"] .hyp-sidebar { background: #FFFFFF; }
+/* Sector tag on hero */
+[data-theme="light"] .rh-sector-tag { background: rgba(14, 138, 125, 0.08); border-color: rgba(14, 138, 125, 0.15); }
 
 html { scroll-behavior: smooth; }
 body {
@@ -503,11 +529,11 @@ a:hover { color: var(--accent-sage); }
 }
 .report-back {
     font-size: 0.7rem; font-weight: 500;
-    color: rgba(255,255,255,0.4);
+    color: var(--text-muted);
     margin-bottom: var(--space-lg);
     display: inline-block;
 }
-.report-back:hover { color: rgba(255,255,255,0.7); }
+.report-back:hover { color: var(--text-primary); }
 .rh-main {
     display: flex;
     justify-content: space-between;
@@ -525,13 +551,13 @@ a:hover { color: var(--accent-sage); }
 .rh-ticker {
     font-size: 2.2rem; font-weight: 800;
     letter-spacing: -0.02em;
-    color: #fff;
+    color: var(--text-primary);
     line-height: 1.1;
     margin-bottom: 4px;
 }
 .rh-company {
     font-size: 1rem; font-weight: 400;
-    color: rgba(255,255,255,0.6);
+    color: var(--text-secondary);
     margin-bottom: var(--space-sm);
 }
 .rh-sector-tag {
@@ -556,13 +582,13 @@ a:hover { color: var(--accent-sage); }
 .rh-price {
     font-family: var(--font-data);
     font-size: 2rem; font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
     line-height: 1;
     margin-bottom: var(--space-sm);
 }
 .rh-price-currency {
     font-size: 0.9rem; font-weight: 400;
-    color: rgba(255,255,255,0.4);
+    color: var(--text-muted);
 }
 .rh-metrics {
     display: flex; gap: var(--space-lg);
@@ -572,12 +598,12 @@ a:hover { color: var(--accent-sage); }
 .rh-metric-label {
     font-size: 0.5rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.06em;
-    color: rgba(255,255,255,0.3);
+    color: var(--text-muted);
 }
 .rh-metric-value {
     font-family: var(--font-data);
     font-size: 0.82rem; font-weight: 600;
-    color: rgba(255,255,255,0.8);
+    color: var(--text-secondary);
 }
 .rh-metric-value.premium { color: var(--accent-gold); }
 .rh-metric-value.negative { color: var(--signal-red); }
@@ -884,10 +910,10 @@ a:hover { color: var(--accent-sage); }
 .ep-motivated { background: rgba(212, 160, 60, 0.15); color: var(--signal-amber); }
 .ep-statutory { background: rgba(61, 170, 109, 0.15); color: var(--signal-green); }
 .ep-consensus { background: rgba(74, 142, 204, 0.15); color: var(--signal-blue); }
-.ep-independent { background: rgba(140, 100, 200, 0.15); color: #A78BDA; }
+.ep-independent { background: rgba(140, 100, 200, 0.15); color: #8B6CC1; }
 .ep-objective { background: rgba(26, 158, 143, 0.15); color: var(--accent-teal); }
 .ep-behavioural { background: rgba(212, 160, 60, 0.12); color: var(--accent-gold); }
-.ep-peerreviewed { background: rgba(140, 100, 200, 0.12); color: #A78BDA; }
+.ep-peerreviewed { background: rgba(140, 100, 200, 0.12); color: #8B6CC1; }
 .ep-noise { background: rgba(86, 104, 130, 0.2); color: var(--text-muted); }
 .ec-toggle {
     font-size: 0.7rem; color: var(--text-muted);
@@ -953,7 +979,7 @@ a:hover { color: var(--accent-sage); }
 }
 .evidence-table thead th {
     background: var(--bg-header);
-    color: rgba(255,255,255,0.9);
+    color: var(--text-primary);
     font-size: 0.6rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.06em;
     padding: var(--space-sm) var(--space-md);
@@ -1157,7 +1183,7 @@ a:hover { color: var(--accent-sage); }
 }
 .gaps-table thead th {
     background: var(--bg-header);
-    color: rgba(255,255,255,0.9);
+    color: var(--text-primary);
     font-size: 0.6rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.06em;
     padding: var(--space-sm) var(--space-md);
@@ -1190,7 +1216,7 @@ a:hover { color: var(--accent-sage); }
 }
 .disc-table thead th {
     background: var(--bg-header);
-    color: rgba(255,255,255,0.9);
+    color: var(--text-primary);
     font-size: 0.6rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.06em;
     padding: var(--space-sm) var(--space-md);
@@ -1215,7 +1241,7 @@ a:hover { color: var(--accent-sage); }
 }
 .identity-table thead th {
     background: var(--bg-header);
-    color: rgba(255,255,255,0.9);
+    color: var(--text-primary);
     font-size: 0.6rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.06em;
     padding: var(--space-sm) var(--space-md);
@@ -1537,7 +1563,7 @@ a:hover { color: var(--accent-sage); }
 /* TA Chart */
 .ta-chart-container {
     margin-bottom: var(--space-lg);
-    background: #0D1726;
+    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: var(--space-md) var(--space-sm) var(--space-sm);
@@ -1578,9 +1604,10 @@ a:hover { color: var(--accent-sage); }
 }
 .ta-chart-loading {
     display: flex; align-items: center; justify-content: center;
-    height: 220px; color: var(--text-muted); font-family: var(--font-ui);
-    font-size: 0.75rem; gap: var(--space-sm);
+    height: auto; color: var(--text-muted); font-family: var(--font-ui);
+    font-size: 0.75rem; gap: var(--space-sm); background: rgba(11,18,32,0.75);
 }
+[data-theme="light"] .ta-chart-loading { background: rgba(245,246,248,0.75); }
 .ta-chart-loading .spinner {
     width: 18px; height: 18px; border: 2px solid var(--border);
     border-top-color: var(--accent-teal); border-radius: 50%;
@@ -1887,7 +1914,7 @@ a:hover { color: var(--accent-sage); }
 .snap-survival-bar-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 8px 10px; }
 .snap-survival-bar-label { font-size: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
 .snap-survival-bar { display: flex; height: 20px; border-radius: 3px; overflow: hidden; gap: 2px; }
-.snap-sb-segment { display: flex; align-items: center; justify-content: center; font-family: var(--font-data); font-size: 0.55rem; font-weight: 700; color: rgba(255,255,255,0.9); }
+.snap-sb-segment { display: flex; align-items: center; justify-content: center; font-family: var(--font-data); font-size: 0.55rem; font-weight: 700; color: var(--text-primary); }
 .snap-sb-upside { background: var(--signal-green); }
 .snap-sb-downside { background: var(--signal-red); }
 .snap-sb-neutral { background: var(--signal-amber); }
@@ -9535,13 +9562,22 @@ STOCK_DATA.FMG = {
 const LiveData = (function() {
   const CACHE_KEY = 'continuum_market_data';
   const CACHE_TTL = 4 * 60 * 60 * 1000; // 4 hours
+  var _status = {}; // Per-ticker status: 'loading', 'live', 'failed'
+
+  // Multiple CORS proxy strategies — tries each in order
   const PROXY_URLS = [
     function(url) { return 'https://corsproxy.io/?' + encodeURIComponent(url); },
-    function(url) { return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url); }
+    function(url) { return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url); },
+    function(url) { return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url); },
+    function(url) { return 'https://cors-anywhere.herokuapp.com/' + url; }
   ];
 
-  function yahooUrl(ticker) {
-    return 'https://query1.finance.yahoo.com/v8/finance/chart/' + ticker + '?range=3y&interval=1d&includePrePost=false';
+  // Yahoo Finance chart URLs (try multiple endpoints)
+  function yahooUrls(ticker) {
+    return [
+      'https://query1.finance.yahoo.com/v8/finance/chart/' + ticker + '?range=3y&interval=1d&includePrePost=false&events=history',
+      'https://query2.finance.yahoo.com/v8/finance/chart/' + ticker + '?range=3y&interval=1d&includePrePost=false'
+    ];
   }
 
   function getCache(ticker) {
@@ -9590,50 +9626,75 @@ const LiveData = (function() {
     };
   }
 
+  // Timeout wrapper that works in all browsers
+  function fetchWithTimeout(url, opts, ms) {
+    return new Promise(function(resolve, reject) {
+      var controller = new AbortController();
+      opts.signal = controller.signal;
+      var timer = setTimeout(function() { controller.abort(); }, ms);
+      fetch(url, opts).then(function(r) { clearTimeout(timer); resolve(r); })
+                       .catch(function(e) { clearTimeout(timer); reject(e); });
+    });
+  }
+
   async function fetchTicker(ticker) {
     var cached = getCache(ticker);
-    if (cached) return cached;
-
-    var url = yahooUrl(ticker);
-
-    for (var p = 0; p < PROXY_URLS.length; p++) {
-      try {
-        var proxyUrl = PROXY_URLS[p](url);
-        var resp = await fetch(proxyUrl, {
-          headers: { 'Accept': 'application/json' },
-          signal: AbortSignal.timeout(12000)
-        });
-        if (!resp.ok) continue;
-        var json = await resp.json();
-        if (!json.chart || !json.chart.result) continue;
-        var data = parseYahooResponse(json);
-        if (data.bars.length > 100) {
-          setCache(ticker, data);
-          return data;
-        }
-      } catch(e) {
-        continue;
-      }
+    if (cached) {
+      _status[ticker] = 'live';
+      return cached;
     }
 
-    // Direct attempt (may work on some browsers/origins)
-    try {
-      var resp = await fetch(url, {
-        headers: { 'Accept': 'application/json', 'User-Agent': 'Mozilla/5.0' },
-        signal: AbortSignal.timeout(8000)
-      });
-      if (resp.ok) {
-        var json = await resp.json();
-        if (json.chart && json.chart.result) {
+    _status[ticker] = 'loading';
+    var urls = yahooUrls(ticker);
+
+    // Try each Yahoo URL through each proxy
+    for (var u = 0; u < urls.length; u++) {
+      for (var p = 0; p < PROXY_URLS.length; p++) {
+        try {
+          var proxyUrl = PROXY_URLS[p](urls[u]);
+          var resp = await fetchWithTimeout(proxyUrl, {
+            headers: { 'Accept': 'application/json' }
+          }, 15000);
+          if (!resp.ok) continue;
+          var text = await resp.text();
+          // Some proxies wrap response — handle both raw JSON and wrapped
+          var json;
+          try { json = JSON.parse(text); } catch(e) { continue; }
+          if (!json.chart || !json.chart.result) continue;
           var data = parseYahooResponse(json);
           if (data.bars.length > 100) {
             setCache(ticker, data);
+            _status[ticker] = 'live';
             return data;
           }
+        } catch(e) {
+          continue;
         }
       }
-    } catch(e) { /* expected */ }
+    }
 
+    // Direct attempt (may work from some origins/browsers)
+    for (var u = 0; u < urls.length; u++) {
+      try {
+        var resp = await fetchWithTimeout(urls[u], {
+          headers: { 'Accept': 'application/json' },
+          mode: 'cors'
+        }, 10000);
+        if (resp.ok) {
+          var json = await resp.json();
+          if (json.chart && json.chart.result) {
+            var data = parseYahooResponse(json);
+            if (data.bars.length > 100) {
+              setCache(ticker, data);
+              _status[ticker] = 'live';
+              return data;
+            }
+          }
+        }
+      } catch(e) { /* expected CORS block */ }
+    }
+
+    _status[ticker] = 'failed';
     return null;
   }
 
@@ -9704,7 +9765,8 @@ const LiveData = (function() {
   return {
     fetch: fetchTicker,
     patchStockData: patchStockData,
-    getCache: getCache
+    getCache: getCache,
+    status: function(ticker) { return _status[ticker] || 'idle'; }
   };
 })();
 
@@ -9729,23 +9791,13 @@ async function fetchAndPatchLive(ticker) {
     // Show loading state in chart container
     var chartContainer = document.querySelector('#page-report-' + ticker + ' .ta-chart-container');
     if (chartContainer && !stock._liveChart) {
-        var existingSvg = chartContainer.querySelector('.ta-chart-svg');
-        if (existingSvg) {
-            // Keep static chart visible but add loading overlay
-            var loadingDiv = document.createElement('div');
-            loadingDiv.className = 'ta-chart-loading';
-            loadingDiv.id = 'chart-loading-' + ticker;
-            loadingDiv.innerHTML = '<div class="spinner"></div>Fetching live market data\u2026';
-            loadingDiv.style.position = 'absolute';
-            loadingDiv.style.top = '0';
-            loadingDiv.style.left = '0';
-            loadingDiv.style.right = '0';
-            loadingDiv.style.bottom = '0';
-            loadingDiv.style.background = 'rgba(11,18,32,0.7)';
-            loadingDiv.style.borderRadius = '6px';
-            chartContainer.style.position = 'relative';
-            chartContainer.appendChild(loadingDiv);
-        }
+        chartContainer.style.position = 'relative';
+        var loadingDiv = document.createElement('div');
+        loadingDiv.className = 'ta-chart-loading';
+        loadingDiv.id = 'chart-loading-' + ticker;
+        loadingDiv.innerHTML = '<div class="spinner"></div>Fetching live market data\u2026';
+        loadingDiv.style.cssText = 'position:absolute;top:0;left:0;right:0;bottom:0;border-radius:6px;z-index:2';
+        chartContainer.appendChild(loadingDiv);
     }
 
     try {
@@ -9755,15 +9807,23 @@ async function fetchAndPatchLive(ticker) {
             _liveFetched.add(ticker);
             updateLiveUI(ticker);
         } else {
-            _liveFetched.add(ticker); // Mark attempted even on failure
-            // Remove loading overlay
-            var loader = document.getElementById('chart-loading-' + ticker);
-            if (loader) loader.remove();
+            _liveFetched.add(ticker);
+            showDataStatus(ticker, 'static');
         }
     } catch(e) {
         _liveFetched.add(ticker);
-        var loader = document.getElementById('chart-loading-' + ticker);
-        if (loader) loader.remove();
+        showDataStatus(ticker, 'static');
+    }
+}
+
+function showDataStatus(ticker, status) {
+    // Remove any loading overlay
+    var loader = document.getElementById('chart-loading-' + ticker);
+    if (loader) loader.remove();
+    // Update badge text if static
+    if (status === 'static') {
+        var badge = document.querySelector('#page-report-' + ticker + ' .ta-chart-static-badge');
+        if (badge) badge.textContent = 'STATIC \u2014 Live feed unavailable';
     }
 }
 
