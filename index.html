@@ -123,7 +123,7 @@
 [data-theme="light"] .ta-rp-table td { border-color: #E2E8F0; }
 /* Brand & nav */
 [data-theme="light"] .nav-brand-text { color: #1A1F2E; }
-[data-theme="light"] .brand-infinity path:first-child { stroke: #1A1F2E; }
+[data-theme="light"] .brand-green { color: #2E8B57; }
 /* Charts */
 [data-theme="light"] .ta-chart-container { background: #FFFFFF; border-color: #E2E8F0; }
 [data-theme="light"] .ta-chart-static-badge { background: #F0F1F4; color: #4A5568; }
@@ -203,18 +203,7 @@ a:hover { color: var(--accent-sage); }
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--text-primary);
 }
-.brand-infinity {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    top: -0.5px;
-    margin: 0 0.02em;
-}
-.brand-infinity svg {
-    height: 0.85em;
-    width: auto;
-    display: block;
-}
+.brand-green { color: #3DAA6D; }
 .nav-links { display: flex; align-items: center; gap: var(--space-lg); }
 .nav-links a {
     font-size: 0.75rem; font-weight: 500;
@@ -265,8 +254,6 @@ a:hover { color: var(--accent-sage); }
     color: var(--text-muted);
     margin-bottom: var(--space-sm);
 }
-.footer-brand-name .brand-infinity { display: inline-block; vertical-align: middle; position: relative; top: -0.5px; margin: 0 0.02em; }
-.footer-brand-name .brand-infinity svg { height: 0.85em; width: auto; display: block; }
 .footer-tagline {
     font-family: var(--font-narrative);
     font-size: 0.85rem; color: var(--text-secondary);
@@ -1439,8 +1426,6 @@ a:hover { color: var(--accent-sage); }
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--text-muted);
 }
-.rf-brand .brand-infinity { display: inline-block; vertical-align: middle; position: relative; top: -0.5px; margin: 0 0.02em; }
-.rf-brand .brand-infinity svg { height: 0.85em; width: auto; display: block; }
 
 /* ============================================================
    EPISTEMIC BADGES: Leadership & Ownership
@@ -1946,7 +1931,7 @@ a:hover { color: var(--accent-sage); }
 .snap-sector-tag { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-teal); background: rgba(26,158,143,0.15); padding: 3px 8px; border-radius: 3px; }
 .snap-header-right { display: flex; align-items: center; gap: 20px; }
 .snap-logo-mark { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-.snap-logo-mark span { color: var(--accent-teal); }
+.snap-logo-mark .brand-green { color: #3DAA6D; }
 .snap-report-date { font-family: var(--font-data); font-size: 0.65rem; color: var(--text-muted); }
 
 .snap-price-bar { display: flex; align-items: baseline; gap: 24px; padding: 8px 0 10px; border-bottom: 1px solid var(--border); margin-bottom: 10px; flex-wrap: wrap; }
@@ -2101,7 +2086,7 @@ a:hover { color: var(--accent-sage); }
 <nav class="site-nav" id="siteNav">
     <div class="nav-inner">
         <a class="nav-brand" onclick="navigate('home')">
-            <div class="nav-brand-text">C<span class="brand-infinity"><svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><path d="M30,12 C24,2 8,2 4,15 C0,28 24,28 30,18" fill="none" stroke="#E8E6E1" stroke-width="3.5" stroke-linecap="round"/><path d="M30,18 C36,28 52,28 56,15 C60,2 36,2 30,12" fill="none" stroke="#3DAA6D" stroke-width="3.5" stroke-linecap="round"/></svg></span>ntinuum intelligence</div>
+            <div class="nav-brand-text">Contin<span class="brand-green">uu</span>m Inte<span class="brand-green">ll</span>igence</div>
         </a>
         <div class="nav-links">
             <a href="#home" class="active" data-nav="home">Research</a>
@@ -2162,7 +2147,7 @@ a:hover { color: var(--accent-sage); }
         <div class="footer-inner">
             <div class="footer-top">
                 <div>
-                    <div class="footer-brand-name">C<span class="brand-infinity"><svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><path d="M30,12 C24,2 8,2 4,15 C0,28 24,28 30,18" fill="none" stroke="#E8E6E1" stroke-width="3.5" stroke-linecap="round"/><path d="M30,18 C36,28 52,28 56,15 C60,2 36,2 30,12" fill="none" stroke="#3DAA6D" stroke-width="3.5" stroke-linecap="round"/></svg></span>ntinuum intelligence</div>
+                    <div class="footer-brand-name">Contin<span class="brand-green">uu</span>m Inte<span class="brand-green">ll</span>igence</div>
                     <div class="footer-tagline">Independent cross-domain equity research. Evidence-driven analysis for institutional and sophisticated investors.</div>
                 </div>
                 <div class="footer-links">
@@ -4164,7 +4149,7 @@ function renderReportFooter(data) {
     '<div class="rf-inner">' +
       '<div class="rf-disclaimer-text">' + data.footer.disclaimer + '</div>' +
       '<div class="rf-meta-row">' +
-        '<div class="rf-brand">C<span class="brand-infinity"><svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg"><path d="M30,12 C24,2 8,2 4,15 C0,28 24,28 30,18" fill="none" stroke="#E8E6E1" stroke-width="3.5" stroke-linecap="round"/><path d="M30,18 C36,28 52,28 56,15 C60,2 36,2 30,12" fill="none" stroke="#3DAA6D" stroke-width="3.5" stroke-linecap="round"/></svg></span>ntinuum intelligence</div>' +
+        '<div class="rf-brand">Contin<span class="brand-green">uu</span>m Inte<span class="brand-green">ll</span>igence</div>' +
         '<div class="rf-meta-item">ID: ' + data.reportId + '</div>' +
         '<div class="rf-meta-item">Mode: Narrative Intelligence</div>' +
         '<div class="rf-meta-item">Domains: ' + data.footer.domainCount + '</div>' +
@@ -4818,7 +4803,7 @@ function renderSnapshotPage(data) {
         '<span class="snap-sector-tag">' + data.sector + ' &bull; ' + data.sectorSub + '</span>' +
       '</div>' +
       '<div class="snap-header-right">' +
-        '<div class="snap-logo-mark"><span>CONTINUUM</span> INTELLIGENCE</div>' +
+        '<div class="snap-logo-mark">CONTIN<span class="brand-green">UU</span>M INTE<span class="brand-green">LL</span>IGENCE</div>' +
         '<div class="snap-report-date">' + data.date + ' &bull; ' + data.version + '</div>' +
       '</div>' +
     '</div>' +
