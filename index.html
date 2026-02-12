@@ -1470,6 +1470,31 @@ a:hover { color: var(--accent-sage); }
 /* Container */
 .ta-section { margin-top: var(--space-lg); }
 
+/* TA Chart */
+.ta-chart-container {
+    margin-bottom: var(--space-lg);
+    background: #0D1726;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: var(--space-md) var(--space-sm) var(--space-sm);
+    overflow: hidden;
+}
+.ta-chart-title {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-xs);
+}
+.ta-chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Regime / Clarity / Key Level badges at top */
 .ta-regime-bar {
     display: flex; gap: var(--space-md); flex-wrap: wrap;
@@ -3168,16 +3193,188 @@ function renderGaps(data) {
   '</div>';
 }
 
+function computeMA(arr, period) {
+  var result = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (i < period - 1) { result.push(null); continue; }
+    var sum = 0;
+    for (var j = i - period + 1; j <= i; j++) sum += arr[j];
+    result.push(sum / period);
+  }
+  return result;
+}
+
+function renderTAChart(data) {
+  if (!data.priceHistory || data.priceHistory.length < 20) return '';
+  var ta = data.technicalAnalysis;
+  var prices = data.priceHistory;
+  var n = prices.length;
+
+  // Compute MAs from raw price data
+  var ma50 = computeMA(prices, 50);
+  var ma200 = computeMA(prices, 200);
+
+  // Chart dimensions
+  var W = 960, H = 360;
+  var padL = 62, padR = 16, padT = 24, padB = 40;
+  var cW = W - padL - padR;
+  var cH = H - padT - padB;
+
+  // Price range (include MAs in range calc)
+  var allVals = prices.slice();
+  for (var i = 0; i < n; i++) {
+    if (ma50[i] !== null) allVals.push(ma50[i]);
+    if (ma200[i] !== null) allVals.push(ma200[i]);
+  }
+  var pMin = Math.min.apply(null, allVals);
+  var pMax = Math.max.apply(null, allVals);
+  var pRange = pMax - pMin;
+  // Add 5% padding top/bottom
+  pMin -= pRange * 0.05;
+  pMax += pRange * 0.05;
+  pRange = pMax - pMin;
+
+  function xPos(idx) { return padL + (idx / (n - 1)) * cW; }
+  function yPos(val) { return padT + (1 - (val - pMin) / pRange) * cH; }
+
+  // Support/resistance levels
+  var supportPrice = ta ? ta.keyLevels.support.price : null;
+  var resistPrice = ta ? ta.keyLevels.resistance.price : null;
+
+  // Build SVG
+  var svg = '<svg class="ta-chart-svg" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">';
+
+  // Background
+  svg += '<rect x="' + padL + '" y="' + padT + '" width="' + cW + '" height="' + cH + '" fill="#0D1726" rx="2"/>';
+
+  // Horizontal grid lines (5-6 lines)
+  var nGrid = 5;
+  var gridStep = pRange / nGrid;
+  // Round grid step to nice numbers
+  var magnitude = Math.pow(10, Math.floor(Math.log10(gridStep)));
+  var niceSteps = [1, 2, 2.5, 5, 10];
+  var bestStep = magnitude;
+  for (var s = 0; s < niceSteps.length; s++) {
+    if (niceSteps[s] * magnitude >= gridStep) { bestStep = niceSteps[s] * magnitude; break; }
+  }
+  var gridStart = Math.ceil(pMin / bestStep) * bestStep;
+  for (var gv = gridStart; gv <= pMax; gv += bestStep) {
+    var gy = yPos(gv);
+    if (gy < padT || gy > padT + cH) continue;
+    svg += '<line x1="' + padL + '" y1="' + gy.toFixed(1) + '" x2="' + (padL + cW) + '" y2="' + gy.toFixed(1) + '" stroke="#1E3050" stroke-width="0.5"/>';
+    svg += '<text x="' + (padL - 8) + '" y="' + (gy + 3.5).toFixed(1) + '" text-anchor="end" fill="#566882" font-family="JetBrains Mono, monospace" font-size="9">' + data.currency + gv.toFixed(gv >= 100 ? 0 : 2) + '</text>';
+  }
+
+  // Support line
+  if (supportPrice && supportPrice >= pMin && supportPrice <= pMax) {
+    var sy = yPos(supportPrice);
+    svg += '<line x1="' + padL + '" y1="' + sy.toFixed(1) + '" x2="' + (padL + cW) + '" y2="' + sy.toFixed(1) + '" stroke="#3DAA6D" stroke-width="0.8" stroke-dasharray="6,4" opacity="0.7"/>';
+    svg += '<text x="' + (padL + cW - 4) + '" y="' + (sy - 4).toFixed(1) + '" text-anchor="end" fill="#3DAA6D" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.8">Support ' + data.currency + supportPrice.toFixed(2) + '</text>';
+  }
+
+  // Resistance line
+  if (resistPrice && resistPrice >= pMin && resistPrice <= pMax) {
+    var ry = yPos(resistPrice);
+    svg += '<line x1="' + padL + '" y1="' + ry.toFixed(1) + '" x2="' + (padL + cW) + '" y2="' + ry.toFixed(1) + '" stroke="#D45555" stroke-width="0.8" stroke-dasharray="6,4" opacity="0.7"/>';
+    svg += '<text x="' + (padL + cW - 4) + '" y="' + (ry - 4).toFixed(1) + '" text-anchor="end" fill="#D45555" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.8">Resistance ' + data.currency + resistPrice.toFixed(2) + '</text>';
+  }
+
+  // 200-day MA line (drawn first, behind)
+  var ma200Path = '';
+  for (var i = 0; i < n; i++) {
+    if (ma200[i] === null) continue;
+    ma200Path += (ma200Path === '' ? 'M' : 'L') + xPos(i).toFixed(1) + ',' + yPos(ma200[i]).toFixed(1);
+  }
+  if (ma200Path) {
+    svg += '<path d="' + ma200Path + '" fill="none" stroke="#4A8ECC" stroke-width="1.3" opacity="0.8"/>';
+  }
+
+  // 50-day MA line
+  var ma50Path = '';
+  for (var i = 0; i < n; i++) {
+    if (ma50[i] === null) continue;
+    ma50Path += (ma50Path === '' ? 'M' : 'L') + xPos(i).toFixed(1) + ',' + yPos(ma50[i]).toFixed(1);
+  }
+  if (ma50Path) {
+    svg += '<path d="' + ma50Path + '" fill="none" stroke="#D4A03C" stroke-width="1.3" opacity="0.8"/>';
+  }
+
+  // Price area fill (gradient)
+  var pricePath = 'M' + xPos(0).toFixed(1) + ',' + yPos(prices[0]).toFixed(1);
+  for (var i = 1; i < n; i++) {
+    pricePath += 'L' + xPos(i).toFixed(1) + ',' + yPos(prices[i]).toFixed(1);
+  }
+  // Area fill
+  var areaPath = pricePath + 'L' + xPos(n - 1).toFixed(1) + ',' + (padT + cH).toFixed(1) + 'L' + xPos(0).toFixed(1) + ',' + (padT + cH).toFixed(1) + 'Z';
+  svg += '<defs><linearGradient id="priceGrad-' + data.ticker + '" x1="0" y1="0" x2="0" y2="1">';
+  svg += '<stop offset="0%" stop-color="#E8EDF4" stop-opacity="0.08"/>';
+  svg += '<stop offset="100%" stop-color="#E8EDF4" stop-opacity="0.01"/>';
+  svg += '</linearGradient></defs>';
+  svg += '<path d="' + areaPath + '" fill="url(#priceGrad-' + data.ticker + ')"/>';
+
+  // Price line
+  svg += '<path d="' + pricePath + '" fill="none" stroke="#E8EDF4" stroke-width="1.5"/>';
+
+  // Current price dot
+  var lastX = xPos(n - 1);
+  var lastY = yPos(prices[n - 1]);
+  svg += '<circle cx="' + lastX.toFixed(1) + '" cy="' + lastY.toFixed(1) + '" r="3.5" fill="#E8EDF4" stroke="#0D1726" stroke-width="1.5"/>';
+
+  // Current price label
+  svg += '<text x="' + (lastX + 8).toFixed(1) + '" y="' + (lastY + 3).toFixed(1) + '" fill="#E8EDF4" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600">' + data.currency + data.price.toFixed(2) + '</text>';
+
+  // X-axis date labels (approximate months)
+  // priceHistory spans ~250 trading days ≈ 12 months
+  var monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  // Parse the stock's report date to work backwards
+  var reportDate = new Date(data.date);
+  var tradingDaysPerMonth = n / 12;
+  for (var m = 0; m <= 11; m++) {
+    var idx = Math.round(m * tradingDaysPerMonth);
+    if (idx >= n) idx = n - 1;
+    var monthOffset = 11 - m; // months ago
+    var labelDate = new Date(reportDate);
+    labelDate.setMonth(labelDate.getMonth() - monthOffset);
+    var label = monthNames[labelDate.getMonth()] + (labelDate.getMonth() === 0 ? ' \u2019' + String(labelDate.getFullYear()).slice(2) : '');
+    var lx = xPos(idx);
+    if (lx < padL + 20 || lx > padL + cW - 20) continue;
+    svg += '<text x="' + lx.toFixed(1) + '" y="' + (padT + cH + 20) + '" text-anchor="middle" fill="#566882" font-family="JetBrains Mono, monospace" font-size="8">' + label + '</text>';
+    svg += '<line x1="' + lx.toFixed(1) + '" y1="' + (padT + cH) + '" x2="' + lx.toFixed(1) + '" y2="' + (padT + cH + 4) + '" stroke="#1E3050" stroke-width="0.5"/>';
+  }
+
+  // Legend
+  svg += '<circle cx="' + (padL + 8) + '" cy="12" r="3" fill="#E8EDF4"/>';
+  svg += '<text x="' + (padL + 16) + '" y="15" fill="#8B9AB8" font-family="Inter, sans-serif" font-size="8.5">Price</text>';
+  svg += '<line x1="' + (padL + 56) + '" y1="12" x2="' + (padL + 74) + '" y2="12" stroke="#D4A03C" stroke-width="1.5"/>';
+  svg += '<text x="' + (padL + 78) + '" y="15" fill="#8B9AB8" font-family="Inter, sans-serif" font-size="8.5">50-Day MA</text>';
+  svg += '<line x1="' + (padL + 138) + '" y1="12" x2="' + (padL + 156) + '" y2="12" stroke="#4A8ECC" stroke-width="1.5"/>';
+  svg += '<text x="' + (padL + 160) + '" y="15" fill="#8B9AB8" font-family="Inter, sans-serif" font-size="8.5">200-Day MA</text>';
+  svg += '<line x1="' + (padL + 230) + '" y1="12" x2="' + (padL + 248) + '" y2="12" stroke="#3DAA6D" stroke-width="1" stroke-dasharray="4,3"/>';
+  svg += '<text x="' + (padL + 252) + '" y="15" fill="#8B9AB8" font-family="Inter, sans-serif" font-size="8.5">Support</text>';
+  svg += '<line x1="' + (padL + 298) + '" y1="12" x2="' + (padL + 316) + '" y2="12" stroke="#D45555" stroke-width="1" stroke-dasharray="4,3"/>';
+  svg += '<text x="' + (padL + 320) + '" y="15" fill="#8B9AB8" font-family="Inter, sans-serif" font-size="8.5">Resistance</text>';
+
+  svg += '</svg>';
+
+  return '<div class="ta-chart-container">' +
+    '<div class="ta-chart-title">12-Month Daily Price &amp; Moving Averages</div>' +
+    svg +
+  '</div>';
+}
+
 function renderTechnicalAnalysis(data) {
   if (!data.technicalAnalysis) return '';
   var t = data.ticker.toLowerCase();
   var ta = data.technicalAnalysis;
 
+  // Chart at the top
+  var chartHtml = renderTAChart(data);
+
   // Regime bar — categorical labels + key levels
   var regimeHtml = '<div class="ta-regime-bar">' +
     '<div class="ta-regime-item"><div class="ta-regime-label">Regime</div><div class="ta-regime-value">' + ta.regime + '</div></div>' +
     '<div class="ta-regime-item"><div class="ta-regime-label">Clarity</div><div class="ta-regime-value">' + ta.clarity + '</div></div>' +
-    '<div class="ta-regime-item"><div class="ta-regime-label">Trend</div><div class="ta-regime-value ta-down">' + ta.trend.direction + ' (' + ta.trend.duration + ')</div></div>' +
+    '<div class="ta-regime-item"><div class="ta-regime-label">Trend</div><div class="ta-regime-value ' + (/down/i.test(ta.trend.direction) ? 'ta-down' : /up|recover/i.test(ta.trend.direction) ? 'ta-up' : '') + '">' + ta.trend.direction + ' (' + ta.trend.duration + ')</div></div>' +
     '<div class="ta-regime-item"><div class="ta-regime-label">Structure</div><div class="ta-regime-value">' + ta.trend.structure + '</div></div>' +
     '<div class="ta-regime-item"><div class="ta-regime-label">Support</div><div class="ta-regime-value">' + ta.price.currency + ta.keyLevels.support.price.toFixed(2) + '</div></div>' +
     '<div class="ta-regime-item"><div class="ta-regime-label">Resistance</div><div class="ta-regime-value">' + ta.price.currency + ta.keyLevels.resistance.price.toFixed(2) + '</div></div>' +
@@ -3191,13 +3388,13 @@ function renderTechnicalAnalysis(data) {
     '<tr>' +
       '<td class="ta-label-cell">50-Day MA</td>' +
       '<td>' + ta.price.currency + ta.movingAverages.ma50.value.toFixed(2) + '</td>' +
-      '<td style="color:var(--signal-red)">' + ta.movingAverages.priceVsMa50.toFixed(1) + '%</td>' +
+      '<td style="color:' + (ta.movingAverages.priceVsMa50 >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (ta.movingAverages.priceVsMa50 >= 0 ? '+' : '') + ta.movingAverages.priceVsMa50.toFixed(1) + '%</td>' +
       '<td>As at ' + ta.movingAverages.ma50.date + '</td>' +
     '</tr>' +
     '<tr>' +
       '<td class="ta-label-cell">200-Day MA</td>' +
       '<td>' + ta.price.currency + ta.movingAverages.ma200.value.toFixed(2) + '</td>' +
-      '<td style="color:var(--signal-red)">' + ta.movingAverages.priceVsMa200.toFixed(1) + '%</td>' +
+      '<td style="color:' + (ta.movingAverages.priceVsMa200 >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (ta.movingAverages.priceVsMa200 >= 0 ? '+' : '') + ta.movingAverages.priceVsMa200.toFixed(1) + '%</td>' +
       '<td>As at ' + ta.movingAverages.ma200.date + '</td>' +
     '</tr>' +
     '</tbody></table>';
@@ -3278,7 +3475,7 @@ function renderTechnicalAnalysis(data) {
     '<table class="ta-ma-table" style="margin-top:var(--space-sm)"><thead><tr><th>Measure</th><th>Value</th></tr></thead><tbody>' +
       '<tr><td class="ta-label-cell">vs 50-Day MA</td><td style="color:var(--signal-red)">' + mr.vsMa50.toFixed(1) + '%</td></tr>' +
       '<tr><td class="ta-label-cell">vs 200-Day MA</td><td style="color:var(--signal-red)">' + mr.vsMa200.toFixed(1) + '%</td></tr>' +
-      '<tr><td class="ta-label-cell">12-Month Range Position</td><td>Lower ' + mr.rangePosition + '%</td></tr>' +
+      '<tr><td class="ta-label-cell">12-Month Range Position</td><td>' + (mr.rangePosition <= 50 ? 'Lower ' : 'Upper ') + mr.rangePosition + '%</td></tr>' +
     '</tbody></table>' +
   '</div>';
 
@@ -3292,15 +3489,15 @@ function renderTechnicalAnalysis(data) {
       '</tr></thead><tbody>' +
       '<tr>' +
         '<td style="font-family:var(--font-ui);font-weight:600;color:var(--text-primary)">' + rp.vsIndex.name + '</td>' +
-        '<td style="color:var(--signal-red)">' + rp.vsIndex.stockReturn.toFixed(1) + '%</td>' +
-        '<td>' + (rp.vsIndex.indexReturn >= 0 ? '+' : '') + rp.vsIndex.indexReturn.toFixed(1) + '%</td>' +
-        '<td style="color:var(--signal-red)">' + rp.vsIndex.relativeReturn.toFixed(1) + '%</td>' +
+        '<td style="color:' + (rp.vsIndex.stockReturn >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (rp.vsIndex.stockReturn >= 0 ? '+' : '') + rp.vsIndex.stockReturn.toFixed(1) + '%</td>' +
+        '<td style="color:' + (rp.vsIndex.indexReturn >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (rp.vsIndex.indexReturn >= 0 ? '+' : '') + rp.vsIndex.indexReturn.toFixed(1) + '%</td>' +
+        '<td style="color:' + (rp.vsIndex.relativeReturn >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (rp.vsIndex.relativeReturn >= 0 ? '+' : '') + rp.vsIndex.relativeReturn.toFixed(1) + '%</td>' +
       '</tr>' +
       '<tr>' +
         '<td style="font-family:var(--font-ui);font-weight:600;color:var(--text-primary)">' + rp.vsSector.name + '</td>' +
-        '<td style="color:var(--signal-red)">' + rp.vsSector.stockReturn.toFixed(1) + '%</td>' +
-        '<td style="color:var(--signal-red)">' + rp.vsSector.sectorReturn.toFixed(1) + '%</td>' +
-        '<td style="color:var(--signal-red)">' + rp.vsSector.relativeReturn.toFixed(1) + '%</td>' +
+        '<td style="color:' + (rp.vsSector.stockReturn >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (rp.vsSector.stockReturn >= 0 ? '+' : '') + rp.vsSector.stockReturn.toFixed(1) + '%</td>' +
+        '<td style="color:' + (rp.vsSector.sectorReturn >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (rp.vsSector.sectorReturn >= 0 ? '+' : '') + rp.vsSector.sectorReturn.toFixed(1) + '%</td>' +
+        '<td style="color:' + (rp.vsSector.relativeReturn >= 0 ? 'var(--signal-green)' : 'var(--signal-red)') + '">' + (rp.vsSector.relativeReturn >= 0 ? '+' : '') + rp.vsSector.relativeReturn.toFixed(1) + '%</td>' +
       '</tr>' +
       '</tbody></table>';
   }
@@ -3322,6 +3519,7 @@ function renderTechnicalAnalysis(data) {
   return '<div class="report-section ta-section" id="' + t + '-technical">' +
     '<div class="rs-number">Section 08</div>' +
     '<div class="rs-title">Technical Structure</div>' +
+    chartHtml +
     regimeHtml +
     maHtml +
     crossoverHtml +
