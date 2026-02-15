@@ -1808,6 +1808,117 @@ a:hover { color: var(--accent-sage); }
 }
 
 /* ============================================================
+   PDF REPORT DOWNLOAD
+   ============================================================ */
+.report-download-section {
+    max-width: var(--max-width);
+    margin: var(--space-xl) auto var(--space-lg);
+    padding: 0 var(--space-lg);
+}
+.report-download-inner {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+}
+.report-download-title {
+    font-family: var(--font-narrative);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+.report-download-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+}
+.report-download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+.btn-pdf-download {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 28px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 220px;
+    font-family: var(--font-ui);
+}
+.btn-pdf-download:hover {
+    background: var(--bg-surface-alt);
+    border-color: var(--accent-sage);
+    transform: translateY(-1px);
+}
+.btn-pdf-download.institutional { border-left: 3px solid var(--accent-sage); }
+.btn-pdf-download.retail { border-left: 3px solid var(--accent-gold); }
+.btn-pdf-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.btn-pdf-sub {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.btn-pdf-spinner {
+    display: none;
+    width: 14px; height: 14px;
+    border: 2px solid var(--text-muted);
+    border-top-color: var(--accent-sage);
+    border-radius: 50%;
+    animation: pdf-spin 0.8s linear infinite;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.btn-pdf-download.generating .btn-pdf-spinner { display: inline-block; }
+.btn-pdf-download.generating { opacity: 0.7; pointer-events: none; }
+@keyframes pdf-spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   NARRATIVE DISLOCATION ALERT
+   ============================================================ */
+.narrative-alert-banner {
+    max-width: var(--max-width);
+    margin: var(--space-md) auto;
+    padding: 0 var(--space-lg);
+}
+.narrative-alert-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 12px var(--space-lg);
+    background: rgba(212, 85, 85, 0.08);
+    border: 1px solid rgba(212, 85, 85, 0.25);
+    border-left: 3px solid var(--signal-red);
+    border-radius: 6px;
+}
+.narrative-alert-icon {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--signal-red);
+    flex-shrink: 0;
+}
+.narrative-alert-text {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.narrative-alert-text strong {
+    color: var(--signal-red);
+    font-weight: 700;
+}
+
+/* ============================================================
    EPISTEMIC BADGES: Leadership & Ownership
    ============================================================ */
 .ep-governance { background: rgba(201, 169, 110, 0.15); color: var(--accent-gold); }
@@ -5673,6 +5784,41 @@ function renderReportFooter(data) {
   '</div>';
 }
 
+function renderPDFDownload(data) {
+  var t = data.ticker;
+  return '<div class="report-download-section">' +
+    '<div class="report-download-inner">' +
+      '<div class="report-download-title">Download Research Report</div>' +
+      '<div class="report-download-subtitle">' + data.company + ' (' + data.ticker + '.AX) &mdash; ' + data.date + '</div>' +
+      '<div class="report-download-buttons">' +
+        '<button class="btn-pdf-download institutional" onclick="generatePDFReport(\'' + t + '\', \'institutional\')">' +
+          '<span class="btn-pdf-label">Institutional Report <span class="btn-pdf-spinner"></span></span>' +
+          '<span class="btn-pdf-sub">Full ACH analysis with evidence matrix</span>' +
+        '</button>' +
+        '<button class="btn-pdf-download retail" onclick="generatePDFReport(\'' + t + '\', \'retail\')">' +
+          '<span class="btn-pdf-label">Investor Briefing <span class="btn-pdf-spinner"></span></span>' +
+          '<span class="btn-pdf-sub">Plain-language evidence summary</span>' +
+        '</button>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+function renderNarrativeAlert(data) {
+  if (!data.skew || data.skew.direction === 'balanced') return '';
+  var dir = data.skew.direction;
+  var isDownside = dir === 'downside';
+  var icon = isDownside ? '&#9888;' : '&#9650;';
+  var label = isDownside ? 'Narrative under pressure' : 'Positive skew detected';
+  var detail = data.skew.rationale ? data.skew.rationale.substring(0, 160) : '';
+  return '<div class="narrative-alert-banner">' +
+    '<div class="narrative-alert-inner"' + (isDownside ? '' : ' style="border-color:rgba(61,170,109,0.25);border-left-color:var(--signal-green);background:rgba(61,170,109,0.06)"') + '>' +
+      '<span class="narrative-alert-icon"' + (isDownside ? '' : ' style="color:var(--signal-green)"') + '>' + icon + '</span>' +
+      '<span class="narrative-alert-text"><strong>' + label + '</strong> &mdash; ' + detail + '</span>' +
+    '</div>' +
+  '</div>';
+}
+
 function renderHypSidebar(data) {
   var t = data.ticker.toLowerCase();
   return '<div class="hyp-sidebar" id="' + t + '-sidebar"></div>';
@@ -5884,12 +6030,14 @@ function renderReportPage(data) {
 
   return renderReportHero(data) +
     renderSkewBar(data) +
+    renderNarrativeAlert(data) +
     renderVerdict(data) +
     renderSectionNav(data) +
     '<div class="report-content">' +
       '<div class="report-main">' + mainContent + '</div>' +
       renderHypSidebar(data) +
     '</div>' +
+    renderPDFDownload(data) +
     renderReportFooter(data);
 }
 
@@ -6513,6 +6661,7 @@ function renderSnapshotPage(data) {
       '<div class="snap-footer-left">' + data.footerDisclaimer + '</div>' +
       '<div class="snap-footer-right">' + footerMetaHtml + '</div>' +
     '</div>' +
+    renderPDFDownload(data) +
   '</div>';
 }
 
@@ -14231,6 +14380,82 @@ function tcAnalyze() {
         if (e.key === 'Escape' && isOpen) closeChat();
     });
 })();
+</script>
+
+<!-- html2pdf.js for client-side PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+// PDF Report Generator
+function generatePDFReport(ticker, type) {
+  var btn = event.currentTarget;
+  btn.classList.add('generating');
+
+  // Find the report or snapshot page for this ticker
+  // Page IDs use 'page-report-WOW' / 'page-snapshot-WOW' format
+  var pageId = 'page-report-' + ticker.toUpperCase();
+  var page = document.getElementById(pageId);
+  if (!page) {
+    pageId = 'page-snapshot-' + ticker.toUpperCase();
+    page = document.getElementById(pageId);
+  }
+
+  if (!page) {
+    alert('Report page not found for ' + ticker);
+    btn.classList.remove('generating');
+    return;
+  }
+
+  // Clone the page content for PDF generation (don't modify the live DOM)
+  var clone = page.cloneNode(true);
+
+  // Remove the download buttons and interactive elements from clone
+  var downloadSections = clone.querySelectorAll('.report-download-section, .narrative-alert-banner');
+  for (var i = 0; i < downloadSections.length; i++) {
+    downloadSections[i].remove();
+  }
+
+  // For retail type, simplify the content
+  var filename = ticker + '-';
+  if (type === 'institutional') {
+    filename += 'institutional-report';
+  } else {
+    filename += 'investor-briefing';
+    // Remove evidence matrix and technical sections for retail
+    var techSections = clone.querySelectorAll('[id$="-technical"]');
+    for (var i = 0; i < techSections.length; i++) {
+      techSections[i].remove();
+    }
+  }
+
+  var now = new Date();
+  filename += '-' + now.getFullYear() + ('0' + (now.getMonth()+1)).slice(-2) + ('0' + now.getDate()).slice(-2) + '.pdf';
+
+  // Attach clone to DOM temporarily so html2canvas can compute dimensions
+  var wrapper = document.createElement('div');
+  wrapper.style.cssText = 'position:fixed;left:-9999px;top:0;background:#0B1220;color:#E8EDF4;font-family:Inter,sans-serif;padding:24px;width:210mm;';
+  wrapper.appendChild(clone);
+  document.body.appendChild(wrapper);
+
+  var opt = {
+    margin: [10, 10, 10, 10],
+    filename: filename,
+    image: { type: 'jpeg', quality: 0.95 },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: '#0B1220' },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+
+  html2pdf().set(opt).from(wrapper).save().then(function() {
+    document.body.removeChild(wrapper);
+    btn.classList.remove('generating');
+  }).catch(function(err) {
+    console.error('PDF generation failed:', err);
+    if (wrapper.parentNode) document.body.removeChild(wrapper);
+    btn.classList.remove('generating');
+    alert('PDF generation failed. Please try again.');
+  });
+}
 </script>
 
 <script src="scripts/price-narrative-engine.js"></script>
