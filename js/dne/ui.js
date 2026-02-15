@@ -12,6 +12,20 @@
 
 /* global HYPOTHESIS_IDS, hasActiveOverride */
 
+// ─── Utility: HTML escape ───────────────────────────────────────────────────
+
+function escapeHtml(text) {
+  if (!text) return '';
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(text).replace(/[&<>"']/g, function (s) { return map[s]; });
+}
+
 // ─── Narrative Survival Bar ──────────────────────────────────────────────────
 
 function updateNarrativeUI(stock) {
