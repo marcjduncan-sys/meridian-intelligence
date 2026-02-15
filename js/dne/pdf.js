@@ -547,8 +547,9 @@ window.generateReport = function (format) {
   }
 
   // 3. Create container element
+  // Position off-screen so html2canvas can capture it without user seeing it
   var container = document.createElement('div');
-  container.style.cssText = 'position:fixed;left:0;top:0;width:210mm;background:white;z-index:99999;visibility:hidden;';
+  container.style.cssText = 'position:fixed;left:-10000px;top:0;width:210mm;background:white;z-index:-9999;';
   container.innerHTML = reportHTML;
   document.body.appendChild(container);
 
