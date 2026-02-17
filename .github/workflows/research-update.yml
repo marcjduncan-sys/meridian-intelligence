@@ -2,8 +2,8 @@ name: Daily Research Update
 
 on:
   schedule:
-    # Run at 20:00 UTC (7am AEST / 7am AEDT+1) — before market open
-    - cron: '0 20 * * 0-4'
+    # Run at 21:00 UTC (7am AEST) — before market open
+    - cron: '0 21 * * 0-4'
   workflow_dispatch: # Manual trigger
     inputs:
       ticker:
@@ -44,12 +44,14 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet index.html && git diff --quiet data/ 2>/dev/null; then
+          git add data/stocks/ data/live-prices.json index.html 2>/dev/null || true
+          if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected."
           else
             echo "changed=true" >> $GITHUB_OUTPUT
             echo "Changes detected:"
-            git diff --stat
+            git diff --cached --stat
           fi
 
       - name: Commit and push
@@ -57,9 +59,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git add data/stocks/ 2>/dev/null || true
-          git add data/live-prices.json 2>/dev/null || true
-          git commit -m "📊 Research update — scores + freshness — $(date -u +'%d %b %Y')"
+          git commit -m "Research update — scores + freshness — $(date -u +'%d %b %Y')"
           git pull --rebase origin main
           git push
