@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "CSL-2026-001",
-  "current_price": 151.56,
+  "current_price": 154.38,
   "priceHistory": [
-    263.82,
     264.85,
     258.89,
     258.67,
@@ -260,7 +259,8 @@
     163.44,
     150.01,
     152.17,
-    151.56
+    151.56,
+    154.38
   ],
   "reference": {
     "sharesOutstanding": 483,
@@ -288,9 +288,9 @@
   },
   "freshness": {
     "reviewDate": "12 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 5,
     "priceAtReview": 165.79,
-    "pricePctChange": -8.6,
+    "pricePctChange": -6.9,
     "nearestCatalyst": "1H FY26 Results — TRIGGERED",
     "nearestCatalystDate": "12 FEBRUARY 2026",
     "nearestCatalystDays": -6,
@@ -1483,5 +1483,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.098Z",
   "last_updated": "2026-02-14T09:30:00+11:00",
-  "last_research_update": "2026-02-17T23:19:16.345Z"
+  "last_research_update": "2026-02-17T23:19:16.345Z",
+  "last_price_update": "2026-02-17T23:49:44.482Z"
 }

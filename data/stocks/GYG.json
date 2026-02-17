@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "GYG-2026-001",
-  "current_price": 19.5,
+  "current_price": 19.38,
   "priceHistory": [
-    42.57,
     43.19,
     45.32,
     44.99,
@@ -260,7 +259,8 @@
     20.84,
     19.31,
     19.12,
-    19.5
+    19.5,
+    19.38
   ],
   "reference": {
     "sharesOutstanding": 102,
@@ -286,13 +286,13 @@
   },
   "freshness": {
     "reviewDate": "10 February 2026",
-    "daysSinceReview": 8,
+    "daysSinceReview": 7,
     "priceAtReview": 20.59,
-    "pricePctChange": -5.3,
+    "pricePctChange": -5.9,
     "nearestCatalyst": null,
     "nearestCatalystDate": null,
     "nearestCatalystDays": null,
-    "urgency": 30,
+    "urgency": 20,
     "status": "MODERATE",
     "badge": "moderate"
   },
@@ -1330,5 +1330,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.085Z",
   "last_updated": "10 February 2026",
-  "last_research_update": "2026-02-17T23:19:16.345Z"
+  "last_research_update": "2026-02-17T23:19:16.345Z",
+  "last_price_update": "2026-02-17T23:49:44.487Z"
 }

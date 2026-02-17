@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "WDS-2026-001",
-  "current_price": 25.83,
+  "current_price": 25.82,
   "priceHistory": [
-    23.84,
     23.49,
     23.03,
     23.26,
@@ -260,7 +259,8 @@
     25.93,
     25.78,
     25.84,
-    25.83
+    25.83,
+    25.82
   ],
   "reference": {
     "sharesOutstanding": 1899,
@@ -287,9 +287,9 @@
   },
   "freshness": {
     "reviewDate": "11 February 2026",
-    "daysSinceReview": 7,
+    "daysSinceReview": 6,
     "priceAtReview": 25.71,
-    "pricePctChange": 0.5,
+    "pricePctChange": 0.4,
     "nearestCatalyst": null,
     "nearestCatalystDate": null,
     "nearestCatalystDays": null,
@@ -1375,5 +1375,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.118Z",
   "last_updated": "11 February 2026",
-  "last_research_update": "2026-02-17T23:19:16.345Z"
+  "last_research_update": "2026-02-17T23:19:16.345Z",
+  "last_price_update": "2026-02-17T23:49:44.493Z"
 }

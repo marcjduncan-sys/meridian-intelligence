@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "XRO-2026-001",
-  "current_price": 78.5,
+  "current_price": 80.04,
   "priceHistory": [
-    184.32,
     186.26,
     184.32,
     182.02,
@@ -260,7 +259,8 @@
     77.87,
     73.49,
     79.06,
-    78.5
+    78.5,
+    80.04
   ],
   "reference": {
     "sharesOutstanding": 154,
@@ -289,13 +289,13 @@
   },
   "freshness": {
     "reviewDate": "12 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 5,
     "priceAtReview": 81.24,
-    "pricePctChange": -3.4,
+    "pricePctChange": -1.5,
     "nearestCatalyst": "FY26 Full Year Results — The Decisive Test",
     "nearestCatalystDate": "14 MAY 2026",
     "nearestCatalystDays": 85,
-    "urgency": 10,
+    "urgency": 0,
     "status": "OK",
     "badge": "ok"
   },
@@ -1598,5 +1598,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.028Z",
   "last_updated": "12 February 2026",
-  "last_research_update": "2026-02-17T23:19:16.345Z"
+  "last_research_update": "2026-02-17T23:19:16.345Z",
+  "last_price_update": "2026-02-17T23:49:44.496Z"
 }

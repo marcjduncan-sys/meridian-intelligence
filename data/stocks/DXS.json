@@ -7,7 +7,7 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "DXS-2026-001",
-  "current_price": 6.31,
+  "current_price": 6.64,
   "priceHistory": [
     7.21,
     7.2,
@@ -69,7 +69,8 @@
     6.32,
     6.21,
     6.3,
-    6.31
+    6.31,
+    6.64
   ],
   "reference": {
     "sharesOutstanding": 1080,
@@ -95,15 +96,15 @@
   },
   "freshness": {
     "reviewDate": "16 February 2026",
-    "daysSinceReview": 2,
+    "daysSinceReview": 1,
     "priceAtReview": 6.19,
-    "pricePctChange": 1.9,
+    "pricePctChange": 7.3,
     "nearestCatalyst": "H1 FY26 Results",
     "nearestCatalystDate": "18 Feb 2026",
     "nearestCatalystDays": 0,
-    "urgency": 25,
-    "status": "MODERATE",
-    "badge": "moderate"
+    "urgency": 45,
+    "status": "HIGH",
+    "badge": "high"
   },
   "hypotheses": {
     "T1": {
@@ -1054,5 +1055,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.162Z",
   "last_updated": "2026-02-16T09:00:00+11:00",
-  "last_research_update": "2026-02-17T23:19:16.345Z"
+  "last_research_update": "2026-02-17T23:19:16.345Z",
+  "last_price_update": "2026-02-17T23:49:44.485Z"
 }
