@@ -39,6 +39,9 @@ jobs:
         run: |
           node scripts/fetch-live-prices.js || true
 
+      - name: Update stock JSONs with latest prices
+        run: node scripts/update-stock-json.js || true
+
       - name: Run narrative analysis
         run: node scripts/run-automated-analysis.js || true
 

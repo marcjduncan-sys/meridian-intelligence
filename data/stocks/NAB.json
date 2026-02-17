@@ -1,263 +1,14 @@
 {
   "ticker": "NAB.AX",
-  "company": "National Australia Bank Limited",
+  "tickerShort": "NAB",
+  "company": "National Australia Bank",
   "sector": "Financials",
-  "market_cap": "139.1B",
-  "hypotheses": {
-    "T1": {
-      "label": "Growth/Recovery",
-      "description": "Earnings Growth",
-      "plain_english": "Placeholder — requires analyst research to populate.",
-      "what_to_watch": "Upcoming earnings results and key operational metrics.",
-      "upside": null,
-      "risk_plain": null,
-      "survival_score": 0.4,
-      "status": "MODERATE",
-      "weighted_inconsistency": 3,
-      "last_updated": "2026-02-16T02:16:05.023Z"
-    },
-    "T2": {
-      "label": "Managed/Base Case",
-      "description": "Margin Compression",
-      "plain_english": "Placeholder — requires analyst research to populate.",
-      "what_to_watch": "Earnings guidance and consensus estimates.",
-      "upside": null,
-      "risk_plain": null,
-      "survival_score": 0.55,
-      "status": "MODERATE",
-      "weighted_inconsistency": 2,
-      "last_updated": "2026-02-16T02:16:05.023Z"
-    },
-    "T3": {
-      "label": "Risk/Downside",
-      "description": "Credit Risk",
-      "plain_english": "Placeholder — requires analyst research to populate.",
-      "what_to_watch": "Competitive dynamics and industry trends.",
-      "upside": null,
-      "risk_plain": null,
-      "survival_score": 0.3,
-      "status": "LOW",
-      "weighted_inconsistency": 4.5,
-      "last_updated": "2026-02-16T02:16:05.023Z"
-    },
-    "T4": {
-      "label": "Disruption",
-      "description": "Regulatory Tightening",
-      "plain_english": "Placeholder — requires analyst research to populate.",
-      "what_to_watch": "Macro conditions and regulatory developments.",
-      "upside": null,
-      "risk_plain": null,
-      "survival_score": 0.2,
-      "status": "VERY_LOW",
-      "weighted_inconsistency": 6,
-      "last_updated": "2026-02-16T02:16:05.023Z"
-    }
-  },
-  "dominant": "T2",
-  "confidence": "LOW",
-  "alert_state": "NORMAL",
-  "alert_started": null,
-  "current_price": 45.52,
-  "big_picture": "National Australia Bank Limited (ASX: NAB) — auto-added to coverage. Narrative analysis pending.",
-  "last_flip": null,
-  "narrative_history": [],
-  "evidence_items": [],
-  "price_signals": [],
-  "editorial_override": null,
-  "price_history": [
-    40.52,
-    39.51,
-    36.3,
-    35.11,
-    35.08,
-    35.9,
-    35.39,
-    35.53,
-    35.45,
-    35.3,
-    35.32,
-    35.05,
-    34.55,
-    34.59,
-    34.26,
-    34.07,
-    34.1,
-    33.38,
-    33.21,
-    33.3,
-    33.24,
-    32.59,
-    32.65,
-    33.09,
-    33.18,
-    33.91,
-    33.75,
-    33.98,
-    34.1,
-    34.17,
-    34.02,
-    34.38,
-    34.6,
-    34.18,
-    33.7,
-    32.19,
-    32.49,
-    32.25,
-    33.82,
-    33.24,
-    33.55,
-    33.77,
-    34.12,
-    33.99,
-    33.83,
-    34.9,
-    35.11,
-    35.7,
-    35.95,
-    36.13,
-    36,
-    36.49,
-    35.85,
-    35.3,
-    35.87,
-    36.37,
-    36.53,
-    35.69,
-    35.61,
-    36.1,
-    36.59,
-    37.01,
-    36.84,
-    37.21,
-    37.64,
-    37.37,
-    37.7,
-    37.4,
-    37.75,
-    37.34,
-    37.5,
-    38,
-    37.74,
-    38.19,
-    38.6,
-    38.51,
-    38.58,
-    39.17,
-    39.07,
-    38.99,
-    38.87,
-    38.94,
-    38.8,
-    38.71,
-    39.12,
-    38.91,
-    38.88,
-    39.75,
-    40.05,
-    39.89,
-    39.26,
-    39.36,
-    39.7,
-    39.33,
-    38.91,
-    39.15,
-    39.04,
-    39.29,
-    39.3,
-    39.74,
-    39.61,
-    39.66,
-    39.61,
-    38.27,
-    38.7,
-    39.19,
-    38.25,
-    37.22,
-    37.2,
-    37.66,
-    37.51,
-    37.76,
-    38.2,
-    38.47,
-    38.91,
-    38.44,
-    38.19,
-    38.8,
-    38.99,
-    38.82,
-    38.49,
-    38.82,
-    39.19,
-    38.16,
-    38.88,
-    39.19,
-    40.23,
-    40.54,
-    42.03,
-    42.39,
-    42.47,
-    41.71,
-    41.86,
-    41.95,
-    42.94,
-    42.79,
-    42.54,
-    42.96,
-    41.97,
-    42.81,
-    43.17,
-    42.84,
-    42.78,
-    43.41,
-    43.02,
-    43.54,
-    43.79,
-    44.09,
-    43.42,
-    43.36,
-    43.79,
-    43.65,
-    44.09,
-    43.1,
-    43.22,
-    43.64,
-    44.29,
-    44.15,
-    44.01,
-    44.42,
-    44.6,
-    44.67,
-    44.56,
-    44.39,
-    43.77,
-    44.02,
-    43.21,
-    42.76,
-    43.56,
-    43.67,
-    43.3,
-    43.75,
-    43.61,
-    43.69,
-    43.38,
-    43.25,
-    43.54,
-    44.62,
-    43.44,
-    43.65,
-    43.62,
-    44.01,
-    43.79,
-    44.53,
-    43.06,
-    43.44,
-    43.27,
-    42.7,
-    42.67,
-    42.2,
-    41.48,
-    41.47,
-    40.6,
+  "sectorSub": "Financials",
+  "exchange": "ASX",
+  "currency": "A$",
+  "reportId": "NAB-2026-001",
+  "current_price": 45.34,
+  "priceHistory": [
     40.32,
     40.88,
     40.56,
@@ -317,7 +68,702 @@
     45.49,
     46.54,
     46.01,
-    45.51
+    45.54,
+    45.34
   ],
-  "weighting": null
+  "reference": {
+    "sharesOutstanding": 3056,
+    "analystTarget": 39.23,
+    "analystBuys": null,
+    "analystHolds": null,
+    "analystSells": null,
+    "analystCount": 14,
+    "epsTrailing": 2.21,
+    "epsForward": null,
+    "divPerShare": 1.7,
+    "reportingCurrency": "A$",
+    "revenue": null,
+    "_anchors": {
+      "price": 45.34,
+      "marketCapStr": "139B",
+      "pe": 20.5,
+      "divYield": 3.7
+    }
+  },
+  "freshness": {
+    "reviewDate": "16 February 2026",
+    "daysSinceReview": 1,
+    "priceAtReview": 45.34,
+    "pricePctChange": 0,
+    "nearestCatalyst": "1H FY2026 Results — NIM and Credit Test",
+    "nearestCatalystDate": "MAY 2026",
+    "nearestCatalystDays": 72,
+    "urgency": 0,
+    "status": "OK",
+    "badge": "ok"
+  },
+  "hypotheses": {
+    "T1": {
+      "label": "Business Banking Moat",
+      "description": "NAB's #1 position in business banking (~25-27% market share) provides a structural earnings advantage. Business loans carry NIMs 40-80bp above home loans, relationships are stickier, and cross-sell opportunities (transaction banking, FX, trade finance) are deeper. Cost discipline (~44% cost-to-income, best-in-class Big Four) sustains profitability through the cycle. Dividend yield of ~3.7% is attractive as term deposit rates decline.",
+      "plain_english": "NAB's #1 position in business banking (~25-27% market share) provides a structural earnings advantage. Business loans carry NIMs 40-80bp above home loans, relationships are stickier, and cross-sell opportunities (transaction banking, FX, trade finance) are deeper. Cost discipline (~44% cost-to-income, best-in-class Big Four) sustains profitability through the cycle. Dividend yield of ~3.7% is attractive as term deposit rates decline.",
+      "what_to_watch": "Business banking market share maintained above 24%",
+      "upside": "NAB's #1 position in business banking (~25-27% market share) provides a structural earnings advantage. Business loans carry NIMs 40-80bp above home loans, relationships are stickier, and cross-sell opportunities (transaction banking, FX, trade finance) are deeper. Cost discipline (~44% cost-to-income, best-in-class Big Four) sustains profitability through the cycle. Dividend yield of ~3.7% is attractive as term deposit rates decline.",
+      "risk_plain": null,
+      "survival_score": 0.5,
+      "status": "MODERATE",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.189Z"
+    },
+    "T2": {
+      "label": "NIM Compression",
+      "description": "RBA rate cuts compress NIMs across the banking sector. NAB's group NIM has already declined from ~1.74% (FY24) to ~1.70% (FY25). If the RBA cuts to 3.10% or below, further NIM erosion to 1.60-1.65% would compress net interest income by A$500M-1B annually. Intense mortgage competition (Macquarie, non-banks) exacerbates home loan margin pressure. Business banking mix provides partial insulation but cannot fully offset.",
+      "plain_english": "RBA rate cuts compress NIMs across the banking sector. NAB's group NIM has already declined from ~1.74% (FY24) to ~1.70% (FY25). If the RBA cuts to 3.10% or below, further NIM erosion to 1.60-1.65% would compress net interest income by A$500M-1B annually. Intense mortgage competition (Macquarie, non-banks) exacerbates home loan margin pressure. Business banking mix provides partial insulation but cannot fully offset.",
+      "what_to_watch": null,
+      "upside": null,
+      "risk_plain": "RBA rate cuts compress NIMs across the banking sector. NAB's group NIM has already declined from ~1.74% (FY24) to ~1.70% (FY25). If the RBA cuts to 3.10% or below, further NIM erosion to 1.60-1.65% would compress net interest income by A$500M-1B annually. Intense mortgage competition (Macquarie, non-banks) exacerbates home loan margin pressure. Business banking mix provides partial insulation but cannot fully offset.",
+      "survival_score": 0.4,
+      "status": "MODERATE",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.189Z"
+    },
+    "T3": {
+      "label": "Valuation De-rating",
+      "description": "NAB at ~20x P/E is trading well above its 10-year historical average of 13-15x and above consensus broker targets (~A$38-42). The Big Four sector has been re-rated by momentum, index flows, and a perceived \"safety premium.\" Any earnings disappointment, NIM miss, or credit quality deterioration could trigger a de-rating back to 15-16x, implying 20-25% downside. At 20x P/E, the dividend yield (~3.7%) is barely above risk-free alternatives.",
+      "plain_english": "NAB at ~20x P/E is trading well above its 10-year historical average of 13-15x and above consensus broker targets (~A$38-42). The Big Four sector has been re-rated by momentum, index flows, and a perceived \"safety premium.\" Any earnings disappointment, NIM miss, or credit quality deterioration could trigger a de-rating back to 15-16x, implying 20-25% downside. At 20x P/E, the dividend yield (~3.7%) is barely above risk-free alternatives.",
+      "what_to_watch": null,
+      "upside": null,
+      "risk_plain": "NAB at ~20x P/E is trading well above its 10-year historical average of 13-15x and above consensus broker targets (~A$38-42). The Big Four sector has been re-rated by momentum, index flows, and a perceived \"safety premium.\" Any earnings disappointment, NIM miss, or credit quality deterioration could trigger a de-rating back to 15-16x, implying 20-25% downside. At 20x P/E, the dividend yield (~3.7%) is barely above risk-free alternatives.",
+      "survival_score": 0.35,
+      "status": "LOW",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.189Z"
+    },
+    "T4": {
+      "label": "Credit Cycle Turn",
+      "description": "The benign credit cycle that has supported bank earnings begins to turn. Consumer stress from prior rate rises has a lagged effect. Business insolvencies rising in construction, retail, and hospitality. NAB's business banking concentration means it is MORE exposed to SME credit risk than retail-focused peers. BNZ faces a weaker New Zealand economy. Loan impairment charges could normalise to A$1.0-1.3B if conditions worsen.",
+      "plain_english": "The benign credit cycle that has supported bank earnings begins to turn. Consumer stress from prior rate rises has a lagged effect. Business insolvencies rising in construction, retail, and hospitality. NAB's business banking concentration means it is MORE exposed to SME credit risk than retail-focused peers. BNZ faces a weaker New Zealand economy. Loan impairment charges could normalise to A$1.0-1.3B if conditions worsen.",
+      "what_to_watch": null,
+      "upside": null,
+      "risk_plain": "The benign credit cycle that has supported bank earnings begins to turn. Consumer stress from prior rate rises has a lagged effect. Business insolvencies rising in construction, retail, and hospitality. NAB's business banking concentration means it is MORE exposed to SME credit risk than retail-focused peers. BNZ faces a weaker New Zealand economy. Loan impairment charges could normalise to A$1.0-1.3B if conditions worsen.",
+      "survival_score": 0.25,
+      "status": "LOW",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.189Z"
+    }
+  },
+  "dominant": "T2",
+  "confidence": "LOW",
+  "alert_state": "NORMAL",
+  "alert_started": null,
+  "presentation": {
+    "heroDescription": "#1 Business Bank &bull; ~25% SME Market Share &bull; Big Four",
+    "heroCompanyDescription": "National Australia Bank (ASX: NAB) is Australia's largest business bank with approximately 25-27% market share in SME and business lending. Operations span Business &amp; Private Banking (~40-45% of cash earnings), Personal Banking, Corporate &amp; Institutional Banking (~20-25%), and New Zealand Banking via BNZ (~10-12%). CEO Andrew Irvine took over from Ross McEwan in September 2024.",
+    "heroMetrics": [
+      {
+        "label": "Mkt Cap",
+        "value": "A$139.1B",
+        "colorClass": ""
+      },
+      {
+        "label": "Trailing P/E",
+        "value": "~20x",
+        "colorClass": "premium"
+      },
+      {
+        "label": "NIM",
+        "value": "~1.70%",
+        "colorClass": ""
+      },
+      {
+        "label": "Div Yield",
+        "value": "~3.7%",
+        "colorClass": ""
+      },
+      {
+        "label": "CET1",
+        "value": "~12.2%",
+        "colorClass": ""
+      }
+    ],
+    "skew": {
+      "direction": "downside",
+      "rationale": "Trading well above consensus targets and historical P/E range. Valuation stretch implies near-perfect soft-landing scenario already priced. NIM compression from rate cuts is a structural headwind."
+    },
+    "verdict": {
+      "text": "NAB is trading at <span class=\"key-stat\">~20x</span> trailing P/E, well above its historical range of <span class=\"key-stat\">13-15x</span>. The market is pricing a near-perfect soft landing: benign credit quality, stable NIMs, and sustained business banking leadership. The stock at <span class=\"key-stat\">A$45.34</span> is <strong>above consensus broker targets</strong> (~A$38-42), leaving limited upside and elevated de-rating risk if any element of the soft-landing thesis breaks down.",
+      "borderColor": null,
+      "scores": [
+        {
+          "label": "T1 Business Banking Moat",
+          "score": "50%",
+          "scoreColor": "var(--signal-green)",
+          "dirArrow": "&rarr;",
+          "dirText": "Priced",
+          "dirColor": null
+        },
+        {
+          "label": "T2 NIM Compression",
+          "score": "40%",
+          "scoreColor": "var(--signal-amber)",
+          "dirArrow": "&uarr;",
+          "dirText": "Rising",
+          "dirColor": "var(--signal-red)"
+        },
+        {
+          "label": "T3 Valuation De-rating",
+          "score": "35%",
+          "scoreColor": "var(--signal-amber)",
+          "dirArrow": "&uarr;",
+          "dirText": "Rising",
+          "dirColor": "var(--signal-red)"
+        },
+        {
+          "label": "T4 Credit Cycle Turn",
+          "score": "25%",
+          "scoreColor": "var(--text-muted)",
+          "dirArrow": "&rarr;",
+          "dirText": "Watching",
+          "dirColor": null
+        }
+      ]
+    },
+    "featuredMetrics": [
+      {
+        "label": "Mkt Cap",
+        "value": "A$139.1B",
+        "color": ""
+      },
+      {
+        "label": "P/E",
+        "value": "~20x",
+        "color": "var(--accent-gold)"
+      },
+      {
+        "label": "Div Yield",
+        "value": "~3.7%",
+        "color": ""
+      },
+      {
+        "label": "NIM",
+        "value": "~1.70%",
+        "color": "var(--signal-amber)"
+      }
+    ],
+    "featuredPriceColor": "var(--signal-amber)",
+    "featuredRationale": "Above consensus targets. ~20x P/E prices soft-landing perfection. NIM headwind from rate cuts.",
+    "identity": {
+      "rows": [
+        [
+          [
+            "Ticker",
+            "NAB.AX",
+            "td-mono"
+          ],
+          [
+            "Exchange",
+            "ASX",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Market Cap",
+            "A$139.1B",
+            "td-mono"
+          ],
+          [
+            "Sector",
+            "Financials / Big Four Banks",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Share Price",
+            "A$45.34",
+            "td-mono"
+          ],
+          [
+            "52-Week Range",
+            "A$31.13 &ndash; A$47.25",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Trailing P/E",
+            "~20x",
+            "td-mono td-amber"
+          ],
+          [
+            "Historical P/E",
+            "13-15x (10yr avg)",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "NIM (FY25)",
+            "~1.70%",
+            "td-mono"
+          ],
+          [
+            "CET1 Ratio",
+            "~12.2%",
+            "td-mono td-green"
+          ]
+        ],
+        [
+          [
+            "Dividend (FY25)",
+            "~A$1.70 (3.7%)",
+            "td-mono"
+          ],
+          [
+            "Payout Ratio",
+            "~75%",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Cash Earnings (FY25)",
+            "~A$7.1B",
+            "td-mono"
+          ],
+          [
+            "ROE",
+            "~11.7%",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Cost/Income",
+            "~44%",
+            "td-mono td-green"
+          ],
+          [
+            "Loan Impairments",
+            "~A$900M",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "CEO",
+            "Andrew Irvine (since Sep 2024)",
+            ""
+          ],
+          [
+            "Employees",
+            "~35,000",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Last Earnings",
+            "FY25 (Nov 2025)",
+            "td-mono"
+          ],
+          [
+            "Next Earnings",
+            "1H FY26 (~May 2026)",
+            "td-mono"
+          ]
+        ]
+      ],
+      "overview": "National Australia Bank (ASX: NAB) is Australia's #1 business bank, holding approximately 25-27% of the SME lending market. Business &amp; Private Banking provides the earnings core (~40-45% of cash earnings), benefiting from higher margins, deeper relationships, and lower price sensitivity than retail banking. NAB also operates Personal Banking, Corporate &amp; Institutional Banking, and Bank of New Zealand (BNZ). Cost-to-income ratio of ~44% is best-in-class among the Big Four. New CEO Andrew Irvine (September 2024, ex-CIB head) inherits a well-run franchise but at stretched valuations."
+    },
+    "hypotheses": [
+      {
+        "tier": "t1",
+        "direction": "upside",
+        "title": "T1: Business Banking Moat",
+        "statusClass": "priced",
+        "statusText": "Priced",
+        "score": "50%",
+        "scoreWidth": "50%",
+        "scoreMeta": "&rarr; Priced",
+        "description": "NAB's #1 position in business banking (~25-27% market share) provides a structural earnings advantage. Business loans carry NIMs 40-80bp above home loans, relationships are stickier, and cross-sell opportunities (transaction banking, FX, trade finance) are deeper. Cost discipline (~44% cost-to-income, best-in-class Big Four) sustains profitability through the cycle. Dividend yield of ~3.7% is attractive as term deposit rates decline.",
+        "requires": [
+          "Business banking market share maintained above 24%",
+          "NIM compression limited to 5-8bp annually (not 10-15bp)",
+          "Cost-to-income ratio stays below 46%",
+          "Credit quality remains benign (impairments below A$1.1B)",
+          "RBA cutting cycle shallow (2-3 cuts, terminal rate ~3.60%)"
+        ],
+        "supportingLabel": "Supporting Evidence",
+        "supporting": [
+          "<strong>Franchise:</strong> #1 business bank for decades. Deep SME, agri, health, education, government relationships",
+          "<strong>Cost Discipline:</strong> ~44% cost-to-income is best-in-class Big Four. Technology investment driving efficiency",
+          "<strong>Capital:</strong> CET1 ~12.2%, well above APRA minimum 10.25%. Buyback capacity intact",
+          "<strong>Housing:</strong> Australian housing market strong; population growth ~400-500k net migration supports credit growth"
+        ],
+        "contradictingLabel": "Contradicting Evidence",
+        "contradicting": [
+          "<strong>Valuation:</strong> ~20x P/E is historically unprecedented for NAB. Prices perfection with no room for error",
+          "<strong>NIM:</strong> Each RBA 25bp cut costs ~2-3bp of NIM, translating to ~A$200-300M revenue impact",
+          "<strong>Competition:</strong> Judo Bank targeting business banking; non-bank lenders growing mortgage share"
+        ]
+      },
+      {
+        "tier": "t2",
+        "direction": "downside",
+        "title": "T2: NIM Compression",
+        "statusClass": "accumulating",
+        "statusText": "Evidence Building",
+        "score": "40%",
+        "scoreWidth": "40%",
+        "scoreMeta": "&uarr; Rising",
+        "description": "RBA rate cuts compress NIMs across the banking sector. NAB's group NIM has already declined from ~1.74% (FY24) to ~1.70% (FY25). If the RBA cuts to 3.10% or below, further NIM erosion to 1.60-1.65% would compress net interest income by A$500M-1B annually. Intense mortgage competition (Macquarie, non-banks) exacerbates home loan margin pressure. Business banking mix provides partial insulation but cannot fully offset.",
+        "requires": null,
+        "supportingLabel": "Supporting Evidence (3 Domains)",
+        "supporting": [
+          "<strong>Rate Cycle:</strong> RBA cut in February 2025 (4.35% to 4.10%). Further cuts expected through 2026. Each cut compresses NIM",
+          "<strong>Competition:</strong> Mortgage price war intensifying. Macquarie and non-bank lenders aggressive on rates",
+          "<strong>History:</strong> NIM has been on a structural downtrend for a decade. FY24's 1.74% was a cyclical peak, not a new normal",
+          "<strong>Deposits:</strong> Term deposit repricing lag means deposit costs stay elevated even as lending rates fall"
+        ],
+        "contradictingLabel": "Mitigating Factors",
+        "contradicting": [
+          "<strong>Business Mix:</strong> NAB's higher business banking mix supports NIMs above pure-retail peers",
+          "<strong>Treasury:</strong> Replicating portfolio benefits from prior rate rises provide a lagged NIM support",
+          "<strong>Deposit Repricing:</strong> If rate cuts are gradual, deposit costs eventually adjust downward"
+        ]
+      },
+      {
+        "tier": "t3",
+        "direction": "downside",
+        "title": "T3: Valuation De-rating",
+        "statusClass": "accumulating",
+        "statusText": "Evidence Building",
+        "score": "35%",
+        "scoreWidth": "35%",
+        "scoreMeta": "&uarr; Rising",
+        "description": "NAB at ~20x P/E is trading well above its 10-year historical average of 13-15x and above consensus broker targets (~A$38-42). The Big Four sector has been re-rated by momentum, index flows, and a perceived \"safety premium.\" Any earnings disappointment, NIM miss, or credit quality deterioration could trigger a de-rating back to 15-16x, implying 20-25% downside. At 20x P/E, the dividend yield (~3.7%) is barely above risk-free alternatives.",
+        "requires": null,
+        "supportingLabel": "Supporting Evidence (3 Domains)",
+        "supporting": [
+          "<strong>Broker Consensus:</strong> Stock at A$45.34 is above consensus target range of ~A$38-42. Most analysts rate Hold/Neutral",
+          "<strong>Historical:</strong> NAB has traded at 13-15x P/E for most of the past decade. Current ~20x is historically extreme",
+          "<strong>International:</strong> Australian bank multiples are rich vs global peers (US/UK banks trade at 10-12x)",
+          "<strong>Earnings Growth:</strong> Consensus EPS broadly flat (FY25 ~A$2.27, FY26E ~A$2.20-2.35). No growth to justify premium"
+        ],
+        "contradictingLabel": "Mitigating Factors",
+        "contradicting": [
+          "<strong>Quality Premium:</strong> Australian banks have higher ROE, stronger capital, and less regulatory risk than US/EU peers",
+          "<strong>Scarcity:</strong> Limited investable options on the ASX drives index flows into Big Four",
+          "<strong>Yield:</strong> In a falling-rate world, 3.7% dividend yield becomes more attractive relative to deposits"
+        ]
+      },
+      {
+        "tier": "t4",
+        "direction": "downside",
+        "title": "T4: Credit Cycle Turn",
+        "statusClass": "watching",
+        "statusText": "Watching",
+        "score": "25%",
+        "scoreWidth": "25%",
+        "scoreMeta": "&rarr; Watching",
+        "description": "The benign credit cycle that has supported bank earnings begins to turn. Consumer stress from prior rate rises has a lagged effect. Business insolvencies rising in construction, retail, and hospitality. NAB's business banking concentration means it is MORE exposed to SME credit risk than retail-focused peers. BNZ faces a weaker New Zealand economy. Loan impairment charges could normalise to A$1.0-1.3B if conditions worsen.",
+        "requires": null,
+        "supportingLabel": "Supporting Evidence",
+        "supporting": [
+          "<strong>Insolvencies:</strong> Business insolvencies rising in construction, retail, and hospitality sectors",
+          "<strong>Consumer Stress:</strong> Higher arrears emerging in credit cards and personal loans, with mortgage arrears ticking up",
+          "<strong>NZ Weakness:</strong> New Zealand economy has been weaker; BNZ credit quality a potential drag",
+          "<strong>Business Concentration:</strong> NAB's business lending focus means higher SME default exposure than CBA/WBC"
+        ],
+        "contradictingLabel": "Mitigating Factors",
+        "contradicting": [
+          "<strong>Provisioning:</strong> NAB has been building provisions prudently; collective provisions provide a buffer",
+          "<strong>Employment:</strong> Australian unemployment remains low (~4%), supporting borrower serviceability",
+          "<strong>Rate Cuts:</strong> RBA easing reduces debt servicing burden for variable-rate borrowers",
+          "<strong>Housing:</strong> Housing prices strong; LVR discipline reduces mortgage loss-given-default"
+        ]
+      }
+    ],
+    "narrative": {
+      "theNarrative": "The market is pricing NAB as a <strong>quality franchise at a premium multiple</strong>. The embedded thesis: Australia's #1 business bank delivers stable, low-growth earnings through the cycle, supported by <span class=\"key-stat\">~44%</span> cost-to-income (best-in-class Big Four), <span class=\"key-stat\">~12.2%</span> CET1 capital, and a <span class=\"key-stat\">~3.7%</span> dividend yield. The premium <span class=\"key-stat\">~20x</span> P/E (vs 13-15x historical average) reflects a perceived \"safety premium\" in an uncertain macro environment. The risk: this pricing assumes a near-perfect soft landing &mdash; benign credit, shallow rate cuts, and stable NIMs &mdash; with no margin for error.",
+      "priceImplication": {
+        "label": "Embedded Assumptions at A$45.34",
+        "content": "<strong>NIM floor:</strong> Group NIM stabilises around 1.65-1.70%, not falling below 1.60%. <strong>Credit quality benign:</strong> Loan impairments stay below A$1.1B; no significant business banking credit event. <strong>Business banking holds:</strong> Market share maintained above 24%; Judo Bank and neobanks don't meaningfully dent franchise. <strong>RBA shallow cuts:</strong> Terminal rate ~3.50-3.60%, not below 3.00%. <strong>Cost discipline sustained:</strong> Cost-to-income stays below 46%. <strong>Dividend maintained:</strong> ~A$1.70+ per share, ~75% payout ratio. <strong>No regulatory surprises:</strong> APRA capital requirements don't tighten further."
+      },
+      "evidenceCheck": "The quality of NAB's franchise is <strong>not in dispute</strong> &mdash; it is genuinely the strongest business bank in Australia. The contested question is whether this justifies ~20x P/E when earnings growth is flat (consensus EPS ~A$2.20-2.35 for FY26, roughly in line with FY25's ~A$2.27). The stock is trading above broker consensus targets, which is unusual and typically unsustainable. The evidence is <strong>moderately supportive of franchise quality but moderately negative on valuation</strong>.",
+      "narrativeStability": "<strong>Moderately fragile.</strong> The premium valuation narrative is new &mdash; NAB has only traded at 20x P/E in the current cycle, not historically. The narrative rests on macro conditions (soft landing, benign credit) that are exogenous to NAB's control. The 1H FY2026 results (~May 2026) will be the first major read under new CEO Andrew Irvine. A NIM miss of >5bp or credit charge uplift of >A$200M could trigger de-rating. Conversely, if the RBA cutting cycle proves shallower than expected, NIM resilience would support the premium."
+    },
+    "evidence": {
+      "intro": "Seven evidence domains assessed. Evidence ranked: <strong>Facts</strong> (filed, audited) &gt; <strong>Company Releases</strong> (motivated but primary) &gt; <strong>Broker Research</strong> (fact + opinion blend) &gt; <strong>Economic Data</strong> (objective).",
+      "cards": [
+        {
+          "number": 1,
+          "title": "1. Corporate Communications",
+          "epistemicClass": "ep-motivated",
+          "epistemicLabel": "Motivated",
+          "finding": "<strong>New CEO, continuation strategy.</strong> Andrew Irvine (CEO since September 2024, ex-CIB head) has signalled strategic continuity &mdash; no radical pivot from McEwan's playbook. FY2025 cash earnings ~A$7.1B, broadly stable. NIM ~1.70%, down from 1.74% in FY24. Cost-to-income ~44%, best-in-class. CET1 ~12.2%. Business &amp; Private Banking remains the earnings anchor. On-market share buyback active.",
+          "tension": "Irvine has not yet articulated a distinctive strategic vision. \"Continuation\" is fine when the franchise is strong, but provides no catalyst for the premium multiple. The NIM decline of ~4bp YoY is a warning sign &mdash; small but directionally significant.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Supports T1",
+              "class": "supports"
+            },
+            {
+              "text": "Weakly Supports T2",
+              "class": "supports"
+            },
+            {
+              "text": "Neutral T3-T4",
+              "class": "neutral"
+            }
+          ],
+          "source": "NAB FY2025 Results (Nov 2025); CEO commentary; Investor presentations"
+        },
+        {
+          "number": 2,
+          "title": "2. Broker Research",
+          "epistemicClass": "ep-consensus",
+          "epistemicLabel": "Consensus",
+          "finding": "<strong>Consensus: Hold/Neutral.</strong> Approximately 3-4 Buy, 8-10 Hold, 3-4 Sell/Underperform across 15-17 covering analysts. Median consensus target ~A$40, range A$38-42. NAB at A$45.34 is <strong>trading 10-15% above consensus targets</strong>. Key bulls (Goldman Sachs) point to business banking franchise value. Key bears (Macquarie) flag stretched valuation and NIM headwinds.",
+          "tension": "Stock trading well above consensus is a significant risk signal. Either the sell-side will upgrade targets (possible but requires earnings beats) or the stock price will converge down toward targets. Current consensus expects flat-to-modest earnings growth.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Supports T1 (quality)",
+              "class": "supports"
+            },
+            {
+              "text": "Strongly Supports T3 (above target)",
+              "class": "strong"
+            }
+          ],
+          "source": "UBS, Macquarie, Morgan Stanley, Citi, Goldman Sachs research"
+        },
+        {
+          "number": 3,
+          "title": "3. Economic Data &amp; RBA",
+          "epistemicClass": "ep-objective",
+          "epistemicLabel": "Objective",
+          "finding": "<strong>RBA easing cycle commenced February 2025</strong> (4.35% to 4.10%). Market pricing further cuts through 2026. Australian unemployment ~4%, housing market strong, population growth ~400-500k net migration pa. Consumer sentiment recovering but cautious. System housing credit growth ~5-6%. Business insolvencies rising in construction, retail, hospitality but not yet systemic.",
+          "tension": "The rate cutting cycle is a double-edged sword for banks: positive for asset quality (lower debt servicing burden) but negative for NIMs (lending rates fall faster than deposit costs). The net effect depends on speed and depth of cuts.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Supports T2 (NIM)",
+              "class": "supports"
+            },
+            {
+              "text": "Weakly Supports T1 (housing)",
+              "class": "supports"
+            },
+            {
+              "text": "Weakly Supports T4 (insolvencies)",
+              "class": "supports"
+            }
+          ],
+          "source": "RBA; ABS; APRA monthly banking statistics"
+        },
+        {
+          "number": 4,
+          "title": "4. Competitor &amp; Sector Data",
+          "epistemicClass": "ep-independent",
+          "epistemicLabel": "Independent",
+          "finding": "<strong>Big Four sector broadly re-rated.</strong> CBA (~28x P/E), NAB (~20x), WBC (~18x), ANZ (~14x). The entire sector has expanded from 13-15x historical averages. CBA's premium has pulled NAB higher. Neobank competition (Judo Bank in business lending) growing but still <2% market share. Non-bank lenders hold ~8-10% of mortgage flow but lack deposit funding stability.",
+          "tension": "NAB's re-rating is partly a sector phenomenon, not company-specific. If CBA de-rates (currently at extreme ~28x), NAB would likely follow regardless of its own fundamentals. Judo Bank threat is real but slow-moving.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Supports T3 (sector stretch)",
+              "class": "supports"
+            },
+            {
+              "text": "Neutral T1",
+              "class": "neutral"
+            },
+            {
+              "text": "Weakly Supports T4 (competition)",
+              "class": "supports"
+            }
+          ],
+          "source": "ASX data; APRA statistics; Judo Bank disclosures; non-bank lending data"
+        },
+        {
+          "number": 5,
+          "title": "5. Regulatory &amp; Capital",
+          "epistemicClass": "ep-statutory",
+          "epistemicLabel": "Under Oath / Statutory",
+          "finding": "<strong>APRA capital requirements well met.</strong> CET1 ~12.2% vs 10.25% minimum. NAB's AUSTRAC issues resolved (2020 settlement). Ongoing AML/KYC compliance costs elevated across all Big Four. Basel III final reforms implementation ongoing &mdash; may increase RWA density for commercial property and business lending. Climate risk disclosure requirements expanding under ASRS.",
+          "tension": "Higher risk weights on business lending would specifically disadvantage NAB given its business banking concentration. This is a low-probability but high-impact risk to the franchise thesis.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Neutral T1",
+              "class": "neutral"
+            },
+            {
+              "text": "Weakly Supports T4",
+              "class": "supports"
+            }
+          ],
+          "source": "APRA prudential standards; Basel III documentation; AUSTRAC"
+        }
+      ],
+      "alignmentSummary": null
+    },
+    "discriminators": {
+      "intro": "Three data points carry high diagnosticity for NAB's competing hypotheses.",
+      "rows": [
+        {
+          "diagnosticity": "HIGH",
+          "diagnosticityClass": "disc-high",
+          "evidence": "<strong>1H FY2026 NIM (May 2026).</strong> If NIM holds above 1.65%, the compression thesis is manageable. If NIM falls below 1.60%, revenue headwind becomes material.",
+          "discriminatesBetween": "T1 (franchise resilience) vs T2 (NIM structural decline)",
+          "currentReading": "Awaiting &mdash; ~May 2026",
+          "readingClass": "td-amber"
+        },
+        {
+          "diagnosticity": "HIGH",
+          "diagnosticityClass": "disc-high",
+          "evidence": "<strong>Price vs consensus convergence.</strong> Stock at A$45.34, consensus ~A$40. If stock holds above A$44 after 1H results, market is upgrading the thesis. If it falls toward A$40, de-rating is underway.",
+          "discriminatesBetween": "T1 (premium justified) vs T3 (de-rating)",
+          "currentReading": "Stock at A$45.34 &mdash; 10-15% above consensus",
+          "readingClass": "td-amber"
+        },
+        {
+          "diagnosticity": "MEDIUM",
+          "diagnosticityClass": "disc-med",
+          "evidence": "<strong>Business banking impairment charges.</strong> A material uptick in SME/commercial loan losses would undermine the franchise quality thesis and trigger de-rating.",
+          "discriminatesBetween": "T1 (quality franchise) vs T4 (credit cycle turn)",
+          "currentReading": "~A$900M &mdash; manageable",
+          "readingClass": "td-green"
+        }
+      ],
+      "nonDiscriminating": "<strong>\"CET1 12.2%\"</strong> (well above minimum; consistent with all scenarios) &bull; <strong>\"Cost-to-income 44%\"</strong> (already priced, no further upside from here) &bull; <strong>\"New CEO\"</strong> (continuation strategy, no catalyst) &bull; <strong>\"Buyback program\"</strong> (modest impact on total returns) &bull; <strong>\"BNZ performance\"</strong> (small division, limited group impact)"
+    },
+    "tripwires": {
+      "intro": "Three revision conditions with specific thresholds. Defined before the events occur to reduce rationalisation bias.",
+      "cards": [
+        {
+          "date": "MAY 2026",
+          "name": "1H FY2026 Results &mdash; NIM and Credit Test",
+          "conditions": [
+            {
+              "if": "If NIM above 1.65% and impairments below A$500M (half-year)",
+              "valence": "positive",
+              "then": "T1 (Franchise Moat) holds. Premium valuation supported by earnings delivery under new CEO."
+            },
+            {
+              "if": "If NIM below 1.60% or impairments above A$600M",
+              "valence": "negative",
+              "then": "T2/T4 strengthen. Earnings revision cycle begins. De-rating toward 16-17x P/E likely."
+            }
+          ],
+          "source": "Source: NAB ASX announcement, investor presentation"
+        },
+        {
+          "date": "THROUGHOUT 2026",
+          "name": "RBA Rate Path",
+          "conditions": [
+            {
+              "if": "If RBA cuts total 50bp or less by Dec 2026 (terminal ~3.60%+)",
+              "valence": "positive",
+              "then": "NIM compression manageable. T2 weakens. Bank sector premium may hold."
+            },
+            {
+              "if": "If RBA cuts 100bp+ (terminal below 3.35%)",
+              "valence": "negative",
+              "then": "T2 strengthens materially. NIM compression accelerates. Sector de-rating probable."
+            }
+          ],
+          "source": "Source: RBA Board decisions; money market pricing"
+        },
+        {
+          "date": "ONGOING",
+          "name": "Business Banking Credit Quality Watch",
+          "conditions": [
+            {
+              "if": "If business loan 90+ day arrears stay below 1.5%",
+              "valence": "positive",
+              "then": "T4 (Credit Cycle) remains background risk. Business banking earnings resilience confirmed."
+            },
+            {
+              "if": "If business loan arrears exceed 2.0% or a major commercial property default occurs",
+              "valence": "negative",
+              "then": "T4 crystallises. NAB's business banking concentration becomes a liability, not an asset. Outsized de-rating vs CBA/WBC."
+            }
+          ],
+          "source": "Source: APRA monthly banking statistics; NAB quarterly disclosures"
+        }
+      ]
+    },
+    "gaps": {
+      "coverageRows": [
+        {
+          "domain": "Corporate Comms",
+          "coverageLevel": "full",
+          "coverageLabel": "Full",
+          "freshness": "FY25 (Nov 2025)",
+          "confidence": "High (but motivated)",
+          "confidenceClass": ""
+        },
+        {
+          "domain": "Broker Research",
+          "coverageLevel": "full",
+          "coverageLabel": "Full",
+          "freshness": "Recent",
+          "confidence": "Medium (price above target)",
+          "confidenceClass": "td-amber"
+        },
+        {
+          "domain": "Economic Data",
+          "coverageLevel": "full",
+          "coverageLabel": "Full",
+          "freshness": "Jan 2026",
+          "confidence": "High (RBA, ABS)",
+          "confidenceClass": "td-green"
+        },
+        {
+          "domain": "Competitor Data",
+          "coverageLevel": "good",
+          "coverageLabel": "Good",
+          "freshness": "Recent",
+          "confidence": "High (APRA)",
+          "confidenceClass": "td-green"
+        },
+        {
+          "domain": "Regulatory",
+          "coverageLevel": "good",
+          "coverageLabel": "Good",
+          "freshness": "Current",
+          "confidence": "Medium (Basel III uncertain)",
+          "confidenceClass": "td-amber"
+        }
+      ],
+      "couldntAssess": [
+        "<strong>Business banking granular credit quality:</strong> NAB does not disclose business loan arrears by sub-sector (construction, retail, hospitality) with enough granularity to assess tail risks.",
+        "<strong>NIM sensitivity modelling:</strong> The precise impact of each 25bp RBA cut on NAB's NIM depends on competitive dynamics and deposit behaviour that are not publicly disclosed.",
+        "<strong>Judo Bank competitive impact:</strong> Judo Bank is private and does not disclose detailed market share data. The pace of business banking market share erosion is uncertain.",
+        "<strong>BNZ New Zealand outlook:</strong> NZ economic conditions and BNZ credit quality are not well covered in Australian broker research."
+      ],
+      "analyticalLimitations": "Bank valuation is heavily dependent on macro assumptions (RBA rate path, unemployment, housing prices) that are inherently unpredictable. Hypothesis scores reflect editorial assessment based on publicly available evidence, not algorithmic outputs."
+    },
+    "technicalAnalysis": null,
+    "footer": {
+      "disclaimer": "This report does not constitute personal financial advice. Continuum Intelligence synthesises cross-domain evidence using the Analysis of Competing Hypotheses (ACH) methodology. All factual claims are sourced from ASX filings, company disclosures, broker consensus data, and publicly available information. This report does not contain buy, sell, or hold recommendations, price targets, or valuation models.",
+      "domainCount": "5 of 10",
+      "hypothesesCount": "4 Active"
+    }
+  },
+  "big_picture": "National Australia Bank Limited (ASX: NAB) — auto-added to coverage. Narrative analysis pending.",
+  "last_flip": null,
+  "narrative_history": [],
+  "evidence_items": [],
+  "price_signals": [],
+  "editorial_override": null,
+  "weighting": null,
+  "last_extracted": "2026-02-17T22:20:28.189Z",
+  "last_updated": "2026-02-16T02:16:05.023Z"
 }

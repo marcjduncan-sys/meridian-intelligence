@@ -1,0 +1,759 @@
+{
+  "ticker": "BHP.AX",
+  "tickerShort": "BHP",
+  "company": "BHP Group",
+  "sector": "Materials",
+  "sectorSub": "Iron Ore Mining",
+  "exchange": "ASX",
+  "currency": "A$",
+  "reportId": "BHP-2026-001",
+  "current_price": 50.36,
+  "priceHistory": [
+    40.95,
+    41.72,
+    40.37,
+    40.62,
+    41.01,
+    41.82,
+    41.74,
+    41.67,
+    42.08,
+    42.56,
+    42.96,
+    44.5,
+    44.84,
+    44.47,
+    44.3,
+    44.54,
+    45.1,
+    45.59,
+    44.27,
+    44.24,
+    44.41,
+    44.88,
+    44.36,
+    45.07,
+    45.58,
+    45.62,
+    45.45,
+    45.1,
+    45.49,
+    45.76,
+    46.48,
+    47.22,
+    47.7,
+    47.34,
+    47.72,
+    46.51,
+    47.58,
+    48.12,
+    49.37,
+    48.99,
+    48.75,
+    47.78,
+    48.48,
+    48.08,
+    48.43,
+    49.75,
+    50.6,
+    51.51,
+    50.57,
+    49.42,
+    50.13,
+    52.4,
+    50.36,
+    48.79,
+    49.73,
+    50.26,
+    51.07,
+    52.09,
+    51.13,
+    50.36
+  ],
+  "reference": {
+    "sharesOutstanding": 5078,
+    "analystTarget": null,
+    "analystBuys": null,
+    "analystHolds": null,
+    "analystSells": null,
+    "analystCount": null,
+    "epsTrailing": null,
+    "epsForward": null,
+    "divPerShare": null,
+    "reportingCurrency": "A$",
+    "revenue": null,
+    "_anchors": {
+      "price": 50.36,
+      "marketCapStr": "255.7B",
+      "pe": null,
+      "divYield": null
+    }
+  },
+  "freshness": {
+    "reviewDate": "16 February 2026",
+    "daysSinceReview": 1,
+    "priceAtReview": 50.36,
+    "pricePctChange": 0,
+    "nearestCatalyst": null,
+    "nearestCatalystDate": null,
+    "nearestCatalystDays": null,
+    "urgency": 0,
+    "status": "OK",
+    "badge": "ok"
+  },
+  "hypotheses": {
+    "T1": {
+      "label": "Copper Supercycle",
+      "description": "Structural copper supply deficit emerges as electrification (EVs require 3-4x more copper than ICE vehicles), AI data centre build-out, grid infrastructure upgrades, and renewable energy installations drive demand growth of 3-5% annually. BHP's expanded copper portfolio (Escondida, Olympic Dam, OZ Minerals assets) positions it as one of the top 3 global copper producers. Copper grows from ~25% to 35-40% of group EBITDA by FY2028.",
+      "plain_english": "Structural copper supply deficit emerges as electrification (EVs require 3-4x more copper than ICE vehicles), AI data centre build-out, grid infrastructure upgrades, and renewable energy installations drive demand growth of 3-5% annually. BHP's expanded copper portfolio (Escondida, Olympic Dam, OZ Minerals assets) positions it as one of the top 3 global copper producers. Copper grows from ~25% to 35-40% of group EBITDA by FY2028.",
+      "what_to_watch": "Copper price sustains above US$4.00/lb (current ~US$4.20-4.50)",
+      "upside": "Structural copper supply deficit emerges as electrification (EVs require 3-4x more copper than ICE vehicles), AI data centre build-out, grid infrastructure upgrades, and renewable energy installations drive demand growth of 3-5% annually. BHP's expanded copper portfolio (Escondida, Olympic Dam, OZ Minerals assets) positions it as one of the top 3 global copper producers. Copper grows from ~25% to 35-40% of group EBITDA by FY2028.",
+      "risk_plain": null,
+      "survival_score": 0.55,
+      "status": "MODERATE",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.196Z"
+    },
+    "T2": {
+      "label": "Iron Ore Cash Machine",
+      "description": "Iron ore remains the dominant earnings driver. Pilbara operations produce ~280-290 Mtpa at industry-leading C1 costs of US$15-17/t. Iron ore prices remain supported at US$100-120/t by infrastructure spending, manufacturing demand, and emerging market urbanisation (India). Dividend policy (min 50% payout) plus buybacks generate total returns of 7-9% annually.",
+      "plain_english": "Iron ore remains the dominant earnings driver. Pilbara operations produce ~280-290 Mtpa at industry-leading C1 costs of US$15-17/t. Iron ore prices remain supported at US$100-120/t by infrastructure spending, manufacturing demand, and emerging market urbanisation (India). Dividend policy (min 50% payout) plus buybacks generate total returns of 7-9% annually.",
+      "what_to_watch": null,
+      "upside": null,
+      "risk_plain": null,
+      "survival_score": 0.5,
+      "status": "MODERATE",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.196Z"
+    },
+    "T3": {
+      "label": "China Property Drag",
+      "description": "China's property sector remains in a prolonged downturn (Evergrande, Country Garden defaults). New housing starts have fallen significantly from peak. If China's steel production declines materially, iron ore prices could fall to US$80-90/t, compressing BHP's largest earnings segment by 30-40%. Infrastructure spending provides a partial offset but cannot fully compensate.",
+      "plain_english": "China's property sector remains in a prolonged downturn (Evergrande, Country Garden defaults). New housing starts have fallen significantly from peak. If China's steel production declines materially, iron ore prices could fall to US$80-90/t, compressing BHP's largest earnings segment by 30-40%. Infrastructure spending provides a partial offset but cannot fully compensate.",
+      "what_to_watch": null,
+      "upside": null,
+      "risk_plain": "China's property sector remains in a prolonged downturn (Evergrande, Country Garden defaults). New housing starts have fallen significantly from peak. If China's steel production declines materially, iron ore prices could fall to US$80-90/t, compressing BHP's largest earnings segment by 30-40%. Infrastructure spending provides a partial offset but cannot fully compensate.",
+      "survival_score": 0.35,
+      "status": "LOW",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.196Z"
+    },
+    "T4": {
+      "label": "Commodity Cycle Peak",
+      "description": "We are near the top of a commodity supercycle. A global recession or demand shock causes simultaneous declines in iron ore, copper, and met coal prices. BHP's earnings are highly leveraged to commodity prices it does not control. A 2008-style downturn could see a 40-50% earnings decline. The Nickel West impairment (US$2.5B write-down) is a reminder that commodity thesis conviction can prove wrong.",
+      "plain_english": "We are near the top of a commodity supercycle. A global recession or demand shock causes simultaneous declines in iron ore, copper, and met coal prices. BHP's earnings are highly leveraged to commodity prices it does not control. A 2008-style downturn could see a 40-50% earnings decline. The Nickel West impairment (US$2.5B write-down) is a reminder that commodity thesis conviction can prove wrong.",
+      "what_to_watch": null,
+      "upside": null,
+      "risk_plain": "We are near the top of a commodity supercycle. A global recession or demand shock causes simultaneous declines in iron ore, copper, and met coal prices. BHP's earnings are highly leveraged to commodity prices it does not control. A 2008-style downturn could see a 40-50% earnings decline. The Nickel West impairment (US$2.5B write-down) is a reminder that commodity thesis conviction can prove wrong.",
+      "survival_score": 0.25,
+      "status": "LOW",
+      "weighted_inconsistency": null,
+      "last_updated": "2026-02-17T22:20:28.196Z"
+    }
+  },
+  "dominant": "T1",
+  "confidence": "LOW",
+  "alert_state": "NORMAL",
+  "alert_started": null,
+  "presentation": {
+    "heroDescription": "~50% Iron Ore Revenue &bull; Global Copper Expansion &bull; Jansen Potash FY27",
+    "heroCompanyDescription": "BHP Group (ASX: BHP) is the world's largest diversified miner by market capitalisation. Core operations span iron ore (Pilbara, WA), copper (Escondida, Olympic Dam, OZ Minerals assets), metallurgical coal (BMA JV, Queensland), and potash (Jansen, Canada). Iron ore remains the dominant earnings contributor at ~50-55% of EBITDA, but copper is growing rapidly post the A$9.6B OZ Minerals acquisition. Nickel West was placed on care and maintenance in 2024 after a US$2.5B write-down.",
+    "heroMetrics": [
+      {
+        "label": "Mkt Cap",
+        "value": "A$255.7B",
+        "colorClass": ""
+      },
+      {
+        "label": "Fwd P/E",
+        "value": "~15x",
+        "colorClass": ""
+      },
+      {
+        "label": "Div Yield",
+        "value": "~5.5%",
+        "colorClass": ""
+      },
+      {
+        "label": "52w High",
+        "value": "A$52.40",
+        "colorClass": ""
+      },
+      {
+        "label": "52w Low",
+        "value": "A$34.16",
+        "colorClass": ""
+      }
+    ],
+    "skew": {
+      "direction": "upside",
+      "rationale": "Structural copper demand thesis intact. Iron ore resilient despite China headwinds. Trading near 52-week highs with strong capital returns. Jansen potash a long-term optionality catalyst."
+    },
+    "verdict": {
+      "text": "The market is pricing BHP as a <strong>copper transition story</strong> layered on top of a cash-generative iron ore base. At <span class=\"key-stat\">A$50.36</span>, the stock trades near 52-week highs (<span class=\"key-stat\">A$52.40</span>), implying confidence in both commodity price resilience and the strategic pivot toward future-facing minerals. The embedded thesis is that iron ore earnings sustain the dividend floor while copper and potash deliver the growth.",
+      "borderColor": null,
+      "scores": [
+        {
+          "label": "T1 Copper Supercycle",
+          "score": "55%",
+          "scoreColor": "var(--signal-green)",
+          "dirArrow": "&uarr;",
+          "dirText": "Building",
+          "dirColor": "var(--signal-green)"
+        },
+        {
+          "label": "T2 Iron Ore Resilience",
+          "score": "50%",
+          "scoreColor": "var(--signal-green)",
+          "dirArrow": "&rarr;",
+          "dirText": "Priced",
+          "dirColor": null
+        },
+        {
+          "label": "T3 China Property Risk",
+          "score": "35%",
+          "scoreColor": "var(--signal-amber)",
+          "dirArrow": "&rarr;",
+          "dirText": "Watching",
+          "dirColor": null
+        },
+        {
+          "label": "T4 Commodity Cycle Peak",
+          "score": "25%",
+          "scoreColor": "var(--text-muted)",
+          "dirArrow": "&darr;",
+          "dirText": "Fading",
+          "dirColor": null
+        }
+      ]
+    },
+    "featuredMetrics": [
+      {
+        "label": "Mkt Cap",
+        "value": "A$255.7B",
+        "color": ""
+      },
+      {
+        "label": "Fwd P/E",
+        "value": "~15x",
+        "color": ""
+      },
+      {
+        "label": "Div Yield",
+        "value": "~5.5%",
+        "color": "var(--signal-green)"
+      },
+      {
+        "label": "Drawdown",
+        "value": "-3.9%",
+        "color": ""
+      }
+    ],
+    "featuredPriceColor": null,
+    "featuredRationale": "Copper transition thesis intact. Iron ore resilient. Near 52-week highs with ~5.5% yield.",
+    "identity": {
+      "rows": [
+        [
+          [
+            "Ticker",
+            "BHP.AX",
+            "td-mono"
+          ],
+          [
+            "Exchange",
+            "ASX",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Market Cap",
+            "A$255.7B",
+            "td-mono"
+          ],
+          [
+            "Enterprise Value",
+            "~A$280B",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Share Price",
+            "A$50.36",
+            "td-mono"
+          ],
+          [
+            "52-Week Range",
+            "A$34.16 &ndash; A$52.40",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Forward P/E",
+            "~15x",
+            "td-mono"
+          ],
+          [
+            "EV/EBITDA",
+            "~5.5x",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Dividend (FY25)",
+            "~US$1.46 (~5.5%)",
+            "td-mono"
+          ],
+          [
+            "Payout Ratio",
+            "~55% (min 50% policy)",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Revenue (FY25)",
+            "~US$55B",
+            "td-mono"
+          ],
+          [
+            "Underlying EBITDA",
+            "~US$27B",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Net Debt",
+            "~US$12B",
+            "td-mono"
+          ],
+          [
+            "Gearing",
+            "~25-30%",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "CEO",
+            "Mike Henry (since 2020)",
+            ""
+          ],
+          [
+            "Employees",
+            "~80,000",
+            "td-mono"
+          ]
+        ],
+        [
+          [
+            "Last Earnings",
+            "H1 FY26 (Feb 2026)",
+            "td-mono"
+          ],
+          [
+            "FY End",
+            "30 June",
+            "td-mono"
+          ]
+        ]
+      ],
+      "overview": "BHP Group (ASX: BHP) is the world's largest diversified miner. Iron ore from the Pilbara (~50-55% of EBITDA) provides the cash generation base. The strategic pivot toward copper is underway &mdash; the A$9.6B OZ Minerals acquisition (2023) added Prominent Hill and Carrapateena to Escondida and Olympic Dam, building one of the world's largest copper resource bases. Jansen potash (Saskatchewan, Canada) represents BHP's largest greenfield investment at ~US$5.7B, with first production expected late CY2026. Nickel West was placed on care and maintenance in 2024. The failed ~GBP39B approach for Anglo American (mid-2024) highlighted BHP's appetite for further copper consolidation."
+    },
+    "hypotheses": [
+      {
+        "tier": "t1",
+        "direction": "upside",
+        "title": "T1: Copper Supercycle",
+        "statusClass": "accumulating",
+        "statusText": "Evidence Building",
+        "score": "55%",
+        "scoreWidth": "55%",
+        "scoreMeta": "&uarr; Building",
+        "description": "Structural copper supply deficit emerges as electrification (EVs require 3-4x more copper than ICE vehicles), AI data centre build-out, grid infrastructure upgrades, and renewable energy installations drive demand growth of 3-5% annually. BHP's expanded copper portfolio (Escondida, Olympic Dam, OZ Minerals assets) positions it as one of the top 3 global copper producers. Copper grows from ~25% to 35-40% of group EBITDA by FY2028.",
+        "requires": [
+          "Copper price sustains above US$4.00/lb (current ~US$4.20-4.50)",
+          "Escondida debottlenecking delivers incremental volume",
+          "Olympic Dam smelter upgrades complete without major delays",
+          "OZ Minerals integration delivers synergies and production ramp",
+          "Global electrification capex remains on structural uptrend"
+        ],
+        "supportingLabel": "Supporting Evidence",
+        "supporting": [
+          "<strong>Supply-Demand:</strong> Copper supply gap forecast at 10+ Mt by 2035. New deposits increasingly rare, declining grades, 10+ year permitting timelines",
+          "<strong>Macro:</strong> EV adoption accelerating globally; AI data centres consuming thousands of tonnes per facility for wiring and cooling",
+          "<strong>Corporate:</strong> OZ Minerals integration on track. BHP building a South Australian copper province alongside Olympic Dam",
+          "<strong>M&amp;A Signal:</strong> BHP's GBP39B Anglo American approach (2024) underscores strategic conviction in copper"
+        ],
+        "contradictingLabel": "Contradicting Evidence",
+        "contradicting": [
+          "<strong>Cyclical:</strong> Copper can still fall 20-30% in a global recession, regardless of structural thesis",
+          "<strong>Substitution:</strong> Aluminium substitution in some applications could moderate demand growth",
+          "<strong>Execution:</strong> Olympic Dam smelter has a history of operational disruptions and cost overruns"
+        ]
+      },
+      {
+        "tier": "t2",
+        "direction": "neutral",
+        "title": "T2: Iron Ore Cash Machine",
+        "statusClass": "priced",
+        "statusText": "Priced",
+        "score": "50%",
+        "scoreWidth": "50%",
+        "scoreMeta": "&rarr; Priced",
+        "description": "Iron ore remains the dominant earnings driver. Pilbara operations produce ~280-290 Mtpa at industry-leading C1 costs of US$15-17/t. Iron ore prices remain supported at US$100-120/t by infrastructure spending, manufacturing demand, and emerging market urbanisation (India). Dividend policy (min 50% payout) plus buybacks generate total returns of 7-9% annually.",
+        "requires": null,
+        "supportingLabel": "Supporting Evidence",
+        "supporting": [
+          "<strong>Cost Leadership:</strong> WAIO C1 costs ~US$15-17/t are first-quartile globally, ensuring profitability even at US$80/t iron ore",
+          "<strong>Capital Returns:</strong> Min 50% payout ratio plus active buyback program. ~5.5% dividend yield at current levels",
+          "<strong>India Demand:</strong> India's crude steel production growing 5-7% annually, partially offsetting China slowdown",
+          "<strong>Discipline:</strong> Management maintains strong balance sheet (net debt target US$5-15B) and resists value-destructive M&A"
+        ],
+        "contradictingLabel": "Contradicting Evidence",
+        "contradicting": [
+          "<strong>China Dependence:</strong> China represents ~60-65% of seaborne iron ore demand. Any sharp downturn directly impacts",
+          "<strong>Supply:</strong> New capacity from Simandou (Guinea) could add 60-120 Mtpa from late 2020s, compressing prices",
+          "<strong>Decarbonisation:</strong> Long-term shift to scrap-based electric arc furnaces reduces virgin iron ore demand"
+        ]
+      },
+      {
+        "tier": "t3",
+        "direction": "downside",
+        "title": "T3: China Property Drag",
+        "statusClass": "watching",
+        "statusText": "Watching",
+        "score": "35%",
+        "scoreWidth": "35%",
+        "scoreMeta": "&rarr; Watching",
+        "description": "China's property sector remains in a prolonged downturn (Evergrande, Country Garden defaults). New housing starts have fallen significantly from peak. If China's steel production declines materially, iron ore prices could fall to US$80-90/t, compressing BHP's largest earnings segment by 30-40%. Infrastructure spending provides a partial offset but cannot fully compensate.",
+        "requires": null,
+        "supportingLabel": "Supporting Evidence",
+        "supporting": [
+          "<strong>Property Data:</strong> China new housing starts down substantially from peak. Property investment declining",
+          "<strong>Steel Production:</strong> China crude steel production may have peaked; government targeting capacity reductions",
+          "<strong>Developer Defaults:</strong> Evergrande, Country Garden, and other developer restructurings signal structural demand decline"
+        ],
+        "contradictingLabel": "Mitigating Factors",
+        "contradicting": [
+          "<strong>Infrastructure:</strong> China infrastructure and manufacturing capex partially offsets property weakness",
+          "<strong>Policy:</strong> Chinese government stimulus measures supporting construction activity",
+          "<strong>India Offset:</strong> India's steel demand growth provides a partial substitute demand source",
+          "<strong>Cost Buffer:</strong> BHP's US$15-17/t cost position means profitability even at US$80/t iron ore"
+        ]
+      },
+      {
+        "tier": "t4",
+        "direction": "downside",
+        "title": "T4: Commodity Cycle Peak",
+        "statusClass": "minimal",
+        "statusText": "Low Evidence",
+        "score": "25%",
+        "scoreWidth": "25%",
+        "scoreMeta": "&darr; Fading",
+        "description": "We are near the top of a commodity supercycle. A global recession or demand shock causes simultaneous declines in iron ore, copper, and met coal prices. BHP's earnings are highly leveraged to commodity prices it does not control. A 2008-style downturn could see a 40-50% earnings decline. The Nickel West impairment (US$2.5B write-down) is a reminder that commodity thesis conviction can prove wrong.",
+        "requires": null,
+        "supportingLabel": "Supporting Evidence",
+        "supporting": [
+          "<strong>Nickel Precedent:</strong> BHP wrote down US$2.5B on Nickel West after Indonesian supply overwhelmed the market",
+          "<strong>Cyclicality:</strong> Iron ore has traded between US$50-230/t over the past decade. Current ~US$110-120 is mid-range",
+          "<strong>Anglo American:</strong> Failed GBP39B bid raised questions about M&amp;A discipline and management growth appetite"
+        ],
+        "contradictingLabel": "Contradicting Evidence",
+        "contradicting": [
+          "<strong>Structural Demand:</strong> Electrification and infrastructure provide structural floor for copper",
+          "<strong>Cost Position:</strong> BHP's first-quartile costs across iron ore and copper provide recession resilience",
+          "<strong>Balance Sheet:</strong> Net debt at US$12B well within US$5-15B target; no liquidity stress",
+          "<strong>Diversification:</strong> Potash (Jansen) adds a countercyclical commodity to the portfolio from FY27"
+        ]
+      }
+    ],
+    "narrative": {
+      "theNarrative": "The market is pricing BHP as a <strong>copper transition story layered on a cash-generative iron ore base</strong>. The embedded thesis: iron ore earnings (WAIO at industry-leading <span class=\"key-stat\">US$15-17/t</span> costs) sustain the <span class=\"key-stat\">~5.5%</span> dividend yield and fund share buybacks, while the expanded copper portfolio (Escondida, Olympic Dam, OZ Minerals assets) delivers the growth. Jansen potash (<span class=\"key-stat\">~US$5.7B</span> capex, first production late CY2026) adds long-term optionality. The failed <span class=\"key-stat\">GBP39B</span> approach for Anglo American (2024) signals management's conviction that copper is the strategic priority &mdash; and its willingness to pursue transformational deals.",
+      "priceImplication": {
+        "label": "Embedded Assumptions at A$50.36",
+        "content": "<strong>Iron ore base:</strong> Prices sustain US$100-120/t range; China infrastructure and manufacturing demand offsets property weakness. <strong>Copper growth:</strong> Copper price above US$4.00/lb; OZ Minerals integration delivers; Escondida and Olympic Dam expansions on track. <strong>Capital returns:</strong> Min 50% payout sustained; buyback program continues. Net debt stays within US$5-15B target. <strong>Jansen on schedule:</strong> First potash production late CY2026. <strong>No major impairments:</strong> The Nickel West write-down was a one-off; no similar surprises in other segments."
+      },
+      "evidenceCheck": "The bull case has solid structural underpinning &mdash; copper supply-demand fundamentals are genuinely tight, and BHP's cost position in iron ore provides a wide margin of safety. However, the stock is trading near 52-week highs, implying the market has already <strong>partially priced the copper transition thesis</strong>. The key uncertainty is iron ore: if China's steel production enters a sustained decline, BHP's largest earnings segment faces material compression that copper growth cannot immediately offset. The evidence is <strong>moderately supportive of the upside case</strong>, but concentration risk in iron ore (~50-55% of EBITDA) remains the dominant vulnerability.",
+      "narrativeStability": "<strong>Moderately stable.</strong> The copper supercycle thesis has been building for several years and has broad industry support. Iron ore fundamentals are well understood. The narrative would destabilise if: (a) China's steel demand falls sharply (>10%), (b) a new major copper supply source emerges unexpectedly, or (c) BHP pursues another transformational acquisition that dilutes returns. The H1 FY2026 results (Feb 2026) are the near-term catalyst. Jansen commissioning in late CY2026 is the next major strategic milestone."
+    },
+    "evidence": {
+      "intro": "Seven evidence domains assessed. Evidence ranked: <strong>Facts</strong> (filed, audited) &gt; <strong>Company Releases</strong> (motivated but primary) &gt; <strong>Broker Research</strong> (fact + opinion blend) &gt; <strong>Market Data</strong> (objective but backward-looking).",
+      "cards": [
+        {
+          "number": 1,
+          "title": "1. Corporate Communications",
+          "epistemicClass": "ep-motivated",
+          "epistemicLabel": "Motivated",
+          "finding": "<strong>Copper-first strategy clearly articulated.</strong> CEO Mike Henry has consistently positioned copper as BHP's highest-priority growth commodity. OZ Minerals acquisition (A$9.6B, closed May 2023) described as \"transformational for our copper portfolio.\" Jansen potash on track for first production late CY2026. FY2025 results showed WAIO iron ore production at ~280 Mtpa at C1 costs of ~US$15-17/t. Group underlying EBITDA ~US$27B. Dividend policy minimum 50% of underlying earnings.",
+          "tension": "The copper growth narrative is compelling but BHP's largest failed deal (Anglo American, GBP39B) suggests organic growth alone may not deliver the pace of transformation management wants. The nickel exit (US$2.5B write-down) demonstrates commodity thesis conviction can be wrong.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Supports T1",
+              "class": "supports"
+            },
+            {
+              "text": "Supports T2",
+              "class": "supports"
+            },
+            {
+              "text": "Neutral T3",
+              "class": "neutral"
+            }
+          ],
+          "source": "BHP FY2025 Results; Investor Day presentations; ASX announcements"
+        },
+        {
+          "number": 2,
+          "title": "2. Commodity Market Data",
+          "epistemicClass": "ep-objective",
+          "epistemicLabel": "Objective",
+          "finding": "<strong>Iron ore ~US$110-120/t.</strong> Resilient despite China property concerns, supported by infrastructure and manufacturing demand. <strong>Copper ~US$4.20-4.50/lb.</strong> Multi-year highs driven by electrification demand and supply constraints. <strong>Met coal:</strong> Stable at elevated levels. <strong>Nickel:</strong> Depressed by Indonesian supply surplus, validating BHP's exit decision.",
+          "tension": "Iron ore and copper at current levels already embed significant China demand assumptions. If both commodities correct simultaneously (a recession scenario), BHP's earnings are highly leveraged to the downside.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Supports T1 (copper)",
+              "class": "supports"
+            },
+            {
+              "text": "Supports T2 (iron ore)",
+              "class": "supports"
+            },
+            {
+              "text": "Neutral T3",
+              "class": "neutral"
+            }
+          ],
+          "source": "Bloomberg; LME; Platts; SGX iron ore futures"
+        },
+        {
+          "number": 3,
+          "title": "3. Broker Research",
+          "epistemicClass": "ep-consensus",
+          "epistemicLabel": "Consensus",
+          "finding": "<strong>Consensus: Hold/Neutral.</strong> Mix of Buy and Neutral ratings across 15-20 covering analysts. Consensus 12-month target range ~A$42-52. Key bulls (Macquarie, Citi) focus on copper growth thesis. Key bears (Morgan Stanley, UBS) highlight China iron ore risk and stretched valuation near the top of the range. The stock at A$50.36 is near the top of the consensus target range.",
+          "tension": "BHP trading near the top of the consensus range leaves limited upside to broker targets. If iron ore prices correct, most targets would be revised down significantly.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Weakly Supports T1",
+              "class": "supports"
+            },
+            {
+              "text": "Neutral T2",
+              "class": "neutral"
+            },
+            {
+              "text": "Supports T4 (near ceiling)",
+              "class": "supports"
+            }
+          ],
+          "source": "Macquarie, UBS, Morgan Stanley, Citi, Goldman Sachs research notes"
+        },
+        {
+          "number": 4,
+          "title": "4. China Economic Data",
+          "epistemicClass": "ep-objective",
+          "epistemicLabel": "Objective",
+          "finding": "<strong>Mixed signals.</strong> China crude steel production may have peaked. Property new starts down significantly. However, infrastructure investment rising, manufacturing expanding, and stimulus measures supporting construction activity. India crude steel production growing 5-7% annually, providing a partial demand substitute. Government targeting quality over quantity in economic growth.",
+          "tension": "The central question for BHP is whether China infrastructure and manufacturing demand can offset property sector weakness. The consensus view is \"partial offset\" but not full replacement. A negative surprise in China steel data would immediately reprice iron ore.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Contradicts T2 (partial)",
+              "class": "contradicts"
+            },
+            {
+              "text": "Strongly Supports T3",
+              "class": "strong"
+            },
+            {
+              "text": "Neutral T1",
+              "class": "neutral"
+            }
+          ],
+          "source": "NBS China; World Steel Association; ABS; RBA commodity price data"
+        },
+        {
+          "number": 5,
+          "title": "5. ESG &amp; Regulatory",
+          "epistemicClass": "ep-independent",
+          "epistemicLabel": "Independent",
+          "finding": "<strong>Samarco remains the dominant ESG liability.</strong> The 2015 Fundao tailings dam collapse (Samarco JV with Vale) resulted in a settlement framework of ~BRL170B (~US$30B total), with BHP's share estimated at ~US$6-7B over multiple years. Net-zero operational emissions target by 2050. No Scope 3 commitments, which draws activist criticism. Nickel West closure raises community/workforce transition questions in WA.",
+          "tension": "Samarco payments are material but staged and provisioned. The lack of Scope 3 targets is increasingly out of step with investor expectations for a major miner. Climate litigation risk is rising globally.",
+          "table": null,
+          "tags": [
+            {
+              "text": "Neutral T1-T2",
+              "class": "neutral"
+            },
+            {
+              "text": "Risk factor (Samarco)",
+              "class": "contradicts"
+            }
+          ],
+          "source": "BHP Sustainability Report; Brazilian court filings; Climate Action 100+"
+        }
+      ],
+      "alignmentSummary": null
+    },
+    "discriminators": {
+      "intro": "Three data points carry high diagnosticity for BHP's competing hypotheses.",
+      "rows": [
+        {
+          "diagnosticity": "HIGH",
+          "diagnosticityClass": "disc-high",
+          "evidence": "<strong>H1 FY2026 Results (Feb 2026).</strong> Iron ore realised price, copper production volumes, and Jansen capex update. First major read on whether copper growth is offsetting iron ore margin pressure.",
+          "discriminatesBetween": "T1 (copper growth on track) vs T3 (China drag dominating)",
+          "currentReading": "Imminent or just released",
+          "readingClass": "td-amber"
+        },
+        {
+          "diagnosticity": "HIGH",
+          "diagnosticityClass": "disc-high",
+          "evidence": "<strong>Iron ore price trajectory.</strong> Sustained move below US$90/t would signal China demand weakness. Sustained above US$110/t validates the resilience thesis.",
+          "discriminatesBetween": "T2 (iron ore cash machine) vs T3 (China drag)",
+          "currentReading": "~US$110-120/t &mdash; supportive",
+          "readingClass": "td-green"
+        },
+        {
+          "diagnosticity": "MEDIUM",
+          "diagnosticityClass": "disc-med",
+          "evidence": "<strong>Jansen potash first production timeline.</strong> On-schedule delivery confirms execution capability. Delays would raise questions about BHP's greenfield project management.",
+          "discriminatesBetween": "T1 (growth optionality) vs T4 (capital allocation risk)",
+          "currentReading": "On track for late CY2026",
+          "readingClass": "td-green"
+        }
+      ],
+      "nonDiscriminating": "<strong>\"Market cap A$255B\"</strong> (large cap status consistent with all scenarios) &bull; <strong>\"Dividend yield ~5.5%\"</strong> (attractive but policy-driven, not diagnostic) &bull; <strong>\"P/E ~15x\"</strong> (mid-range for diversified miners) &bull; <strong>\"OZ Minerals integration\"</strong> (proceeding as expected) &bull; <strong>\"Nickel exit\"</strong> (already booked, backward-looking)"
+    },
+    "tripwires": {
+      "intro": "Three revision conditions with specific thresholds. Defined before the events occur to reduce rationalisation bias.",
+      "cards": [
+        {
+          "date": "FEBRUARY 2026",
+          "name": "H1 FY2026 Results &mdash; Copper vs Iron Test",
+          "conditions": [
+            {
+              "if": "If copper production exceeds guidance and iron ore margins stable",
+              "valence": "positive",
+              "then": "T1 (Copper Supercycle) strengthens. Transition thesis validated by delivery, not just strategy slides."
+            },
+            {
+              "if": "If iron ore realised price falls below US$95/t or copper volumes disappoint",
+              "valence": "negative",
+              "then": "T3 (China Drag) strengthens. Market will reprice toward iron ore vulnerability narrative."
+            }
+          ],
+          "source": "Source: BHP ASX announcement, investor presentation"
+        },
+        {
+          "date": "LATE CY2026",
+          "name": "Jansen Potash First Production",
+          "conditions": [
+            {
+              "if": "If Jansen delivers first saleable tonnes on schedule",
+              "valence": "positive",
+              "then": "Portfolio diversification thesis validated. Potash as countercyclical hedge becomes real, not theoretical."
+            },
+            {
+              "if": "If Jansen delayed beyond Q1 2027 or capex overruns exceed 15%",
+              "valence": "negative",
+              "then": "T4 (Commodity Cycle Peak) strengthens via capital allocation risk. Market will question greenfield execution."
+            }
+          ],
+          "source": "Source: BHP quarterly production reports; Jansen project updates"
+        },
+        {
+          "date": "ONGOING",
+          "name": "Iron Ore Price Floor Watch",
+          "conditions": [
+            {
+              "if": "If iron ore sustains above US$100/t through CY2026",
+              "valence": "positive",
+              "then": "T2 (Iron Ore Cash Machine) confirmed. Dividend and buyback capacity secure."
+            },
+            {
+              "if": "If iron ore falls below US$85/t for more than one quarter",
+              "valence": "negative",
+              "then": "T3 crystallises. China demand decline is structural, not cyclical. Dividend at risk of reset."
+            }
+          ],
+          "source": "Source: SGX iron ore futures; Platts IODEX; China steel production data"
+        }
+      ]
+    },
+    "gaps": {
+      "coverageRows": [
+        {
+          "domain": "Corporate Comms",
+          "coverageLevel": "full",
+          "coverageLabel": "Full",
+          "freshness": "FY25 Results",
+          "confidence": "High (but motivated)",
+          "confidenceClass": ""
+        },
+        {
+          "domain": "Commodity Data",
+          "coverageLevel": "full",
+          "coverageLabel": "Full",
+          "freshness": "Current",
+          "confidence": "High (objective)",
+          "confidenceClass": "td-green"
+        },
+        {
+          "domain": "Broker Research",
+          "coverageLevel": "good",
+          "coverageLabel": "Good",
+          "freshness": "Recent",
+          "confidence": "Medium (consensus range wide)",
+          "confidenceClass": "td-amber"
+        },
+        {
+          "domain": "China Economic Data",
+          "coverageLevel": "good",
+          "coverageLabel": "Good",
+          "freshness": "Jan 2026",
+          "confidence": "High (NBS, WSA)",
+          "confidenceClass": "td-green"
+        },
+        {
+          "domain": "ESG &amp; Regulatory",
+          "coverageLevel": "good",
+          "coverageLabel": "Good",
+          "freshness": "Recent",
+          "confidence": "Medium (Samarco uncertain)",
+          "confidenceClass": "td-amber"
+        }
+      ],
+      "couldntAssess": [
+        "<strong>OZ Minerals integration economics:</strong> BHP does not separately disclose OZ Minerals contribution post-integration. We cannot assess whether synergies are being delivered.",
+        "<strong>Olympic Dam smelter condition:</strong> The smelter has a history of unplanned outages. Current maintenance status and copper production capacity are not precisely known.",
+        "<strong>Jansen potash market pricing:</strong> Potash market dynamics (contract vs spot, logistics to port) for Canadian operations are not well disclosed.",
+        "<strong>Samarco payment schedule:</strong> Exact timing and magnitude of BHP's staged payments under the settlement framework are uncertain."
+      ],
+      "analyticalLimitations": "BHP's earnings are dominated by two commodity prices (iron ore and copper) that are inherently unpredictable. The hypothesis framework assesses structural positioning, not commodity price forecasting. Scores reflect editorial judgment based on publicly available evidence."
+    },
+    "technicalAnalysis": null,
+    "footer": {
+      "disclaimer": "This report does not constitute personal financial advice. Continuum Intelligence synthesises cross-domain evidence using the Analysis of Competing Hypotheses (ACH) methodology. All factual claims are sourced from ASX filings, company disclosures, broker consensus data, and publicly available information. This report does not contain buy, sell, or hold recommendations, price targets, or valuation models.",
+      "domainCount": "5 of 10",
+      "hypothesesCount": "4 Active"
+    }
+  },
+  "big_picture": "BHP Group (ASX: BHP) is the world's largest diversified miner by market capitalisation. Core operations span iron ore (Pilbara, WA), copper (Escondida, Olympic Dam, OZ Minerals assets), metallurgical coal (BMA JV, Queensland), and potash (Jansen, Canada). Iron ore remains the dominant earnings contributor at ~50-55% of EBITDA, but copper is growing rapidly post the A$9.6B OZ Minerals acquisition. Nickel West was placed on care and maintenance in 2024 after a US$2.5B write-down.",
+  "last_flip": null,
+  "narrative_history": [],
+  "evidence_items": [],
+  "price_signals": [],
+  "editorial_override": null,
+  "weighting": null,
+  "last_extracted": "2026-02-17T22:20:28.196Z",
+  "last_updated": "16 February 2026"
+}
