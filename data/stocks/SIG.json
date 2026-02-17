@@ -287,13 +287,13 @@
   },
   "freshness": {
     "reviewDate": "11 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 7,
     "priceAtReview": 3.13,
-    "pricePctChange": -3.4,
+    "pricePctChange": -3.5,
     "nearestCatalyst": null,
     "nearestCatalystDate": null,
     "nearestCatalystDays": null,
-    "urgency": 0,
+    "urgency": 10,
     "status": "OK",
     "badge": "ok"
   },
@@ -305,10 +305,10 @@
       "what_to_watch": "Synergy delivery on track: A$100M run-rate within 3-4 years",
       "upside": "The Sigma-CW merger delivers on its A$100M annual synergy target, creating a vertically integrated pharmacy moat. International expansion (NZ, Ireland, China, Dubai) provides growth optionality. The market re-rates the combined entity as a platform business rather than a low-margin distributor.",
       "risk_plain": null,
-      "survival_score": 0.35,
+      "survival_score": 0.26,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.128Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T2": {
       "label": "Escrow Overhang Triggers De-Rating",
@@ -317,10 +317,10 @@
       "what_to_watch": "Escrow shares released on schedule (~August 2026)",
       "upside": null,
       "risk_plain": "The release of 5.6 billion escrow shares around August 2026 creates overwhelming selling pressure. CW insiders (Gance family, Mario Verrocchi) hold massive positions with strong incentive to diversify. Damien Gance has already sold ~A$800M in shares post-merger. The stock de-rates 20-30% as supply floods the market.",
-      "survival_score": 0.45,
-      "status": "MODERATE",
+      "survival_score": 0.33,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.128Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T3": {
       "label": "Regulatory &amp; Structural Disruption",
@@ -329,10 +329,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "PBS reform, Pharmacy Guild opposition, or regulatory changes to pharmacy ownership rules disrupt the CW business model. The government restricts aggressive pharmacy discounting or mandates separation of wholesale and retail pharmacy operations.",
-      "survival_score": 0.25,
-      "status": "LOW",
+      "survival_score": 0.19,
+      "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.128Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T4": {
       "label": "Dominant Platform Winner",
@@ -341,14 +341,14 @@
       "what_to_watch": "CW retail market share exceeds 30% of Australian pharmacy",
       "upside": "Sigma-CW becomes the \"Costco of pharmacy\": dominant scale, vertical integration, and brand power create an unassailable market position. Market share grows beyond 30%, Wagner generics reach 20%+ share, and the platform generates returns well above the current valuation through operating leverage.",
       "risk_plain": null,
-      "survival_score": 0.3,
+      "survival_score": 0.22,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.128Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     }
   },
   "dominant": "T2",
-  "confidence": "MODERATE",
+  "confidence": "LOW",
   "alert_state": "NORMAL",
   "alert_started": null,
   "presentation": {
@@ -1369,5 +1369,6 @@
   "editorial_override": null,
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.128Z",
-  "last_updated": "11 February 2026"
+  "last_updated": "11 February 2026",
+  "last_research_update": "2026-02-17T22:25:04.291Z"
 }

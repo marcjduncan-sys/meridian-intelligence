@@ -290,13 +290,13 @@
   },
   "freshness": {
     "reviewDate": "10 February 2026",
-    "daysSinceReview": 7,
+    "daysSinceReview": 8,
     "priceAtReview": 31.55,
     "pricePctChange": 1.3,
     "nearestCatalyst": "1H FY26 Results — The Definitive Test",
     "nearestCatalystDate": "25 FEBRUARY 2026",
     "nearestCatalystDays": 7,
-    "urgency": 25,
+    "urgency": 20,
     "status": "MODERATE",
     "badge": "moderate"
   },
@@ -308,10 +308,10 @@
       "what_to_watch": "Q3 FY26 margins and online penetration rate. If Australian Food EBIT margin holds above 5.5% and e-commerce grows >20% YoY, this narrative strengthens.",
       "upside": "If digital transformation accelerates and margins expand further, the market could re-rate the stock to a premium multiple, driving 15-20% upside.",
       "risk_plain": "If competition from ALDI and Costco intensifies faster than expected, margin recovery could stall.",
-      "survival_score": 0.72,
-      "status": "HIGH",
+      "survival_score": 0.43,
+      "status": "MODERATE",
       "weighted_inconsistency": 1.2,
-      "last_updated": "2026-02-14T09:30:00+11:00"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T2": {
       "label": "Managed/Base Case",
@@ -320,10 +320,10 @@
       "what_to_watch": "Revenue growth vs CPI inflation. If top-line growth consistently falls below inflation, the base case weakens.",
       "upside": "Steady dividend growth and defensive positioning could attract capital in a risk-off market environment.",
       "risk_plain": "If the economy slows significantly, even defensive names like Woolworths could see pressure on volumes.",
-      "survival_score": 0.65,
-      "status": "MODERATE",
+      "survival_score": 0.39,
+      "status": "LOW",
       "weighted_inconsistency": 2.1,
-      "last_updated": "2026-02-14T09:30:00+11:00"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T3": {
       "label": "Risk/Downside",
@@ -332,10 +332,10 @@
       "what_to_watch": "ALDI market share data and quarterly cost inflation trends. If ALDI share exceeds 12% nationally, this narrative gains weight.",
       "upside": null,
       "risk_plain": "If ALDI continues to grow at current rates, Woolworths' margins will come under sustained pressure, potentially leading to earnings downgrades.",
-      "survival_score": 0.31,
-      "status": "LOW",
+      "survival_score": 0.12,
+      "status": "VERY_LOW",
       "weighted_inconsistency": 4.8,
-      "last_updated": "2026-02-14T09:30:00+11:00"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T4": {
       "label": "Disruption",
@@ -344,14 +344,14 @@
       "what_to_watch": "Amazon Fresh AU launch timeline and any announcements of new international grocery entrants to the Australian market.",
       "upside": null,
       "risk_plain": "If Amazon Fresh launches in Australian metro areas, it could trigger a structural re-rating of the entire sector.",
-      "survival_score": 0.18,
+      "survival_score": 0.06,
       "status": "VERY_LOW",
       "weighted_inconsistency": 6.3,
-      "last_updated": "2026-02-14T09:30:00+11:00"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     }
   },
   "dominant": "T1",
-  "confidence": "HIGH",
+  "confidence": "LOW",
   "alert_state": "NORMAL",
   "alert_started": null,
   "presentation": {
@@ -1678,5 +1678,6 @@
   "editorial_override": null,
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.012Z",
-  "last_updated": "2026-02-14T09:30:00+11:00"
+  "last_updated": "2026-02-14T09:30:00+11:00",
+  "last_research_update": "2026-02-17T22:25:04.291Z"
 }

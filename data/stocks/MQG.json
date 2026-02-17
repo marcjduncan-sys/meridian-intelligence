@@ -286,13 +286,13 @@
   },
   "freshness": {
     "reviewDate": "11 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 7,
     "priceAtReview": 211.17,
     "pricePctChange": 3.4,
     "nearestCatalyst": "FY26 Full Year Results — MAM & CGM Definitive",
     "nearestCatalystDate": "MAY 2026",
     "nearestCatalystDays": 72,
-    "urgency": 0,
+    "urgency": 10,
     "status": "OK",
     "badge": "ok"
   },
@@ -304,10 +304,10 @@
       "what_to_watch": "MAM AUM growth &ge;8% annually from net inflows (not just market appreciation)",
       "upside": "Global energy transition and infrastructure investment are creating a multi-decade supercycle that Macquarie is uniquely positioned to capture. With A$941B in AUM, deep expertise in infrastructure asset management, and presence across the renewable energy value chain, MAM's fee income compounds as capital flows into energy transition accelerate. Green infrastructure funds are the fastest-growing segment globally, and Macquarie is the category leader.",
       "risk_plain": null,
-      "survival_score": 0.45,
-      "status": "MODERATE",
+      "survival_score": 0.32,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.106Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T2": {
       "label": "Steady Diversified Earner",
@@ -316,10 +316,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": null,
-      "survival_score": 0.4,
-      "status": "MODERATE",
+      "survival_score": 0.29,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.106Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T3": {
       "label": "Regulatory Reckoning",
@@ -328,10 +328,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "ASIC allegations that Macquarie misreported A$1.5B in short-selling positions over 15 years represent a serious compliance failure. Combined with APRA scrutiny on operational risk and historical controversies (Nuix IPO, MFAT, commodities trading), a pattern of governance gaps could lead to regulatory constraints on capital deployment, higher compliance costs, and reputational damage that affects institutional fund mandates.",
-      "survival_score": 0.3,
+      "survival_score": 0.21,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.106Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T4": {
       "label": "Strategic Pivot &amp; Business Mix Shift",
@@ -340,10 +340,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": null,
-      "survival_score": 0.25,
-      "status": "LOW",
+      "survival_score": 0.18,
+      "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.106Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     }
   },
   "dominant": "T1",
@@ -1347,5 +1347,6 @@
   "editorial_override": null,
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.106Z",
-  "last_updated": "11 February 2026"
+  "last_updated": "11 February 2026",
+  "last_research_update": "2026-02-17T22:25:04.291Z"
 }

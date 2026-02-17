@@ -287,15 +287,15 @@
   },
   "freshness": {
     "reviewDate": "11 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 7,
     "priceAtReview": 21.39,
     "pricePctChange": -6,
     "nearestCatalyst": null,
     "nearestCatalystDate": null,
     "nearestCatalystDays": null,
-    "urgency": 9,
-    "status": "OK",
-    "badge": "ok"
+    "urgency": 20,
+    "status": "MODERATE",
+    "badge": "moderate"
   },
   "hypotheses": {
     "T1": {
@@ -305,10 +305,10 @@
       "what_to_watch": "Iron ore price sustains above US$80/t through FY27",
       "upside": "Fortescue's sub-US$19/wmt C1 cost position ensures profitability even at iron ore prices of US$85-95/t. Record shipments, operational discipline, and balance sheet strength sustain dividends and cash returns through a downcycle. The stock holds value as a cash flow machine even if iron ore declines moderately.",
       "risk_plain": null,
-      "survival_score": 0.4,
-      "status": "MODERATE",
+      "survival_score": 0.29,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.141Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T2": {
       "label": "Iron Ore Structural Decline",
@@ -317,10 +317,10 @@
       "what_to_watch": "Iron ore price declines below US$80/t",
       "upside": null,
       "risk_plain": "China has passed peak steel production (2020). Property accounts for ~50% of steel demand and is in structural decline. Electric arc furnace (EAF) steelmaking rises to 18% by the 2030s, reducing blast furnace iron ore demand. Simandou delivers 120 Mtpa of high-grade ore by 2030, displacing FMG's lower-grade product. Iron ore falls below US$80/t, compressing FMG earnings by 40%+.",
-      "survival_score": 0.4,
-      "status": "MODERATE",
+      "survival_score": 0.31,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.141Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T3": {
       "label": "Green Energy Pivot Succeeds",
@@ -329,10 +329,10 @@
       "what_to_watch": null,
       "upside": "Fortescue Energy delivers a viable green business: green iron metal technology achieves commercial scale, hydrogen partnerships (TES) succeed, and copper exploration (Alta in Peru) provides diversification. The Energy division transitions from a capital sink to a profit contributor.",
       "risk_plain": null,
-      "survival_score": 0.2,
-      "status": "LOW",
+      "survival_score": 0.14,
+      "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.141Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T4": {
       "label": "Forrest Governance &amp; Capital Misallocation",
@@ -341,13 +341,13 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "Andrew Forrest's ~36% shareholding and Executive Chairman role enables capital misallocation without effective board oversight. Green energy investments destroy shareholder value as Forrest pursues a personal legacy project. The \"founder trap\" prevents the company from optimising capital allocation for minority shareholders.",
-      "survival_score": 0.35,
+      "survival_score": 0.25,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.141Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     }
   },
-  "dominant": "T1",
+  "dominant": "T2",
   "confidence": "LOW",
   "alert_state": "NORMAL",
   "alert_started": null,
@@ -1364,12 +1364,21 @@
     }
   },
   "big_picture": "Fortescue Ltd (ASX: FMG) is the world's fourth-largest iron ore producer, supplying approximately 10% of global seaborne iron ore. Founded by Andrew Forrest in 2003, Fortescue shipped a record 198.4 Mt in FY25 from its Pilbara operations at an industry-leading C1 cost of US$18.17/wmt. The company also operates Fortescue Energy, pursuing green hydrogen, green iron, and copper opportunities.",
-  "last_flip": null,
+  "last_flip": {
+    "date": "2026-02-17",
+    "from": "T1",
+    "to": "T2",
+    "trigger": "Automated: survival score shift (Cost Leader Resilience → Iron Ore Structural Decline)",
+    "price_at_flip": 20.1,
+    "from_survival": 0.29,
+    "to_survival": 0.31
+  },
   "narrative_history": [],
   "evidence_items": [],
   "price_signals": [],
   "editorial_override": null,
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.141Z",
-  "last_updated": "11 February 2026"
+  "last_updated": "11 February 2026",
+  "last_research_update": "2026-02-17T22:25:04.291Z"
 }

@@ -91,7 +91,7 @@
   },
   "freshness": {
     "reviewDate": "16 February 2026",
-    "daysSinceReview": 1,
+    "daysSinceReview": 2,
     "priceAtReview": 50.36,
     "pricePctChange": 0,
     "nearestCatalyst": null,
@@ -109,10 +109,10 @@
       "what_to_watch": "Copper price sustains above US$4.00/lb (current ~US$4.20-4.50)",
       "upside": "Structural copper supply deficit emerges as electrification (EVs require 3-4x more copper than ICE vehicles), AI data centre build-out, grid infrastructure upgrades, and renewable energy installations drive demand growth of 3-5% annually. BHP's expanded copper portfolio (Escondida, Olympic Dam, OZ Minerals assets) positions it as one of the top 3 global copper producers. Copper grows from ~25% to 35-40% of group EBITDA by FY2028.",
       "risk_plain": null,
-      "survival_score": 0.55,
-      "status": "MODERATE",
+      "survival_score": 0.33,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.196Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T2": {
       "label": "Iron Ore Cash Machine",
@@ -121,10 +121,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": null,
-      "survival_score": 0.5,
-      "status": "MODERATE",
+      "survival_score": 0.3,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.196Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T3": {
       "label": "China Property Drag",
@@ -133,10 +133,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "China's property sector remains in a prolonged downturn (Evergrande, Country Garden defaults). New housing starts have fallen significantly from peak. If China's steel production declines materially, iron ore prices could fall to US$80-90/t, compressing BHP's largest earnings segment by 30-40%. Infrastructure spending provides a partial offset but cannot fully compensate.",
-      "survival_score": 0.35,
+      "survival_score": 0.21,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.196Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T4": {
       "label": "Commodity Cycle Peak",
@@ -145,10 +145,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "We are near the top of a commodity supercycle. A global recession or demand shock causes simultaneous declines in iron ore, copper, and met coal prices. BHP's earnings are highly leveraged to commodity prices it does not control. A 2008-style downturn could see a 40-50% earnings decline. The Nickel West impairment (US$2.5B write-down) is a reminder that commodity thesis conviction can prove wrong.",
-      "survival_score": 0.25,
-      "status": "LOW",
+      "survival_score": 0.15,
+      "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.196Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     }
   },
   "dominant": "T1",
@@ -755,5 +755,6 @@
   "editorial_override": null,
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.196Z",
-  "last_updated": "16 February 2026"
+  "last_updated": "16 February 2026",
+  "last_research_update": "2026-02-17T22:25:04.291Z"
 }

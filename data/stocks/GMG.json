@@ -286,7 +286,7 @@
   },
   "freshness": {
     "reviewDate": "11 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 7,
     "priceAtReview": 30.13,
     "pricePctChange": 2.1,
     "nearestCatalyst": null,
@@ -304,10 +304,10 @@
       "what_to_watch": "Data centre development pipeline converts on schedule (300MW under construction rising to 500MW)",
       "upside": "Goodman's 5.0 GW power bank, hyperscaler relationships, and global development capability position it as a primary beneficiary of the multi-decade data centre buildout. Revenue and earnings growth accelerate as DC projects move from development to recurring income. The platform attracts institutional capital at scale, compounding AUM growth.",
       "risk_plain": null,
-      "survival_score": 0.55,
-      "status": "MODERATE",
+      "survival_score": 0.38,
+      "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.111Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T2": {
       "label": "Solid Execution but Priced In",
@@ -316,10 +316,10 @@
       "what_to_watch": "Operating EPS growth remains in the 8-10% range (solid but not accelerating)",
       "upside": null,
       "risk_plain": null,
-      "survival_score": 0.35,
+      "survival_score": 0.24,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.111Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T3": {
       "label": "Data Centre Bubble Risk",
@@ -328,10 +328,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "Hyperscaler capex decelerates or reverses. Data centre supply exceeds demand as multiple developers flood the market simultaneously. Power constraints become binding. Goodman's DC pipeline faces delays or cancellations.",
-      "survival_score": 0.25,
-      "status": "LOW",
+      "survival_score": 0.17,
+      "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.111Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     },
     "T4": {
       "label": "Platform Transformation to Infrastructure Manager",
@@ -340,14 +340,14 @@
       "what_to_watch": "External AUM grows toward A$100B+ as institutional capital flows into DC infrastructure",
       "upside": "Goodman evolves from a traditional REIT into a global infrastructure asset manager. The fund management platform (A$72B external AUM) becomes the primary earnings driver as fees on DC assets compound. Operating leverage emerges: A$86B AUM managed by ~1,030 employees (A$83M per head) is among the most capital-efficient in global real estate.",
       "risk_plain": null,
-      "survival_score": 0.3,
+      "survival_score": 0.21,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:20:28.111Z"
+      "last_updated": "2026-02-17T22:25:04.291Z"
     }
   },
   "dominant": "T1",
-  "confidence": "HIGH",
+  "confidence": "MODERATE",
   "alert_state": "NORMAL",
   "alert_started": null,
   "presentation": {
@@ -1358,5 +1358,6 @@
   "editorial_override": null,
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.111Z",
-  "last_updated": "11 February 2026"
+  "last_updated": "11 February 2026",
+  "last_research_update": "2026-02-17T22:25:04.291Z"
 }
