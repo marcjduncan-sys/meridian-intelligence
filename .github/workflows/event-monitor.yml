@@ -68,27 +68,31 @@ jobs:
     needs: scrape-events
     runs-on: ubuntu-latest
     if: ${{ needs.scrape-events.result == 'success' }}
+    outputs:
+      update_count: ${{ steps.check_updates.outputs.update_count }}
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
+
       - name: Download price data
         uses: actions/download-artifact@v4
         with:
           name: price-data
           path: data/
-      
+
       - name: Run narrative generator
         id: generator
         run: node scripts/narrative-generator.js
         continue-on-error: true
-      
+
       - name: Check for pending updates
         id: check_updates
         run: |
@@ -99,13 +103,14 @@ jobs:
           else
             echo "update_count=0" >> $GITHUB_OUTPUT
           fi
-      
+
       - name: Commit pending updates
+        if: steps.check_updates.outputs.update_count > 0
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/pending-updates.json
-          git diff --staged --quiet || (git commit -m "📝 Auto-generate: Narrative updates [$(date +%Y-%m-%d)]" && git pull --rebase origin main && git push)
+          git diff --staged --quiet || (git commit -m "Auto-generate: Narrative updates [$(date +%Y-%m-%d)]" && git pull --rebase origin main && git push)
 
   update-html:
     name: Update Website HTML

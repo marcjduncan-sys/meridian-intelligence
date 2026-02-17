@@ -83,16 +83,30 @@ function parseYahooData(rawData, ticker) {
   const closes = rawData.indicators?.quote?.[0]?.close || [];
   
   const currentPrice = meta.regularMarketPrice || closes[closes.length - 1];
-  const previousClose = meta.previousClose || closes[closes.length - 2];
+  // The chart API may append a real-time snapshot as the final entry, giving
+  // two entries for the current trading day. Detect this by checking whether
+  // the last two timestamps are less than 20 hours apart (daily bars are
+  // spaced ~24h+). If so, skip the duplicate and use the entry before it.
+  const ts = rawData.timestamp || [];
+  let prevIdx = closes.length - 2;
+  if (ts.length >= 2) {
+    const gap = ts[ts.length - 1] - ts[ts.length - 2];
+    if (gap < 20 * 3600) {
+      prevIdx = closes.length - 3;
+    }
+  }
+  const previousClose = prevIdx >= 0 && closes[prevIdx] != null
+    ? closes[prevIdx]
+    : currentPrice;
   const yearHigh = meta.fiftyTwoWeekHigh || Math.max(...closes.filter(c => c));
   const yearLow = meta.fiftyTwoWeekLow || Math.min(...closes.filter(c => c));
   
   return {
     ticker,
-    price: currentPrice,
-    previousClose,
-    change: currentPrice - previousClose,
-    changePercent: ((currentPrice - previousClose) / previousClose) * 100,
+    price: Math.round(currentPrice * 100) / 100,
+    previousClose: Math.round(previousClose * 100) / 100,
+    change: Math.round((currentPrice - previousClose) * 100) / 100,
+    changePercent: Math.round(((currentPrice - previousClose) / previousClose) * 10000) / 100,
     yearHigh,
     yearLow,
     drawdown: ((yearHigh - currentPrice) / yearHigh) * 100,
