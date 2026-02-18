@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "GMG-2026-001",
-  "current_price": 31.16,
+  "current_price": 31.14,
   "priceHistory": [
-    35.98,
     34.2,
     34.55,
     33.12,
@@ -260,7 +259,8 @@
     31.2,
     30.76,
     31.05,
-    31.16
+    31.16,
+    31.14
   ],
   "reference": {
     "sharesOutstanding": 2062,
@@ -286,7 +286,7 @@
   },
   "freshness": {
     "reviewDate": "11 February 2026",
-    "daysSinceReview": 6,
+    "daysSinceReview": 7,
     "priceAtReview": 30.13,
     "pricePctChange": 3.4,
     "nearestCatalyst": null,
@@ -1359,6 +1359,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.111Z",
   "last_updated": "11 February 2026",
-  "last_research_update": "2026-02-17T23:19:16.345Z",
-  "last_price_update": "2026-02-17T23:58:30.558Z"
+  "last_research_update": "2026-02-18T00:00:05.019Z",
+  "last_price_update": "2026-02-18T00:00:04.671Z"
 }

@@ -286,15 +286,15 @@
   },
   "freshness": {
     "reviewDate": "10 February 2026",
-    "daysSinceReview": 7,
+    "daysSinceReview": 8,
     "priceAtReview": 3.14,
     "pricePctChange": 4.1,
     "nearestCatalyst": "FY2025 Full-Year Results — The Definitive Test",
     "nearestCatalystDate": "4 MARCH 2026",
     "nearestCatalystDays": 14,
-    "urgency": 10,
-    "status": "OK",
-    "badge": "ok"
+    "urgency": 20,
+    "status": "MODERATE",
+    "badge": "moderate"
   },
   "hypotheses": {
     "T1": {
@@ -1328,6 +1328,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.062Z",
   "last_updated": "10 February 2026",
-  "last_research_update": "2026-02-17T23:19:16.345Z",
+  "last_research_update": "2026-02-18T00:00:05.019Z",
   "last_price_update": "2026-02-17T23:58:30.555Z"
 }

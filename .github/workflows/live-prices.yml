@@ -1,15 +1,9 @@
-name: Intraday Price Feed
+name: Intraday Price Feed (Legacy)
 
+# DISABLED: Consolidated into continuum-update.yml
+# Kept for manual dispatch only.
 on:
-  schedule:
-    # Every 15 minutes during ASX trading hours (Mon-Fri)
-    # ASX opens 10:00 AEDT (23:00 UTC prev day) and closes 16:00 AEDT (05:00 UTC)
-    # We run from 23:00 UTC to 06:00 UTC to cover pre-market through post-close
-    # Cron doesn't support "every 15 min between hours" cleanly, so we use
-    # multiple cron entries for trading-window coverage:
-    - cron: '*/15 23 * * 0-4'  # 23:00-23:59 UTC Sun-Thu (Mon-Fri AEDT morning)
-    - cron: '*/15 0-6 * * 1-5' # 00:00-06:59 UTC Mon-Fri (Mon-Fri AEDT trading day)
-  workflow_dispatch: # Manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -30,7 +24,7 @@ jobs:
         run: node scripts/fetch-live-prices.js
 
       - name: Update stock JSONs with latest prices
-        run: node scripts/update-stock-json.js || true
+        run: node scripts/update-stock-json.js
 
       - name: Run narrative analysis
         run: node scripts/run-automated-analysis.js
@@ -40,10 +34,8 @@ jobs:
         run: |
           if git diff --quiet data/ 2>/dev/null; then
             echo "changed=false" >> $GITHUB_OUTPUT
-            echo "No price changes detected."
           else
             echo "changed=true" >> $GITHUB_OUTPUT
-            echo "Price changes detected."
           fi
 
       - name: Commit and push
@@ -51,9 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/live-prices.json
-          git add data/narrative-analysis.json 2>/dev/null || true
-          git add data/stocks/ 2>/dev/null || true
+          git add data/live-prices.json data/narrative-analysis.json data/stocks/
           git commit -m "Live prices + analysis — $(date -u +'%H:%M UTC %d %b %Y')"
           git pull --rebase origin main
           git push

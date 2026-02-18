@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "GYG-2026-001",
-  "current_price": 19.41,
+  "current_price": 19.38,
   "priceHistory": [
-    45.32,
     44.99,
     38.58,
     35.9,
@@ -260,7 +259,8 @@
     19.12,
     19.5,
     19.38,
-    19.41
+    19.41,
+    19.38
   ],
   "reference": {
     "sharesOutstanding": 102,
@@ -286,13 +286,13 @@
   },
   "freshness": {
     "reviewDate": "10 February 2026",
-    "daysSinceReview": 7,
+    "daysSinceReview": 8,
     "priceAtReview": 20.59,
-    "pricePctChange": -5.7,
+    "pricePctChange": -5.9,
     "nearestCatalyst": null,
     "nearestCatalystDate": null,
     "nearestCatalystDays": null,
-    "urgency": 20,
+    "urgency": 30,
     "status": "MODERATE",
     "badge": "moderate"
   },
@@ -304,10 +304,10 @@
       "what_to_watch": "Same-store sales growth recovers to 7%+ (prospectus forecast level)",
       "upside": "Same-store sales growth returns to 7%+ as new store formats, menu innovation, and drive-through rollout drive higher throughput. Domestic network grows from 194 toward 500+ stores.",
       "risk_plain": null,
-      "survival_score": 0.2,
-      "status": "LOW",
+      "survival_score": 0.19,
+      "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:25:04.291Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T2": {
       "label": "US Expansion Succeeds",
@@ -316,10 +316,10 @@
       "what_to_watch": "Unit economics improve from current A$2.6M loss per store",
       "upside": "Chicago stores achieve profitability; model proven and scaled across US markets. GYG replicates the Chipotle playbook from an Australian base.",
       "risk_plain": null,
-      "survival_score": 0.16,
+      "survival_score": 0.15,
       "status": "VERY_LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T22:25:04.291Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T3": {
       "label": "Growth Maturation / Valuation Correction",
@@ -328,10 +328,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "GYG is a good domestic QSR brand that was overvalued at IPO. The multiple contracts to reflect its actual growth trajectory. 166x P/E is unjustifiable for a restaurant business.",
-      "survival_score": 0.35,
+      "survival_score": 0.34,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T4": {
       "label": "US Losses Force Strategic Retreat",
@@ -340,10 +340,10 @@
       "what_to_watch": null,
       "upside": null,
       "risk_plain": "Mounting US losses and board pressure force GYG to scale back or exit the US, refocusing on profitable domestic operations. Founder departure creates the catalyst for strategic reset.",
-      "survival_score": 0.3,
+      "survival_score": 0.31,
       "status": "LOW",
       "weighted_inconsistency": null,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     }
   },
   "dominant": "T3",
@@ -1330,6 +1330,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.085Z",
   "last_updated": "10 February 2026",
-  "last_research_update": "2026-02-17T23:19:16.345Z",
-  "last_price_update": "2026-02-17T23:58:30.559Z"
+  "last_research_update": "2026-02-18T00:00:05.019Z",
+  "last_price_update": "2026-02-18T00:00:04.683Z"
 }

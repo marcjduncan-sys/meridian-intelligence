@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "WOW-2026-001",
-  "current_price": 32.02,
+  "current_price": 32,
   "priceHistory": [
-    30.88,
     30.78,
     30.55,
     30.5,
@@ -260,7 +259,8 @@
     31.69,
     31.94,
     31.96,
-    32.02
+    32.02,
+    32
   ],
   "reference": {
     "sharesOutstanding": 1219,
@@ -290,15 +290,15 @@
   },
   "freshness": {
     "reviewDate": "10 February 2026",
-    "daysSinceReview": 7,
+    "daysSinceReview": 8,
     "priceAtReview": 31.55,
-    "pricePctChange": 1.5,
+    "pricePctChange": 1.4,
     "nearestCatalyst": "1H FY26 Results — The Definitive Test",
     "nearestCatalystDate": "25 FEBRUARY 2026",
     "nearestCatalystDays": 7,
-    "urgency": 10,
-    "status": "OK",
-    "badge": "ok"
+    "urgency": 20,
+    "status": "MODERATE",
+    "badge": "moderate"
   },
   "hypotheses": {
     "T1": {
@@ -332,10 +332,10 @@
       "what_to_watch": "ALDI market share data and quarterly cost inflation trends. If ALDI share exceeds 12% nationally, this narrative gains weight.",
       "upside": null,
       "risk_plain": "If ALDI continues to grow at current rates, Woolworths' margins will come under sustained pressure, potentially leading to earnings downgrades.",
-      "survival_score": 0.05,
+      "survival_score": 0.04,
       "status": "VERY_LOW",
       "weighted_inconsistency": 4.8,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T4": {
       "label": "Disruption",
@@ -344,10 +344,10 @@
       "what_to_watch": "Amazon Fresh AU launch timeline and any announcements of new international grocery entrants to the Australian market.",
       "upside": null,
       "risk_plain": "If Amazon Fresh launches in Australian metro areas, it could trigger a structural re-rating of the entire sector.",
-      "survival_score": 0.05,
+      "survival_score": 0.04,
       "status": "VERY_LOW",
       "weighted_inconsistency": 6.3,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     }
   },
   "dominant": "T1",
@@ -1679,6 +1679,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.012Z",
   "last_updated": "2026-02-14T09:30:00+11:00",
-  "last_research_update": "2026-02-17T23:19:16.345Z",
-  "last_price_update": "2026-02-17T23:49:44.494Z"
+  "last_research_update": "2026-02-18T00:00:05.019Z",
+  "last_price_update": "2026-02-18T00:00:04.760Z"
 }

@@ -7,9 +7,8 @@
   "exchange": "ASX",
   "currency": "A$",
   "reportId": "CSL-2026-001",
-  "current_price": 154.53,
+  "current_price": 154.5,
   "priceHistory": [
-    258.89,
     258.67,
     261,
     262.47,
@@ -260,7 +259,8 @@
     152.17,
     151.56,
     154.38,
-    154.53
+    154.53,
+    154.5
   ],
   "reference": {
     "sharesOutstanding": 483,
@@ -288,7 +288,7 @@
   },
   "freshness": {
     "reviewDate": "12 February 2026",
-    "daysSinceReview": 5,
+    "daysSinceReview": 6,
     "priceAtReview": 165.79,
     "pricePctChange": -6.8,
     "nearestCatalyst": "1H FY26 Results — TRIGGERED",
@@ -306,10 +306,10 @@
       "what_to_watch": "H1 FY26 plasma collection volumes and Vifor integration milestones. If plasma cost per litre returns to pre-COVID levels, this narrative strengthens significantly.",
       "upside": "Pipeline catalysts (CSL112, garadacimab) could drive re-rating if clinical data exceeds expectations.",
       "risk_plain": "If plasma collection costs stay elevated or Vifor integration hits unexpected problems, the growth story weakens.",
-      "survival_score": 0.36,
+      "survival_score": 0.37,
       "status": "LOW",
       "weighted_inconsistency": 2.5,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T2": {
       "label": "Managed/Base Case",
@@ -318,10 +318,10 @@
       "what_to_watch": "FY26 earnings guidance at H1 result. If guidance stays at 7-10% NPATA growth, the base case holds firm.",
       "upside": "Consistent execution could attract more long-only institutional capital, supporting valuation multiples.",
       "risk_plain": "If growth slips below high single digits, the premium valuation may not be sustainable.",
-      "survival_score": 0.5,
+      "survival_score": 0.53,
       "status": "MODERATE",
       "weighted_inconsistency": 1,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T3": {
       "label": "Risk/Downside",
@@ -330,10 +330,10 @@
       "what_to_watch": "Vifor integration costs in H1 FY26 and AUD/USD exchange rate trajectory. If integration costs rise or AUD strengthens above 0.70, downside risk increases.",
       "upside": null,
       "risk_plain": "Currency headwinds alone could knock 3-5% off reported earnings, and if combined with slower Vifor synergies, the stock could de-rate.",
-      "survival_score": 0.09,
+      "survival_score": 0.05,
       "status": "VERY_LOW",
       "weighted_inconsistency": 4.2,
-      "last_updated": "2026-02-17T23:19:16.345Z"
+      "last_updated": "2026-02-18T00:00:05.019Z"
     },
     "T4": {
       "label": "Disruption",
@@ -349,7 +349,7 @@
     }
   },
   "dominant": "T2",
-  "confidence": "MODERATE",
+  "confidence": "HIGH",
   "alert_state": "NORMAL",
   "alert_started": null,
   "presentation": {
@@ -1483,6 +1483,6 @@
   "weighting": null,
   "last_extracted": "2026-02-17T22:20:28.098Z",
   "last_updated": "2026-02-14T09:30:00+11:00",
-  "last_research_update": "2026-02-17T23:19:16.345Z",
-  "last_price_update": "2026-02-17T23:58:30.553Z"
+  "last_research_update": "2026-02-18T00:00:05.019Z",
+  "last_price_update": "2026-02-18T00:00:04.619Z"
 }

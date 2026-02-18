@@ -1,8 +1,18 @@
-name: Daily Research Update (Legacy)
+name: Continuum Market Update
 
-# DISABLED: Consolidated into continuum-update.yml
-# Kept for manual dispatch only.
 on:
+  schedule:
+    # All times in UTC. February = AEDT (UTC+11).
+    # Pre-market (8am AEDT): research update before open
+    - cron: '0 21 * * 0-4'
+    # Market open (10:30am AEDT): first prices of the day
+    - cron: '30 23 * * 0-4'
+    # Late morning (12pm AEDT): mid-session update
+    - cron: '0 1 * * 1-5'
+    # Afternoon (2:30pm AEDT): afternoon session
+    - cron: '30 3 * * 1-5'
+    # Post-close (5pm AEDT): final prices + research update
+    - cron: '0 6 * * 1-5'
   workflow_dispatch:
     inputs:
       ticker:
@@ -13,8 +23,12 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: continuum-update
+  cancel-in-progress: false
+
 jobs:
-  update-research:
+  full-update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,13 +39,16 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch latest prices
+      - name: Fetch live prices
         run: node scripts/fetch-live-prices.js
 
-      - name: Update stock JSONs with prices
+      - name: Update stock JSONs with latest prices
         run: node scripts/update-stock-json.js
 
-      - name: Run research update
+      - name: Run narrative analysis
+        run: node scripts/run-automated-analysis.js
+
+      - name: Run research update (survival scores + index.html)
         run: |
           ARGS=""
           if [ -n "${{ github.event.inputs.ticker }}" ]; then
@@ -39,14 +56,20 @@ jobs:
           fi
           node scripts/update-research.js $ARGS
 
+      - name: Fetch ASX announcements (non-critical)
+        run: node scripts/fetch-announcements.js || true
+
       - name: Check for changes
         id: changes
         run: |
-          git add data/stocks/ data/live-prices.json index.html 2>/dev/null || true
+          git add data/ index.html 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected."
           else
             echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected:"
+            git diff --cached --stat
           fi
 
       - name: Commit and push
@@ -54,6 +77,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "Research update — scores + freshness — $(date -u +'%d %b %Y')"
+          git commit -m "Market update — $(date -u +'%H:%M UTC %d %b %Y')"
           git pull --rebase origin main
           git push
