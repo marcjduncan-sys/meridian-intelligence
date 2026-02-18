@@ -1,0 +1,33 @@
+{
+  "ticker": "WTC",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 48.15,
+      "change_pct": -0.02,
+      "volume_ratio": 2.4,
+      "scores": {
+        "T1": 0.18,
+        "T2": 0.38,
+        "T3": 0.39,
+        "T4": 0.05
+      },
+      "ranks": [
+        "T3",
+        "T2",
+        "T1",
+        "T4"
+      ],
+      "skew": 12,
+      "dominant": "T3",
+      "flip": false,
+      "classification": "NOISE",
+      "flags": [
+        "structural_shift"
+      ],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

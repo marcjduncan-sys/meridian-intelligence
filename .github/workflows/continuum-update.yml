@@ -56,6 +56,9 @@ jobs:
           fi
           node scripts/update-research.js $ARGS
 
+      - name: Log hypothesis history
+        run: node scripts/log-hypothesis-history.js
+
       - name: Fetch ASX announcements (non-critical)
         run: node scripts/fetch-announcements.js || true
 

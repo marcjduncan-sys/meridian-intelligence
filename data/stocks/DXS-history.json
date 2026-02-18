@@ -1,0 +1,40 @@
+{
+  "ticker": "DXS",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 6.63,
+      "change_pct": -0.15,
+      "volume_ratio": 1,
+      "scores": {
+        "T1": 0.46,
+        "T2": 0.44,
+        "T3": 0.05,
+        "T4": 0.05
+      },
+      "ranks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "skew": 36,
+      "dominant": "T1",
+      "flip": false,
+      "classification": "SIGNIFICANT",
+      "flags": [],
+      "events": [
+        {
+          "type": "E",
+          "label": "H1 FY26 Results"
+        },
+        {
+          "type": "P",
+          "label": "+7.1% significant move"
+        }
+      ],
+      "reconstructed": false
+    }
+  ]
+}

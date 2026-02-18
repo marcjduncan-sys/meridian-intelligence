@@ -1,0 +1,31 @@
+{
+  "ticker": "FMG",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 20.19,
+      "change_pct": -0.44,
+      "volume_ratio": 1,
+      "scores": {
+        "T1": 0.26,
+        "T2": 0.35,
+        "T3": 0.13,
+        "T4": 0.25
+      },
+      "ranks": [
+        "T2",
+        "T1",
+        "T4",
+        "T3"
+      ],
+      "skew": -21,
+      "dominant": "T2",
+      "flip": false,
+      "classification": "NOISE",
+      "flags": [],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "ticker": "XRO",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 80.09,
+      "change_pct": 0.1,
+      "volume_ratio": 4.8,
+      "scores": {
+        "T1": 0.34,
+        "T2": 0.3,
+        "T3": 0.3,
+        "T4": 0.05
+      },
+      "ranks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "skew": 29,
+      "dominant": "T1",
+      "flip": false,
+      "classification": "NOTABLE",
+      "flags": [
+        "full_recalibration"
+      ],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

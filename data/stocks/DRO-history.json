@@ -1,0 +1,34 @@
+{
+  "ticker": "DRO",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 3.27,
+      "change_pct": 0.31,
+      "volume_ratio": 1.5,
+      "scores": {
+        "T1": 0.29,
+        "T2": 0.26,
+        "T3": 0.19,
+        "T4": 0.26
+      },
+      "ranks": [
+        "T1",
+        "T2",
+        "T4",
+        "T3"
+      ],
+      "skew": 36,
+      "dominant": "T1",
+      "flip": false,
+      "classification": "NOISE",
+      "flags": [
+        "structural_shift",
+        "full_recalibration"
+      ],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

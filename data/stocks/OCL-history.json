@@ -1,0 +1,31 @@
+{
+  "ticker": "OCL",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 14.16,
+      "change_pct": 0.14,
+      "volume_ratio": 1.2,
+      "scores": {
+        "T1": 0.25,
+        "T2": 0.31,
+        "T3": 0.28,
+        "T4": 0.15
+      },
+      "ranks": [
+        "T2",
+        "T3",
+        "T1",
+        "T4"
+      ],
+      "skew": 13,
+      "dominant": "T2",
+      "flip": false,
+      "classification": "NOISE",
+      "flags": [],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

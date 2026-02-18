@@ -1,0 +1,31 @@
+{
+  "ticker": "MQG",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 220.01,
+      "change_pct": -0.07,
+      "volume_ratio": 1.1,
+      "scores": {
+        "T1": 0.32,
+        "T2": 0.29,
+        "T3": 0.21,
+        "T4": 0.18
+      },
+      "ranks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "skew": 11,
+      "dominant": "T1",
+      "flip": false,
+      "classification": "NOISE",
+      "flags": [],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "ticker": "HRZ",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 1.24,
+      "change_pct": 0,
+      "volume_ratio": 0.8,
+      "scores": {
+        "T1": 0.32,
+        "T2": 0.26,
+        "T3": 0.26,
+        "T4": 0.15
+      },
+      "ranks": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "skew": 17,
+      "dominant": "T1",
+      "flip": false,
+      "classification": "NOISE",
+      "flags": [],
+      "events": [],
+      "reconstructed": false
+    }
+  ]
+}

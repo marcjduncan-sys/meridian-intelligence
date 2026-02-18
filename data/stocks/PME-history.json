@@ -1,0 +1,39 @@
+{
+  "ticker": "PME",
+  "schema_version": 1,
+  "entries": [
+    {
+      "date": "2026-02-18",
+      "price": 129,
+      "change_pct": -0.03,
+      "volume_ratio": 1.8,
+      "scores": {
+        "T1": 0.29,
+        "T2": 0.19,
+        "T3": 0.13,
+        "T4": 0.39
+      },
+      "ranks": [
+        "T4",
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "skew": 36,
+      "dominant": "T4",
+      "flip": false,
+      "classification": "NOTABLE",
+      "flags": [
+        "structural_shift",
+        "full_recalibration"
+      ],
+      "events": [
+        {
+          "type": "E",
+          "label": "1H FY26 Results — The Immediate Test"
+        }
+      ],
+      "reconstructed": false
+    }
+  ]
+}
